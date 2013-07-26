@@ -3,15 +3,22 @@ Ext.define('WWTouch.controller.Main', {
     
     config: {
         refs: {
-            
+            blog: 'blog'
         },
         control: {
-            
+            'blog list' : {
+              itemtap: 'showPost'
+            }
         }
     },
     
-    //called when the Application is launched, remove if not needed
-    launch: function(app) {
-        
+    showPost: function(list, index, element, record) {
+      this.getBlog().push({
+        xtype: 'panel',
+        title: record.get('title'),
+        html: record.get('content'),
+        scrollable: true,
+        styleHtmlContent: true
+      })
     }
 });
