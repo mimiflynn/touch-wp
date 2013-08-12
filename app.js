@@ -26,7 +26,7 @@ Ext.application({
 
   requires : ['Ext.MessageBox'],
 
-  views : ['Main', 'Home', 'Contact', 'Blog'],
+  views : ['Main', 'Home', 'Contact', 'Blog', 'Posts'],
 
   icon : {
     '57' : 'resources/icons/Icon.png',

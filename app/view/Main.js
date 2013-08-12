@@ -11,6 +11,8 @@ Ext.define('WWTouch.view.Main', {
       xtype : 'blog'
     }, {
       xtype : 'contactform'
+    }, {
+      xtype : 'posts'
     }]
   }
 });

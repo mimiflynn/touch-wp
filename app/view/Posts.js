@@ -1,11 +1,11 @@
-Ext.define('WWTouch.view.Blog', {
+Ext.define('WWTouch.view.Posts', {
 	extend: 'Ext.navigation.View',
-	xtype: 'blog',
+	xtype: 'posts',
   requires: ['Ext.data.proxy.JsonP'],
 	
 	config: {
-		title: 'Blog',
-		iconCls: 'star',
+		title: 'Posts',
+		iconCls: 'time',
 		
 		items: {
 			xtype: 'list',
@@ -17,7 +17,7 @@ Ext.define('WWTouch.view.Blog', {
 			  
 			  proxy: {
 			    type: 'jsonp',
-			    url: 'http://localhost/wonder-wander.com/api/get_recent_posts/',
+			    url: 'http://localhost/wonder-wander.com/api/get_posts/',
 			    
 			    reader: {
 			      type: 'json',
