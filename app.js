@@ -28,6 +28,8 @@ Ext.application({
 
   views : ['Main', 'Home', 'Contact', 'Blog', 'Posts'],
 
+  stores: ['Posts'],
+
   icon : {
     '57' : 'resources/icons/Icon.png',
     '72' : 'resources/icons/Icon~ipad.png',

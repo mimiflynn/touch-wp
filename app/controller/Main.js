@@ -26,7 +26,7 @@ Ext.define('WWTouch.controller.Main', {
     });
   },
 
-  showPost : function(list, index, element, record) {
+  showPost : function(nestedList, list, index, element, record) {
     this.getPosts().push({
       xtype: 'panel',
       title: record.get('title'),

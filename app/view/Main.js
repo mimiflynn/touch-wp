@@ -1,7 +1,15 @@
 Ext.define('WWTouch.view.Main', {
   extend : 'Ext.tab.Panel',
   xtype : 'main',
-  requires : ['Ext.TitleBar', 'Ext.Video'],
+  requires : [
+    'Ext.TitleBar',
+    'Ext.Video',
+    'WWTouch.view.Home',
+    'WWTouch.view.Blog',
+    'WWTouch.view.Contact',
+    'WWTouch.view.Posts',
+    'WWTouch.store.Posts'
+  ],
   config : {
     tabBarPosition : 'bottom',
 
@@ -12,7 +20,8 @@ Ext.define('WWTouch.view.Main', {
     }, {
       xtype : 'contactform'
     }, {
-      xtype : 'posts'
+      xtype : 'posts',
+      store: 'Posts'
     }]
   }
 });
