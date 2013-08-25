@@ -26,7 +26,7 @@ Ext.application({
 
   requires : ['Ext.MessageBox'],
 
-  views : ['Main', 'Home', 'Contact', 'Blog', 'Posts'],
+  views : ['Main', 'Home', 'Contact', 'Blog', 'Posts', 'Viewer'],
 
   stores: ['Posts'],
 
@@ -53,7 +53,7 @@ Ext.application({
     Ext.fly('appLoadingIndicator').destroy();
 
     // Initialize the main view
-    Ext.Viewport.add(Ext.create('WWTouch.view.Main'));
+    Ext.Viewport.add(Ext.create('WWTouch.view.Posts'));
   },
 
   onUpdated : function() {
