@@ -1,0 +1,554 @@
+{
+  "status": "ok",
+  "count": 5,
+  "count_total": 102,
+  "pages": 21,
+  "posts": [
+    {
+      "id": 857,
+      "type": "post",
+      "slug": "finally-back-in-denver",
+      "url": "http:\/\/localhost\/wonder-wander.com\/2012\/03\/20\/finally-back-in-denver\/",
+      "status": "publish",
+      "title": "Finally back in Denver",
+      "title_plain": "Finally back in Denver",
+      "content": "<p><a href=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055.jpg\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\"><img class=\"alignnone \" src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055.jpg\" alt=\"20120320-124055.jpg\" width=\"700\" \/><\/a><\/p>\n<p>After over a year, I&#8217;m back in Denver visiting my business partner and friends. This city is more beautiful than I remember&#8230; I was probably so overwhelmed by my car situation last year that I didn&#8217;t take Denver in for what a great town it is.<\/p>\n<p><a href=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347.jpg\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\"><img class=\"alignnone \" src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347.jpg\" alt=\"20120320-124347.jpg\" width=\"700\" \/><\/a><\/p>\n<p>Instead of Rock&#8217;n and Jam&#8217;n, I&#8217;ve been going to <a href=\"http:\/\/movementboulder.com\/\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/movementboulder.com']);\" title=\"Movement\" target=\"_blank\">Movement<\/a> in Boulder to keep up my training while out of town. So far, I really like it. The ratings are on par with what I&#8217;m used to at Brooklyn Boulders, although I am missing the horizonal to the ground options that the Beast at BKB provides.<\/p>\n<p><a href=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455.jpg\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\"><img class=\"alignnone size-full\" src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455.jpg\" alt=\"20120320-124455.jpg\" width=\"700\" \/><\/a><\/p>\n<p>Thursday, I&#8217;ll pick up a rental car from the airport and head out to Santa Fe where I booked a hotel by the square for my first real vacation (no coding! no coding at all!) in a very very long time. Bandelier National Monument is on the agenda. I intend to hike the Frey Trail either at sundown or sunrise. I&#8217;ll spend two nights there and then head over to ABQ to hang out with old friends and chosen family.<\/p>\n<p>Monday, I&#8217;ll be flying back to NYC by way of Chicago&#8230; right now, I hate to think of leaving. I want to stay here long enough to be sick of it&#8230;<\/p>\n",
+      "excerpt": "<p>After over a year, I&#8217;m back in Denver visiting my business partner and friends. This city is more beautiful than I remember&#8230; I was probably so overwhelmed by my car situation last year that I didn&#8217;t take Denver in for what a great town it is. Instead of Rock&#8217;n and Jam&#8217;n, I&#8217;ve been going to [&hellip;]<\/p>\n",
+      "date": "2012-03-20 12:53:55",
+      "modified": "2012-03-20 12:53:55",
+      "categories": [
+        {
+          "id": 12,
+          "slug": "photography",
+          "title": "photography",
+          "description": "",
+          "parent": 0,
+          "post_count": 43
+        }, {
+          "id": 14,
+          "slug": "travel",
+          "title": "travel",
+          "description": "",
+          "parent": 0,
+          "post_count": 45
+        }
+      ],
+      "tags": [],
+      "author": {
+        "id": 2,
+        "slug": "mimi",
+        "name": "Mimi",
+        "first_name": "Mimi",
+        "last_name": "Flynn",
+        "nickname": "Mimi",
+        "url": "http:\/\/mimiflynn.com",
+        "description": ""
+      },
+      "comments": [],
+      "attachments": [
+        {
+          "id": 860,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055.jpg",
+          "slug": "20120320-124055-jpg",
+          "title": "20120320-124055.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 857,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055.jpg",
+              "width": 2592,
+              "height": 1936
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055-700x522.jpg",
+              "width": 700,
+              "height": 522
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124055-1024x764.jpg",
+              "width": 1024,
+              "height": 764
+            }
+          }
+        }, {
+          "id": 861,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347.jpg",
+          "slug": "20120320-124347-jpg",
+          "title": "20120320-124347.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 857,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347.jpg",
+              "width": 2592,
+              "height": 1936
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347-700x522.jpg",
+              "width": 700,
+              "height": 522
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124347-1024x764.jpg",
+              "width": 1024,
+              "height": 764
+            }
+          }
+        }, {
+          "id": 862,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455.jpg",
+          "slug": "20120320-124455-jpg",
+          "title": "20120320-124455.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 857,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455.jpg",
+              "width": 719,
+              "height": 719
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455-700x700.jpg",
+              "width": 700,
+              "height": 700
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/03\/20120320-124455.jpg",
+              "width": 719,
+              "height": 719
+            }
+          }
+        }
+      ],
+      "comment_count": 0,
+      "comment_status": "open",
+      "custom_fields": {
+        "aktt_notify_twitter": ["yes"],
+        "aktt_tweeted": ["1"]
+      }
+    }, {
+      "id": 853,
+      "type": "post",
+      "slug": "journey-home-nyc-to-chapel-hill-nc",
+      "url": "http:\/\/localhost\/wonder-wander.com\/2012\/01\/13\/journey-home-nyc-to-chapel-hill-nc\/",
+      "status": "publish",
+      "title": "Journey Home: NYC to Chapel Hill, NC",
+      "title_plain": "Journey Home: NYC to Chapel Hill, NC",
+      "content": "<p><a href=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\"><img class=\"alignnone size-full\" src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg\" alt=\"20120113-085933.jpg\" \/><\/a><\/p>\n<p>Its Friday the 13th! The drive began with a lot of rain and wind, but the day quickly cleared up into a beautiful morning. My destination for the day is Chapel Hill, NC deep in the heart of tobacco country!<\/p>\n<p>I dawdled around DC attempting to re-kindle my feelings for the place I had spent three months exploring a couple years ago, but I ended up getting turned around and lost. Nothing seemed familiar, for some reason, and when I found myself back out of the highway headed south I decided it wasn&#8217;t time for the visit.<\/p>\n<p>I&#8217;m staying with my buddy Tim tonight and will see how I feel about sleeping in my car the rest of the trip. Nothing past this point is planned. I just have to be in Fort Worth by Monday night to be working bright and early Tuesday.<\/p>\n<p><a href=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\"><img class=\"alignnone size-full\" src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg\" alt=\"20120113-112210.jpg\" \/><\/a><\/p>\n",
+      "excerpt": "<p>Its Friday the 13th! The drive began with a lot of rain and wind, but the day quickly cleared up into a beautiful morning. My destination for the day is Chapel Hill, NC deep in the heart of tobacco country! I dawdled around DC attempting to re-kindle my feelings for the place I had spent [&hellip;]<\/p>\n",
+      "date": "2012-01-13 10:23:34",
+      "modified": "2012-01-18 12:08:58",
+      "categories": [
+        {
+          "id": 12,
+          "slug": "photography",
+          "title": "photography",
+          "description": "",
+          "parent": 0,
+          "post_count": 43
+        }, {
+          "id": 14,
+          "slug": "travel",
+          "title": "travel",
+          "description": "",
+          "parent": 0,
+          "post_count": 45
+        }
+      ],
+      "tags": [],
+      "author": {
+        "id": 2,
+        "slug": "mimi",
+        "name": "Mimi",
+        "first_name": "Mimi",
+        "last_name": "Flynn",
+        "nickname": "Mimi",
+        "url": "http:\/\/mimiflynn.com",
+        "description": ""
+      },
+      "comments": [],
+      "attachments": [
+        {
+          "id": 851,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg",
+          "slug": "20120113-085933-jpg",
+          "title": "20120113-085933.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 853,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg",
+              "width": 482,
+              "height": 360
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg",
+              "width": 482,
+              "height": 360
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-085933.jpg",
+              "width": 482,
+              "height": 360
+            }
+          }
+        }, {
+          "id": 852,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg",
+          "slug": "20120113-112210-jpg",
+          "title": "20120113-112210.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 853,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg",
+              "width": 482,
+              "height": 360
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg",
+              "width": 482,
+              "height": 360
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2012\/01\/20120113-112210.jpg",
+              "width": 482,
+              "height": 360
+            }
+          }
+        }
+      ],
+      "comment_count": 0,
+      "comment_status": "open",
+      "custom_fields": {
+        "aktt_notify_twitter": ["no"],
+        "geo_latitude": ["39.706220"],
+        "geo_longitude": ["-75.585954"],
+        "geo_public": ["1"]
+      }
+    }, {
+      "id": 846,
+      "type": "post",
+      "slug": "into-the-south",
+      "url": "http:\/\/localhost\/wonder-wander.com\/2012\/01\/05\/into-the-south\/",
+      "status": "publish",
+      "title": "Into the South",
+      "title_plain": "Into the South",
+      "content": "<p><iframe width=\"700\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http:\/\/maps.google.com\/maps?f=d&amp;source=s_d&amp;saddr=315+Lincoln+Place,+New+York,+NY&amp;daddr=Chapel+Hill,+NC+to:Birmingham,+AL+to:Fort+Worth,+TX&amp;hl=en&amp;geocode=FbigbAIdrF-X-ymfSxX-CVvCiTH9vOeuwsLQgA%3BFfD9IwIdHLRJ-ymnfm4hHMOsiTHL5EME4LoDfw%3BFRV8_wEdxn_T-inTv4VY3xGJiDHOVLrqCXRQJQ%3BFaFZ8wEdbgAz-imtB8gtEm5OhjG9rGnd-IuvpA&amp;aq=4&amp;sll=37.09707,-80.384125&amp;sspn=14.146474,17.95166&amp;vpsrc=0&amp;mra=ls&amp;ie=UTF8&amp;t=m&amp;ll=36.456636,-85.649414&amp;spn=12.359953,30.761719&amp;z=5&amp;output=embed\"><\/iframe><br \/><small><a href=\"http:\/\/maps.google.com\/maps?f=d&amp;source=embed&amp;saddr=315+Lincoln+Place,+New+York,+NY&amp;daddr=Chapel+Hill,+NC+to:Birmingham,+AL+to:Fort+Worth,+TX&amp;hl=en&amp;geocode=FbigbAIdrF-X-ymfSxX-CVvCiTH9vOeuwsLQgA%3BFfD9IwIdHLRJ-ymnfm4hHMOsiTHL5EME4LoDfw%3BFRV8_wEdxn_T-inTv4VY3xGJiDHOVLrqCXRQJQ%3BFaFZ8wEdbgAz-imtB8gtEm5OhjG9rGnd-IuvpA&amp;aq=4&amp;sll=37.09707,-80.384125&amp;sspn=14.146474,17.95166&amp;vpsrc=0&amp;mra=ls&amp;ie=UTF8&amp;t=m&amp;ll=36.456636,-85.649414&amp;spn=12.359953,30.761719&amp;z=5\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/maps.google.com']);\" style=\"color:#0000FF;text-align:left\">View Larger Map<\/a><\/small><\/p>\n<p>In a week, I&#8217;ll be driving to Texas from NYC! This is the first draft of my route.<\/p>\n",
+      "excerpt": "<p>View Larger Map In a week, I&#8217;ll be driving to Texas from NYC! This is the first draft of my route.<\/p>\n",
+      "date": "2012-01-05 09:07:39",
+      "modified": "2012-01-05 09:07:39",
+      "categories": [
+        {
+          "id": 14,
+          "slug": "travel",
+          "title": "travel",
+          "description": "",
+          "parent": 0,
+          "post_count": 45
+        }
+      ],
+      "tags": [],
+      "author": {
+        "id": 2,
+        "slug": "mimi",
+        "name": "Mimi",
+        "first_name": "Mimi",
+        "last_name": "Flynn",
+        "nickname": "Mimi",
+        "url": "http:\/\/mimiflynn.com",
+        "description": ""
+      },
+      "comments": [],
+      "attachments": [],
+      "comment_count": 0,
+      "comment_status": "open",
+      "custom_fields": {
+        "aktt_notify_twitter": ["yes"],
+        "aktt_tweeted": ["1"]
+      }
+    }, {
+      "id": 833,
+      "type": "post",
+      "slug": "new-york-city-is-keeping-me-busy",
+      "url": "http:\/\/localhost\/wonder-wander.com\/2011\/12\/26\/new-york-city-is-keeping-me-busy\/",
+      "status": "publish",
+      "title": "New York City is keeping me busy",
+      "title_plain": "New York City is keeping me busy",
+      "content": "<p><a href=\"http:\/\/wonder-wander.com\/2011\/12\/26\/new-york-city-is-keeping-me-busy\/20111126-112359-jpg\/\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\" rel=\"attachment wp-att-837\"><img src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359-700x366.jpg\" alt=\"\" title=\"20111126-112359.jpg\" width=\"700\" height=\"366\" class=\"aligncenter size-medium wp-image-837\" \/><\/a><\/p>\n<p>After the long long road trip adventure last year, I&#8217;ve been sticking with planes or the city. Its getting to the point where I&#8217;m missing the mountains and find myself dreaming of the roads between Santa Fe and Denver.<\/p>\n<p>After last year, I promised myself that I wouldn&#8217;t go for any crazy long distance drives through the midwest. Getting caught in blizzards in the middle of Kansas is more adventure than I am interested in experiencing any time soon, so, I&#8217;ll have to push my fantasies back into the summer. Where to go?<\/p>\n<p>Wyoming! Its about damn time I hit up the Tetons again, so, I&#8217;m going to plan my life around a backpacking trip in July where the largest mosquitoes ever will be out for my blood. Usually, I plan trips around my big birthdays, and, well, I&#8217;m only going to turn 30 once.<\/p>\n<p><a href=\"http:\/\/wonder-wander.com\/2011\/12\/26\/new-york-city-is-keeping-me-busy\/20111126-112209-jpg\/\" onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http:\/\/wonder-wander.com']);\" rel=\"attachment wp-att-835\"><img src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209-700x522.jpg\" alt=\"\" title=\"20111126-112209.jpg\" width=\"700\" height=\"522\" class=\"aligncenter size-medium wp-image-835\" \/><\/a><\/p>\n<p>The sleepy tree above is in Central Park, but the photo makes me roadsick for the mountains. Time to get planning!<\/p>\n",
+      "excerpt": "<p>After the long long road trip adventure last year, I&#8217;ve been sticking with planes or the city. Its getting to the point where I&#8217;m missing the mountains and find myself dreaming of the roads between Santa Fe and Denver. After last year, I promised myself that I wouldn&#8217;t go for any crazy long distance drives [&hellip;]<\/p>\n",
+      "date": "2011-12-26 22:39:18",
+      "modified": "2011-12-26 22:39:19",
+      "categories": [
+        {
+          "id": 11,
+          "slug": "nyc",
+          "title": "NYC",
+          "description": "",
+          "parent": 0,
+          "post_count": 14
+        }, {
+          "id": 12,
+          "slug": "photography",
+          "title": "photography",
+          "description": "",
+          "parent": 0,
+          "post_count": 43
+        }, {
+          "id": 14,
+          "slug": "travel",
+          "title": "travel",
+          "description": "",
+          "parent": 0,
+          "post_count": 45
+        }
+      ],
+      "tags": [],
+      "author": {
+        "id": 2,
+        "slug": "mimi",
+        "name": "Mimi",
+        "first_name": "Mimi",
+        "last_name": "Flynn",
+        "nickname": "Mimi",
+        "url": "http:\/\/mimiflynn.com",
+        "description": ""
+      },
+      "comments": [],
+      "attachments": [
+        {
+          "id": 835,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209.jpg",
+          "slug": "20111126-112209-jpg",
+          "title": "20111126-112209.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 833,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209.jpg",
+              "width": 2592,
+              "height": 1936
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209-700x522.jpg",
+              "width": 700,
+              "height": 522
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112209-1024x764.jpg",
+              "width": 1024,
+              "height": 764
+            }
+          }
+        }, {
+          "id": 837,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359.jpg",
+          "slug": "20111126-112359-jpg",
+          "title": "20111126-112359.jpg",
+          "description": "",
+          "caption": "",
+          "parent": 833,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359.jpg",
+              "width": 2274,
+              "height": 1189
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359-700x366.jpg",
+              "width": 700,
+              "height": 366
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/11\/20111126-112359-1024x535.jpg",
+              "width": 1024,
+              "height": 535
+            }
+          }
+        }
+      ],
+      "comment_count": 0,
+      "comment_status": "open",
+      "custom_fields": {
+        "aktt_notify_twitter": ["yes"],
+        "aktt_tweeted": ["1"]
+      }
+    }, {
+      "id": 812,
+      "type": "post",
+      "slug": "nyc-spring",
+      "url": "http:\/\/localhost\/wonder-wander.com\/2011\/04\/05\/nyc-spring\/",
+      "status": "publish",
+      "title": "NYC Spring",
+      "title_plain": "NYC Spring",
+      "content": "<p><img src=\"http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129.jpg\" alt=\"\" title=\"Tree still need to catch up\" width=\"643\" height=\"480\" class=\"aligncenter size-full wp-image-824\" \/><\/p>\n<p>I&#8217;ve been back in NYC for a little while now after a short jump to Illinois to spend time with the family. A week after my crazy road trip, I started a new full time job and am currently attempting to settle into a life where I don&#8217;t leave all the time.<\/p>\n<p>By a &#8220;long time&#8221; I mean to say that I&#8217;m buying plane tickets to Thailand in June after a short stop in Texas to see all of my favorite people. It I plan a trip, it makes me feel like all is well in the universe.<\/p>\n<p>In NYC news, the weather is getting to the point where, when its not raining, I&#8217;ll be able to pedal my way in circles around Prospect Park to my heart&#8217;s content.  I&#8217;ve not ridden my bike, any of my bikes, since I&#8217;ve arrived in NYC last November. I&#8217;ll have to dust off my toolbox to clean the chain and check the brakes and shifting before I head out into the streets.<\/p>\n<p>Instead of cycling, I&#8217;ve been hitting up Brooklyn Boulders after work for a few hours three times a week. Its the largest indoor climbing gym in NYC and has the most densely set walls I&#8217;ve seen at any of the gyms I&#8217;ve visited across the country.  The people are super nice and the problems are well thought out with several different kinds of inclines and overhangs to make everyone happy. As for top rope climbing, though, its a bit lacking in comparison to some of the gyms out west with a lack of ceiling and long overhanging routes. Nothing like Rock&#8217;n and Jam&#8217;n in Denver, but, really, a place like that is a gem, as far as I know, when it comes to indoor lead climbing.<\/p>\n",
+      "excerpt": "<p>I&#8217;ve been back in NYC for a little while now after a short jump to Illinois to spend time with the family. A week after my crazy road trip, I started a new full time job and am currently attempting to settle into a life where I don&#8217;t leave all the time. By a &#8220;long [&hellip;]<\/p>\n",
+      "date": "2011-04-05 09:59:40",
+      "modified": "2011-04-05 09:59:40",
+      "categories": [
+        {
+          "id": 112,
+          "slug": "climbing",
+          "title": "climbing",
+          "description": "",
+          "parent": 0,
+          "post_count": 3
+        }, {
+          "id": 5,
+          "slug": "cycling",
+          "title": "cycling",
+          "description": "",
+          "parent": 0,
+          "post_count": 27
+        }, {
+          "id": 11,
+          "slug": "nyc",
+          "title": "NYC",
+          "description": "",
+          "parent": 0,
+          "post_count": 14
+        }, {
+          "id": 14,
+          "slug": "travel",
+          "title": "travel",
+          "description": "",
+          "parent": 0,
+          "post_count": 45
+        }
+      ],
+      "tags": [],
+      "author": {
+        "id": 2,
+        "slug": "mimi",
+        "name": "Mimi",
+        "first_name": "Mimi",
+        "last_name": "Flynn",
+        "nickname": "Mimi",
+        "url": "http:\/\/mimiflynn.com",
+        "description": ""
+      },
+      "comments": [],
+      "attachments": [
+        {
+          "id": 817,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-100141.jpg",
+          "slug": "20110405-100141-jpg",
+          "title": "Green Grase in Central Park",
+          "description": "",
+          "caption": "",
+          "parent": 812,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-100141.jpg",
+              "width": 857,
+              "height": 640
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-100141-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-100141-700x522.jpg",
+              "width": 700,
+              "height": 522
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-100141.jpg",
+              "width": 857,
+              "height": 640
+            }
+          }
+        }, {
+          "id": 824,
+          "url": "http:\/\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129.jpg",
+          "slug": "20110405-102129-jpg",
+          "title": "Tree still need to catch up",
+          "description": "",
+          "caption": "",
+          "parent": 812,
+          "mime_type": "image\/jpeg",
+          "images": {
+            "full": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129.jpg",
+              "width": 643,
+              "height": 480
+            },
+            "thumbnail": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129.jpg",
+              "width": 643,
+              "height": 480
+            },
+            "large": {
+              "url": "http:\/\/localhost\/wonder-wander.com\/wp-content\/uploads\/2011\/04\/20110405-102129.jpg",
+              "width": 643,
+              "height": 480
+            }
+          }
+        }
+      ],
+      "comment_count": 0,
+      "comment_status": "open",
+      "custom_fields": {
+        "aktt_notify_twitter": ["no"]
+      }
+    }
+  ],
+  "query": {
+    "ignore_sticky_posts": true
+  }
+}
