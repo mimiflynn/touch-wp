@@ -79,7 +79,7 @@ Ext.define("Ext.chart.series.sprite.Aggregative", {
         if (aggregates) {
             me.dataStart = aggregates.data.startIdx[aggregates.start];
             me.dataEnd = aggregates.data.endIdx[aggregates.end - 1];
-            
+
             me.renderAggregates(aggregates.data, aggregates.start, aggregates.end, surface, ctx, clip, region);
         }
     }

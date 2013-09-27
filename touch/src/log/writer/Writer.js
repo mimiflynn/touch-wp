@@ -9,13 +9,13 @@ Ext.define('Ext.log.writer.Writer', {
         filters: {}
     },
 
-    constructor: function() {
+    constructor: function () {
         this.activeFilters = [];
 
         return this.callParent(arguments);
     },
 
-    updateFilters: function(filters) {
+    updateFilters: function (filters) {
         var activeFilters = this.activeFilters,
             i, filter;
 
@@ -29,12 +29,12 @@ Ext.define('Ext.log.writer.Writer', {
         }
     },
 
-    write: function(event) {
+    write: function (event) {
         var filters = this.activeFilters,
             formatter = this.getFormatter(),
             i, ln, filter;
 
-        for (i = 0,ln = filters.length; i < ln; i++) {
+        for (i = 0, ln = filters.length; i < ln; i++) {
             filter = filters[i];
 
             if (!filters[i].accept(event)) {

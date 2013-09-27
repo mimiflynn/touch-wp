@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.sprite.Polar
  * @extends Ext.draw.sprite.Sprite
- * 
+ *
  * Polar sprite.
  */
 Ext.define("Ext.chart.series.sprite.Polar", {
@@ -130,7 +130,7 @@ Ext.define("Ext.chart.series.sprite.Polar", {
         store: null,
         field: null
     },
-    
+
     updatePlainBBox: function (plain) {
         var attr = this.attr;
         plain.x = attr.centerX - attr.endRho;

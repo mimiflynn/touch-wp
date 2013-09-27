@@ -104,17 +104,17 @@ Ext.define('Ext.plugin.PullRefresh', {
          */
         pullTpl: [
             '<div class="x-list-pullrefresh">',
-                '<div class="x-list-pullrefresh-arrow"></div>',
-                '<div class="x-loading-spinner">',
-                    '<span class="x-loading-top"></span>',
-                    '<span class="x-loading-right"></span>',
-                    '<span class="x-loading-bottom"></span>',
-                    '<span class="x-loading-left"></span>',
-                '</div>',
-                '<div class="x-list-pullrefresh-wrap">',
-                    '<h3 class="x-list-pullrefresh-message"></h3>',
-                    '<div class="x-list-pullrefresh-updated"></div>',
-                '</div>',
+            '<div class="x-list-pullrefresh-arrow"></div>',
+            '<div class="x-loading-spinner">',
+            '<span class="x-loading-top"></span>',
+            '<span class="x-loading-right"></span>',
+            '<span class="x-loading-bottom"></span>',
+            '<span class="x-loading-left"></span>',
+            '</div>',
+            '<div class="x-list-pullrefresh-wrap">',
+            '<h3 class="x-list-pullrefresh-message"></h3>',
+            '<div class="x-list-pullrefresh-updated"></div>',
+            '</div>',
             '</div>'
         ].join(''),
 
@@ -129,7 +129,7 @@ Ext.define('Ext.plugin.PullRefresh', {
     isRefreshing: false,
     currentViewState: '',
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.on({
@@ -138,14 +138,14 @@ Ext.define('Ext.plugin.PullRefresh', {
         });
     },
 
-    init: function(list) {
+    init: function (list) {
         var me = this;
 
         me.setList(list);
         me.initScrollable();
     },
 
-    initScrollable: function() {
+    initScrollable: function () {
         var me = this,
             list = me.getList(),
             store = list.getStore(),
@@ -174,7 +174,7 @@ Ext.define('Ext.plugin.PullRefresh', {
                 store.on({
                     load: {
                         single: true,
-                        fn: function() {
+                        fn: function () {
                             list.setLoadingText(null);
                         }
                     }
@@ -199,11 +199,11 @@ Ext.define('Ext.plugin.PullRefresh', {
         me.resetRefreshState();
     },
 
-    onScrollableChange: function() {
+    onScrollableChange: function () {
         this.initScrollable();
     },
 
-    updateList: function(newList, oldList) {
+    updateList: function (newList, oldList) {
         var me = this;
 
         if (newList && newList != oldList) {
@@ -225,7 +225,7 @@ Ext.define('Ext.plugin.PullRefresh', {
      * @private
      * Attempts to load the newest posts via the attached List's Store's Proxy
      */
-    fetchLatest: function() {
+    fetchLatest: function () {
         var store = this.getList().getStore(),
             proxy = store.getProxy(),
             operation;
@@ -250,16 +250,16 @@ Ext.define('Ext.plugin.PullRefresh', {
      * front of the Store. If there is no overlap, insert the new records anyway and record that there's a break in the
      * timeline between the new and the old records.
      */
-    onLatestFetched: function(operation) {
-        var store      = this.getList().getStore(),
-            list       = this.getList(),
-            scroller   = list.getScrollable().getScroller(),
+    onLatestFetched: function (operation) {
+        var store = this.getList().getStore(),
+            list = this.getList(),
+            scroller = list.getScrollable().getScroller(),
             scrollerOffsetX = scroller.position.x,
             scrollerOffsetY = scroller.position.y,
             oldRecords = store.getData(),
             newRecords = operation.getRecords(),
-            length     = newRecords.length,
-            toInsert   = [],
+            length = newRecords.length,
+            toInsert = [],
             newRecord, oldRecord, i;
 
         for (i = 0; i < length; i++) {
@@ -285,13 +285,13 @@ Ext.define('Ext.plugin.PullRefresh', {
         }
     },
 
-    snapBack: function() {
+    snapBack: function () {
         var me = this,
             list = me.getList(),
             scroller = list.getScrollable().getScroller();
 
         scroller.on({
-            scrollend: function() {
+            scrollend: function () {
                 this.resetRefreshState();
             },
             single: true,
@@ -304,15 +304,15 @@ Ext.define('Ext.plugin.PullRefresh', {
         }
     },
 
-    onPainted: function() {
+    onPainted: function () {
         this.pullHeight = this.loadingElement.getHeight();
     },
 
-    setMaxScroller: function(scroller, position) {
+    setMaxScroller: function (scroller, position) {
         this.maxScroller = position;
     },
 
-    onScrollChange: function(scroller, x, y) {
+    onScrollChange: function (scroller, x, y) {
         if (y <= 0) {
             this.onBounceTop(y);
         }
@@ -324,11 +324,11 @@ Ext.define('Ext.plugin.PullRefresh', {
     /**
      * @private
      */
-    applyPullTpl: function(config) {
+    applyPullTpl: function (config) {
         return (Ext.isObject(config) && config.isTemplate) ? config : new Ext.XTemplate(config);
     },
 
-    onBounceTop: function(y) {
+    onBounceTop: function (y) {
         var me = this,
             pullHeight = me.pullHeight,
             list = me.getList(),
@@ -359,7 +359,7 @@ Ext.define('Ext.plugin.PullRefresh', {
         me.getTranslatable().translate(0, -y);
     },
 
-    onScrollerDragEnd: function() {
+    onScrollerDragEnd: function () {
         var me = this;
 
         if (me.isRefreshing) {
@@ -367,7 +367,7 @@ Ext.define('Ext.plugin.PullRefresh', {
                 scroller = list.getScrollable().getScroller(),
                 translateable = scroller.getTranslatable();
 
-            translateable.setEasingY({duration:this.getOverpullSnapBackDuration()});
+            translateable.setEasingY({duration: this.getOverpullSnapBackDuration()});
             scroller.minPosition.y = -me.pullHeight;
             scroller.on({
                 scrollend: 'loadStore',
@@ -379,7 +379,7 @@ Ext.define('Ext.plugin.PullRefresh', {
         }
     },
 
-    loadStore: function() {
+    loadStore: function () {
         var me = this;
 
         me.setViewState('loading');
@@ -389,7 +389,7 @@ Ext.define('Ext.plugin.PullRefresh', {
 
     onBounceBottom: Ext.emptyFn,
 
-    setViewState: function(state) {
+    setViewState: function (state) {
         var me = this,
             prefix = Ext.baseCSSPrefix,
             messageEl = me.messageEl,
@@ -405,17 +405,17 @@ Ext.define('Ext.plugin.PullRefresh', {
                 case 'pull':
                     messageEl.setHtml(me.getPullRefreshText());
                     loadingElement.removeCls([prefix + 'list-pullrefresh-release', prefix + 'list-pullrefresh-loading']);
-                break;
+                    break;
 
                 case 'release':
                     messageEl.setHtml(me.getReleaseRefreshText());
                     loadingElement.addCls(prefix + 'list-pullrefresh-release');
-                break;
+                    break;
 
                 case 'loading':
                     messageEl.setHtml(me.getLoadingText());
                     loadingElement.addCls(prefix + 'list-pullrefresh-loading');
-                break;
+                    break;
 
                 case 'loaded':
                     messageEl.setHtml(me.getLoadedText());
@@ -427,7 +427,7 @@ Ext.define('Ext.plugin.PullRefresh', {
         return me;
     },
 
-    resetRefreshState: function() {
+    resetRefreshState: function () {
         var me = this;
 
         me.isRefreshing = false;

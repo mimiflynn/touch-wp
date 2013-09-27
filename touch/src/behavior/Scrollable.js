@@ -9,7 +9,7 @@ Ext.define('Ext.behavior.Scrollable', {
         'Ext.scroll.View'
     ],
 
-    constructor: function() {
+    constructor: function () {
         this.listeners = {
             painted: 'onComponentPainted',
             scope: this
@@ -18,11 +18,11 @@ Ext.define('Ext.behavior.Scrollable', {
         this.callParent(arguments);
     },
 
-    onComponentPainted: function() {
+    onComponentPainted: function () {
         this.scrollView.refresh();
     },
 
-    setConfig: function(config) {
+    setConfig: function (config) {
         var scrollView = this.scrollView,
             component = this.component,
             scrollerElement, extraWrap, scroller, direction;
@@ -76,11 +76,11 @@ Ext.define('Ext.behavior.Scrollable', {
         return this;
     },
 
-    getScrollView: function() {
+    getScrollView: function () {
         return this.scrollView;
     },
 
-    onScrollViewDestroy: function() {
+    onScrollViewDestroy: function () {
         var component = this.component,
             scrollerElement = this.scrollerElement;
 
@@ -99,7 +99,7 @@ Ext.define('Ext.behavior.Scrollable', {
         delete this.scrollContainer;
     },
 
-    onComponentDestroy: function() {
+    onComponentDestroy: function () {
         var scrollView = this.scrollView;
 
         if (scrollView) {

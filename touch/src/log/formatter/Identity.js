@@ -6,7 +6,7 @@ Ext.define('Ext.log.formatter.Identity', {
         messageFormat: "[{osIdentity}][{browserIdentity}][{timestamp}][{priorityName}][{callerDisplayName}] {message}"
     },
 
-    format: function(event) {
+    format: function (event) {
         event.timestamp = Ext.Date.toString();
         event.browserIdentity = Ext.browser.name + ' ' + Ext.browser.version;
         event.osIdentity = Ext.os.name + ' ' + Ext.os.version;

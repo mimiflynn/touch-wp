@@ -9,7 +9,7 @@ Ext.define('Ext.device.camera.Sencha', {
         'Ext.device.Communicator'
     ],
 
-    capture: function(options) {
+    capture: function (options) {
         var sources = this.source,
             destinations = this.destination,
             encodings = this.encoding,

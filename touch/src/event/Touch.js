@@ -9,7 +9,7 @@ Ext.define('Ext.event.Touch', {
         'Ext.util.Point'
     ],
 
-    constructor: function(event, info, map, list) {
+    constructor: function (event, info, map, list) {
         var touches = [],
             touch, i, ln, identifier;
 
@@ -36,11 +36,11 @@ Ext.define('Ext.event.Touch', {
         this.pageY = touch.pageY;
     },
 
-    cloneTouches: function(touches, map) {
+    cloneTouches: function (touches, map) {
         var clonedTouches = [],
             i, ln, touch, identifier;
 
-        for (i = 0,ln = touches.length; i < ln; i++) {
+        for (i = 0, ln = touches.length; i < ln; i++) {
             touch = touches[i];
             identifier = touch.identifier;
             clonedTouches[i] = map[identifier];

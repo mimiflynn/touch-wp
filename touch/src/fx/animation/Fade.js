@@ -27,16 +27,16 @@ Ext.define('Ext.fx.animation.Fade', {
         reverse: null
     },
 
-    updateOut: function(newOut) {
-        var to   = this.getTo(),
+    updateOut: function (newOut) {
+        var to = this.getTo(),
             from = this.getFrom();
 
         if (newOut) {
             from.set('opacity', 1);
-            to.set('opacity',   0);
+            to.set('opacity', 0);
         } else {
             from.set('opacity', 0);
-            to.set('opacity',   1);
+            to.set('opacity', 1);
         }
     }
 });

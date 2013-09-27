@@ -135,8 +135,8 @@
  */
 Ext.define('Ext.form.Panel', {
     alternateClassName: 'Ext.form.FormPanel',
-    extend  : 'Ext.Panel',
-    xtype   : 'formpanel',
+    extend: 'Ext.Panel',
+    xtype: 'formpanel',
     requires: ['Ext.XTemplate', 'Ext.field.Checkbox', 'Ext.Ajax'],
 
     /**
@@ -196,7 +196,7 @@ Ext.define('Ext.form.Panel', {
          * Optional hash of params to be sent (when `standardSubmit` configuration is `false`) on every submit.
          * @accessor
          */
-        baseParams : null,
+        baseParams: null,
 
         /**
          * @cfg {Object} submitOnAction
@@ -245,10 +245,10 @@ Ext.define('Ext.form.Panel', {
          * If set to true, {@link #reset}() resets to the last loaded or {@link #setValues}() data instead of
          * when the form was first created.
          */
-        trackResetOnLoad:false
+        trackResetOnLoad: false
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var config = this.callParent();
         config.tag = "form";
         config.children.push({
@@ -261,17 +261,17 @@ Ext.define('Ext.form.Panel', {
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         var me = this;
         me.callParent();
 
         me.element.on({
             submit: 'onSubmit',
-            scope : me
+            scope: me
         });
     },
 
-    updateRecord: function(newRecord) {
+    updateRecord: function (newRecord) {
         var fields, values, name;
 
         if (newRecord && (fields = newRecord.fields)) {
@@ -290,7 +290,7 @@ Ext.define('Ext.form.Panel', {
      * @param {Ext.data.Model} record The model instance.
      * @return {Ext.form.Panel} This form.
      */
-    setRecord: function(record) {
+    setRecord: function (record) {
         var me = this;
 
         if (record && record.data) {
@@ -303,7 +303,7 @@ Ext.define('Ext.form.Panel', {
     },
 
     // @private
-    onSubmit: function(e) {
+    onSubmit: function (e) {
         var me = this;
         if (e && !me.getStandardSubmit()) {
             e.stopEvent();
@@ -312,7 +312,7 @@ Ext.define('Ext.form.Panel', {
         }
     },
 
-    updateSubmitOnAction: function(newSubmitOnAction) {
+    updateSubmitOnAction: function (newSubmitOnAction) {
         if (newSubmitOnAction) {
             this.on({
                 action: 'onFieldAction',
@@ -327,7 +327,7 @@ Ext.define('Ext.form.Panel', {
     },
 
     // @private
-    onFieldAction: function(field) {
+    onFieldAction: function (field) {
         if (this.getSubmitOnAction()) {
             field.blur();
             this.submit();
@@ -395,21 +395,21 @@ Ext.define('Ext.form.Panel', {
      *
      * @return {Ext.data.Connection} The request object.
      */
-    submit: function(options, e) {
+    submit: function (options, e) {
         var me = this,
             form = me.element.dom || {},
             formValues;
 
         options = Ext.apply({
-            url : me.getUrl() || form.action,
+            url: me.getUrl() || form.action,
             submit: false,
-            method : me.getMethod() || form.method || 'post',
-            autoAbort : false,
-            params : null,
-            waitMsg : null,
-            headers : null,
-            success : null,
-            failure : null
+            method: me.getMethod() || form.method || 'post',
+            autoAbort: false,
+            params: null,
+            waitMsg: null,
+            headers: null,
+            success: null,
+            failure: null
         }, options || {});
 
         formValues = me.getValues(me.getStandardSubmit() || !options.submitDisabled);
@@ -417,7 +417,7 @@ Ext.define('Ext.form.Panel', {
         return me.fireAction('beforesubmit', [me, formValues, options, e], 'doBeforeSubmit');
     },
 
-    doBeforeSubmit: function(me, formValues, options) {
+    doBeforeSubmit: function (me, formValues, options) {
         var form = me.element.dom || {};
 
         if (me.getStandardSubmit()) {
@@ -460,15 +460,15 @@ Ext.define('Ext.form.Panel', {
                     options.headers || {}
                 ),
                 scope: me,
-                callback: function(callbackOptions, success, response) {
+                callback: function (callbackOptions, success, response) {
                     var me = this,
                         responseText = response.responseText,
-						statusResult = Ext.Ajax.parseStatus(response.status, response),
+                        statusResult = Ext.Ajax.parseStatus(response.status, response),
                         failureFn;
 
                     me.setMasked(false);
 
-                    failureFn = function() {
+                    failureFn = function () {
                         if (Ext.isFunction(options.failure)) {
                             options.failure.call(options.scope || me, me, response, responseText);
                         }
@@ -476,12 +476,12 @@ Ext.define('Ext.form.Panel', {
                     };
 
                     if (success) {
-						if (statusResult && responseText.length == 0) {
-							success = true;
-						} else {
-                        	response = Ext.decode(responseText);
-                        	success = !!response.success;
-						}
+                        if (statusResult && responseText.length == 0) {
+                            success = true;
+                        } else {
+                            response = Ext.decode(responseText);
+                            success = !!response.success;
+                        }
                         if (success) {
                             if (Ext.isFunction(options.success)) {
                                 options.success.call(options.scope || me, me, response, responseText);
@@ -523,7 +523,7 @@ Ext.define('Ext.form.Panel', {
      * @param {Object} values field name => value mapping object.
      * @return {Ext.form.Panel} This form.
      */
-    setValues: function(values) {
+    setValues: function (values) {
         var fields = this.getFields(),
             me = this,
             name, field, value, ln, i, f;
@@ -550,10 +550,10 @@ Ext.define('Ext.form.Panel', {
                                 break;
                             } else if (f.isCheckbox) {
                                 if (Ext.isArray(value)) {
-                                   f.setChecked((value.indexOf(f._value) != -1));
-                               } else {
-                                   f.setChecked((value == f._value));
-                               }
+                                    f.setChecked((value.indexOf(f._value) != -1));
+                                } else {
+                                    f.setChecked((value == f._value));
+                                }
                             } else {
                                 // If it is a bunch of fields with the same name, check if the value is also an array, so we can map it
                                 // to each field
@@ -573,7 +573,7 @@ Ext.define('Ext.form.Panel', {
                     }
 
                     if (me.getTrackResetOnLoad()) {
-                       field.resetOriginalValue();
+                        field.resetOriginalValue();
                     }
                 }
             }
@@ -600,7 +600,7 @@ Ext.define('Ext.form.Panel', {
      * {@link Ext.field.Field#name name} configured.
      * @return {Object} Object mapping field name to its value.
      */
-    getValues: function(enabled, all) {
+    getValues: function (enabled, all) {
         var fields = this.getFields(),
             values = {},
             isArray = Ext.isArray,
@@ -608,7 +608,7 @@ Ext.define('Ext.form.Panel', {
 
         // Function which you give a field and a name, and it will add it into the values
         // object accordingly
-        addValue = function(field, name) {
+        addValue = function (field, name) {
             if (!all && (!name || name === 'null')) {
                 return;
             }
@@ -675,8 +675,8 @@ Ext.define('Ext.form.Panel', {
      * Resets all fields in the form back to their original values.
      * @return {Ext.form.Panel} This form.
      */
-    reset: function() {
-        this.getFieldsAsArray().forEach(function(field) {
+    reset: function () {
+        this.getFieldsAsArray().forEach(function (field) {
             field.reset();
         });
 
@@ -687,8 +687,8 @@ Ext.define('Ext.form.Panel', {
      * A convenient method to disable all fields in this form.
      * @return {Ext.form.Panel} This form.
      */
-    doSetDisabled: function(newDisabled) {
-        this.getFieldsAsArray().forEach(function(field) {
+    doSetDisabled: function (newDisabled) {
+        this.getFieldsAsArray().forEach(function (field) {
             field.setDisabled(newDisabled);
         });
 
@@ -698,9 +698,9 @@ Ext.define('Ext.form.Panel', {
     /**
      * @private
      */
-    getFieldsAsArray: function() {
+    getFieldsAsArray: function () {
         var fields = [],
-            getFieldsFrom = function(item) {
+            getFieldsFrom = function (item) {
                 if (item.isField) {
                     fields.push(item);
                 }
@@ -721,11 +721,11 @@ Ext.define('Ext.form.Panel', {
      * @param byName return only fields that match the given name, otherwise return all fields.
      * @return {Object/Array} All field instances, mapped by field name; or an array if `byName` is passed.
      */
-    getFields: function(byName) {
+    getFields: function (byName) {
         var fields = {},
             itemName;
 
-        var getFieldsFrom = function(item) {
+        var getFieldsFrom = function (item) {
             if (item.isField) {
                 itemName = item.getName();
 
@@ -758,10 +758,10 @@ Ext.define('Ext.form.Panel', {
      * @return {Ext.field.Field[]} An array of fields in this form panel.
      * @private
      */
-    getFieldsArray: function() {
+    getFieldsArray: function () {
         var fields = [];
 
-        var getFieldsFrom = function(item) {
+        var getFieldsFrom = function (item) {
             if (item.isField) {
                 fields.push(item);
             }
@@ -792,7 +792,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Ext.form.Panel} This form
      * @deprecated 2.0.0 Please use {@link #setMasked} instead.
      */
-    showMask: function(cfg, target) {
+    showMask: function (cfg, target) {
         //<debug>
         Ext.Logger.warn('showMask is now deprecated. Please use Ext.form.Panel#setMasked instead');
         //</debug>
@@ -816,7 +816,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Ext.form.Panel} this
      * @deprecated 2.0.0 Please use {@link #unmask} or {@link #setMasked} instead.
      */
-    hideMask: function() {
+    hideMask: function () {
         this.setMasked(false);
         return this;
     },
@@ -826,7 +826,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Ext.field.Field} The currently focused field, if one is focused or `null`.
      * @private
      */
-    getFocusedField: function() {
+    getFocusedField: function () {
         var fields = this.getFieldsArray(),
             ln = fields.length,
             field, i;
@@ -845,7 +845,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Boolean/Ext.field.Field} The next field if one exists, or `false`.
      * @private
      */
-    getNextField: function() {
+    getNextField: function () {
         var fields = this.getFieldsArray(),
             focusedField = this.getFocusedField(),
             index;
@@ -867,7 +867,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Boolean/Ext.field.Field} The next field that was focused, or `false`.
      * @private
      */
-    focusNextField: function() {
+    focusNextField: function () {
         var field = this.getNextField();
         if (field) {
             field.focus();
@@ -881,7 +881,7 @@ Ext.define('Ext.form.Panel', {
      * @private
      * @return {Boolean/Ext.field.Field} The next field if one exists, or `false`.
      */
-    getPreviousField: function() {
+    getPreviousField: function () {
         var fields = this.getFieldsArray(),
             focusedField = this.getFocusedField(),
             index;
@@ -903,7 +903,7 @@ Ext.define('Ext.form.Panel', {
      * @return {Boolean/Ext.field.Field} The previous field that was focused, or `false`.
      * @private
      */
-    focusPreviousField: function() {
+    focusPreviousField: function () {
         var field = this.getPreviousField();
         if (field) {
             field.focus();
@@ -912,7 +912,7 @@ Ext.define('Ext.form.Panel', {
 
         return false;
     }
-}, function() {
+}, function () {
 
     //<deprecated product=touch since=2.0>
     Ext.deprecateClassMethod(this, {
@@ -937,7 +937,7 @@ Ext.define('Ext.form.Panel', {
     });
 
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             /**
              * @cfg {Ext.XTemplate/String/String[]} waitTpl
              * The defined waitMsg template.  Used for precise control over the masking agent used

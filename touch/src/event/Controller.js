@@ -9,7 +9,7 @@ Ext.define('Ext.event.Controller', {
 
     listenerStack: null,
 
-    constructor: function(info) {
+    constructor: function (info) {
         this.firingListeners = [];
         this.firingArguments = [];
 
@@ -18,19 +18,19 @@ Ext.define('Ext.event.Controller', {
         return this;
     },
 
-    setInfo: function(info) {
+    setInfo: function (info) {
         this.info = info;
     },
 
-    getInfo: function() {
+    getInfo: function () {
         return this.info;
     },
 
-    setListenerStacks: function(listenerStacks) {
+    setListenerStacks: function (listenerStacks) {
         this.listenerStacks = listenerStacks;
     },
 
-    fire: function(args, action) {
+    fire: function (args, action) {
         var listenerStacks = this.listenerStacks,
             firingListeners = this.firingListeners,
             firingArguments = this.firingArguments,
@@ -128,7 +128,7 @@ Ext.define('Ext.event.Controller', {
         return this;
     },
 
-    doFire: function() {
+    doFire: function () {
         var firingListeners = this.firingListeners,
             firingArguments = this.firingArguments,
             optionsArgumentIndex = firingArguments.length - 2,
@@ -140,7 +140,7 @@ Ext.define('Ext.event.Controller', {
         this.isStopped = false;
         this.isFiring = true;
 
-        for (i = 0,ln = firingListeners.length; i < ln; i++) {
+        for (i = 0, ln = firingListeners.length; i < ln; i++) {
             listener = firingListeners[i];
             options = listener.options;
             fn = listener.fn;
@@ -220,11 +220,11 @@ Ext.define('Ext.event.Controller', {
         this.connectingController = null;
     },
 
-    connect: function(controller) {
+    connect: function (controller) {
         this.connectingController = controller;
     },
 
-    resume: function() {
+    resume: function () {
         var connectingController = this.connectingController;
 
         this.isPausing = false;
@@ -241,11 +241,11 @@ Ext.define('Ext.event.Controller', {
         return this;
     },
 
-    isInterrupted: function() {
+    isInterrupted: function () {
         return this.isStopped || this.isPaused;
     },
 
-    stop: function() {
+    stop: function () {
         var connectingController = this.connectingController;
 
         this.isStopped = true;
@@ -262,7 +262,7 @@ Ext.define('Ext.event.Controller', {
         return this;
     },
 
-    pause: function() {
+    pause: function () {
         var connectingController = this.connectingController;
 
         this.isPausing = true;

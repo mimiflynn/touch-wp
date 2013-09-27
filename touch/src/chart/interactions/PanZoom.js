@@ -455,8 +455,8 @@ Ext.define('Ext.chart.interactions.PanZoom', {
     transformAxisBy: function (axis, oldVisibleRange, panX, panY, sx, sy, minZoom, maxZoom) {
         var me = this,
             visibleLength = oldVisibleRange[1] - oldVisibleRange[0],
-            actualMinZoom =  minZoom || me.getMinZoom() || axis.config.minZoom,
-            actualMaxZoom =  maxZoom || me.getMaxZoom() || axis.config.maxZoom,
+            actualMinZoom = minZoom || me.getMinZoom() || axis.config.minZoom,
+            actualMaxZoom = maxZoom || me.getMaxZoom() || axis.config.maxZoom,
             region = me.getChart().getInnerRegion(),
             left, right;
         if (!region) {

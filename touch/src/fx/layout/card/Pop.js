@@ -20,7 +20,7 @@ Ext.define('Ext.fx.layout.card.Pop', {
         }
     },
 
-    updateDuration: function(duration) {
+    updateDuration: function (duration) {
         var halfDuration = duration / 2,
             inAnimation = this.getInAnimation(),
             outAnimation = this.getOutAnimation();

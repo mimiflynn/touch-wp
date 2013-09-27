@@ -73,7 +73,7 @@ Ext.define('Ext.Panel', {
         bodyBorder: null
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var config = this.callParent();
 
         config.children.push({
@@ -85,7 +85,7 @@ Ext.define('Ext.Panel', {
         return config;
     },
 
-    applyBodyPadding: function(bodyPadding) {
+    applyBodyPadding: function (bodyPadding) {
         if (bodyPadding === true) {
             bodyPadding = 5;
         }
@@ -97,11 +97,11 @@ Ext.define('Ext.Panel', {
         return bodyPadding;
     },
 
-    updateBodyPadding: function(newBodyPadding) {
+    updateBodyPadding: function (newBodyPadding) {
         this.element.setStyle('padding', newBodyPadding);
     },
 
-    applyBodyMargin: function(bodyMargin) {
+    applyBodyMargin: function (bodyMargin) {
         if (bodyMargin === true) {
             bodyMargin = 5;
         }
@@ -113,11 +113,11 @@ Ext.define('Ext.Panel', {
         return bodyMargin;
     },
 
-    updateBodyMargin: function(newBodyMargin) {
+    updateBodyMargin: function (newBodyMargin) {
         this.element.setStyle('margin', newBodyMargin);
     },
 
-    applyBodyBorder: function(bodyBorder) {
+    applyBodyBorder: function (bodyBorder) {
         if (bodyBorder === true) {
             bodyBorder = 1;
         }
@@ -129,11 +129,11 @@ Ext.define('Ext.Panel', {
         return bodyBorder;
     },
 
-    updateBodyBorder: function(newBodyBorder) {
+    updateBodyBorder: function (newBodyBorder) {
         this.element.setStyle('border-width', newBodyBorder);
     },
 
-    alignTo: function(component) {
+    alignTo: function (component) {
         var tipElement = this.tipElement;
 
         tipElement.hide();

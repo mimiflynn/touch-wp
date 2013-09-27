@@ -64,7 +64,7 @@ Ext.define('Ext.chart.series.Cartesian', {
                 store = me.getStore(),
                 item;
 
-            if(me.getHidden()) {
+            if (me.getHidden()) {
                 return null;
             }
             if (sprite) {

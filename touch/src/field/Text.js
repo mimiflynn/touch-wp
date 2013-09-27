@@ -191,14 +191,14 @@ Ext.define('Ext.field.Text', {
          */
         component: {
             xtype: 'input',
-            type : 'text'
+            type: 'text'
         },
 
         bubbleEvents: ['action']
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         var me = this;
 
         me.callParent();
@@ -206,12 +206,12 @@ Ext.define('Ext.field.Text', {
         me.getComponent().on({
             scope: this,
 
-            keyup       : 'onKeyUp',
-            change      : 'onChange',
-            focus       : 'onFocus',
-            blur        : 'onBlur',
-            paste       : 'onPaste',
-            mousedown   : 'onMouseDown',
+            keyup: 'onKeyUp',
+            change: 'onChange',
+            focus: 'onFocus',
+            blur: 'onBlur',
+            paste: 'onPaste',
+            mousedown: 'onMouseDown',
             clearicontap: 'onClearIconTap'
         });
 
@@ -222,7 +222,7 @@ Ext.define('Ext.field.Text', {
         me.syncEmptyCls();
     },
 
-    syncEmptyCls: function() {
+    syncEmptyCls: function () {
         var empty = (this._value) ? this._value.length : false,
             cls = Ext.baseCSSPrefix + 'empty';
 
@@ -234,9 +234,9 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    updateValue: function(newValue) {
-        var component  = this.getComponent(),
-            // allows newValue to be zero but not undefined or null (other falsey values)
+    updateValue: function (newValue) {
+        var component = this.getComponent(),
+        // allows newValue to be zero but not undefined or null (other falsey values)
             valueValid = newValue !== undefined && newValue !== null;
 
         if (component) {
@@ -248,7 +248,7 @@ Ext.define('Ext.field.Text', {
         this.syncEmptyCls();
     },
 
-    getValue: function() {
+    getValue: function () {
         var me = this;
 
         me._value = me.getComponent().getValue();
@@ -259,32 +259,32 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    updatePlaceHolder: function(newPlaceHolder) {
+    updatePlaceHolder: function (newPlaceHolder) {
         this.getComponent().setPlaceHolder(newPlaceHolder);
     },
 
     // @private
-    updateMaxLength: function(newMaxLength) {
+    updateMaxLength: function (newMaxLength) {
         this.getComponent().setMaxLength(newMaxLength);
     },
 
     // @private
-    updateAutoComplete: function(newAutoComplete) {
+    updateAutoComplete: function (newAutoComplete) {
         this.getComponent().setAutoComplete(newAutoComplete);
     },
 
     // @private
-    updateAutoCapitalize: function(newAutoCapitalize) {
+    updateAutoCapitalize: function (newAutoCapitalize) {
         this.getComponent().setAutoCapitalize(newAutoCapitalize);
     },
 
     // @private
-    updateAutoCorrect: function(newAutoCorrect) {
+    updateAutoCorrect: function (newAutoCorrect) {
         this.getComponent().setAutoCorrect(newAutoCorrect);
     },
 
     // @private
-    updateReadOnly: function(newReadOnly) {
+    updateReadOnly: function (newReadOnly) {
         if (newReadOnly) {
             this.hideClearIcon();
         } else {
@@ -295,7 +295,7 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    updateInputType: function(newInputType) {
+    updateInputType: function (newInputType) {
         var component = this.getComponent();
         if (component) {
             component.setType(newInputType);
@@ -303,7 +303,7 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    updateName: function(newName) {
+    updateName: function (newName) {
         var component = this.getComponent();
         if (component) {
             component.setName(newName);
@@ -311,7 +311,7 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    updateTabIndex: function(newTabIndex) {
+    updateTabIndex: function (newTabIndex) {
         var component = this.getComponent();
         if (component) {
             component.setTabIndex(newTabIndex);
@@ -322,14 +322,14 @@ Ext.define('Ext.field.Text', {
      * Updates the {@link #inputCls} configuration on this fields {@link #component}
      * @private
      */
-    updateInputCls: function(newInputCls, oldInputCls) {
+    updateInputCls: function (newInputCls, oldInputCls) {
         var component = this.getComponent();
         if (component) {
             component.replaceCls(oldInputCls, newInputCls);
         }
     },
 
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         var me = this;
 
         me.callParent(arguments);
@@ -347,10 +347,10 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    showClearIcon: function() {
-        var me         = this,
-            value      = me.getValue(),
-            // allows value to be zero but not undefined or null (other falsey values)
+    showClearIcon: function () {
+        var me = this,
+            value = me.getValue(),
+        // allows value to be zero but not undefined or null (other falsey values)
             valueValid = value !== undefined && value !== null;
 
         if (me.getClearIcon() && !me.getDisabled() && !me.getReadOnly() && valueValid) {
@@ -361,13 +361,13 @@ Ext.define('Ext.field.Text', {
     },
 
     // @private
-    hideClearIcon: function() {
+    hideClearIcon: function () {
         if (this.getClearIcon()) {
             this.element.removeCls(Ext.baseCSSPrefix + 'field-clearable');
         }
     },
 
-    onKeyUp: function(e) {
+    onKeyUp: function (e) {
         this.fireAction('keyup', [this, e], 'doKeyUp');
     },
 
@@ -375,10 +375,10 @@ Ext.define('Ext.field.Text', {
      * Called when a key has been pressed in the `<input>`
      * @private
      */
-    doKeyUp: function(me, e) {
+    doKeyUp: function (me, e) {
         // getValue to ensure that we are in sync with the dom
-        var value      = me.getValue(),
-            // allows value to be zero but not undefined or null (other falsey values)
+        var value = me.getValue(),
+        // allows value to be zero but not undefined or null (other falsey values)
             valueValid = value !== undefined && value !== null;
 
         this[valueValid && value !== this.originalValue ? 'showClearIcon' : 'hideClearIcon']();
@@ -388,33 +388,33 @@ Ext.define('Ext.field.Text', {
         }
     },
 
-    doAction: function() {
+    doAction: function () {
         this.blur();
     },
 
-    onClearIconTap: function(e) {
+    onClearIconTap: function (e) {
         this.fireAction('clearicontap', [this, e], 'doClearIconTap');
     },
 
     // @private
-    doClearIconTap: function(me, e) {
+    doClearIconTap: function (me, e) {
         me.setValue('');
 
         //sync with the input
         me.getValue();
     },
 
-    onChange: function(me, value, startValue) {
+    onChange: function (me, value, startValue) {
         me.fireEvent('change', this, value, startValue);
     },
 
-    onFocus: function(e) {
+    onFocus: function (e) {
         this.addCls(Ext.baseCSSPrefix + 'field-focused');
         this.isFocused = true;
         this.fireEvent('focus', this, e);
     },
 
-    onBlur: function(e) {
+    onBlur: function (e) {
         var me = this;
 
         this.removeCls(Ext.baseCSSPrefix + 'field-focused');
@@ -422,16 +422,16 @@ Ext.define('Ext.field.Text', {
 
         me.fireEvent('blur', me, e);
 
-        setTimeout(function() {
+        setTimeout(function () {
             me.isFocused = false;
         }, 50);
     },
 
-    onPaste: function(e) {
+    onPaste: function (e) {
         this.fireEvent('paste', this, e);
     },
 
-    onMouseDown: function(e) {
+    onMouseDown: function (e) {
         this.fireEvent('mousedown', this, e);
     },
 
@@ -439,7 +439,7 @@ Ext.define('Ext.field.Text', {
      * Attempts to set the field as the active input focus.
      * @return {Ext.field.Text} This field
      */
-    focus: function() {
+    focus: function () {
         this.getComponent().focus();
         return this;
     },
@@ -448,7 +448,7 @@ Ext.define('Ext.field.Text', {
      * Attempts to forcefully blur input focus for the field.
      * @return {Ext.field.Text} This field
      */
-    blur: function() {
+    blur: function () {
         this.getComponent().blur();
         return this;
     },
@@ -457,21 +457,21 @@ Ext.define('Ext.field.Text', {
      * Attempts to forcefully select all the contents of the input field.
      * @return {Ext.field.Text} this
      */
-    select: function() {
+    select: function () {
         this.getComponent().select();
         return this;
     },
 
-    resetOriginalValue: function() {
+    resetOriginalValue: function () {
         this.callParent();
         var component = this.getComponent();
-        if(component && component.hasOwnProperty("originalValue")) {
+        if (component && component.hasOwnProperty("originalValue")) {
             this.getComponent().originalValue = this.originalValue;
         }
         this.reset();
     },
 
-    reset: function() {
+    reset: function () {
         this.getComponent().reset();
 
         //we need to call this to sync the input with this field
@@ -480,7 +480,7 @@ Ext.define('Ext.field.Text', {
         this[this.isDirty() ? 'showClearIcon' : 'hideClearIcon']();
     },
 
-    isDirty: function() {
+    isDirty: function () {
         var component = this.getComponent();
         if (component) {
             return component.isDirty();

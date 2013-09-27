@@ -7,7 +7,7 @@
 Ext.define('Ext.AbstractComponent', {
     extend: 'Ext.Evented',
 
-    onClassExtended: function(Class, members) {
+    onClassExtended: function (Class, members) {
         if (!members.hasOwnProperty('cachedConfig')) {
             return;
         }
@@ -54,9 +54,9 @@ Ext.define('Ext.AbstractComponent', {
      * Ext.Element instance of the reference domNode is only created the very first time
      * it's ever used.
      */
-    addReferenceNode: function(name, domNode) {
+    addReferenceNode: function (name, domNode) {
         Ext.Object.defineProperty(this, name, {
-            get: function() {
+            get: function () {
                 var reference;
 
                 delete this[name];
@@ -67,7 +67,7 @@ Ext.define('Ext.AbstractComponent', {
         });
     },
 
-    initElement: function() {
+    initElement: function () {
         var prototype = this.self.prototype,
             id = this.getId(),
             referenceList = [],
@@ -93,7 +93,7 @@ Ext.define('Ext.AbstractComponent', {
 
         referenceNodes = renderTemplate.querySelectorAll(this.referenceSelector);
 
-        for (i = 0,ln = referenceNodes.length; i < ln; i++) {
+        for (i = 0, ln = referenceNodes.length; i < ln; i++) {
             referenceNode = referenceNodes[i];
             reference = referenceNode.getAttribute(referenceAttributeName);
 
@@ -139,7 +139,7 @@ Ext.define('Ext.AbstractComponent', {
             initConfigMap = this.initConfigMap;
             configList = [];
 
-            for (i = 0,ln = cachedConfigList.length; i < ln; i++) {
+            for (i = 0, ln = cachedConfigList.length; i < ln; i++) {
                 name = cachedConfigList[i];
                 nameMap = configNameCache[name];
 
@@ -154,7 +154,7 @@ Ext.define('Ext.AbstractComponent', {
                 }
             }
 
-            for (i = 0,ln = configList.length; i < ln; i++) {
+            for (i = 0, ln = configList.length; i < ln; i++) {
                 name = configList[i];
                 nameMap = configNameCache[name];
                 internalName = nameMap.internal;
@@ -172,12 +172,12 @@ Ext.define('Ext.AbstractComponent', {
 
             elements = renderTemplate.querySelectorAll('[id]');
 
-            for (i = 0,ln = elements.length; i < ln; i++) {
+            for (i = 0, ln = elements.length; i < ln; i++) {
                 element = elements[i];
                 element.removeAttribute('id');
             }
 
-            for (i = 0,ln = referenceList.length; i < ln; i++) {
+            for (i = 0, ln = referenceList.length; i < ln; i++) {
                 reference = referenceList[i];
                 this[reference].dom.removeAttribute('reference');
             }

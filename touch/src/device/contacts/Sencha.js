@@ -4,7 +4,7 @@
 Ext.define('Ext.device.contacts.Sencha', {
     extend: 'Ext.device.contacts.Abstract',
 
-    getContacts: function(config) {
+    getContacts: function (config) {
         var includeImages = this.getIncludeImages();
         if (typeof config.includeImages != "undefined") {
             includeImages = config.includeImages;
@@ -23,10 +23,10 @@ Ext.define('Ext.device.contacts.Sencha', {
         Ext.device.Communicator.send({
             command: 'Contacts#all',
             callbacks: {
-                success: function(contacts) {
+                success: function (contacts) {
                     config.success.call(config.scope || this, contacts);
                 },
-                failure: function() {
+                failure: function () {
                     if (config.failure) {
                         config.failure.call(config.scope || this);
                     }
@@ -37,7 +37,7 @@ Ext.define('Ext.device.contacts.Sencha', {
         });
     },
 
-    getThumbnail: function(config) {
+    getThumbnail: function (config) {
         if (!config || typeof config.id == "undefined") {
             Ext.Logger.warn('Ext.device.Contacts#getThumbnail: You must specify an `id` of the contact.');
             return false;
@@ -51,7 +51,7 @@ Ext.define('Ext.device.contacts.Sencha', {
         Ext.device.Communicator.send({
             command: 'Contacts#getThumbnail',
             callbacks: {
-                success: function(src) {
+                success: function (src) {
                     this.set('thumbnail', src);
 
                     if (config.callback) {
@@ -64,7 +64,7 @@ Ext.define('Ext.device.contacts.Sencha', {
         });
     },
 
-    getLocalizedLabel: function(config) {
+    getLocalizedLabel: function (config) {
         if (!config || typeof config.label == "undefined") {
             Ext.Logger.warn('Ext.device.Contacts#getLocalizedLabel: You must specify an `label` to be localized.');
             return false;
@@ -78,7 +78,7 @@ Ext.define('Ext.device.contacts.Sencha', {
         Ext.device.Communicator.send({
             command: 'Contacts#getLocalizedLabel',
             callbacks: {
-                callback: function(label) {
+                callback: function (label) {
                     config.callback.call(config.scope || this, label, config.label);
                 }
             },

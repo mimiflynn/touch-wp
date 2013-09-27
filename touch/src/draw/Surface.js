@@ -115,7 +115,9 @@ Ext.define('Ext.draw.Surface', {
                     keys[zIndex].push(list[i]);
                 }
             }
-            sortedKeys = Object.keys(keys).sort(function (a, b) {return a - b;});
+            sortedKeys = Object.keys(keys).sort(function (a, b) {
+                return a - b;
+            });
             for (i = 0, ln = sortedKeys.length; i < ln; i++) {
                 result.push.apply(result, keys[sortedKeys[i]]);
             }

@@ -9,7 +9,7 @@ Ext.define('Ext.util.paintmonitor.OverflowChange', {
 
     monitorClass: 'overflowchange',
 
-    onElementPainted: function(e) {
+    onElementPainted: function (e) {
         this.getCallback().apply(this.getScope(), this.getArgs());
     }
 });

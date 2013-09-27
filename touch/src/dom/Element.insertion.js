@@ -13,19 +13,19 @@ Ext.dom.Element.addMembers({
      * @param {HTMLElement/Ext.dom.Element} element a DOM Node or an existing Element.
      * @return {Ext.dom.Element} This element.
      */
-    appendChild: function(element) {
+    appendChild: function (element) {
         this.dom.appendChild(Ext.getDom(element));
 
         return this;
     },
 
-    removeChild: function(element) {
+    removeChild: function (element) {
         this.dom.removeChild(Ext.getDom(element));
 
         return this;
     },
 
-    append: function() {
+    append: function () {
         this.appendChild.apply(this, arguments);
     },
 
@@ -35,7 +35,7 @@ Ext.dom.Element.addMembers({
      * The id of the node, a DOM Node or an existing Element.
      * @return {Ext.dom.Element} This element.
      */
-    appendTo: function(el) {
+    appendTo: function (el) {
         Ext.getDom(el).appendChild(this.dom);
         return this;
     },
@@ -46,7 +46,7 @@ Ext.dom.Element.addMembers({
      * The id of the node, a DOM Node or an existing Element.
      * @return {Ext.dom.Element} This element.
      */
-    insertBefore: function(el) {
+    insertBefore: function (el) {
         el = Ext.getDom(el);
         el.parentNode.insertBefore(this.dom, el);
         return this;
@@ -58,7 +58,7 @@ Ext.dom.Element.addMembers({
      * The `id` of the node, a DOM Node or an existing Element.
      * @return {Ext.dom.Element} This element.
      */
-    insertAfter: function(el) {
+    insertAfter: function (el) {
         el = Ext.getDom(el);
         el.parentNode.insertBefore(this.dom, el.nextSibling);
         return this;
@@ -70,7 +70,7 @@ Ext.dom.Element.addMembers({
      * @param {String/HTMLElement/Ext.dom.Element} element The `id` or element to insert.
      * @return {Ext.dom.Element} this
      */
-    insertFirst: function(element) {
+    insertFirst: function (element) {
         var elementDom = Ext.getDom(element),
             dom = this.dom,
             firstChild = dom.firstChild;
@@ -93,14 +93,14 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnDom (optional) `true` to return the raw DOM element instead of Ext.dom.Element.
      * @return {Ext.dom.Element} The inserted Element. If an array is passed, the last inserted element is returned.
      */
-    insertSibling: function(el, where, returnDom) {
+    insertSibling: function (el, where, returnDom) {
         var me = this, rt,
             isAfter = (where || 'before').toLowerCase() == 'after',
             insertEl;
 
         if (Ext.isArray(el)) {
             insertEl = me;
-            Ext.each(el, function(e) {
+            Ext.each(el, function (e) {
                 rt = Ext.fly(insertEl, '_internal').insertSibling(e, where, returnDom);
                 if (isAfter) {
                     insertEl = rt;
@@ -132,7 +132,7 @@ Ext.dom.Element.addMembers({
      * The id of the node, a DOM Node or an existing Element.
      * @return {Ext.dom.Element} This element.
      */
-    replace: function(element) {
+    replace: function (element) {
         element = Ext.getDom(element);
 
         element.parentNode.replaceChild(this.dom, element);
@@ -146,7 +146,7 @@ Ext.dom.Element.addMembers({
      * or an existing Element) or a DomHelper config of an element to create.
      * @return {Ext.dom.Element} This element.
      */
-    replaceWith: function(el) {
+    replaceWith: function (el) {
         var me = this;
 
         if (el.nodeType || el.dom || typeof el == 'string') {
@@ -163,7 +163,7 @@ Ext.dom.Element.addMembers({
         return me;
     },
 
-    doReplaceWith: function(element) {
+    doReplaceWith: function (element) {
         var dom = this.dom;
         dom.parentNode.replaceChild(Ext.getDom(element), dom);
     },
@@ -176,7 +176,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnDom (optional) `true` to return the dom node instead of creating an Element.
      * @return {Ext.dom.Element} The new child element.
      */
-    createChild: function(config, insertBefore, returnDom) {
+    createChild: function (config, insertBefore, returnDom) {
         config = config || {tag: 'div'};
         if (insertBefore) {
             return Ext.core.DomHelper.insertBefore(insertBefore, config, returnDom !== true);
@@ -192,7 +192,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [domNode] (optional) `true` to return the raw DOM element instead of Ext.dom.Element.
      * @return {HTMLElement/Ext.dom.Element} The newly created wrapper element.
      */
-    wrap: function(config, domNode) {
+    wrap: function (config, domNode) {
         var dom = this.dom,
             wrapper = this.self.create(config, domNode),
             wrapperDom = (domNode) ? wrapper : wrapper.dom,
@@ -207,7 +207,7 @@ Ext.dom.Element.addMembers({
         return wrapper;
     },
 
-    wrapAllChildren: function(config) {
+    wrapAllChildren: function (config) {
         var dom = this.dom,
             children = dom.childNodes,
             wrapper = this.self.create(config),
@@ -222,7 +222,7 @@ Ext.dom.Element.addMembers({
         return wrapper;
     },
 
-    unwrapAllChildren: function() {
+    unwrapAllChildren: function () {
         var dom = this.dom,
             children = dom.childNodes,
             parentNode = dom.parentNode;
@@ -236,7 +236,7 @@ Ext.dom.Element.addMembers({
         }
     },
 
-    unwrap: function() {
+    unwrap: function () {
         var dom = this.dom,
             parentNode = dom.parentNode,
             grandparentNode;
@@ -254,7 +254,7 @@ Ext.dom.Element.addMembers({
         return this;
     },
 
-    detach: function() {
+    detach: function () {
         var dom = this.dom;
 
         if (dom && dom.parentNode && dom.tagName !== 'BODY') {
@@ -272,7 +272,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [returnEl=false] (optional) `true` to return an Ext.dom.Element.
      * @return {HTMLElement/Ext.dom.Element} The inserted node (or nearest related if more than 1 inserted).
      */
-    insertHtml: function(where, html, returnEl) {
+    insertHtml: function (where, html, returnEl) {
         var el = Ext.core.DomHelper.insertHtml(where, this.dom, html);
         return returnEl ? Ext.get(el) : el;
     }

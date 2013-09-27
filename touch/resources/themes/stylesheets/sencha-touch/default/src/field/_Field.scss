@@ -6,38 +6,38 @@
 $form-clear-size: 2.2em;
 
 .x-field {
-    min-height: $form-field-height;
-    background: #fff;
+  min-height: $form-field-height;
+  background: #fff;
 
-    &:last-child {
-        border-bottom: 0;
-    }
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
 .x-field-input {
-    .x-clear-icon {
-        background: theme_image('default', "clear_icon.png") no-repeat;
-        background-position: center center;
-        background-size: 55% 55%;
-        width: $form-clear-size;
-        height: $form-clear-size;
-        margin: .5em;
-        margin-top: -($form-clear-size/2);
-        right: -.5em;
-    }
+  .x-clear-icon {
+    background: theme_image('default', "clear_icon.png") no-repeat;
+    background-position: center center;
+    background-size: 55% 55%;
+    width: $form-clear-size;
+    height: $form-clear-size;
+    margin: .5em;
+    margin-top: -($form-clear-size/2);
+    right: -.5em;
+  }
 }
 
 .x-field-clearable {
-    .x-field-input {
-        padding-right: $form-clear-size;
-    }
+  .x-field-input {
+    padding-right: $form-clear-size;
+  }
 }
 
 .x-input-el {
-    padding: .4em;
-    min-height: $form-field-height;
-    border-width: 0;
-    -webkit-appearance: none;
+  padding: .4em;
+  min-height: $form-field-height;
+  border-width: 0;
+  -webkit-appearance: none;
 }
 
 .x-ie .x-input-el {
@@ -58,9 +58,9 @@ $form-clear-size: 2.2em;
 }
 
 .x-item-disabled .x-form-label {
-    color: #aaa;
+  color: #aaa;
 }
 
 .x-item-disabled .x-form-label:after {
-    color: #666 !important;
+  color: #666 !important;
 }

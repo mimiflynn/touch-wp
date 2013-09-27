@@ -73,7 +73,8 @@ $dialog-color: #1F1F1F;
  * @var {color} $base-color
  * The primary color variable from which most elements derive their color scheme.
  */
-$base-color: rgba(145,0,145,1) !default; // Triton Blue
+$base-color: rgba(145, 0, 145, 1) !default;
+// Triton Blue
 
 /**
  * Light theme
@@ -118,14 +119,14 @@ $dark-inactive-color: #666 !default;
 // Form fields
 $dark-field-background-color: #D2D2D2 !default;
 $dark-field-border-color: #D2D2D2 !default;
-$dark-field-color: rgba(0,0,0,.8) !default;
-$dark-field-placeholder-color: rgba(0,0,0,.6) !default;
+$dark-field-color: rgba(0, 0, 0, .8) !default;
+$dark-field-placeholder-color: rgba(0, 0, 0, .6) !default;
 $dark-field-focus-background-color: #FFFFFF !default;
 $dark-field-focus-border-color: #FFFFFF !default;
 $dark-field-disabled-background-color: #1D1D1D !default;
 $dark-field-disabled-border-color: #777777 !default;
-$dark-field-disabled-color: rgba(255,255,255,.4) !default;
-$dark-field-disabled-placeholder-color: rgba(255,255,255,.2) !default;
+$dark-field-disabled-color: rgba(255, 255, 255, .4) !default;
+$dark-field-disabled-placeholder-color: rgba(255, 255, 255, .2) !default;
 
 $dark-form-slider-background-color: #6C6C6C !default;
 $dark-form-slider-value-background-color: $base-color !default;
@@ -176,41 +177,42 @@ $form-toggle-disabled-border-color: $light-form-toggle-disabled-border-color !de
 $form-toggle-disabled-thumb-background-color: $light-form-toggle-disabled-thumb-background-color !default;
 
 @if ($dark-theme) {
-    $background-color: $dark-background-color;
-    $foreground-color: $dark-foreground-color;
-    $inactive-color: $dark-inactive-color;
+  $background-color: $dark-background-color;
+  $foreground-color: $dark-foreground-color;
+  $inactive-color: $dark-inactive-color;
 
-    // Form fields
-    $field-background-color: $dark-field-background-color;
-    $field-border-color: $dark-field-border-color;
-    $field-color: $dark-field-color;
-    $field-placeholder-color: $dark-field-placeholder-color;
-    $field-focus-background-color: $dark-field-focus-background-color;
-    $field-focus-border-color: $dark-field-focus-border-color;
-    $field-disabled-background-color: $dark-field-disabled-background-color;
-    $field-disabled-border-color: $dark-field-disabled-border-color;
-    $field-disabled-color: $dark-field-disabled-color;
-    $field-disabled-placeholder-color: $dark-field-disabled-placeholder-color;
+// Form fields
+  $field-background-color: $dark-field-background-color;
+  $field-border-color: $dark-field-border-color;
+  $field-color: $dark-field-color;
+  $field-placeholder-color: $dark-field-placeholder-color;
+  $field-focus-background-color: $dark-field-focus-background-color;
+  $field-focus-border-color: $dark-field-focus-border-color;
+  $field-disabled-background-color: $dark-field-disabled-background-color;
+  $field-disabled-border-color: $dark-field-disabled-border-color;
+  $field-disabled-color: $dark-field-disabled-color;
+  $field-disabled-placeholder-color: $dark-field-disabled-placeholder-color;
 
-    $form-slider-background-color: $dark-form-slider-background-color;
-    $form-slider-value-background-color: $dark-form-slider-value-background-color;
-    $form-slider-thumb-background-color: $dark-form-slider-thumb-background-color;
-    $form-slider-disabled-background-color: $dark-form-slider-disabled-background-color;
-    $form-slider-disabled-value-background-color: $dark-form-slider-disabled-value-background-color;
-    $form-slider-disabled-thumb-background-color: $dark-form-slider-disabled-thumb-background-color;
+  $form-slider-background-color: $dark-form-slider-background-color;
+  $form-slider-value-background-color: $dark-form-slider-value-background-color;
+  $form-slider-thumb-background-color: $dark-form-slider-thumb-background-color;
+  $form-slider-disabled-background-color: $dark-form-slider-disabled-background-color;
+  $form-slider-disabled-value-background-color: $dark-form-slider-disabled-value-background-color;
+  $form-slider-disabled-thumb-background-color: $dark-form-slider-disabled-thumb-background-color;
 
-    $form-toggle-background-color: $dark-form-toggle-background-color;
-    $form-toggle-border-color: $dark-form-toggle-border-color;
-    $form-toggle-thumb-background-color: $form-slider-thumb-background-color;
-    $form-toggle-disabled-background-color: $dark-form-toggle-disabled-background-color;
-    $form-toggle-disabled-border-color: $dark-form-toggle-disabled-border-color;
-    $form-toggle-disabled-thumb-background-color: $dark-form-toggle-disabled-thumb-background-color;
+  $form-toggle-background-color: $dark-form-toggle-background-color;
+  $form-toggle-border-color: $dark-form-toggle-border-color;
+  $form-toggle-thumb-background-color: $form-slider-thumb-background-color;
+  $form-toggle-disabled-background-color: $dark-form-toggle-disabled-background-color;
+  $form-toggle-disabled-border-color: $dark-form-toggle-disabled-border-color;
+  $form-toggle-disabled-thumb-background-color: $dark-form-toggle-disabled-thumb-background-color;
 }
 
 $form-slider-height: 11px !default;
 
 $alert-color: red !default;
-$confirm-color: #92cf00 !default; // Green
+$confirm-color: #92cf00 !default;
+// Green
 
 /**
 * font sizes

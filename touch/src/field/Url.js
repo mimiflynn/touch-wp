@@ -52,7 +52,7 @@ Ext.define('Ext.field.Url', {
          * @inheritdoc
          */
         component: {
-	        type: 'url'
-	    }
+            type: 'url'
+        }
     }
 });

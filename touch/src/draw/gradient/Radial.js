@@ -1,6 +1,6 @@
 /**
  * Radial gradient.
- * 
+ *
  *     @example preview miniphone
  *     var component = new Ext.draw.Component({
  *       items: [{

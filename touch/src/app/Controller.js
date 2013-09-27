@@ -382,7 +382,7 @@ Ext.define('Ext.app.Controller', {
     /**
      * Constructs a new Controller instance
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         this.mixins.observable.constructor.call(this, config);
@@ -409,7 +409,7 @@ Ext.define('Ext.app.Controller', {
      * Convenient way to redirect to a new url. See {@link Ext.app.Application#redirectTo} for full usage information.
      * @return {Object}
      */
-    redirectTo: function(place) {
+    redirectTo: function (place) {
         return this.getApplication().redirectTo(place);
     },
 
@@ -417,7 +417,7 @@ Ext.define('Ext.app.Controller', {
      * @private
      * Executes an Ext.app.Action by giving it the correct before filters and kicking off execution
      */
-    execute: function(action, skipFilters) {
+    execute: function (action, skipFilters) {
         action.setBeforeFilters(this.getBefore()[action.getAction()]);
         action.execute();
     },
@@ -426,12 +426,12 @@ Ext.define('Ext.app.Controller', {
      * @private
      * Massages the before filters into an array of function references for each controller action
      */
-    applyBefore: function(before) {
+    applyBefore: function (before) {
         var filters, name, length, i;
 
         for (name in before) {
             filters = Ext.Array.from(before[name]);
-            length  = filters.length;
+            length = filters.length;
 
             for (i = 0; i < length; i++) {
                 filters[i] = this[filters[i]];
@@ -446,7 +446,7 @@ Ext.define('Ext.app.Controller', {
     /**
      * @private
      */
-    applyControl: function(config) {
+    applyControl: function (config) {
         this.control(config, this);
 
         return config;
@@ -455,7 +455,7 @@ Ext.define('Ext.app.Controller', {
     /**
      * @private
      */
-    applyRefs: function(refs) {
+    applyRefs: function (refs) {
         //<debug>
         if (Ext.isArray(refs)) {
             Ext.Logger.deprecate("In Sencha Touch 2 the refs config accepts an object but you have passed it an array.");
@@ -471,8 +471,8 @@ Ext.define('Ext.app.Controller', {
      * @private
      * Adds any routes specified in this Controller to the global Application router
      */
-    applyRoutes: function(routes) {
-        var app    = this instanceof Ext.app.Application ? this : this.getApplication(),
+    applyRoutes: function (routes) {
+        var app = this instanceof Ext.app.Application ? this : this.getApplication(),
             router = app.getRouter(),
             route, url, config;
 
@@ -500,7 +500,7 @@ Ext.define('Ext.app.Controller', {
      * As a convenience developers can locally qualify store names (e.g. 'MyStore' vs
      * 'MyApp.store.MyStore'). This just makes sure everything ends up fully qualified
      */
-    applyStores: function(stores) {
+    applyStores: function (stores) {
         return this.getFullyQualified(stores, 'store');
     },
 
@@ -509,7 +509,7 @@ Ext.define('Ext.app.Controller', {
      * As a convenience developers can locally qualify model names (e.g. 'MyModel' vs
      * 'MyApp.model.MyModel'). This just makes sure everything ends up fully qualified
      */
-    applyModels: function(models) {
+    applyModels: function (models) {
         return this.getFullyQualified(models, 'model');
     },
 
@@ -518,7 +518,7 @@ Ext.define('Ext.app.Controller', {
      * As a convenience developers can locally qualify view names (e.g. 'MyView' vs
      * 'MyApp.view.MyView'). This just makes sure everything ends up fully qualified
      */
-    applyViews: function(views) {
+    applyViews: function (views) {
         return this.getFullyQualified(views, 'view');
     },
 
@@ -530,8 +530,8 @@ Ext.define('Ext.app.Controller', {
      * @param {String} namespace If the name happens to be an application class, add it to this namespace
      * @return {String} The fully-qualified name of the class
      */
-    getFullyQualified: function(items, namespace) {
-        var length  = items.length,
+    getFullyQualified: function (items, namespace) {
+        var length = items.length,
             appName = this.getApplication().getName(),
             name, i;
 
@@ -550,7 +550,7 @@ Ext.define('Ext.app.Controller', {
     /**
      * @private
      */
-    control: function(selectors) {
+    control: function (selectors) {
         this.getApplication().control(selectors, this);
     },
 
@@ -558,7 +558,7 @@ Ext.define('Ext.app.Controller', {
      * @private
      * 1.x-inspired ref implementation
      */
-    ref: function(refs) {
+    ref: function (refs) {
         var me = this,
             refName, getterName, selector, info;
 
@@ -576,9 +576,9 @@ Ext.define('Ext.app.Controller', {
                     info = refs[refName];
                 }
 
-                this[getterName] = function(refName, info) {
+                this[getterName] = function (refName, info) {
                     var args = [refName, info];
-                    return function() {
+                    return function () {
                         return me.getRef.apply(me, args.concat.apply(args, arguments));
                     };
                 }(refName, info);
@@ -592,7 +592,7 @@ Ext.define('Ext.app.Controller', {
     /**
      * @private
      */
-    getRef: function(ref, info, config) {
+    getRef: function (ref, info, config) {
         this.refCache = this.refCache || {};
         info = info || {};
         config = config || {};
@@ -612,7 +612,7 @@ Ext.define('Ext.app.Controller', {
                 me.refCache[ref] = cached = Ext.ComponentManager.create(info, 'component');
             }
             if (cached) {
-                cached.on('destroy', function() {
+                cached.on('destroy', function () {
                     me.refCache[ref] = null;
                 });
             }
@@ -624,12 +624,12 @@ Ext.define('Ext.app.Controller', {
     /**
      * @private
      */
-    hasRef: function(ref) {
+    hasRef: function (ref) {
         return this.references && this.references.indexOf(ref.toLowerCase()) !== -1;
     }
 
     // <deprecated product=touch since=2.0>
-    ,onClassExtended: function(cls, members) {
+    , onClassExtended: function (cls, members) {
         var prototype = this.prototype,
             defaultConfig = prototype.config,
             config = members.config || {},
@@ -669,8 +669,8 @@ Ext.define('Ext.app.Controller', {
             for (i = 0; i < length; i++) {
                 functionName = format("get{0}Store", Ext.String.capitalize(stores[i]));
 
-                prototype[functionName] = function(name) {
-                    return function() {
+                prototype[functionName] = function (name) {
+                    return function () {
                         return Ext.StoreManager.lookup(name);
                     };
                 }(stores[i]);
@@ -683,8 +683,8 @@ Ext.define('Ext.app.Controller', {
             for (i = 0; i < length; i++) {
                 functionName = format("get{0}View", views[i]);
 
-                prototype[functionName] = function(name) {
-                    return function() {
+                prototype[functionName] = function (name) {
+                    return function () {
                         return Ext.ClassManager.classes[format("{0}.view.{1}", this.getApplication().getName(), name)];
                     };
                 }(views[i]);
@@ -701,7 +701,7 @@ Ext.define('Ext.app.Controller', {
      * @deprecated 2.0.0 Considered bad practice - please just use the Model name instead
      * (e.g. `MyApp.model.User` vs `this.getModel('User')`).
      */
-    getModel: function(modelName) {
+    getModel: function (modelName) {
         //<debug warn>
         Ext.Logger.deprecate("getModel() is deprecated and considered bad practice - please just use the Model " +
             "name instead (e.g. MyApp.model.User vs this.getModel('User'))");
@@ -721,7 +721,7 @@ Ext.define('Ext.app.Controller', {
      * @deprecated 2.0.0 Considered bad practice - if you need to do this
      * please use this.getApplication().getController() instead
      */
-    getController: function(controllerName, profile) {
+    getController: function (controllerName, profile) {
         //<debug warn>
         Ext.Logger.deprecate("Ext.app.Controller#getController is deprecated and considered bad practice - " +
             "please use this.getApplication().getController('someController') instead");
@@ -730,16 +730,16 @@ Ext.define('Ext.app.Controller', {
         return this.getApplication().getController(controllerName, profile);
     }
     // </deprecated>
-}, function() {
+}, function () {
     // <deprecated product=touch since=2.0>
-    Ext.regController = function(name, config) {
+    Ext.regController = function (name, config) {
         Ext.apply(config, {
             extend: 'Ext.app.Controller'
         });
 
         Ext.Logger.deprecate(
             '[Ext.app.Controller] Ext.regController is deprecated, please use Ext.define to define a Controller as ' +
-            'with any other class. For more information see the Touch 1.x -> 2.x migration guide'
+                'with any other class. For more information see the Touch 1.x -> 2.x migration guide'
         );
         Ext.define('controller.' + name, config);
     };

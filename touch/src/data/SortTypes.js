@@ -49,14 +49,14 @@ Ext.define('Ext.data.SortTypes', {
      * @type {RegExp}
      * @property
      */
-    stripTagsRE : /<\/?[^>]+>/gi,
+    stripTagsRE: /<\/?[^>]+>/gi,
 
     /**
      * Default sort that does nothing.
      * @param {Object} value The value being converted.
      * @return {Object} The comparison value.
      */
-    none : function(value) {
+    none: function (value) {
         return value;
     },
 
@@ -65,7 +65,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {String} The comparison value.
      */
-    asText : function(value) {
+    asText: function (value) {
         return String(value).replace(this.stripTagsRE, "");
     },
 
@@ -74,7 +74,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {String} The comparison value.
      */
-    asUCText : function(value) {
+    asUCText: function (value) {
         return String(value).toUpperCase().replace(this.stripTagsRE, "");
     },
 
@@ -83,7 +83,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {String} The comparison value.
      */
-    asUCString : function(value) {
+    asUCString: function (value) {
         return String(value).toUpperCase();
     },
 
@@ -92,7 +92,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {Number} The comparison value.
      */
-    asDate : function(value) {
+    asDate: function (value) {
         if (!value) {
             return 0;
         }
@@ -107,7 +107,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {Number} The comparison value.
      */
-    asFloat : function(value) {
+    asFloat: function (value) {
         value = parseFloat(String(value).replace(/,/g, ""));
         return isNaN(value) ? 0 : value;
     },
@@ -117,7 +117,7 @@ Ext.define('Ext.data.SortTypes', {
      * @param {Object} value The value being converted.
      * @return {Number} The comparison value.
      */
-    asInt : function(value) {
+    asInt: function (value) {
         value = parseInt(String(value).replace(/,/g, ""), 10);
         return isNaN(value) ? 0 : value;
     }

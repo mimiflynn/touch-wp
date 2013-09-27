@@ -93,7 +93,7 @@ Ext.define('Ext.device.push.Abstract', {
      * @param {Object} config.received.notifications
      * The notifications that have been received.
      */
-    register: function(config) {
+    register: function (config) {
         var me = this;
 
         if (!config.received) {
@@ -105,32 +105,32 @@ Ext.define('Ext.device.push.Abstract', {
         }
 
         return {
-            success: function(token) {
+            success: function (token) {
                 me.onSuccess(token, config.success, config.scope || me);
             },
-            failure: function(error) {
+            failure: function (error) {
                 me.onFailure(error, config.failure, config.scope || me);
             },
-            received: function(notifications) {
+            received: function (notifications) {
                 me.onReceived(notifications, config.received, config.scope || me);
             },
             type: config.type
         };
     },
 
-    onSuccess: function(token, callback, scope) {
+    onSuccess: function (token, callback, scope) {
         if (callback) {
             callback.call(scope, token);
         }
     },
 
-    onFailure: function(error, callback, scope) {
+    onFailure: function (error, callback, scope) {
         if (callback) {
             callback.call(scope, error);
         }
     },
 
-    onReceived: function(notifications, callback, scope) {
+    onReceived: function (notifications, callback, scope) {
         if (callback) {
             callback.call(scope, notifications);
         }

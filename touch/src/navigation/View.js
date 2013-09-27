@@ -168,8 +168,8 @@ Ext.define('Ext.navigation.View', {
      */
 
     // @private
-    initialize: function() {
-        var me     = this,
+    initialize: function () {
+        var me = this,
             navBar = me.getNavigationBar();
 
         //add a listener onto the back button in the navigationbar
@@ -196,7 +196,7 @@ Ext.define('Ext.navigation.View', {
     /**
      * @private
      */
-    applyLayout: function(config) {
+    applyLayout: function (config) {
         config = config || {};
 
         return config;
@@ -206,7 +206,7 @@ Ext.define('Ext.navigation.View', {
      * @private
      * Called when the user taps on the back button
      */
-    onBackButtonTap: function() {
+    onBackButtonTap: function () {
         this.pop();
         this.fireEvent('back', this);
     },
@@ -216,7 +216,7 @@ Ext.define('Ext.navigation.View', {
      * @param {Object} view The view to push.
      * @return {Ext.Component} The new item you just pushed.
      */
-    push: function(view) {
+    push: function (view) {
         return this.add(view);
     },
 
@@ -226,7 +226,7 @@ Ext.define('Ext.navigation.View', {
      * @param {Number} count The number of views you want to pop.
      * @return {Ext.Component} The new active item.
      */
-    pop: function(count) {
+    pop: function (count) {
         if (this.beforePop(count)) {
             return this.doPop();
         }
@@ -238,7 +238,7 @@ Ext.define('Ext.navigation.View', {
      * item. If it does, it removes those views from the stack and returns `true`.
      * @return {Boolean} `true` if it has removed views.
      */
-    beforePop: function(count) {
+    beforePop: function (count) {
         var me = this,
             innerItems = me.getInnerItems();
 
@@ -288,7 +288,7 @@ Ext.define('Ext.navigation.View', {
     /**
      * @private
      */
-    doPop: function() {
+    doPop: function () {
         var me = this,
             innerItems = this.getInnerItems();
 
@@ -301,7 +301,7 @@ Ext.define('Ext.navigation.View', {
      * Returns the previous item, if one exists.
      * @return {Mixed} The previous view
      */
-    getPreviousItem: function() {
+    getPreviousItem: function () {
         var innerItems = this.getInnerItems();
         return innerItems[innerItems.length - 2];
     },
@@ -310,7 +310,7 @@ Ext.define('Ext.navigation.View', {
      * Updates the backbutton text accordingly in the {@link #navigationBar}
      * @private
      */
-    updateUseTitleForBackButtonText: function(useTitleForBackButtonText) {
+    updateUseTitleForBackButtonText: function (useTitleForBackButtonText) {
         var navigationBar = this.getNavigationBar();
         if (navigationBar) {
             navigationBar.setUseTitleForBackButtonText(useTitleForBackButtonText);
@@ -321,7 +321,7 @@ Ext.define('Ext.navigation.View', {
      * Updates the backbutton text accordingly in the {@link #navigationBar}
      * @private
      */
-    updateDefaultBackButtonText: function(defaultBackButtonText) {
+    updateDefaultBackButtonText: function (defaultBackButtonText) {
         var navigationBar = this.getNavigationBar();
         if (navigationBar) {
             navigationBar.setDefaultBackButtonText(defaultBackButtonText);
@@ -329,7 +329,7 @@ Ext.define('Ext.navigation.View', {
     },
 
     // @private
-    applyNavigationBar: function(config) {
+    applyNavigationBar: function (config) {
         if (!config) {
             config = {
                 hidden: true,
@@ -341,7 +341,7 @@ Ext.define('Ext.navigation.View', {
             delete config.title;
             //<debug>
             Ext.Logger.warn("Ext.navigation.View: The 'navigationBar' configuration does not accept a 'title' property. You " +
-                            "set the title of the navigationBar by giving this navigation view's children a 'title' property.");
+                "set the title of the navigationBar by giving this navigation view's children a 'title' property.");
             //</debug>
         }
 
@@ -352,7 +352,7 @@ Ext.define('Ext.navigation.View', {
     },
 
     // @private
-    updateNavigationBar: function(newNavigationBar, oldNavigationBar) {
+    updateNavigationBar: function (newNavigationBar, oldNavigationBar) {
         if (oldNavigationBar) {
             this.remove(oldNavigationBar, true);
         }
@@ -365,7 +365,7 @@ Ext.define('Ext.navigation.View', {
     /**
      * @private
      */
-    applyActiveItem: function(activeItem, currentActiveItem) {
+    applyActiveItem: function (activeItem, currentActiveItem) {
         var me = this,
             innerItems = me.getInnerItems();
 
@@ -380,7 +380,7 @@ Ext.define('Ext.navigation.View', {
         return this.callParent([activeItem, currentActiveItem]);
     },
 
-    doResetActiveItem: function(innerIndex) {
+    doResetActiveItem: function (innerIndex) {
         var me = this,
             innerItems = me.getInnerItems(),
             animation = me.getLayout().getAnimation();
@@ -397,7 +397,7 @@ Ext.define('Ext.navigation.View', {
     /**
      * @private
      */
-    doRemove: function() {
+    doRemove: function () {
         var animation = this.getLayout().getAnimation();
 
         if (animation && animation.isAnimation) {
@@ -410,7 +410,7 @@ Ext.define('Ext.navigation.View', {
     /**
      * @private
      */
-    onItemAdd: function(item, index) {
+    onItemAdd: function (item, index) {
         this.doItemLayoutAdd(item, index);
 
         if (!this.isItemsInitializing && item.isInnerItem()) {
@@ -427,7 +427,7 @@ Ext.define('Ext.navigation.View', {
      * Resets the view by removing all items between the first and last item.
      * @return {Ext.Component} The view that is now active
      */
-    reset: function() {
+    reset: function () {
         return this.pop(this.getInnerItems().length);
     }
 });

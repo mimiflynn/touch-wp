@@ -20,14 +20,14 @@ Ext.define('Ext.ComponentManager', {
     alternateClassName: 'Ext.ComponentMgr',
     singleton: true,
 
-    constructor: function() {
+    constructor: function () {
         var map = {};
 
         // The sole reason for this is just to support the old code of ComponentQuery
         this.all = {
             map: map,
 
-            getArray: function() {
+            getArray: function () {
                 var list = [],
                     id;
 
@@ -46,7 +46,7 @@ Ext.define('Ext.ComponentManager', {
      * Registers an item to be managed.
      * @param {Object} component The item to register.
      */
-    register: function(component) {
+    register: function (component) {
         var id = component.getId();
 
         // <debug>
@@ -62,7 +62,7 @@ Ext.define('Ext.ComponentManager', {
      * Unregisters an item by removing it from this manager.
      * @param {Object} component The item to unregister.
      */
-    unregister: function(component) {
+    unregister: function (component) {
         delete this.map[component.getId()];
     },
 
@@ -71,7 +71,7 @@ Ext.define('Ext.ComponentManager', {
      * @param {String} component The mnemonic string by which the class may be looked up.
      * @return {Boolean} Whether the type is registered.
      */
-    isRegistered : function(component){
+    isRegistered: function (component) {
         return this.map[component] !== undefined;
     },
 
@@ -81,7 +81,7 @@ Ext.define('Ext.ComponentManager', {
      * @param {String} id The `id` of the item.
      * @return {Object} The item, or `undefined` if not found.
      */
-    get: function(id) {
+    get: function (id) {
         return this.map[id];
     },
 
@@ -93,7 +93,7 @@ Ext.define('Ext.ComponentManager', {
      * the config object does not contain a `xtype`. (Optional if the config contains an `xtype`).
      * @return {Ext.Component} The newly instantiated Component.
      */
-    create: function(component, defaultType) {
+    create: function (component, defaultType) {
         if (component.isComponent) {
             return component;
         }

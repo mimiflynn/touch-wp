@@ -32,7 +32,7 @@
  */
 Ext.define('Ext.ActionSheet', {
     extend: 'Ext.Sheet',
-    alias : 'widget.actionsheet',
+    alias: 'widget.actionsheet',
     requires: ['Ext.Button'],
 
     config: {
@@ -76,37 +76,40 @@ Ext.define('Ext.ActionSheet', {
         defaultType: 'button'
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        top: 0,
-        bottom: null
-    }, {
-        theme: ['Blackberry'],
-        top: 0,
-        left: null,
-        enter: 'right',
-        exit: 'right',
-        hideOnMaskTap: true,
-        baseCls: 'bb-crosscut',
-        scrollable: true,
-        layout: {
-            type: 'vbox',
-            pack: 'middle'
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            top: 0,
+            bottom: null
         },
-        defaultType: 'button',
-        showAnimation: {
-            easing: 'linear',
-            preserveEndState: true,
-            to: {
-                width: 250
-            }
-        },
-        hideAnimation: {
-            easing: 'linear',
-            preserveEndState: true,
-            to: {
-                width: 68
+        {
+            theme: ['Blackberry'],
+            top: 0,
+            left: null,
+            enter: 'right',
+            exit: 'right',
+            hideOnMaskTap: true,
+            baseCls: 'bb-crosscut',
+            scrollable: true,
+            layout: {
+                type: 'vbox',
+                pack: 'middle'
+            },
+            defaultType: 'button',
+            showAnimation: {
+                easing: 'linear',
+                preserveEndState: true,
+                to: {
+                    width: 250
+                }
+            },
+            hideAnimation: {
+                easing: 'linear',
+                preserveEndState: true,
+                to: {
+                    width: 68
+                }
             }
         }
-    }]
+    ]
 });

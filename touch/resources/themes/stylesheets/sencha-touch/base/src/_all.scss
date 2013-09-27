@@ -5,12 +5,10 @@
 @import "layout/Dock";
 @import "layout/Fit";
 @import "layout/Float";
-
 // Utiities
 @import "util/PaintMonitor";
 @import "util/SizeMonitor";
 @import "util/Translatable";
-
 // Components
 @import "Button";
 @import "Class";
@@ -34,6 +32,5 @@
 @import "slider/Slider";
 @import "tab/Panel";
 @import "table/Table";
-
 // Scroller
 @import "scroller/Scroller";

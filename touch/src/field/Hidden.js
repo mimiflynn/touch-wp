@@ -51,7 +51,7 @@ Ext.define('Ext.field.Hidden', {
          */
         component: {
             xtype: 'input',
-            type : 'hidden'
+            type: 'hidden'
         },
 
         /**

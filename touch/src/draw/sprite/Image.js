@@ -1,7 +1,7 @@
 /**
  * @class Ext.draw.sprite.Image
  * @extends Ext.draw.sprite.Rect
- * 
+ *
  * A sprite that represents an image.
  */
 Ext.define("Ext.draw.sprite.Image", {

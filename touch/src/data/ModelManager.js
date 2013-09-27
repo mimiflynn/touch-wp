@@ -1,33 +1,33 @@
 /**
  * @author Ed Spencer
- * 
+ *
  * The ModelManager keeps track of all {@link Ext.data.Model} types defined in your application.
- * 
+ *
  * ## Creating Model Instances
- * 
+ *
  * Model instances can be created by using the {@link Ext.ClassManager#create Ext.create} method. Ext.create replaces
  * the deprecated {@link #create Ext.ModelManager.create} method. It is also possible to create a model instance
  * this by using the Model type directly. The following 3 snippets are equivalent:
- * 
+ *
  *     Ext.define('User', {
  *         extend: 'Ext.data.Model',
  *         config: {
  *             fields: ['first', 'last']
  *         }
  *     });
- * 
+ *
  *     // method 1, create using Ext.create (recommended)
  *     Ext.create('User', {
  *         first: 'Ed',
  *         last: 'Spencer'
  *     });
- * 
+ *
  *     // method 2, create on the type directly
  *     new User({
  *         first: 'Ed',
  *         last: 'Spencer'
  *     });
- * 
+ *
  *     // method 3, create through the manager (deprecated)
  *     Ext.ModelManager.create({
  *         first: 'Ed',
@@ -35,20 +35,20 @@
  *     }, 'User');
  *
  * ## Accessing Model Types
- * 
+ *
  * A reference to a Model type can be obtained by using the {@link #getModel} function. Since models types
  * are normal classes, you can access the type directly. The following snippets are equivalent:
- * 
+ *
  *     Ext.define('User', {
  *         extend: 'Ext.data.Model',
  *         config: {
  *             fields: ['first', 'last']
  *         }
  *     });
- * 
+ *
  *     // method 1, access model type through the manager
  *     var UserType = Ext.ModelManager.getModel('User');
- * 
+ *
  *     // method 2, reference the type directly
  *     var UserType = User;
  */
@@ -79,7 +79,7 @@ Ext.define('Ext.data.ModelManager', {
      * @param config
      * @return {Object}
      */
-    registerType: function(name, config) {
+    registerType: function (name, config) {
         var proto = config.prototype,
             model;
 
@@ -142,7 +142,7 @@ Ext.define('Ext.data.ModelManager', {
      * @param {String/Object} id The `id` of the model or the model instance.
      * @return {Ext.data.Model} A model class.
      */
-    getModel: function(id) {
+    getModel: function (id) {
         var model = id;
         if (typeof model == 'string') {
             model = this.types[model];
@@ -168,11 +168,11 @@ Ext.define('Ext.data.ModelManager', {
      * @param {Number} id (optional) Unique id of the Model instance (see {@link Ext.data.Model}).
      * @return {Object}
      */
-    create: function(config, name, id) {
+    create: function (config, name, id) {
         var con = typeof name == 'function' ? name : this.types[name || config.name];
         return new con(config, id);
     }
-}, function() {
+}, function () {
 
     /**
      * Old way for creating Model classes.  Instead use:
@@ -188,7 +188,7 @@ Ext.define('Ext.data.ModelManager', {
      * @member Ext
      * @deprecated 2.0.0 Please use {@link Ext#define} instead.
      */
-    Ext.regModel = function() {
+    Ext.regModel = function () {
         //<debug>
         Ext.Logger.deprecate('Ext.regModel has been deprecated. Models can now be created by ' +
             'extending Ext.data.Model: Ext.define("MyModel", {extend: "Ext.data.Model", fields: []});.');

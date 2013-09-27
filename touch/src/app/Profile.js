@@ -63,7 +63,7 @@
  *
  * For a fuller understanding of the ideas behind Profiles and how best to use them in your app, we suggest you read
  * the [device profiles guide](#!/guide/profiles).
- * 
+ *
  * @aside guide profiles
  */
 Ext.define('Ext.app.Profile', {
@@ -157,7 +157,7 @@ Ext.define('Ext.app.Profile', {
     /**
      * Creates a new Profile instance
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         this.mixins.observable.constructor.apply(this, arguments);
@@ -169,7 +169,7 @@ Ext.define('Ext.app.Profile', {
      * (the default implementation just returns false).
      * @return {Boolean} True if this Profile should be activated on the device it is running on, false otherwise
      */
-    isActive: function() {
+    isActive: function () {
         return false;
     },
 
@@ -188,7 +188,7 @@ Ext.define('Ext.app.Profile', {
     /**
      * @private
      */
-    applyNamespace: function(name) {
+    applyNamespace: function (name) {
         if (name == 'auto') {
             name = this.getName();
         }
@@ -199,7 +199,7 @@ Ext.define('Ext.app.Profile', {
     /**
      * @private
      */
-    applyName: function(name) {
+    applyName: function (name) {
         if (name == 'auto') {
             var pieces = this.$className.split('.');
             name = pieces[pieces.length - 1];
@@ -213,7 +213,7 @@ Ext.define('Ext.app.Profile', {
      * Computes the full class names of any specified model, view, controller and store dependencies, returns them in
      * an object map for easy loading
      */
-    getDependencies: function() {
+    getDependencies: function () {
         var allClasses = [],
             format = Ext.String.format,
             appName = this.getApplication().getName(),
@@ -229,7 +229,7 @@ Ext.define('Ext.app.Profile', {
         for (classType in map) {
             classNames = [];
 
-            Ext.each(map[classType], function(className) {
+            Ext.each(map[classType], function (className) {
                 if (Ext.isString(className)) {
                     //we check name === appName to allow MyApp.profile.MyApp to exist
                     if (Ext.isString(className) && (Ext.Loader.getPrefix(className) === "" || className === appName)) {

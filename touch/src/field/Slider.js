@@ -61,8 +61,8 @@
  * event listener.
  */
 Ext.define('Ext.field.Slider', {
-    extend  : 'Ext.field.Field',
-    xtype   : 'sliderfield',
+    extend: 'Ext.field.Field',
+    xtype: 'sliderfield',
     requires: ['Ext.slider.Slider'],
     alternateClassName: 'Ext.form.Slider',
 
@@ -77,33 +77,33 @@ Ext.define('Ext.field.Slider', {
      */
 
     /**
-    * @event dragstart
-    * Fires when the slider thumb starts a drag operation.
-    * @param {Ext.field.Slider} this
-    * @param {Ext.slider.Slider} sl Slider Component.
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged.
-    * @param {Array} value The start value.
-    * @param {Ext.EventObject} e
-    */
+     * @event dragstart
+     * Fires when the slider thumb starts a drag operation.
+     * @param {Ext.field.Slider} this
+     * @param {Ext.slider.Slider} sl Slider Component.
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged.
+     * @param {Array} value The start value.
+     * @param {Ext.EventObject} e
+     */
 
     /**
-    * @event drag
-    * Fires when the slider thumb starts a drag operation.
-    * @param {Ext.field.Slider} this
-    * @param {Ext.slider.Slider} sl Slider Component.
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged.
-    * @param {Ext.EventObject} e
-    */
+     * @event drag
+     * Fires when the slider thumb starts a drag operation.
+     * @param {Ext.field.Slider} this
+     * @param {Ext.slider.Slider} sl Slider Component.
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged.
+     * @param {Ext.EventObject} e
+     */
 
     /**
-    * @event dragend
-    * Fires when the slider thumb ends a drag operation.
-    * @param {Ext.field.Slider} this
-    * @param {Ext.slider.Slider} sl Slider Component.
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged.
-    * @param {Array} value The end value.
-    * @param {Ext.EventObject} e
-    */
+     * @event dragend
+     * Fires when the slider thumb ends a drag operation.
+     * @param {Ext.field.Slider} this
+     * @param {Ext.slider.Slider} sl Slider Component.
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged.
+     * @param {Array} value The end value.
+     * @param {Ext.EventObject} e
+     */
 
     config: {
         /**
@@ -133,7 +133,7 @@ Ext.define('Ext.field.Slider', {
          * @cfg {Number} increment
          * @accessor
          */
-        increment : 1,
+        increment: 1,
 
         /**
          * @inheritdoc Ext.slider.Slider#value
@@ -162,7 +162,7 @@ Ext.define('Ext.field.Slider', {
      * @cfg {Number/Number[]} values
      */
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (config.hasOwnProperty('values')) {
@@ -174,7 +174,7 @@ Ext.define('Ext.field.Slider', {
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.getComponent().on({
@@ -188,31 +188,31 @@ Ext.define('Ext.field.Slider', {
     },
 
     // @private
-    applyComponent: function(config) {
+    applyComponent: function (config) {
         return Ext.factory(config, Ext.slider.Slider);
     },
 
     // @private
-    updateComponent: function(component) {
+    updateComponent: function (component) {
         this.callSuper(arguments);
 
         component.setMinValue(this.getMinValue());
         component.setMaxValue(this.getMaxValue());
     },
 
-    onSliderChange: function() {
+    onSliderChange: function () {
         this.fireEvent.apply(this, [].concat('change', this, Array.prototype.slice.call(arguments)));
     },
 
-    onSliderDragStart: function() {
+    onSliderDragStart: function () {
         this.fireEvent.apply(this, [].concat('dragstart', this, Array.prototype.slice.call(arguments)));
     },
 
-    onSliderDrag: function() {
+    onSliderDrag: function () {
         this.fireEvent.apply(this, [].concat('drag', this, Array.prototype.slice.call(arguments)));
     },
 
-    onSliderDragEnd: function() {
+    onSliderDragEnd: function () {
         this.fireEvent.apply(this, [].concat('dragend', this, Array.prototype.slice.call(arguments)));
     },
 
@@ -220,7 +220,7 @@ Ext.define('Ext.field.Slider', {
      * Convenience method. Calls {@link #setValue}.
      * @param {Object} value
      */
-    setValues: function(value) {
+    setValues: function (value) {
         this.setValue(value);
         this.updateMultipleState();
     },
@@ -229,28 +229,28 @@ Ext.define('Ext.field.Slider', {
      * Convenience method. Calls {@link #getValue}
      * @return {Object}
      */
-    getValues: function() {
+    getValues: function () {
         return this.getValue();
     },
 
-    reset: function() {
+    reset: function () {
         var config = this.config,
             initialValue = (this.config.hasOwnProperty('values')) ? config.values : config.value;
 
         this.setValue(initialValue);
     },
 
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         this.callParent(arguments);
 
         this.getComponent().setDisabled(disabled);
     },
 
-    updateReadOnly: function(newValue) {
+    updateReadOnly: function (newValue) {
         this.getComponent().setReadOnly(newValue);
     },
 
-    isDirty : function () {
+    isDirty: function () {
         if (this.getDisabled()) {
             return false;
         }
@@ -258,7 +258,7 @@ Ext.define('Ext.field.Slider', {
         return this.getValue() !== this.originalValue;
     },
 
-    updateMultipleState: function() {
+    updateMultipleState: function () {
         var value = this.getValue();
         if (value && value.length > 1) {
             this.addCls(Ext.baseCSSPrefix + 'slider-multiple');

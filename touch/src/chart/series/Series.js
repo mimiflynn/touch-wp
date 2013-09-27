@@ -73,11 +73,11 @@ Ext.define('Ext.chart.series.Series', {
          *
          * @param {Object} sprite The sprite affected by the renderer. The visual attributes are in `sprite.attr`.
          * The data field is available in `sprite.getField()`.
-         * @param {Object} config The sprite configuration. It varies with the series and the type of sprite: 
-         * for instance, a Line chart sprite might have just the `x` and `y` properties while a Bar 
+         * @param {Object} config The sprite configuration. It varies with the series and the type of sprite:
+         * for instance, a Line chart sprite might have just the `x` and `y` properties while a Bar
          * chart sprite also has `width` and `height`. A `type` might be present too. For instance to
          * draw each marker and each segment of a Line chart, the renderer is called with the
-         * `config.type` set to either `marker` or `line`. 
+         * `config.type` set to either `marker` or `line`.
          * @param {Object} rendererData A record with different properties depending on the type of chart.
          * The only guaranteed property is `rendererData.store`, the store used by the series.
          * In some cases, a store may not exist: for instance a Gauge chart may read its value directly
@@ -86,7 +86,7 @@ Ext.define('Ext.chart.series.Series', {
          * @param {Number} index The index of the sprite. It is usually the index of the store record associated
          * with the sprite, in which case the record can be obtained with `store.getData().items[index]`.
          * If the chart is not associated with a store, the index represents the index of the sprite within
-         * the series. For instance a Gauge chart may have as many sprites as there are sectors in the 
+         * the series. For instance a Gauge chart may have as many sprites as there are sectors in the
          * background of the gauge, plus one for the needle.
          *
          * @return {Object} The attributes that have been changed or added. Note: it is usually possible to
@@ -445,7 +445,9 @@ Ext.define('Ext.chart.series.Series', {
             layout = axis && axis.getLayout(),
             coord = axis ? function (x, field, idx, items) {
                 return layout.getCoordFor(x, field, idx, items);
-            } : function (x) { return +x; },
+            } : function (x) {
+                return +x;
+            },
             i;
         for (i = 0; i < length; i++) {
             data[i] = coord(items[i].data[field], field, i, items);

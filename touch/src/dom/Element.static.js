@@ -26,7 +26,7 @@ Ext.dom.Element.addStatics({
      * @private
      * @static
      */
-    addUnits: function(size, units) {
+    addUnits: function (size, units) {
         // Size set to a value which means "auto"
         if (size === "" || size == "auto" || size === undefined || size === null) {
             return size || '';
@@ -51,7 +51,7 @@ Ext.dom.Element.addStatics({
      * @return {Boolean}
      * @private
      */
-    isAncestor: function(p, c) {
+    isAncestor: function (p, c) {
         var ret = false;
 
         p = Ext.getDom(p);
@@ -77,7 +77,7 @@ Ext.dom.Element.addStatics({
      * @param {Number/String} box The encoded margins
      * @return {Object} An object with margin sizes for top, right, bottom and left containing the unit
      */
-    parseBox: function(box) {
+    parseBox: function (box) {
         if (typeof box != 'string') {
             box = box.toString();
         }
@@ -112,18 +112,18 @@ Ext.dom.Element.addStatics({
      * @param {String} units The type of units to add
      * @return {String} An string with unitized (px if units is not specified) metrics for top, right, bottom and left
      */
-    unitizeBox: function(box, units) {
+    unitizeBox: function (box, units) {
         var me = this;
         box = me.parseBox(box);
 
         return me.addUnits(box.top, units) + ' ' +
-               me.addUnits(box.right, units) + ' ' +
-               me.addUnits(box.bottom, units) + ' ' +
-               me.addUnits(box.left, units);
+            me.addUnits(box.right, units) + ' ' +
+            me.addUnits(box.bottom, units) + ' ' +
+            me.addUnits(box.left, units);
     },
 
     // @private
-    camelReplaceFn: function(m, a) {
+    camelReplaceFn: function (m, a) {
         return a.charAt(1).toUpperCase();
     },
 
@@ -138,7 +138,7 @@ Ext.dom.Element.addStatics({
      * @param {String} prop The property to normalize
      * @return {String} The normalized string
      */
-    normalize: function(prop) {
+    normalize: function (prop) {
         // TODO: Mobile optimization?
 //        if (prop == 'float') {
 //            prop = Ext.supports.Float ? 'cssFloat' : 'styleFloat';
@@ -153,7 +153,7 @@ Ext.dom.Element.addStatics({
      * @param {Number} y The y coordinate
      * @return {String} The found Element
      */
-    fromPoint: function(x, y) {
+    fromPoint: function (x, y) {
         return Ext.get(document.elementFromPoint(x, y));
     },
 
@@ -170,7 +170,7 @@ Ext.dom.Element.addStatics({
      * @param {String} styles A CSS string
      * @return {Object} styles
      */
-    parseStyles: function(styles) {
+    parseStyles: function (styles) {
         var out = {},
             cssRe = this.cssRe,
             matches;
@@ -197,7 +197,7 @@ Ext.dom.Element.addStatics({
      * @param {Object} form The form
      * @return {String} The url encoded form
      */
-    serializeForm: function(form) {
+    serializeForm: function (form) {
         var fElements = form.elements || (document.forms[form] || Ext.getDom(form)).elements,
             hasSubmit = false,
             encoder = encodeURIComponent,
@@ -206,13 +206,13 @@ Ext.dom.Element.addStatics({
             type,
             hasValue;
 
-        Ext.each(fElements, function(element) {
+        Ext.each(fElements, function (element) {
             name = element.name;
             type = element.type;
 
             if (!element.disabled && name) {
                 if (/select-(one|multiple)/i.test(type)) {
-                    Ext.each(element.options, function(opt) {
+                    Ext.each(element.options, function (opt) {
                         if (opt.selected) {
                             hasValue = opt.hasAttribute ? opt.hasAttribute('value') : opt.getAttributeNode('value').specified;
                             data += Ext.String.format("{0}={1}&", encoder(name), encoder(hasValue ? opt.value : opt.text));
@@ -236,7 +236,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {Number} documentHeight
      */
-    getDocumentHeight: function() {
+    getDocumentHeight: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getDocumentHeight() is no longer supported. " +
             "Please use Ext.Viewport#getWindowHeight() instead", this);
@@ -250,7 +250,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {Number} documentWidth
      */
-    getDocumentWidth: function() {
+    getDocumentWidth: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getDocumentWidth() is no longer supported. " +
             "Please use Ext.Viewport#getWindowWidth() instead", this);
@@ -264,7 +264,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {Number} viewportHeight
      */
-    getViewportHeight: function() {
+    getViewportHeight: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getDocumentHeight() is no longer supported. " +
             "Please use Ext.Viewport#getWindowHeight() instead", this);
@@ -278,7 +278,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {Number} viewportWidth
      */
-    getViewportWidth: function() {
+    getViewportWidth: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getDocumentWidth() is no longer supported. " +
             "Please use Ext.Viewport#getWindowWidth() instead", this);
@@ -292,7 +292,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {Object} object containing width and height properties
      */
-    getViewSize: function() {
+    getViewSize: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getViewSize() is no longer supported. " +
             "Please use Ext.Viewport#getSize() instead", this);
@@ -310,7 +310,7 @@ Ext.dom.Element.addStatics({
      * @static
      * @return {String} Orientation of window: 'portrait' or 'landscape'
      */
-    getOrientation: function() {
+    getOrientation: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.Element.getOrientation() is no longer supported. " +
             "Please use Ext.Viewport#getOrientation() instead", this);

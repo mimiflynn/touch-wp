@@ -48,22 +48,22 @@ Ext.define('Ext.data.ResultSet', {
      * Creates the resultSet
      * @param {Object} [config] Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyCount: function(count) {
+    applyCount: function (count) {
         if (!count && count !== 0) {
             return this.getRecords().length;
         }
         return count;
     },
-    
+
     /**
      * @private
      * Make sure we set the right count when new records have been sent in
      */
-    updateRecords: function(records) {
+    updateRecords: function (records) {
         this.setCount(records.length);
     }
 });

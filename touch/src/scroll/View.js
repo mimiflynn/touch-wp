@@ -51,7 +51,7 @@ Ext.define('Ext.scroll.View', {
     /**
      * @private
      */
-    processConfig: function(config) {
+    processConfig: function (config) {
         if (!config) {
             return null;
         }
@@ -83,7 +83,7 @@ Ext.define('Ext.scroll.View', {
         return config;
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = this.processConfig(config);
 
         this.useIndicators = { x: true, y: true };
@@ -93,21 +93,21 @@ Ext.define('Ext.scroll.View', {
         this.initConfig(config);
     },
 
-    setConfig: function(config) {
+    setConfig: function (config) {
         return this.callParent([this.processConfig(config)]);
     },
 
-    updateIndicatorsUi: function(newUi) {
+    updateIndicatorsUi: function (newUi) {
         var indicators = this.getIndicators();
         indicators.x.setUi(newUi);
         indicators.y.setUi(newUi);
     },
 
-    applyScroller: function(config, currentScroller) {
+    applyScroller: function (config, currentScroller) {
         return Ext.factory(config, Ext.scroll.Scroller, currentScroller);
     },
 
-    applyIndicators: function(config, indicators) {
+    applyIndicators: function (config, indicators) {
         var defaultClass = Ext.scroll.Indicator,
             useIndicators = this.useIndicators;
 
@@ -131,28 +131,36 @@ Ext.define('Ext.scroll.View', {
         };
     },
 
-    updateIndicators: function(indicators) {
+    updateIndicators: function (indicators) {
         this.indicatorsGrid = Ext.Element.create({
             className: 'x-scroll-bar-grid-wrapper',
-            children: [{
-                className: 'x-scroll-bar-grid',
-                children: [
-                    {
-                        children: [{}, {
-                            children: [indicators.y.barElement]
-                        }]
-                    },
-                    {
-                        children: [{
-                            children: [indicators.x.barElement]
-                        }, {}]
-                    }
-                ]
-            }]
+            children: [
+                {
+                    className: 'x-scroll-bar-grid',
+                    children: [
+                        {
+                            children: [
+                                {},
+                                {
+                                    children: [indicators.y.barElement]
+                                }
+                            ]
+                        },
+                        {
+                            children: [
+                                {
+                                    children: [indicators.x.barElement]
+                                },
+                                {}
+                            ]
+                        }
+                    ]
+                }
+            ]
         });
     },
 
-    updateScroller: function(scroller) {
+    updateScroller: function (scroller) {
         scroller.on({
             scope: this,
             scrollstart: 'onScrollStart',
@@ -162,17 +170,17 @@ Ext.define('Ext.scroll.View', {
         });
     },
 
-    isAxisEnabled: function(axis) {
+    isAxisEnabled: function (axis) {
         return this.getScroller().isAxisEnabled(axis) && this.useIndicators[axis];
     },
 
-    applyElement: function(element) {
+    applyElement: function (element) {
         if (element) {
             return Ext.get(element);
         }
     },
 
-    updateElement: function(element) {
+    updateElement: function (element) {
         var scroller = this.getScroller(),
             scrollerElement;
 
@@ -192,7 +200,7 @@ Ext.define('Ext.scroll.View', {
         return this;
     },
 
-    showIndicators: function() {
+    showIndicators: function () {
         var indicators = this.getIndicators();
 
         if (this.hasOwnProperty('indicatorsHidingTimer')) {
@@ -209,7 +217,7 @@ Ext.define('Ext.scroll.View', {
         }
     },
 
-    hideIndicators: function() {
+    hideIndicators: function () {
         var delay = this.getIndicatorsHidingDelay();
 
         if (delay > 0) {
@@ -220,7 +228,7 @@ Ext.define('Ext.scroll.View', {
         }
     },
 
-    doHideIndicators: function() {
+    doHideIndicators: function () {
         var indicators = this.getIndicators();
 
         if (this.isAxisEnabled('x')) {
@@ -232,16 +240,16 @@ Ext.define('Ext.scroll.View', {
         }
     },
 
-    onScrollStart: function() {
+    onScrollStart: function () {
         this.onScroll.apply(this, arguments);
         this.showIndicators();
     },
 
-    onScrollEnd: function() {
+    onScrollEnd: function () {
         this.hideIndicators();
     },
 
-    onScroll: function(scroller, x, y) {
+    onScroll: function (scroller, x, y) {
         this.setIndicatorValue('x', x);
         this.setIndicatorValue('y', y);
 
@@ -257,7 +265,7 @@ Ext.define('Ext.scroll.View', {
 
     framesCount: 0,
 
-    getCurrentFps: function() {
+    getCurrentFps: function () {
         var now = Date.now(),
             fps;
 
@@ -276,7 +284,7 @@ Ext.define('Ext.scroll.View', {
     },
     //</debug>
 
-    setIndicatorValue: function(axis, scrollerPosition) {
+    setIndicatorValue: function (axis, scrollerPosition) {
         if (!this.isAxisEnabled(axis)) {
             return this;
         }
@@ -308,7 +316,7 @@ Ext.define('Ext.scroll.View', {
         this.getIndicators()[axis].setValue(value);
     },
 
-    refreshIndicator: function(axis) {
+    refreshIndicator: function (axis) {
         if (!this.isAxisEnabled(axis)) {
             return this;
         }
@@ -323,11 +331,11 @@ Ext.define('Ext.scroll.View', {
         indicator.refresh();
     },
 
-    refresh: function() {
+    refresh: function () {
         return this.getScroller().refresh();
     },
 
-    refreshIndicators: function() {
+    refreshIndicators: function () {
         var indicators = this.getIndicators();
 
         indicators.x.setActive(this.isAxisEnabled('x'));
@@ -337,7 +345,7 @@ Ext.define('Ext.scroll.View', {
         this.refreshIndicator('y');
     },
 
-    destroy: function() {
+    destroy: function () {
         var element = this.getElement(),
             indicators = this.getIndicators();
 

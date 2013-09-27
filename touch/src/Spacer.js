@@ -1,12 +1,12 @@
 /**
-The {@link Ext.Spacer} component is generally used to put space between items in {@link Ext.Toolbar} components.
+ The {@link Ext.Spacer} component is generally used to put space between items in {@link Ext.Toolbar} components.
 
-## Examples
+ ## Examples
 
-By default the {@link #flex} configuration is set to 1:
+ By default the {@link #flex} configuration is set to 1:
 
-    @example miniphone preview
-    Ext.create('Ext.Container', {
+ @example miniphone preview
+ Ext.create('Ext.Container', {
         fullscreen: true,
         items: [
             {
@@ -29,10 +29,10 @@ By default the {@link #flex} configuration is set to 1:
         ]
     });
 
-Alternatively you can just set the {@link #width} configuration which will get the {@link Ext.Spacer} a fixed width:
+ Alternatively you can just set the {@link #width} configuration which will get the {@link Ext.Spacer} a fixed width:
 
-    @example preview
-    Ext.create('Ext.Container', {
+ @example preview
+ Ext.create('Ext.Container', {
         fullscreen: true,
         layout: {
             type: 'vbox',
@@ -79,10 +79,10 @@ Alternatively you can just set the {@link #width} configuration which will get t
         ]
     });
 
-You can also insert multiple {@link Ext.Spacer}'s:
+ You can also insert multiple {@link Ext.Spacer}'s:
 
-    @example preview
-    Ext.create('Ext.Container', {
+ @example preview
+ Ext.create('Ext.Container', {
         fullscreen: true,
         items: [
             {
@@ -115,7 +115,7 @@ You can also insert multiple {@link Ext.Spacer}'s:
  */
 Ext.define('Ext.Spacer', {
     extend: 'Ext.Component',
-    alias : 'widget.spacer',
+    alias: 'widget.spacer',
 
     config: {
         /**
@@ -123,7 +123,7 @@ Ext.define('Ext.Spacer', {
          * The flex value of this spacer. This defaults to 1, if no width has been set.
          * @accessor
          */
-        
+
         /**
          * @cfg {Number} width
          * The width of this spacer. If this is set, the value of {@link #flex} will be ignored.
@@ -132,7 +132,7 @@ Ext.define('Ext.Spacer', {
     },
 
     // @private
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (!config.width) {

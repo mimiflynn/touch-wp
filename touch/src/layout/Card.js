@@ -61,7 +61,7 @@ Ext.define('Ext.layout.Card', {
      * @param {Mixed} newActiveItem The new active item
      * @param {Mixed} oldActiveItem The old active item
      */
-        
+
     layoutClass: 'x-layout-card',
 
     itemClass: 'x-layout-card-item',
@@ -73,14 +73,14 @@ Ext.define('Ext.layout.Card', {
     /**
      * @private
      */
-    applyAnimation: function(animation) {
+    applyAnimation: function (animation) {
         return new Ext.fx.layout.Card(animation);
     },
 
     /**
      * @private
      */
-    updateAnimation: function(animation, oldAnimation) {
+    updateAnimation: function (animation, oldAnimation) {
         if (animation && animation.isAnimation) {
             animation.setLayout(this);
         }
@@ -90,14 +90,14 @@ Ext.define('Ext.layout.Card', {
         }
     },
 
-    setContainer: function(container) {
+    setContainer: function (container) {
         this.callSuper(arguments);
 
         container.innerElement.addCls(this.layoutClass);
         container.onInitialized('onContainerInitialized', this);
     },
 
-    onContainerInitialized: function() {
+    onContainerInitialized: function () {
         var container = this.container,
             activeItem = container.getActiveItem();
 
@@ -111,11 +111,11 @@ Ext.define('Ext.layout.Card', {
     /**
      * @private
      */
-    onContainerActiveItemChange: function(container) {
+    onContainerActiveItemChange: function (container) {
         this.relayEvent(arguments, 'doActiveItemChange');
     },
 
-    onItemInnerStateChange: function(item, isInner, destroying) {
+    onItemInnerStateChange: function (item, isInner, destroying) {
         this.callSuper(arguments);
         var container = this.container,
             activeItem = container.getActiveItem();
@@ -138,7 +138,7 @@ Ext.define('Ext.layout.Card', {
     /**
      * @private
      */
-    doActiveItemChange: function(me, newActiveItem, oldActiveItem) {
+    doActiveItemChange: function (me, newActiveItem, oldActiveItem) {
         if (oldActiveItem) {
             oldActiveItem.hide();
         }
@@ -148,7 +148,7 @@ Ext.define('Ext.layout.Card', {
         }
     },
 
-    destroy:  function () {
+    destroy: function () {
         this.callParent(arguments);
         Ext.destroy(this.getAnimation());
     }

@@ -81,7 +81,7 @@ Ext.define('Ext.dom.Query', {
      * @return {HTMLElement[]} An Array of DOM elements which match the selector. If there are
      * no matches, and empty Array is returned.
      */
-    select: function(q, root) {
+    select: function (q, root) {
         var results = [],
             nodes,
             i,
@@ -97,7 +97,7 @@ Ext.define('Ext.dom.Query', {
 
         q = q.split(",");
 
-        for (i = 0,qlen = q.length; i < qlen; i++) {
+        for (i = 0, qlen = q.length; i < qlen; i++) {
             if (typeof q[i] == 'string') {
 
                 //support for node attribute selection
@@ -108,7 +108,7 @@ Ext.define('Ext.dom.Query', {
                 else {
                     nodes = root.querySelectorAll(q[i]);
 
-                    for (j = 0,nlen = nodes.length; j < nlen; j++) {
+                    for (j = 0, nlen = nodes.length; j < nlen; j++) {
                         results.push(nodes[j]);
                     }
                 }
@@ -124,7 +124,7 @@ Ext.define('Ext.dom.Query', {
      * @param {HTMLElement/String} [root] The start of the query (defaults to document).
      * @return {HTMLElement} The DOM element which matched the selector.
      */
-    selectNode: function(q, root) {
+    selectNode: function (q, root) {
         return this.select(q, root)[0];
     },
 
@@ -134,7 +134,7 @@ Ext.define('Ext.dom.Query', {
      * @param {String} selector The simple selector to test
      * @return {Boolean}
      */
-    is: function(el, q) {
+    is: function (el, q) {
         var root = el.parentNode,
             is;
 
@@ -156,12 +156,12 @@ Ext.define('Ext.dom.Query', {
         return is;
     },
 
-    isXml: function(el) {
+    isXml: function (el) {
         var docEl = (el ? el.ownerDocument || el : 0).documentElement;
         return docEl ? docEl.nodeName !== "HTML" : false;
     }
 
-}, function() {
+}, function () {
     Ext.ns('Ext.core');
     Ext.core.DomQuery = Ext.DomQuery = new this();
     /**

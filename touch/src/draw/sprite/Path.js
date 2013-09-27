@@ -84,5 +84,6 @@ Ext.define("Ext.draw.sprite.Path", {
      * @param {Object} attr The attribute object. Note: DO NOT use the `sprite.attr` instead of this
      * if you want to work with instancing.
      */
-    updatePath: function (path, attr) {}
+    updatePath: function (path, attr) {
+    }
 });

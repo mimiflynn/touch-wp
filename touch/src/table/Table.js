@@ -16,7 +16,7 @@ Ext.define('Ext.table.Table', {
 
     fixedLayoutCls: 'x-table-fixed',
 
-    updateFixedLayout: function(fixedLayout) {
+    updateFixedLayout: function (fixedLayout) {
         this.innerElement[fixedLayout ? 'addCls' : 'removeCls'](this.fixedLayoutCls);
     }
 });

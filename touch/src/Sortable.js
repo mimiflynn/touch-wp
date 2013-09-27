@@ -25,7 +25,7 @@ Ext.define('Ext.Sortable', {
          */
         delay: 0
 
-        },
+    },
 
     /**
      * @cfg {String} direction
@@ -108,7 +108,7 @@ Ext.define('Ext.Sortable', {
      * @param {Mixed} el
      * @param {Object} config
      */
-    constructor : function(el, config) {
+    constructor: function (el, config) {
         config = config || {};
         Ext.apply(this, config);
 
@@ -166,7 +166,7 @@ Ext.define('Ext.Sortable', {
     },
 
     // @private
-    onStart : function(e, t) {
+    onStart: function (e, t) {
         if (this.cancelSelector && e.getTarget(this.cancelSelector)) {
             return;
         }
@@ -180,7 +180,7 @@ Ext.define('Ext.Sortable', {
     },
 
     // @private
-    onSortStart : function(e, t) {
+    onSortStart: function (e, t) {
         this.sorting = true;
         var draggable = Ext.create('Ext.util.Draggable', t, {
             threshold: 0,
@@ -206,7 +206,7 @@ Ext.define('Ext.Sortable', {
     },
 
     // @private
-    calculateBoxes : function() {
+    calculateBoxes: function () {
         this.items = [];
         var els = this.el.select(this.itemSelector, false),
             ln = els.length, i, item, el, box;
@@ -222,7 +222,7 @@ Ext.define('Ext.Sortable', {
     },
 
     // @private
-    onDrag : function(draggable, e) {
+    onDrag: function (draggable, e) {
         var items = this.items,
             ln = items.length,
             region = draggable.region,
@@ -270,7 +270,7 @@ Ext.define('Ext.Sortable', {
     },
 
     // @private
-    onDragEnd : function(draggable, e) {
+    onDragEnd: function (draggable, e) {
         draggable.destroy();
         this.sorting = false;
         this.fireEvent('sortend', this, draggable, e);
@@ -281,7 +281,7 @@ Ext.define('Ext.Sortable', {
      * This method is invoked immediately after construction of a Sortable unless
      * the disabled configuration is set to `true`.
      */
-    enable : function() {
+    enable: function () {
         this.el.on(this.startEventName, this.onStart, this, {delegate: this.itemSelector, holdThreshold: this.getDelay()});
         this.disabled = false;
     },
@@ -289,7 +289,7 @@ Ext.define('Ext.Sortable', {
     /**
      * Disables sorting for this Sortable.
      */
-    disable : function() {
+    disable: function () {
         this.el.un(this.startEventName, this.onStart, this);
         this.disabled = true;
     },
@@ -298,7 +298,7 @@ Ext.define('Ext.Sortable', {
      * Method to determine whether this Sortable is currently disabled.
      * @return {Boolean} The disabled state of this Sortable.
      */
-    isDisabled: function() {
+    isDisabled: function () {
         return this.disabled;
     },
 
@@ -306,7 +306,7 @@ Ext.define('Ext.Sortable', {
      * Method to determine whether this Sortable is currently sorting.
      * @return {Boolean} The sorting state of this Sortable.
      */
-    isSorting : function() {
+    isSorting: function () {
         return this.sorting;
     },
 
@@ -314,7 +314,7 @@ Ext.define('Ext.Sortable', {
      * Method to determine whether this Sortable is currently disabled.
      * @return {Boolean} The disabled state of this Sortable.
      */
-    isVertical : function() {
+    isVertical: function () {
         return this.vertical;
     },
 
@@ -322,7 +322,7 @@ Ext.define('Ext.Sortable', {
      * Method to determine whether this Sortable is currently sorting.
      * @return {Boolean} The sorting state of this Sortable.
      */
-    isHorizontal : function() {
+    isHorizontal: function () {
         return this.horizontal;
     }
 });

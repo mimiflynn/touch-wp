@@ -3,7 +3,7 @@
  */
 Ext.define('Ext.dataview.ListItemHeader', {
     extend: 'Ext.Component',
-    xtype : 'listitemheader',
+    xtype: 'listitemheader',
 
     config: {
         /**

@@ -27,7 +27,7 @@ Ext.define('Ext.data.Errors', {
      * Returns `true` if there are no errors in the collection.
      * @return {Boolean}
      */
-    isValid: function() {
+    isValid: function () {
         return this.length === 0;
     },
 
@@ -36,7 +36,7 @@ Ext.define('Ext.data.Errors', {
      * @param {String} fieldName The field to get errors for.
      * @return {Object[]} All errors for the given field.
      */
-    getByField: function(fieldName) {
+    getByField: function (fieldName) {
         var errors = [],
             error, i;
 
@@ -50,17 +50,17 @@ Ext.define('Ext.data.Errors', {
 
         return errors;
     },
-    
-    add: function() {
+
+    add: function () {
         var obj = arguments.length == 1 ? arguments[0] : arguments[1];
-        
+
         if (!(obj instanceof Ext.data.Error)) {
             obj = Ext.create('Ext.data.Error', {
                 field: obj.field || obj.name,
                 message: obj.error || obj.message
             });
         }
-        
+
         return this.callParent([obj]);
     }
 });

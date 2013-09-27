@@ -133,7 +133,7 @@ Ext.define('Ext.field.Spinner', {
         }
     },
 
-    constructor: function() {
+    constructor: function () {
         var me = this;
 
         me.callParent(arguments);
@@ -150,28 +150,28 @@ Ext.define('Ext.field.Spinner', {
     /**
      * Updates the {@link #component} configuration
      */
-    updateComponent: function(newComponent) {
+    updateComponent: function (newComponent) {
         this.callParent(arguments);
 
         var cls = this.getCls();
 
         if (newComponent) {
             this.spinDownButton = Ext.Element.create({
-                cls : cls + '-button ' + cls + '-button-down',
+                cls: cls + '-button ' + cls + '-button-down',
                 html: '-'
             });
 
             this.spinUpButton = Ext.Element.create({
-                cls : cls + '-button ' + cls + '-button-up',
+                cls: cls + '-button ' + cls + '-button-up',
                 html: '+'
             });
 
             this.downRepeater = this.createRepeater(this.spinDownButton, this.onSpinDown);
-            this.upRepeater = this.createRepeater(this.spinUpButton,     this.onSpinUp);
+            this.upRepeater = this.createRepeater(this.spinUpButton, this.onSpinUp);
         }
     },
 
-    updateGroupButtons: function(newGroupButtons, oldGroupButtons) {
+    updateGroupButtons: function (newGroupButtons, oldGroupButtons) {
         var me = this,
             innerElement = me.innerElement,
             cls = me.getBaseCls() + '-grouped-buttons';
@@ -191,7 +191,7 @@ Ext.define('Ext.field.Spinner', {
         }
     },
 
-    applyValue: function(value) {
+    applyValue: function (value) {
         value = parseFloat(value);
         if (isNaN(value) || value === null) {
             value = this.getDefaultValue();
@@ -204,7 +204,7 @@ Ext.define('Ext.field.Spinner', {
     },
 
     // @private
-    createRepeater: function(el, fn) {
+    createRepeater: function (el, fn) {
         var me = this,
             repeater = Ext.create('Ext.util.TapRepeater', {
                 el: el,
@@ -222,33 +222,33 @@ Ext.define('Ext.field.Spinner', {
     },
 
     // @private
-    onSpinDown: function() {
+    onSpinDown: function () {
         if (!this.getDisabled() && !this.getReadOnly()) {
             this.spin(true);
         }
     },
 
     // @private
-    onSpinUp: function() {
+    onSpinUp: function () {
         if (!this.getDisabled() && !this.getReadOnly()) {
             this.spin(false);
         }
     },
 
     // @private
-    onTouchStart: function(repeater) {
+    onTouchStart: function (repeater) {
         if (!this.getDisabled() && !this.getReadOnly()) {
             repeater.getEl().addCls(Ext.baseCSSPrefix + 'button-pressed');
         }
     },
 
     // @private
-    onTouchEnd: function(repeater) {
+    onTouchEnd: function (repeater) {
         repeater.getEl().removeCls(Ext.baseCSSPrefix + 'button-pressed');
     },
 
     // @private
-    spin: function(down) {
+    spin: function (down) {
         var me = this,
             originalValue = me.getValue(),
             stepValue = me.getStepValue(),
@@ -285,40 +285,40 @@ Ext.define('Ext.field.Spinner', {
     /**
      * @private
      */
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         Ext.Component.prototype.doSetDisabled.apply(this, arguments);
     },
 
     /**
      * @private
      */
-    setDisabled: function() {
+    setDisabled: function () {
         Ext.Component.prototype.setDisabled.apply(this, arguments);
     },
 
-    reset: function() {
+    reset: function () {
         this.setValue(this.getDefaultValue());
     },
 
 //    setValue: function(value){
 //        this.callSuper(arguments);
 
-        // @TODO: Isn't this already done by the framework by default?
+    // @TODO: Isn't this already done by the framework by default?
 //        if(Ext.getThemeName() == 'WP'){
 //            this.getComponent().element.dom.setAttribute('value',value);
 //        }
 //    },
 
     // @private
-    destroy: function() {
+    destroy: function () {
         var me = this;
         Ext.destroy(me.downRepeater, me.upRepeater, me.spinDownButton, me.spinUpButton);
         me.callParent(arguments);
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             if (config) {
                 /**
                  * @cfg {String} incrementValue

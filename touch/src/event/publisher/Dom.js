@@ -15,14 +15,14 @@ Ext.define('Ext.event.publisher.Dom', {
     idOrClassSelectorRegex: /^([#|\.])([\w\-]+)$/,
 
     handledEvents: ['focus', 'blur', 'paste', 'input', 'change',
-                    'keyup', 'keydown', 'keypress', 'submit',
-                    'transitionend', 'animationstart', 'animationend'],
+        'keyup', 'keydown', 'keypress', 'submit',
+        'transitionend', 'animationstart', 'animationend'],
 
     classNameSplitRegex: /\s+/,
 
     SELECTOR_ALL: '*',
 
-    constructor: function() {
+    constructor: function () {
         var eventNames = this.getHandledEvents(),
             eventNameMap = {},
             i, ln, eventName, vendorEventName;
@@ -40,7 +40,7 @@ Ext.define('Ext.event.publisher.Dom', {
 
         this.onEvent = Ext.Function.bind(this.onEvent, this);
 
-        for (i = 0,ln = eventNames.length; i < ln; i++) {
+        for (i = 0, ln = eventNames.length; i < ln; i++) {
             eventName = eventNames[i];
             vendorEventName = this.getVendorEventName(eventName);
             eventNameMap[vendorEventName] = eventName;
@@ -53,7 +53,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return this.callParent();
     },
 
-    getSubscribers: function(eventName) {
+    getSubscribers: function (eventName) {
         var subscribers = this.subscribers,
             eventSubscribers = subscribers[eventName];
 
@@ -74,7 +74,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return eventSubscribers;
     },
 
-    getVendorEventName: function(eventName) {
+    getVendorEventName: function (eventName) {
         if (Ext.browser.is.WebKit) {
             if (eventName === 'transitionend') {
                 eventName = Ext.browser.getVendorProperyName('transitionEnd');
@@ -109,7 +109,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return this
     },
 
-    attachListener: function(eventName, doc) {
+    attachListener: function (eventName, doc) {
         if (!doc) {
             doc = document;
         }
@@ -127,7 +127,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return this;
     },
 
-    removeListener: function(eventName, doc) {
+    removeListener: function (eventName, doc) {
         if (!doc) {
             doc = document;
         }
@@ -146,11 +146,11 @@ Ext.define('Ext.event.publisher.Dom', {
         return this;
     },
 
-    doesEventBubble: function(eventName) {
+    doesEventBubble: function (eventName) {
         return !!this.doBubbleEventsMap[eventName];
     },
 
-    subscribe: function(target, eventName) {
+    subscribe: function (target, eventName) {
         if (!this.handles(eventName)) {
             return false;
         }
@@ -205,7 +205,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         if (!this.handles(eventName)) {
             return false;
         }
@@ -264,7 +264,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return true;
     },
 
-    getElementTarget: function(target) {
+    getElementTarget: function (target) {
         if (target.nodeType !== 1) {
             target = target.parentNode;
 
@@ -276,7 +276,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return target;
     },
 
-    getBubblingTargets: function(target) {
+    getBubblingTargets: function (target) {
         var targets = [];
 
         if (!target) {
@@ -292,12 +292,12 @@ Ext.define('Ext.event.publisher.Dom', {
         return targets;
     },
 
-    dispatch: function(target, eventName, args) {
+    dispatch: function (target, eventName, args) {
         args.push(args[0].target);
         this.callParent(arguments);
     },
 
-    publish: function(eventName, targets, event) {
+    publish: function (eventName, targets, event) {
         var subscribers = this.getSubscribers(eventName),
             wildcardSubscribers;
 
@@ -312,7 +312,7 @@ Ext.define('Ext.event.publisher.Dom', {
         return this;
     },
 
-    doPublish: function(subscribers, eventName, targets, event) {
+    doPublish: function (subscribers, eventName, targets, event) {
         var idSubscribers = subscribers.id,
             classNameSubscribers = subscribers.className,
             selectorSubscribers = subscribers.selector,
@@ -326,7 +326,7 @@ Ext.define('Ext.event.publisher.Dom', {
             classNameSplitRegex = this.classNameSplitRegex,
             i, ln, j, subLn, target, id, className, classNames, selector;
 
-        for (i = 0,ln = targets.length; i < ln; i++) {
+        for (i = 0, ln = targets.length; i < ln; i++) {
             target = targets[i];
             event.setDelegatedTarget(target);
 
@@ -347,7 +347,7 @@ Ext.define('Ext.event.publisher.Dom', {
                 if (className) {
                     classNames = className.split(classNameSplitRegex);
 
-                    for (j = 0,subLn = classNames.length; j < subLn; j++) {
+                    for (j = 0, subLn = classNames.length; j < subLn; j++) {
                         className = classNames[j];
 
                         if (!isClassNameHandled[className]) {
@@ -378,10 +378,10 @@ Ext.define('Ext.event.publisher.Dom', {
         }
 
         if (hasSelectorSubscribers) {
-            for (j = 0,subLn = targets.length; j < subLn; j++) {
+            for (j = 0, subLn = targets.length; j < subLn; j++) {
                 target = targets[j];
 
-                for (i = 0,ln = selectorSubscribers.length; i < ln; i++) {
+                for (i = 0, ln = selectorSubscribers.length; i < ln; i++) {
                     selector = selectorSubscribers[i];
 
                     if (this.matchesSelector(target, selector)) {
@@ -400,24 +400,24 @@ Ext.define('Ext.event.publisher.Dom', {
         return hasDispatched;
     },
 
-    matchesSelector: function() {
+    matchesSelector: function () {
         var test = Element.prototype,
             matchesSelector =
                 ('webkitMatchesSelector' in test) ? 'webkitMatchesSelector' :
-                (('msMatchesSelector' in test) ? 'msMatchesSelector' : ('mozMatchesSelector' in test ? 'mozMatchesSelector' : null));
+                    (('msMatchesSelector' in test) ? 'msMatchesSelector' : ('mozMatchesSelector' in test ? 'mozMatchesSelector' : null));
 
         if (matchesSelector) {
-            return function(element, selector) {
+            return function (element, selector) {
                 return element[matchesSelector](selector);
             }
         }
 
-        return function(element, selector) {
+        return function (element, selector) {
             Ext.DomQuery.is(element, selector);
         }
     }(),
 
-    onEvent: function(e) {
+    onEvent: function (e) {
         var eventName = this.eventNameMap[e.type];
         // Set the current frame start time to be the timestamp of the event.
         Ext.frameStartTime = e.timeStamp;
@@ -444,7 +444,7 @@ Ext.define('Ext.event.publisher.Dom', {
     },
 
     //<debug>
-    hasSubscriber: function(target, eventName) {
+    hasSubscriber: function (target, eventName) {
         if (!this.handles(eventName)) {
             return false;
         }
@@ -472,7 +472,7 @@ Ext.define('Ext.event.publisher.Dom', {
     },
     //</debug>
 
-    getSubscribersCount: function(eventName) {
+    getSubscribersCount: function (eventName) {
         if (!this.handles(eventName)) {
             return 0;
         }

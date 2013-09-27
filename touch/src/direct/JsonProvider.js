@@ -19,7 +19,7 @@ Ext.define('Ext.direct.JsonProvider', {
      * @param {Object} response The XHR response object.
      * @return {Object} The data in the response.
      */
-    parseResponse: function(response) {
+    parseResponse: function (response) {
         if (!Ext.isEmpty(response.responseText)) {
             if (Ext.isObject(response.responseText)) {
                 return response.responseText;
@@ -35,7 +35,7 @@ Ext.define('Ext.direct.JsonProvider', {
      * @param {Object} response The XHR response.
      * @return {Ext.direct.Event[]} An array of {@link Ext.direct.Event} objects.
      */
-    createEvents: function(response) {
+    createEvents: function (response) {
         var data = null,
             events = [],
             i = 0,
@@ -43,7 +43,7 @@ Ext.define('Ext.direct.JsonProvider', {
 
         try {
             data = this.parseResponse(response);
-        } catch(e) {
+        } catch (e) {
             event = Ext.create('Ext.direct.ExceptionEvent', {
                 data: e,
                 xhr: response,
@@ -68,7 +68,7 @@ Ext.define('Ext.direct.JsonProvider', {
      * @param {Object} response The XHR response object.
      * @return {Ext.direct.Event} The event.
      */
-    createEvent: function(response) {
+    createEvent: function (response) {
         return Ext.create('direct.' + response.type, response);
     }
 });

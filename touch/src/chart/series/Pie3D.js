@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.Pie3D
  * @extends Ext.chart.series.Polar
- * 
+ *
  * Creates a 3D Pie Chart.
  *
  *     @example preview
@@ -82,7 +82,7 @@ Ext.define('Ext.chart.series.Pie3D', {
     updateColors: function (colorSet) {
         this.setSubStyle({baseColor: colorSet});
     },
-    
+
     doUpdateStyles: function () {
         var sprites = this.getSprites(),
             i = 0, j = 0, ln = sprites && sprites.length;

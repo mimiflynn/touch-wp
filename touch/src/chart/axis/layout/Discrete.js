@@ -40,7 +40,7 @@ Ext.define("Ext.chart.axis.layout.Discrete", {
         // sets the dirtyTrigger which calls doLayout() which calls calculateLayout() etc...
         // Note that the sprite's data attribute could be set to any value and it would still result in the  
         // dirtyTrigger we need. For consistency, however, it is set to the labels.
-        axis.getSprites()[0].setAttributes({data:this.labels});
+        axis.getSprites()[0].setAttributes({data: this.labels});
     },
 
     // @inheritdoc

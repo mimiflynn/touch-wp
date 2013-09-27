@@ -124,18 +124,18 @@ Ext.define("Ext.chart.Legend", {
         }
     },
 
-    
+
     setPosition: function (position) {
         this.setDocked(position);
     },
-    
+
     getPosition: function () {
         return this.getDocked();
     },
 
     onItemTap: function (container, target, index, e) {
         this.callSuper(arguments);
-        if(this.getToggleable()) {
+        if (this.getToggleable()) {
             var me = this,
                 store = me.getStore(),
                 record = store && store.getAt(index);

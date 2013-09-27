@@ -158,11 +158,11 @@ Ext.define('Ext.TitleBar', {
      */
     maxButtonWidth: '40%',
 
-    beforeInitialize: function() {
+    beforeInitialize: function () {
         this.applyItems = this.applyInitialItems;
     },
 
-    initialize: function() {
+    initialize: function () {
         delete this.applyItems;
 
         this.add(this.initialItems);
@@ -174,7 +174,7 @@ Ext.define('Ext.TitleBar', {
         });
     },
 
-    applyInitialItems: function(items) {
+    applyInitialItems: function (items) {
         var me = this,
             defaults = me.getDefaults() || {};
 
@@ -227,7 +227,7 @@ Ext.define('Ext.TitleBar', {
         me.doInsert = me.doBoxInsert;
     },
 
-    doBoxAdd: function(item) {
+    doBoxAdd: function (item) {
         if (item.config.align == 'right') {
             this.rightBox.add(item);
         }
@@ -236,7 +236,7 @@ Ext.define('Ext.TitleBar', {
         }
     },
 
-    doBoxRemove: function(item, destroy) {
+    doBoxRemove: function (item, destroy) {
         if (item.config.align == 'right') {
             this.rightBox.remove(item, destroy);
         }
@@ -245,7 +245,7 @@ Ext.define('Ext.TitleBar', {
         }
     },
 
-    doBoxInsert: function(index, item) {
+    doBoxInsert: function (index, item) {
         if (item.config.align == 'right') {
             this.rightBox.insert(index, item);
         }
@@ -254,7 +254,7 @@ Ext.define('Ext.TitleBar', {
         }
     },
 
-    getMaxButtonWidth: function() {
+    getMaxButtonWidth: function () {
         var value = this.maxButtonWidth;
 
         //check if it is a percentage
@@ -266,7 +266,7 @@ Ext.define('Ext.TitleBar', {
         return value;
     },
 
-    refreshTitlePosition: function() {
+    refreshTitlePosition: function () {
         if (this.isDestroyed) {
             return;
         }
@@ -323,7 +323,7 @@ Ext.define('Ext.TitleBar', {
     },
 
     // @private
-    updateTitle: function(newTitle) {
+    updateTitle: function (newTitle) {
         this.titleComponent.setTitle(newTitle);
 
         if (this.isPainted()) {

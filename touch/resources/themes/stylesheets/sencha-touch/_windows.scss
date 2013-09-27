@@ -5,9 +5,7 @@
 @import 'windows/var/Toolbar';
 @import 'windows/var/carousel/Carousel';
 @import 'windows/var/picker/Picker';
-
 @import 'base';
-
 @import 'windows/mixins/Class';
 
 @include st-loading-spinner(1em, $loading-spinner-color, .1em, .25em);

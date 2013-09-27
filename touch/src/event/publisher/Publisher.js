@@ -6,14 +6,14 @@ Ext.define('Ext.event.publisher.Publisher', {
 
     idSelectorRegex: /^#([\w\-]+)$/i,
 
-    constructor: function() {
+    constructor: function () {
         var handledEvents = this.handledEvents,
             handledEventsMap,
             i, ln, event;
 
         handledEventsMap = this.handledEventsMap = {};
 
-        for (i = 0,ln = handledEvents.length; i < ln; i++) {
+        for (i = 0, ln = handledEvents.length; i < ln; i++) {
             event = handledEvents[i];
 
             handledEventsMap[event] = true;
@@ -24,44 +24,44 @@ Ext.define('Ext.event.publisher.Publisher', {
         return this;
     },
 
-    handles: function(eventName) {
+    handles: function (eventName) {
         var map = this.handledEventsMap;
 
         return !!map[eventName] || !!map['*'] || eventName === '*';
     },
 
-    getHandledEvents: function() {
+    getHandledEvents: function () {
         return this.handledEvents;
     },
 
-    setDispatcher: function(dispatcher) {
+    setDispatcher: function (dispatcher) {
         this.dispatcher = dispatcher;
     },
 
-    subscribe: function() {
+    subscribe: function () {
         return false;
     },
 
-    unsubscribe: function() {
+    unsubscribe: function () {
         return false;
     },
 
-    unsubscribeAll: function() {
+    unsubscribeAll: function () {
         delete this.subscribers;
         this.subscribers = {};
 
         return this;
     },
 
-    notify: function() {
+    notify: function () {
         return false;
     },
 
-    getTargetType: function() {
+    getTargetType: function () {
         return this.targetType;
     },
 
-    dispatch: function(target, eventName, args) {
+    dispatch: function (target, eventName, args) {
         this.dispatcher.doDispatchEvent(this.targetType, target, eventName, args);
     }
 });

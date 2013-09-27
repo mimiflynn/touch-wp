@@ -142,7 +142,7 @@ Ext.define('Ext.chart.series.Line', {
          * if `config.fill` is undefined but a `style.fill' color is provided, `config.fill` is considered true.
          * So the default value below must be undefined, not false.
          */
-         fill: undefined,
+        fill: undefined,
 
         aggregator: { strategy: 'double' }
     },

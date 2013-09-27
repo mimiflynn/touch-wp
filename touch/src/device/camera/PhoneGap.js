@@ -5,7 +5,7 @@ Ext.define('Ext.device.camera.PhoneGap', {
 
     extend: 'Ext.device.camera.Abstract',
 
-    capture: function(args) {
+    capture: function (args) {
         var onSuccess = args.success,
             onError = args.failure,
             scope = args.scope,

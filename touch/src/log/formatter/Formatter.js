@@ -6,11 +6,11 @@ Ext.define('Ext.log.formatter.Formatter', {
         messageFormat: "{message}"
     },
 
-    format: function(event) {
+    format: function (event) {
         return this.substitute(this.getMessageFormat(), event);
     },
 
-    substitute: function(template, data) {
+    substitute: function (template, data) {
         var name, value;
 
         for (name in data) {

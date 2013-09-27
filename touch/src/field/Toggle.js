@@ -53,7 +53,7 @@
  */
 Ext.define('Ext.field.Toggle', {
     extend: 'Ext.field.Slider',
-    xtype : 'togglefield',
+    xtype: 'togglefield',
     alternateClassName: 'Ext.form.Toggle',
     requires: ['Ext.slider.Toggle'],
 
@@ -71,10 +71,12 @@ Ext.define('Ext.field.Toggle', {
         labelAlign: 'left'
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        labelAlign: 'left'
-    }],
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            labelAlign: 'left'
+        }
+    ],
 
     /**
      * @event change
@@ -98,19 +100,19 @@ Ext.define('Ext.field.Toggle', {
      */
 
     /**
-    * @event dragstart
-    * @hide
-    */
+     * @event dragstart
+     * @hide
+     */
 
     /**
-    * @event drag
-    * @hide
-    */
+     * @event drag
+     * @hide
+     */
 
     /**
-    * @event dragend
-    * @hide
-    */
+     * @event dragend
+     * @hide
+     */
 
     proxyConfig: {
         /**
@@ -137,7 +139,7 @@ Ext.define('Ext.field.Toggle', {
     toggleOffLabel: 'Off',
 
     // @private
-    applyComponent: function(config) {
+    applyComponent: function (config) {
         // @TODO: This also needs to be looked at
 
 //        if(!this.getLabel() && Ext.getThemeName() == 'WP') {
@@ -156,7 +158,7 @@ Ext.define('Ext.field.Toggle', {
      * @param {Number} newValue **1** for toggled, **0** for untoggled.
      * @return {Object} this
      */
-    setValue: function(newValue) {
+    setValue: function (newValue) {
         if (newValue === true) {
             newValue = 1;
         }
@@ -171,7 +173,7 @@ Ext.define('Ext.field.Toggle', {
         return this;
     },
 
-    getValue: function() {
+    getValue: function () {
         return (this.getComponent().getValue() == 1) ? 1 : 0;
     },
 
@@ -179,7 +181,7 @@ Ext.define('Ext.field.Toggle', {
      * Toggles the value of this toggle field.
      * @return {Object} this
      */
-    toggle: function() {
+    toggle: function () {
         // We call setValue directly so the change event can be fired
         var value = this.getValue();
         this.setValue((value == 1) ? 0 : 1);
@@ -187,7 +189,7 @@ Ext.define('Ext.field.Toggle', {
         return this;
     },
 
-    onChange: function(){
+    onChange: function () {
         this.setLabel((this.getValue() == 1) ? this.toggleOnLabel : this.toggleOffLabel);
     }
 });

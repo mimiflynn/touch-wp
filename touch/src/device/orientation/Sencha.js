@@ -22,7 +22,7 @@ Ext.define('Ext.device.orientation.Sencha', {
      *
      * [1]: http://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/DeviceOrientationEventClassRef/DeviceOrientationEvent/DeviceOrientationEvent.html
      */
-    constructor: function() {
+    constructor: function () {
         this.callSuper(arguments);
 
         Ext.device.Communicator.send({

@@ -14,18 +14,18 @@ Ext.define('Ext.layout.Float', {
 
     itemClass: 'layout-float-item',
 
-    setContainer: function(container) {
+    setContainer: function (container) {
         this.callSuper(arguments);
 
         container.innerElement.addCls(this.layoutClass);
     },
 
-    onItemInnerStateChange: function(item, isInner) {
+    onItemInnerStateChange: function (item, isInner) {
         this.callSuper(arguments);
         item.toggleCls(this.itemClass, isInner);
     },
 
-    updateDirection: function(direction, oldDirection) {
+    updateDirection: function (direction, oldDirection) {
         var prefix = 'direction-';
 
         this.container.innerElement.swapCls(prefix + direction, prefix + oldDirection);

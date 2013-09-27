@@ -108,7 +108,7 @@ Ext.define('Ext.chart.series.StackedCartesian', {
                 item;
 
             for (i = 0, ln = sprites.length; i < ln; i++) {
-                if(!hidden[i]) {
+                if (!hidden[i]) {
                     sprite = sprites[i];
                     var index = sprite.getIndexNearPoint(x, y);
                     if (index !== -1) {

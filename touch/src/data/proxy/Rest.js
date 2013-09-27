@@ -101,7 +101,7 @@
 Ext.define('Ext.data.proxy.Rest', {
     extend: 'Ext.data.proxy.Ajax',
     alternateClassName: 'Ext.data.RestProxy',
-    alias : 'proxy.rest',
+    alias: 'proxy.rest',
 
     config: {
         /**
@@ -125,9 +125,9 @@ Ext.define('Ext.data.proxy.Rest', {
         batchActions: false,
 
         actionMethods: {
-            create : 'POST',
-            read   : 'GET',
-            update : 'PUT',
+            create: 'POST',
+            read: 'GET',
+            update: 'PUT',
             destroy: 'DELETE'
         }
     },
@@ -139,17 +139,17 @@ Ext.define('Ext.data.proxy.Rest', {
      * @param {Object} request
      * @return {Object}
      */
-    buildUrl: function(request) {
-        var me        = this,
+    buildUrl: function (request) {
+        var me = this,
             operation = request.getOperation(),
-            records   = operation.getRecords() || [],
-            record    = records[0],
-            model     = me.getModel(),
-            idProperty= model.getIdProperty(),
-            format    = me.getFormat(),
-            url       = me.getUrl(request),
-            params    = request.getParams() || {},
-            id        = (record && !record.phantom) ? record.getId() : params[idProperty];
+            records = operation.getRecords() || [],
+            record = records[0],
+            model = me.getModel(),
+            idProperty = model.getIdProperty(),
+            format = me.getFormat(),
+            url = me.getUrl(request),
+            params = request.getParams() || {},
+            id = (record && !record.phantom) ? record.getId() : params[idProperty];
 
         if (me.getAppendId() && id) {
             if (!url.match(/\/$/)) {

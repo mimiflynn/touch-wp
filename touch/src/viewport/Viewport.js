@@ -11,7 +11,7 @@ Ext.define('Ext.viewport.Viewport', {
         'Ext.viewport.WindowsPhone'
     ],
 
-    constructor: function(config) {
+    constructor: function (config) {
         var osName = Ext.os.name,
             viewportName, viewport;
 

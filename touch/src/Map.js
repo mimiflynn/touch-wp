@@ -16,7 +16,7 @@
  */
 Ext.define('Ext.Map', {
     extend: 'Ext.Container',
-    xtype : 'map',
+    xtype: 'map',
     requires: ['Ext.util.Geolocation'],
 
     isMap: true,
@@ -91,7 +91,7 @@ Ext.define('Ext.Map', {
         mapOptions: {}
     },
 
-    constructor: function() {
+    constructor: function () {
         this.callParent(arguments);
         // this.element.setVisibilityMode(Ext.Element.OFFSETS);
 
@@ -100,7 +100,7 @@ Ext.define('Ext.Map', {
         }
     },
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
         this.on({
             painted: 'doResize',
@@ -109,30 +109,34 @@ Ext.define('Ext.Map', {
         this.innerElement.on('touchstart', 'onTouchStart', this);
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         return {
             reference: 'element',
             className: 'x-container',
-            children: [{
-                reference: 'innerElement',
-                className: 'x-inner',
-                children: [{
-                    reference: 'mapContainer',
-                    className: Ext.baseCSSPrefix + 'map-container'
-                }]
-            }]
+            children: [
+                {
+                    reference: 'innerElement',
+                    className: 'x-inner',
+                    children: [
+                        {
+                            reference: 'mapContainer',
+                            className: Ext.baseCSSPrefix + 'map-container'
+                        }
+                    ]
+                }
+            ]
         };
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         e.makeUnpreventable();
     },
 
-    applyMapOptions: function(options) {
+    applyMapOptions: function (options) {
         return Ext.merge({}, this.options, options);
     },
 
-    updateMapOptions: function(newOptions) {
+    updateMapOptions: function (newOptions) {
         var me = this,
             gm = (window.google || {}).maps,
             map = this.getMap();
@@ -146,30 +150,30 @@ Ext.define('Ext.Map', {
         }
     },
 
-    doMapCenter: function() {
+    doMapCenter: function () {
         this.setMapCenter(this.getMapOptions().center);
     },
 
-    getMapOptions: function() {
+    getMapOptions: function () {
         return Ext.merge({}, this.options || this.getInitialConfig('mapOptions'));
     },
 
-    updateUseCurrentLocation: function(useCurrentLocation) {
+    updateUseCurrentLocation: function (useCurrentLocation) {
         this.setGeo(useCurrentLocation);
         if (!useCurrentLocation) {
             this.setMapCenter();
         }
     },
 
-    applyGeo: function(config) {
+    applyGeo: function (config) {
         return Ext.factory(config, Ext.util.Geolocation, this.getGeo());
     },
 
-    updateGeo: function(newGeo, oldGeo) {
+    updateGeo: function (newGeo, oldGeo) {
         var events = {
-            locationupdate : 'onGeoUpdate',
-            locationerror : 'onGeoError',
-            scope : this
+            locationupdate: 'onGeoUpdate',
+            locationerror: 'onGeoError',
+            scope: this
         };
 
         if (oldGeo) {
@@ -182,7 +186,7 @@ Ext.define('Ext.Map', {
         }
     },
 
-    doResize: function() {
+    doResize: function () {
         var gm = (window.google || {}).maps,
             map = this.getMap();
 
@@ -192,7 +196,7 @@ Ext.define('Ext.Map', {
     },
 
     // @private
-    renderMap: function() {
+    renderMap: function () {
         var me = this,
             gm = (window.google || {}).maps,
             element = me.mapContainer,
@@ -242,13 +246,13 @@ Ext.define('Ext.Map', {
         }
     },
 
-	// @private
-	onTilesLoaded: function() {
-		this.fireEvent('maprender', this, this.map);
-	},
+    // @private
+    onTilesLoaded: function () {
+        this.fireEvent('maprender', this, this.map);
+    },
 
     // @private
-    onGeoUpdate: function(geo) {
+    onGeoUpdate: function (geo) {
         if (geo) {
             this.setMapCenter(new google.maps.LatLng(geo.getLatitude(), geo.getLongitude()));
         }
@@ -267,7 +271,7 @@ Ext.define('Ext.Map', {
      * @param {Object/google.maps.LatLng} coordinates Object representing the desired Latitude and
      * longitude upon which to center the map.
      */
-    setMapCenter: function(coordinates) {
+    setMapCenter: function (coordinates) {
         var me = this,
             map = me.getMap(),
             gm = (window.google || {}).maps;
@@ -301,7 +305,7 @@ Ext.define('Ext.Map', {
     },
 
     // @private
-    onZoomChange : function() {
+    onZoomChange: function () {
         var mapOptions = this.getMapOptions(),
             map = this.getMap(),
             zoom;
@@ -316,7 +320,7 @@ Ext.define('Ext.Map', {
     },
 
     // @private
-    onTypeChange : function() {
+    onTypeChange: function () {
         var mapOptions = this.getMapOptions(),
             map = this.getMap(),
             mapTypeId;
@@ -331,7 +335,7 @@ Ext.define('Ext.Map', {
     },
 
     // @private
-    onCenterChange: function() {
+    onCenterChange: function () {
         var mapOptions = this.getMapOptions(),
             map = this.getMap(),
             center;
@@ -347,7 +351,7 @@ Ext.define('Ext.Map', {
     },
 
     // @private
-    destroy: function() {
+    destroy: function () {
         Ext.destroy(this.getGeo());
         var map = this.getMap();
 
@@ -357,7 +361,7 @@ Ext.define('Ext.Map', {
 
         this.callParent();
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
 
     /**

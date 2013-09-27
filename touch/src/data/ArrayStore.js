@@ -49,7 +49,7 @@ Ext.define('Ext.data.ArrayStore', {
         }
     },
 
-    loadData: function(data, append) {
+    loadData: function (data, append) {
 //        if (this.expandData === true) {
 //            var r = [],
 //                i = 0,
@@ -64,7 +64,7 @@ Ext.define('Ext.data.ArrayStore', {
 
         this.callParent([data, append]);
     }
-}, function() {
+}, function () {
     // backwards compat
     Ext.data.SimpleStore = Ext.data.ArrayStore;
     // Ext.reg('simplestore', Ext.data.SimpleStore);

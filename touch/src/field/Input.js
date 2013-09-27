@@ -3,7 +3,7 @@
  */
 Ext.define('Ext.field.Input', {
     extend: 'Ext.Component',
-    xtype : 'input',
+    xtype: 'input',
 
     /**
      * @event clearicontap
@@ -81,7 +81,7 @@ Ext.define('Ext.field.Input', {
         maskCls: Ext.baseCSSPrefix + 'field-mask',
 
         /**
-          * @cfg {String/Boolean} useMask
+         * @cfg {String/Boolean} useMask
          * `true` to use a mask on this field, or `auto` to automatically select when you should use it.
          * @private
          * @accessor
@@ -250,7 +250,7 @@ Ext.define('Ext.field.Input', {
      */
 
     // @private
-    getTemplate: function() {
+    getTemplate: function () {
         var items = [
             {
                 reference: 'input',
@@ -269,7 +269,7 @@ Ext.define('Ext.field.Input', {
         return items;
     },
 
-    initElement: function() {
+    initElement: function () {
         var me = this;
 
         me.callParent();
@@ -301,7 +301,7 @@ Ext.define('Ext.field.Input', {
         }
 
         // Hack for IE10. Seems like keyup event is not fired for 'enter' keyboard button, so we use keypress event instead to handle enter.
-        if(Ext.browser.is.ie && Ext.browser.version.major >=10){
+        if (Ext.browser.is.ie && Ext.browser.version.major >= 10) {
             me.input.on({
                 scope: me,
                 keypress: 'onKeyPress'
@@ -314,11 +314,11 @@ Ext.define('Ext.field.Input', {
      * @private
      * @return {Boolean} 'true' if non-chrome browser is detected on Android
      */
-    useManualMaxLength: function() {
+    useManualMaxLength: function () {
         return Boolean((Ext.os.is.Android && !Ext.browser.is.Chrome));
     },
 
-    applyUseMask: function(useMask) {
+    applyUseMask: function (useMask) {
         if (useMask === 'auto') {
             useMask = Ext.os.is.iOS && Ext.os.version.lt('5');
         }
@@ -329,11 +329,11 @@ Ext.define('Ext.field.Input', {
     /**
      * Updates the useMask configuration
      */
-    updateUseMask: function(newUseMask) {
+    updateUseMask: function (newUseMask) {
         this.mask[newUseMask ? 'show' : 'hide']();
     },
 
-    updatePattern : function (pattern) {
+    updatePattern: function (pattern) {
         this.updateFieldAttribute('pattern', pattern);
     },
 
@@ -341,7 +341,7 @@ Ext.define('Ext.field.Input', {
      * Helper method to update a specified attribute on the `fieldEl`, or remove the attribute all together.
      * @private
      */
-    updateFieldAttribute: function(attribute, newValue) {
+    updateFieldAttribute: function (attribute, newValue) {
         var input = this.input;
 
         if (newValue) {
@@ -354,7 +354,7 @@ Ext.define('Ext.field.Input', {
     /**
      * Updates the {@link #cls} configuration.
      */
-    updateCls: function(newCls, oldCls) {
+    updateCls: function (newCls, oldCls) {
         this.input.addCls(Ext.baseCSSPrefix + 'input-el');
         this.input.replaceCls(oldCls, newCls);
     },
@@ -363,7 +363,7 @@ Ext.define('Ext.field.Input', {
      * Updates the type attribute with the {@link #type} configuration.
      * @private
      */
-    updateType: function(newType, oldType) {
+    updateType: function (newType, oldType) {
         var prefix = Ext.baseCSSPrefix + 'input-';
 
         this.input.replaceCls(prefix + oldType, prefix + newType);
@@ -374,7 +374,7 @@ Ext.define('Ext.field.Input', {
      * Updates the name attribute with the {@link #name} configuration.
      * @private
      */
-    updateName: function(newName) {
+    updateName: function (newName) {
         this.updateFieldAttribute('name', newName);
     },
 
@@ -382,7 +382,7 @@ Ext.define('Ext.field.Input', {
      * Returns the field data value.
      * @return {Mixed} value The field value.
      */
-    getValue: function() {
+    getValue: function () {
         var input = this.input;
 
         if (input) {
@@ -393,7 +393,7 @@ Ext.define('Ext.field.Input', {
     },
 
     // @private
-    applyValue: function(value) {
+    applyValue: function (value) {
         return (Ext.isEmpty(value)) ? '' : value;
     },
 
@@ -401,7 +401,7 @@ Ext.define('Ext.field.Input', {
      * Updates the {@link #value} configuration.
      * @private
      */
-    updateValue: function(newValue) {
+    updateValue: function (newValue) {
         var input = this.input;
 
         if (input) {
@@ -409,7 +409,7 @@ Ext.define('Ext.field.Input', {
         }
     },
 
-    setValue: function(newValue) {
+    setValue: function (newValue) {
         var oldValue = this._value;
 
         this.updateValue(this.applyValue(newValue));
@@ -425,7 +425,7 @@ Ext.define('Ext.field.Input', {
 
     //<debug>
     // @private
-    applyTabIndex: function(tabIndex) {
+    applyTabIndex: function (tabIndex) {
         if (tabIndex !== null && typeof tabIndex != 'number') {
             throw new Error("Ext.field.Field: [applyTabIndex] trying to pass a value which is not a number");
         }
@@ -437,17 +437,17 @@ Ext.define('Ext.field.Input', {
      * Updates the tabIndex attribute with the {@link #tabIndex} configuration
      * @private
      */
-    updateTabIndex: function(newTabIndex) {
+    updateTabIndex: function (newTabIndex) {
         this.updateFieldAttribute('tabIndex', newTabIndex);
     },
 
     // @private
-    testAutoFn: function(value) {
+    testAutoFn: function (value) {
         return [true, 'on'].indexOf(value) !== -1;
     },
 
     //<debug>
-    applyMaxLength: function(maxLength) {
+    applyMaxLength: function (maxLength) {
         if (maxLength !== null && typeof maxLength != 'number') {
             throw new Error("Ext.field.Text: [applyMaxLength] trying to pass a value which is not a number");
         }
@@ -459,7 +459,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `maxlength` attribute with the {@link #maxLength} configuration.
      * @private
      */
-    updateMaxLength: function(newMaxLength) {
+    updateMaxLength: function (newMaxLength) {
         if (!this.useManualMaxLength()) {
             this.updateFieldAttribute('maxlength', newMaxLength);
         }
@@ -469,12 +469,12 @@ Ext.define('Ext.field.Input', {
      * Updates the `placeholder` attribute with the {@link #placeHolder} configuration.
      * @private
      */
-    updatePlaceHolder: function(newPlaceHolder) {
+    updatePlaceHolder: function (newPlaceHolder) {
         this.updateFieldAttribute('placeholder', newPlaceHolder);
     },
 
     // @private
-    applyAutoComplete: function(autoComplete) {
+    applyAutoComplete: function (autoComplete) {
         return this.testAutoFn(autoComplete);
     },
 
@@ -482,13 +482,13 @@ Ext.define('Ext.field.Input', {
      * Updates the `autocomplete` attribute with the {@link #autoComplete} configuration.
      * @private
      */
-    updateAutoComplete: function(newAutoComplete) {
+    updateAutoComplete: function (newAutoComplete) {
         var value = newAutoComplete ? 'on' : 'off';
         this.updateFieldAttribute('autocomplete', value);
     },
 
     // @private
-    applyAutoCapitalize: function(autoCapitalize) {
+    applyAutoCapitalize: function (autoCapitalize) {
         return this.testAutoFn(autoCapitalize);
     },
 
@@ -496,13 +496,13 @@ Ext.define('Ext.field.Input', {
      * Updates the `autocapitalize` attribute with the {@link #autoCapitalize} configuration.
      * @private
      */
-    updateAutoCapitalize: function(newAutoCapitalize) {
+    updateAutoCapitalize: function (newAutoCapitalize) {
         var value = newAutoCapitalize ? 'on' : 'off';
         this.updateFieldAttribute('autocapitalize', value);
     },
 
     // @private
-    applyAutoCorrect: function(autoCorrect) {
+    applyAutoCorrect: function (autoCorrect) {
         return this.testAutoFn(autoCorrect);
     },
 
@@ -510,7 +510,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `autocorrect` attribute with the {@link #autoCorrect} configuration.
      * @private
      */
-    updateAutoCorrect: function(newAutoCorrect) {
+    updateAutoCorrect: function (newAutoCorrect) {
         var value = newAutoCorrect ? 'on' : 'off';
         this.updateFieldAttribute('autocorrect', value);
     },
@@ -519,7 +519,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `min` attribute with the {@link #minValue} configuration.
      * @private
      */
-    updateMinValue: function(newMinValue) {
+    updateMinValue: function (newMinValue) {
         this.updateFieldAttribute('min', newMinValue);
     },
 
@@ -527,7 +527,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `max` attribute with the {@link #maxValue} configuration.
      * @private
      */
-    updateMaxValue: function(newMaxValue) {
+    updateMaxValue: function (newMaxValue) {
         this.updateFieldAttribute('max', newMaxValue);
     },
 
@@ -535,7 +535,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `step` attribute with the {@link #stepValue} configuration
      * @private
      */
-    updateStepValue: function(newStepValue) {
+    updateStepValue: function (newStepValue) {
         this.updateFieldAttribute('step', newStepValue);
     },
 
@@ -546,7 +546,7 @@ Ext.define('Ext.field.Input', {
      * Returns the `checked` value of this field
      * @return {Mixed} value The field value
      */
-    getChecked: function() {
+    getChecked: function () {
         var el = this.input,
             checked;
 
@@ -559,11 +559,11 @@ Ext.define('Ext.field.Input', {
     },
 
     // @private
-    applyChecked: function(checked) {
+    applyChecked: function (checked) {
         return !!this.checkedRe.test(String(checked));
     },
 
-    setChecked: function(newChecked) {
+    setChecked: function (newChecked) {
         this.updateChecked(this.applyChecked(newChecked));
         this._checked = newChecked;
     },
@@ -572,7 +572,7 @@ Ext.define('Ext.field.Input', {
      * Updates the `autocorrect` attribute with the {@link #autoCorrect} configuration
      * @private
      */
-    updateChecked: function(newChecked) {
+    updateChecked: function (newChecked) {
         this.input.dom.checked = newChecked;
     },
 
@@ -580,13 +580,13 @@ Ext.define('Ext.field.Input', {
      * Updates the `readonly` attribute with the {@link #readOnly} configuration
      * @private
      */
-    updateReadOnly: function(readOnly) {
+    updateReadOnly: function (readOnly) {
         this.updateFieldAttribute('readonly', readOnly);
     },
 
     //<debug>
     // @private
-    applyMaxRows: function(maxRows) {
+    applyMaxRows: function (maxRows) {
         if (maxRows !== null && typeof maxRows !== 'number') {
             throw new Error("Ext.field.Input: [applyMaxRows] trying to pass a value which is not a number");
         }
@@ -595,11 +595,11 @@ Ext.define('Ext.field.Input', {
     },
     //</debug>
 
-    updateMaxRows: function(newRows) {
+    updateMaxRows: function (newRows) {
         this.updateFieldAttribute('rows', newRows);
     },
 
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         this.callParent(arguments);
 
         this.input.dom.disabled = disabled;
@@ -614,7 +614,7 @@ Ext.define('Ext.field.Input', {
      * Will return `false` if the field is disabled or has not been rendered yet.
      * @return {Boolean}
      */
-    isDirty: function() {
+    isDirty: function () {
         if (this.getDisabled()) {
             return false;
         }
@@ -625,17 +625,17 @@ Ext.define('Ext.field.Input', {
     /**
      * Resets the current field value to the original value.
      */
-    reset: function() {
+    reset: function () {
         this.setValue(this.originalValue);
     },
 
     // @private
-    onInputTap: function(e) {
+    onInputTap: function (e) {
         this.fireAction('inputtap', [this, e], 'doInputTap');
     },
 
     // @private
-    doInputTap: function(me, e) {
+    doInputTap: function (me, e) {
         if (me.getDisabled()) {
             return false;
         }
@@ -644,12 +644,12 @@ Ext.define('Ext.field.Input', {
     },
 
     // @private
-    onMaskTap: function(e) {
+    onMaskTap: function (e) {
         this.fireAction('masktap', [this, e], 'doMaskTap');
     },
 
     // @private
-    doMaskTap: function(me, e) {
+    doMaskTap: function (me, e) {
         if (me.getDisabled()) {
             return false;
         }
@@ -658,14 +658,14 @@ Ext.define('Ext.field.Input', {
     },
 
     // @private
-    showMask: function() {
+    showMask: function () {
         if (this.getUseMask()) {
             this.mask.setStyle('display', 'block');
         }
     },
 
     // @private
-    hideMask: function() {
+    hideMask: function () {
         if (this.getUseMask()) {
             this.mask.setStyle('display', 'none');
         }
@@ -675,7 +675,7 @@ Ext.define('Ext.field.Input', {
      * Attempts to set the field as the active input focus.
      * @return {Ext.field.Input} this
      */
-    focus: function() {
+    focus: function () {
         var me = this,
             el = me.input;
 
@@ -690,7 +690,7 @@ Ext.define('Ext.field.Input', {
      * @return {Ext.field.Input} this
      * @chainable
      */
-    blur: function() {
+    blur: function () {
         var me = this,
             el = this.input;
 
@@ -705,7 +705,7 @@ Ext.define('Ext.field.Input', {
      * @return {Ext.field.Input} this
      * @chainable
      */
-    select: function() {
+    select: function () {
         var me = this,
             el = me.input;
 
@@ -715,12 +715,12 @@ Ext.define('Ext.field.Input', {
         return me;
     },
 
-    onFocus: function(e) {
+    onFocus: function (e) {
         this.fireAction('focus', [e], 'doFocus');
     },
 
     // @private
-    doFocus: function(e) {
+    doFocus: function (e) {
         var me = this;
 
         me.hideMask();
@@ -731,12 +731,12 @@ Ext.define('Ext.field.Input', {
         me.setIsFocused(true);
     },
 
-    onBlur: function(e) {
+    onBlur: function (e) {
         this.fireAction('blur', [e], 'doBlur');
     },
 
     // @private
-    doBlur: function(e) {
+    doBlur: function (e) {
         var me = this,
             value = me.getValue(),
             startValue = me.getStartValue();
@@ -752,7 +752,7 @@ Ext.define('Ext.field.Input', {
     },
 
     // @private
-    onClearIconTap: function(e) {
+    onClearIconTap: function (e) {
         this.fireEvent('clearicontap', this, e);
 
         //focus the field after cleartap happens, but only on android.
@@ -762,46 +762,46 @@ Ext.define('Ext.field.Input', {
         }
     },
 
-    onClearIconPress: function() {
+    onClearIconPress: function () {
         this.clearIcon.addCls(Ext.baseCSSPrefix + 'pressing');
     },
 
-    onClearIconRelease: function() {
+    onClearIconRelease: function () {
         this.clearIcon.removeCls(Ext.baseCSSPrefix + 'pressing');
     },
 
-    onClick: function(e) {
+    onClick: function (e) {
         this.fireEvent('click', e);
     },
 
-    onChange: function(me, value, startValue) {
+    onChange: function (me, value, startValue) {
         if (this.useManualMaxLength()) {
             this.trimValueToMaxLength();
         }
         this.fireEvent('change', me, value, startValue);
     },
 
-    onPaste: function(e) {
+    onPaste: function (e) {
         if (this.useManualMaxLength()) {
             this.trimValueToMaxLength();
         }
         this.fireEvent('paste', e);
     },
 
-    onKeyUp: function(e) {
+    onKeyUp: function (e) {
         if (this.useManualMaxLength()) {
             this.trimValueToMaxLength();
         }
         this.fireEvent('keyup', e);
     },
 
-    onKeyDown: function() {
+    onKeyDown: function () {
         // tell the class to ignore the input event. this happens when we want to listen to the field change
         // when the input autocompletes
         this.ignoreInput = true;
     },
 
-    onInput: function(e) {
+    onInput: function (e) {
         var me = this;
 
         // if we should ignore input, stop now.
@@ -812,7 +812,7 @@ Ext.define('Ext.field.Input', {
 
         // set a timeout for 10ms to check if we want to stop the input event.
         // if not, then continue with the event (keyup)
-        setTimeout(function() {
+        setTimeout(function () {
             if (!me.ignoreInput) {
                 me.fireEvent('keyup', e);
                 me.ignoreInput = false;
@@ -821,17 +821,17 @@ Ext.define('Ext.field.Input', {
     },
 
     // Hack for IE10 mobile. Handle pressing 'enter' button and fire keyup event in this case.
-    onKeyPress: function(e) {
-        if(e.browserEvent.keyCode == 13){
+    onKeyPress: function (e) {
+        if (e.browserEvent.keyCode == 13) {
             this.fireEvent('keyup', e);
         }
     },
 
-    onMouseDown: function(e) {
+    onMouseDown: function (e) {
         this.fireEvent('mousedown', e);
     },
 
-    trimValueToMaxLength: function() {
+    trimValueToMaxLength: function () {
         var maxLength = this.getMaxLength();
         if (maxLength) {
             var value = this.getValue();

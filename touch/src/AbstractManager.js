@@ -11,7 +11,7 @@ Ext.define('Ext.AbstractManager', {
 
     typeName: 'type',
 
-    constructor: function(config) {
+    constructor: function (config) {
         Ext.apply(this, config || {});
 
         /**
@@ -29,7 +29,7 @@ Ext.define('Ext.AbstractManager', {
      * @param {String} id The `id` of the item.
      * @return {Object} The item, `undefined` if not found.
      */
-    get : function(id) {
+    get: function (id) {
         return this.all.get(id);
     },
 
@@ -37,7 +37,7 @@ Ext.define('Ext.AbstractManager', {
      * Registers an item to be managed.
      * @param {Object} item The item to register.
      */
-    register: function(item) {
+    register: function (item) {
         this.all.add(item);
     },
 
@@ -45,7 +45,7 @@ Ext.define('Ext.AbstractManager', {
      * Unregisters an item by removing it from this manager.
      * @param {Object} item The item to unregister.
      */
-    unregister: function(item) {
+    unregister: function (item) {
         this.all.remove(item);
     },
 
@@ -54,7 +54,7 @@ Ext.define('Ext.AbstractManager', {
      * @param {String} type The mnemonic string by which the class may be looked up.
      * @param {Function} cls The new instance class.
      */
-    registerType : function(type, cls) {
+    registerType: function (type, cls) {
         this.types[type] = cls;
         cls[this.typeName] = type;
     },
@@ -64,7 +64,7 @@ Ext.define('Ext.AbstractManager', {
      * @param {String} type The mnemonic string by which the class may be looked up.
      * @return {Boolean} Whether the type is registered.
      */
-    isRegistered : function(type){
+    isRegistered: function (type) {
         return this.types[type] !== undefined;
     },
 
@@ -75,8 +75,8 @@ Ext.define('Ext.AbstractManager', {
      * @param {String} defaultType If no type is discovered in the config object, we fall back to this type.
      * @return {Object} The instance of whatever this manager is managing.
      */
-    create: function(config, defaultType) {
-        var type        = config[this.typeName] || config.type || defaultType,
+    create: function (config, defaultType) {
+        var type = config[this.typeName] || config.type || defaultType,
             Constructor = this.types[type];
 
         //<debug>
@@ -96,7 +96,7 @@ Ext.define('Ext.AbstractManager', {
      * @param {Object} scope The scope (`this` reference) in which the callback is executed.
      * Defaults to the item.
      */
-    onAvailable : function(id, fn, scope){
+    onAvailable: function (id, fn, scope) {
         var all = this.all,
             item;
 
@@ -104,7 +104,7 @@ Ext.define('Ext.AbstractManager', {
             item = all.get(id);
             fn.call(scope || item, item);
         } else {
-            all.on('add', function(map, key, item){
+            all.on('add', function (map, key, item) {
                 if (key == id) {
                     fn.call(scope || item, item);
                     all.un('add', fn, scope);
@@ -122,7 +122,7 @@ Ext.define('Ext.AbstractManager', {
      * @param {Boolean} fn.return False to cease iteration.
      * @param {Object} [scope=this] The scope to execute in.
      */
-    each: function(fn, scope){
+    each: function (fn, scope) {
         this.all.each(fn, scope || this);
     },
 
@@ -130,7 +130,7 @@ Ext.define('Ext.AbstractManager', {
      * Gets the number of items in the collection.
      * @return {Number} The number of items in the collection.
      */
-    getCount: function(){
+    getCount: function () {
         return this.all.getCount();
     }
 });

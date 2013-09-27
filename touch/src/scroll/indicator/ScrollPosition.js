@@ -8,7 +8,7 @@ Ext.define('Ext.scroll.indicator.ScrollPosition', {
         cls: 'scrollposition'
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var config = this.callParent(arguments);
 
         config.children.unshift({
@@ -18,7 +18,7 @@ Ext.define('Ext.scroll.indicator.ScrollPosition', {
         return config;
     },
 
-    updateValue: function(value) {
+    updateValue: function (value) {
         if (this.gapLength === 0) {
             if (value >= 1) {
                 value--;
@@ -31,7 +31,7 @@ Ext.define('Ext.scroll.indicator.ScrollPosition', {
         }
     },
 
-    doUpdateLength: function() {
+    doUpdateLength: function () {
         if (!this.isDestroyed) {
             var scrollOffset = this.barLength,
                 element = this.element;
@@ -47,7 +47,7 @@ Ext.define('Ext.scroll.indicator.ScrollPosition', {
         }
     },
 
-    doSetOffset: function(offset) {
+    doSetOffset: function (offset) {
         if (!this.isDestroyed) {
             var barLength = this.barLength,
                 minLength = this.getMinLength(),

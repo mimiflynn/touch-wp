@@ -45,7 +45,7 @@ Ext.define('Ext.device.Geolocation', {
         'Ext.device.geolocation.Simulator'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView && browserEnv.Sencha) {

@@ -35,7 +35,7 @@
 Ext.define('Ext.data.reader.Array', {
     extend: 'Ext.data.reader.Json',
     alternateClassName: 'Ext.data.ArrayReader',
-    alias : 'reader.array',
+    alias: 'reader.array',
 
     // For Array Reader, methods in the base which use these properties must not see the defaults
     config: {
@@ -49,10 +49,10 @@ Ext.define('Ext.data.reader.Array', {
      * its ordinal position in the fields collection as the index.
      * This is used by buildExtractors to create optimized on extractor function which converts raw data into model instances.
      */
-    createFieldAccessExpression: function(field, fieldVarName, dataName) {
-        var me     = this,
+    createFieldAccessExpression: function (field, fieldVarName, dataName) {
+        var me = this,
             mapping = field.getMapping(),
-            index  = (mapping == null) ? me.getModel().getFields().indexOf(field) : mapping,
+            index = (mapping == null) ? me.getModel().getFields().indexOf(field) : mapping,
             result;
 
         if (typeof index === 'function') {

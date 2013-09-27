@@ -14,14 +14,14 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         erased: 'erased'
     },
 
-    constructor: function() {
+    constructor: function () {
         this.callParent(arguments);
 
         this.hiddenQueue = {};
         this.renderedQueue = {};
     },
 
-    getSubscribers: function(eventName, createIfNotExist) {
+    getSubscribers: function (eventName, createIfNotExist) {
         var subscribers = this.subscribers;
 
         if (!subscribers.hasOwnProperty(eventName)) {
@@ -37,7 +37,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         return subscribers[eventName];
     },
 
-    setDispatcher: function(dispatcher) {
+    setDispatcher: function (dispatcher) {
         var targetType = this.targetType;
 
         dispatcher.doAddListener(targetType, '*', 'renderedchange', 'onBeforeComponentRenderedChange', this, null, 'before');
@@ -48,7 +48,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         return this.callParent(arguments);
     },
 
-    subscribe: function(target, eventName) {
+    subscribe: function (target, eventName) {
         var match = target.match(this.idSelectorRegex),
             subscribers,
             id;
@@ -72,7 +72,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         var match = target.match(this.idSelectorRegex),
             subscribers,
             id;
@@ -96,7 +96,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         return true;
     },
 
-    onBeforeComponentRenderedChange: function(container, component, rendered) {
+    onBeforeComponentRenderedChange: function (container, component, rendered) {
         var eventNames = this.eventNames,
             eventName = rendered ? eventNames.painted : eventNames.erased,
             subscribers = this.getSubscribers(eventName),
@@ -108,7 +108,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         }
     },
 
-    onBeforeComponentHiddenChange: function(component, hidden) {
+    onBeforeComponentHiddenChange: function (component, hidden) {
         var eventNames = this.eventNames,
             eventName = hidden ? eventNames.erased : eventNames.painted,
             subscribers = this.getSubscribers(eventName),
@@ -120,7 +120,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         }
     },
 
-    onComponentRenderedChange: function(container, component) {
+    onComponentRenderedChange: function (container, component) {
         var renderedQueue = this.renderedQueue,
             id = component.getId(),
             queue;
@@ -137,7 +137,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         }
     },
 
-    onComponentHiddenChange: function(component) {
+    onComponentHiddenChange: function (component) {
         var hiddenQueue = this.hiddenQueue,
             id = component.getId(),
             queue;
@@ -154,7 +154,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         }
     },
 
-    dispatchQueue: function(dispatchingQueue) {
+    dispatchQueue: function (dispatchingQueue) {
         var dispatcher = this.dispatcher,
             targetType = this.targetType,
             eventNames = this.eventNames,
@@ -180,7 +180,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
 
     },
 
-    publish: function(subscribers, component, eventName, dispatchingQueue) {
+    publish: function (subscribers, component, eventName, dispatchingQueue) {
         var id = component.getId(),
             needsDispatching = false,
             eventNames, items, i, ln, isPainted;
@@ -201,7 +201,7 @@ Ext.define('Ext.event.publisher.ComponentPaint', {
         if (component.isContainer) {
             items = component.getItems().items;
 
-            for (i = 0,ln = items.length; i < ln; i++) {
+            for (i = 0, ln = items.length; i < ln; i++) {
                 this.publish(subscribers, items[i], eventName, dispatchingQueue);
             }
         }

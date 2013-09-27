@@ -54,7 +54,7 @@ Ext.define('Ext.app.Route', {
         initialized: false
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
@@ -63,22 +63,22 @@ Ext.define('Ext.app.Route', {
      * @param {String} url The url to recognize.
      * @return {Object/Boolean} The matched data, or `false` if no match.
      */
-    recognize: function(url) {
+    recognize: function (url) {
         if (!this.getInitialized()) {
             this.initialize();
         }
 
         if (this.recognizes(url)) {
             var matches = this.matchesFor(url),
-                args    = url.match(this.matcherRegex);
+                args = url.match(this.matcherRegex);
 
             args.shift();
 
             return Ext.applyIf(matches, {
                 controller: this.getController(),
-                action    : this.getAction(),
-                url       : url,
-                args      : args,
+                action: this.getAction(),
+                url: url,
+                args: args,
 
                 // We keep the historyUrl in here for backwards compatibility
                 historyUrl: url
@@ -90,7 +90,7 @@ Ext.define('Ext.app.Route', {
      * @private
      * Sets up the relevant regular expressions used to match against this route.
      */
-    initialize: function() {
+    initialize: function () {
         /*
          * The regular expression we use to match a segment of a route mapping
          * this will recognize segments starting with a colon,
@@ -115,7 +115,7 @@ Ext.define('Ext.app.Route', {
      * @param {String} url The url to test
      * @return {Boolean} True if this Route recognizes the url
      */
-    recognizes: function(url) {
+    recognizes: function (url) {
         return this.matcherRegex.test(url);
     },
 
@@ -125,9 +125,9 @@ Ext.define('Ext.app.Route', {
      * @param {String} url The url to extract matches for
      * @return {Object} matching url segments
      */
-    matchesFor: function(url) {
+    matchesFor: function (url) {
         var params = {},
-            keys   = this.paramsInMatchString,
+            keys = this.paramsInMatchString,
             values = url.match(this.matcherRegex),
             length = keys.length,
             i;
@@ -148,9 +148,9 @@ Ext.define('Ext.app.Route', {
      * @param {String} url The url to extract matches for
      * @return {Array} matching url segments
      */
-    argsFor: function(url) {
-        var args   = [],
-            keys   = this.paramsInMatchString,
+    argsFor: function (url) {
+        var args = [],
+            keys = this.paramsInMatchString,
             values = url.match(this.matcherRegex),
             length = keys.length,
             i;
@@ -172,7 +172,7 @@ Ext.define('Ext.app.Route', {
      * @param {Object} config The config object
      * @return {String} The constructed url
      */
-    urlFor: function(config) {
+    urlFor: function (config) {
         var url = this.getUrl();
 
         for (var key in config) {
@@ -189,7 +189,7 @@ Ext.define('Ext.app.Route', {
      * @param {String} url The url string
      * @return {RegExp} The matcher regex
      */
-    createMatcherRegex: function(url) {
+    createMatcherRegex: function (url) {
         /**
          * Converts a route string into an array of symbols starting with a colon. e.g.
          * ":controller/:action/:id" => [':controller', ':action', ':id']
@@ -199,7 +199,7 @@ Ext.define('Ext.app.Route', {
             i, cond, matcher;
 
         for (i = 0; i < length; i++) {
-            cond    = this.getConditions()[paramsInMatchString[i]];
+            cond = this.getConditions()[paramsInMatchString[i]];
             matcher = Ext.util.Format.format("({0})", cond || "[%a-zA-Z0-9\-\\_\\s,]+");
 
             url = url.replace(new RegExp(paramsInMatchString[i]), matcher);

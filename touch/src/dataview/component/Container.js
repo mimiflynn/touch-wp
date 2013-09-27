@@ -80,13 +80,13 @@ Ext.define('Ext.dataview.component.Container', {
      * @param {Ext.EventObject} e The event object
      */
 
-    constructor: function() {
+    constructor: function () {
         this.itemCache = [];
         this.callParent(arguments);
     },
 
     //@private
-    doInitialize: function() {
+    doInitialize: function () {
         this.innerElement.on({
             touchstart: 'onItemTouchStart',
             touchend: 'onItemTouchEnd',
@@ -102,81 +102,81 @@ Ext.define('Ext.dataview.component.Container', {
     },
 
     //@private
-    initialize: function() {
+    initialize: function () {
         this.callParent();
         this.doInitialize();
     },
 
-    onItemTouchStart: function(e) {
+    onItemTouchStart: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
 
         item.on({
             touchmove: 'onItemTouchMove',
-            scope   : me,
+            scope: me,
             single: true
         });
 
         me.fireEvent('itemtouchstart', me, item, me.indexOf(item), e);
     },
 
-    onItemTouchMove: function(e) {
+    onItemTouchMove: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemtouchmove', me, item, me.indexOf(item), e);
     },
 
-    onItemTouchEnd: function(e) {
+    onItemTouchEnd: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
 
         item.un({
             touchmove: 'onItemTouchMove',
-            scope   : me
+            scope: me
         });
 
         me.fireEvent('itemtouchend', me, item, me.indexOf(item), e);
     },
 
-    onItemTap: function(e) {
+    onItemTap: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemtap', me, item, me.indexOf(item), e);
     },
 
-    onItemTapHold: function(e) {
+    onItemTapHold: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemtaphold', me, item, me.indexOf(item), e);
     },
 
-    onItemSingleTap: function(e) {
+    onItemSingleTap: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemsingletap', me, item, me.indexOf(item), e);
     },
 
-    onItemDoubleTap: function(e) {
+    onItemDoubleTap: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemdoubletap', me, item, me.indexOf(item), e);
     },
 
-    onItemSwipe: function(e) {
+    onItemSwipe: function (e) {
         var me = this,
             target = e.getTarget(),
             item = Ext.getCmp(target.id);
         me.fireEvent('itemswipe', me, item, me.indexOf(item), e);
     },
 
-    moveItemsToCache: function(from, to) {
+    moveItemsToCache: function (from, to) {
         var me = this,
             dataview = me.dataview,
             maxItemCache = dataview.getMaxItemCache(),
@@ -206,7 +206,7 @@ Ext.define('Ext.dataview.component.Container', {
         }
     },
 
-    moveItemsFromCache: function(records) {
+    moveItemsFromCache: function (records) {
         var me = this,
             dataview = me.dataview,
             store = dataview.getStore(),
@@ -226,7 +226,7 @@ Ext.define('Ext.dataview.component.Container', {
             records[i]._tmpIndex = store.indexOf(records[i]);
         }
 
-        Ext.Array.sort(records, function(record1, record2) {
+        Ext.Array.sort(records, function (record1, record2) {
             return record1._tmpIndex > record2._tmpIndex ? 1 : -1;
         });
 
@@ -246,11 +246,11 @@ Ext.define('Ext.dataview.component.Container', {
         return items;
     },
 
-    getViewItems: function() {
+    getViewItems: function () {
         return this.getInnerItems();
     },
 
-    updateListItem: function(record, item) {
+    updateListItem: function (record, item) {
         if (item.updateRecord) {
             if (item.getRecord() === record) {
                 item.updateRecord(record);
@@ -260,7 +260,7 @@ Ext.define('Ext.dataview.component.Container', {
         }
     },
 
-    getDataItemConfig: function(xtype, record, itemConfig) {
+    getDataItemConfig: function (xtype, record, itemConfig) {
         var dataview = this.dataview,
             dataItemConfig = {
                 xtype: xtype,
@@ -272,7 +272,7 @@ Ext.define('Ext.dataview.component.Container', {
         return Ext.merge(dataItemConfig, itemConfig);
     },
 
-    doRemoveItemCls: function(cls) {
+    doRemoveItemCls: function (cls) {
         var items = this.getViewItems(),
             ln = items.length,
             i = 0;
@@ -282,7 +282,7 @@ Ext.define('Ext.dataview.component.Container', {
         }
     },
 
-    doAddItemCls: function(cls) {
+    doAddItemCls: function (cls) {
         var items = this.getViewItems(),
             ln = items.length,
             i = 0;
@@ -292,12 +292,12 @@ Ext.define('Ext.dataview.component.Container', {
         }
     },
 
-    updateAtNewIndex: function(oldIndex, newIndex, record) {
+    updateAtNewIndex: function (oldIndex, newIndex, record) {
         this.moveItemsToCache(oldIndex, oldIndex);
         this.moveItemsFromCache([record]);
     },
 
-    destroy: function() {
+    destroy: function () {
         var me = this,
             itemCache = me.itemCache,
             ln = itemCache.length,

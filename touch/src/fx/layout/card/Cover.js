@@ -31,7 +31,7 @@ Ext.define('Ext.fx.layout.card.Cover', {
         }
     },
 
-    updateReverse: function(reverse) {
+    updateReverse: function (reverse) {
         this.getInAnimation().setReverse(reverse);
         this.getOutAnimation().setReverse(reverse);
     }

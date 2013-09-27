@@ -55,7 +55,7 @@
  *                             var toolbar = Ext.ComponentQuery.query('toolbar')[0],
  *                                 titles = ['My Toolbar', 'Ext.Toolbar', 'Configurations are awesome!', 'Beautiful.'],
                                    //internally, the title configuration gets converted into a {@link Ext.Title} component,
-                                   //so you must get the title configuration of that component
+ //so you must get the title configuration of that component
  *                                 title = toolbar.getTitle().getTitle(),
  *                                 newTitle = titles[titles.indexOf(title) + 1] || titles[0];
  *
@@ -84,7 +84,7 @@
  */
 Ext.define('Ext.Toolbar', {
     extend: 'Ext.Container',
-    xtype : 'toolbar',
+    xtype: 'toolbar',
 
     requires: [
         'Ext.Button',
@@ -176,7 +176,7 @@ Ext.define('Ext.Toolbar', {
 
     hasCSSMinHeight: true,
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (config.docked == "left" || config.docked == "right") {
@@ -190,7 +190,7 @@ Ext.define('Ext.Toolbar', {
     },
 
     // @private
-    applyTitle: function(title) {
+    applyTitle: function (title) {
         if (typeof title == 'string') {
             title = {
                 title: title,
@@ -202,7 +202,7 @@ Ext.define('Ext.Toolbar', {
     },
 
     // @private
-    updateTitle: function(newTitle, oldTitle) {
+    updateTitle: function (newTitle, oldTitle) {
         if (newTitle) {
             this.add(newTitle);
         }
@@ -215,7 +215,7 @@ Ext.define('Ext.Toolbar', {
     /**
      * Shows the title, if it exists.
      */
-    showTitle: function() {
+    showTitle: function () {
         var title = this.getTitle();
 
         if (title) {
@@ -226,7 +226,7 @@ Ext.define('Ext.Toolbar', {
     /**
      * Hides the title, if it exists.
      */
-    hideTitle: function() {
+    hideTitle: function () {
         var title = this.getTitle();
 
         if (title) {
@@ -248,7 +248,7 @@ Ext.define('Ext.Toolbar', {
      * @param {String/Ext.Title} title You can either pass a String, or a config/instance of {@link Ext.Title}.
      */
 
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     /**
      * @member Ext.Toolbar

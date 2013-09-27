@@ -12,39 +12,39 @@ Ext.define('Ext.slider.Slider', {
     ],
 
     /**
-    * @event change
-    * Fires when the value changes
-    * @param {Ext.slider.Slider} this
-    * @param {Ext.slider.Thumb} thumb The thumb being changed
-    * @param {Number} newValue The new value
-    * @param {Number} oldValue The old value
-    */
+     * @event change
+     * Fires when the value changes
+     * @param {Ext.slider.Slider} this
+     * @param {Ext.slider.Thumb} thumb The thumb being changed
+     * @param {Number} newValue The new value
+     * @param {Number} oldValue The old value
+     */
 
     /**
-    * @event dragstart
-    * Fires when the slider thumb starts a drag
-    * @param {Ext.slider.Slider} this
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged
-    * @param {Array} value The start value
-    * @param {Ext.EventObject} e
-    */
+     * @event dragstart
+     * Fires when the slider thumb starts a drag
+     * @param {Ext.slider.Slider} this
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged
+     * @param {Array} value The start value
+     * @param {Ext.EventObject} e
+     */
 
     /**
-    * @event drag
-    * Fires when the slider thumb starts a drag
-    * @param {Ext.slider.Slider} this
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged
-    * @param {Ext.EventObject} e
-    */
+     * @event drag
+     * Fires when the slider thumb starts a drag
+     * @param {Ext.slider.Slider} this
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged
+     * @param {Ext.EventObject} e
+     */
 
     /**
-    * @event dragend
-    * Fires when the slider thumb starts a drag
-    * @param {Ext.slider.Slider} this
-    * @param {Ext.slider.Thumb} thumb The thumb being dragged
-    * @param {Array} value The end value
-    * @param {Ext.EventObject} e
-    */
+     * @event dragend
+     * Fires when the slider thumb starts a drag
+     * @param {Ext.slider.Slider} this
+     * @param {Ext.slider.Thumb} thumb The thumb being dragged
+     * @param {Array} value The end value
+     * @param {Ext.EventObject} e
+     */
     config: {
         baseCls: 'x-slider',
 
@@ -69,7 +69,7 @@ Ext.define('Ext.slider.Slider', {
          * tries to move the thumb to 67, it will be snapped to 70 instead)
          * @accessor
          */
-        increment : 1,
+        increment: 1,
 
         /**
          * @cfg {Number/Number[]} value The value(s) of this slider's thumbs. If you pass
@@ -128,7 +128,7 @@ Ext.define('Ext.slider.Slider', {
 
     activeThumb: null,
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (config.hasOwnProperty('values')) {
@@ -139,7 +139,7 @@ Ext.define('Ext.slider.Slider', {
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         var element = this.element;
 
         this.callParent();
@@ -160,7 +160,7 @@ Ext.define('Ext.slider.Slider', {
         });
 
         var thumb = this.getThumb(0);
-        if(thumb) {
+        if (thumb) {
             thumb.on('resize', 'onThumbResize', this);
         }
     },
@@ -168,7 +168,7 @@ Ext.define('Ext.slider.Slider', {
     /**
      * @private
      */
-    factoryThumb: function() {
+    factoryThumb: function () {
         return Ext.factory(this.getThumbConfig(), Ext.slider.Thumb);
     },
 
@@ -176,7 +176,7 @@ Ext.define('Ext.slider.Slider', {
      * Returns the Thumb instances bound to this Slider
      * @return {Ext.slider.Thumb[]} The thumb instances
      */
-    getThumbs: function() {
+    getThumbs: function () {
         return this.innerItems;
     },
 
@@ -185,7 +185,7 @@ Ext.define('Ext.slider.Slider', {
      * @param {Number} [index=0] The index of Thumb to return.
      * @return {Ext.slider.Thumb} The thumb instance
      */
-    getThumb: function(index) {
+    getThumb: function (index) {
         if (typeof index != 'number') {
             index = 0;
         }
@@ -193,14 +193,14 @@ Ext.define('Ext.slider.Slider', {
         return this.innerItems[index];
     },
 
-    refreshOffsetValueRatio: function() {
+    refreshOffsetValueRatio: function () {
         var valueRange = this.getMaxValue() - this.getMinValue(),
             trackWidth = this.elementWidth - this.thumbWidth;
 
         this.offsetValueRatio = trackWidth / valueRange;
     },
 
-    onThumbResize: function(){
+    onThumbResize: function () {
         var thumb = this.getThumb(0);
         if (thumb) {
             this.thumbWidth = thumb.getElementWidth();
@@ -208,16 +208,16 @@ Ext.define('Ext.slider.Slider', {
         this.refresh();
     },
 
-    onResize: function(element, info) {
+    onResize: function (element, info) {
         this.elementWidth = info.width;
         this.refresh();
     },
 
-    refresh: function() {
+    refresh: function () {
         this.refreshValue();
     },
 
-    setActiveThumb: function(thumb) {
+    setActiveThumb: function (thumb) {
         var oldActiveThumb = this.activeThumb;
 
         if (oldActiveThumb && oldActiveThumb !== thumb) {
@@ -230,7 +230,7 @@ Ext.define('Ext.slider.Slider', {
         return this;
     },
 
-    onThumbDragStart: function(thumb, e) {
+    onThumbDragStart: function (thumb, e) {
         if (e.absDeltaX <= e.absDeltaY || this.getReadOnly()) {
             return false;
         }
@@ -246,7 +246,7 @@ Ext.define('Ext.slider.Slider', {
         this.fireEvent('dragstart', this, thumb, this.dragStartValue, e);
     },
 
-    onThumbDrag: function(thumb, e, offsetX) {
+    onThumbDrag: function (thumb, e, offsetX) {
         var index = this.getThumbIndex(thumb),
             offsetValueRatio = this.offsetValueRatio,
             constrainedValue = this.constrainValue(this.getMinValue() + offsetX / offsetValueRatio);
@@ -260,7 +260,7 @@ Ext.define('Ext.slider.Slider', {
         return false;
     },
 
-    setIndexValue: function(index, value, animation) {
+    setIndexValue: function (index, value, animation) {
         var thumb = this.getThumb(index),
             values = this.getValue(),
             minValue = this.getMinValue(),
@@ -273,7 +273,7 @@ Ext.define('Ext.slider.Slider', {
         values[index] = minValue + Math.round((draggable.offset.x / offsetValueRatio) / increment) * increment;
     },
 
-    onThumbDragEnd: function(thumb, e) {
+    onThumbDragEnd: function (thumb, e) {
         this.refreshThumbConstraints(thumb);
         var index = this.getThumbIndex(thumb),
             newValue = this.getValue()[index],
@@ -285,11 +285,11 @@ Ext.define('Ext.slider.Slider', {
         }
     },
 
-    getThumbIndex: function(thumb) {
+    getThumbIndex: function (thumb) {
         return this.getThumbs().indexOf(thumb);
     },
 
-    refreshThumbConstraints: function(thumb) {
+    refreshThumbConstraints: function (thumb) {
         var allowThumbsOverlapping = this.getAllowThumbsOverlapping(),
             offsetX = thumb.getDraggable().getOffset().x,
             thumbs = this.getThumbs(),
@@ -316,7 +316,7 @@ Ext.define('Ext.slider.Slider', {
     },
 
     // @private
-    onTap: function(e) {
+    onTap: function (e) {
         if (this.isDisabled()) {
             return;
         }
@@ -364,22 +364,22 @@ Ext.define('Ext.slider.Slider', {
     },
 
     // @private
-    updateThumbs: function(newThumbs) {
+    updateThumbs: function (newThumbs) {
         this.add(newThumbs);
     },
 
-    applyValue: function(value) {
+    applyValue: function (value) {
         var values = Ext.Array.from(value || 0),
             filteredValues = [],
             previousFilteredValue = this.getMinValue(),
             filteredValue, i, ln;
 
-        for (i = 0,ln = values.length; i < ln; i++) {
+        for (i = 0, ln = values.length; i < ln; i++) {
             filteredValue = this.constrainValue(values[i]);
 
             if (filteredValue < previousFilteredValue) {
                 //<debug warn>
-                Ext.Logger.warn("Invalid values of '"+Ext.encode(values)+"', values at smaller indexes must " +
+                Ext.Logger.warn("Invalid values of '" + Ext.encode(values) + "', values at smaller indexes must " +
                     "be smaller than or equal to values at greater indexes");
                 //</debug>
                 filteredValue = previousFilteredValue;
@@ -396,7 +396,7 @@ Ext.define('Ext.slider.Slider', {
     /**
      * Updates the sliders thumbs with their new value(s)
      */
-    updateValue: function(newValue, oldValue) {
+    updateValue: function (newValue, oldValue) {
         var thumbs = this.getThumbs(),
             ln = newValue.length,
             minValue = this.getMinValue(),
@@ -417,7 +417,7 @@ Ext.define('Ext.slider.Slider', {
     /**
      * @private
      */
-    refreshValue: function() {
+    refreshValue: function () {
         this.refreshOffsetValueRatio();
 
         this.setValue(this.getValue());
@@ -431,10 +431,10 @@ Ext.define('Ext.slider.Slider', {
      * @param {Number} value The value to snap
      * @return {Number} The snapped value
      */
-    constrainValue: function(value) {
+    constrainValue: function (value) {
         var me = this,
-            minValue  = me.getMinValue(),
-            maxValue  = me.getMaxValue(),
+            minValue = me.getMinValue(),
+            maxValue = me.getMaxValue(),
             increment = me.getIncrement(),
             remainder;
 
@@ -457,19 +457,19 @@ Ext.define('Ext.slider.Slider', {
         return value;
     },
 
-    setThumbsCount: function(count) {
+    setThumbsCount: function (count) {
         var thumbs = this.getThumbs(),
             thumbsCount = thumbs.length,
             i, ln, thumb;
 
         if (thumbsCount > count) {
-            for (i = 0,ln = thumbsCount - count; i < ln; i++) {
+            for (i = 0, ln = thumbsCount - count; i < ln; i++) {
                 thumb = thumbs[thumbs.length - 1];
                 thumb.destroy();
             }
         }
         else if (thumbsCount < count) {
-            for (i = 0,ln = count - thumbsCount; i < ln; i++) {
+            for (i = 0, ln = count - thumbsCount; i < ln; i++) {
                 this.add(this.factoryThumb());
             }
         }
@@ -480,7 +480,7 @@ Ext.define('Ext.slider.Slider', {
     /**
      * Convenience method. Calls {@link #setValue}.
      */
-    setValues: function(value) {
+    setValues: function (value) {
         this.setValue(value);
     },
 
@@ -488,7 +488,7 @@ Ext.define('Ext.slider.Slider', {
      * Convenience method. Calls {@link #getValue}.
      * @return {Object}
      */
-    getValues: function() {
+    getValues: function () {
         return this.getValue();
     },
 
@@ -497,7 +497,7 @@ Ext.define('Ext.slider.Slider', {
      * @param  {Number} increment
      * @return {Number}
      */
-    applyIncrement: function(increment) {
+    applyIncrement: function (increment) {
         if (increment === 0) {
             increment = 1;
         }
@@ -506,34 +506,34 @@ Ext.define('Ext.slider.Slider', {
     },
 
     // @private
-    updateAllowThumbsOverlapping: function(newValue, oldValue) {
+    updateAllowThumbsOverlapping: function (newValue, oldValue) {
         if (typeof oldValue != 'undefined') {
             this.refreshValue();
         }
     },
 
     // @private
-    updateMinValue: function(newValue, oldValue) {
+    updateMinValue: function (newValue, oldValue) {
         if (typeof oldValue != 'undefined') {
             this.refreshValue();
         }
     },
 
     // @private
-    updateMaxValue: function(newValue, oldValue) {
+    updateMaxValue: function (newValue, oldValue) {
         if (typeof oldValue != 'undefined') {
             this.refreshValue();
         }
     },
 
     // @private
-    updateIncrement: function(newValue, oldValue) {
+    updateIncrement: function (newValue, oldValue) {
         if (typeof oldValue != 'undefined') {
             this.refreshValue();
         }
     },
 
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         this.callParent(arguments);
 
         var items = this.getItems().items,
@@ -545,7 +545,7 @@ Ext.define('Ext.slider.Slider', {
         }
     }
 
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     /**
      * @cfg {Boolean} animationDuration

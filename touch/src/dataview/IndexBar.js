@@ -53,7 +53,7 @@
  *        hideOnMaskTap: false
  *     });
  *
-*/
+ */
 Ext.define('Ext.dataview.IndexBar', {
     extend: 'Ext.Component',
     alternateClassName: 'Ext.IndexBar',
@@ -97,13 +97,13 @@ Ext.define('Ext.dataview.IndexBar', {
     // @private
     itemCls: Ext.baseCSSPrefix + '',
 
-    updateDirection: function(newDirection, oldDirection) {
+    updateDirection: function (newDirection, oldDirection) {
         var baseCls = this.getBaseCls();
 
         this.element.replaceCls(baseCls + '-' + oldDirection, baseCls + '-' + newDirection);
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         return {
             reference: 'wrapper',
             classList: ['x-centered', 'x-indexbar-wrapper'],
@@ -111,7 +111,7 @@ Ext.define('Ext.dataview.IndexBar', {
         };
     },
 
-    updateLetters: function(letters) {
+    updateLetters: function (letters) {
         this.innerElement.setHtml('');
 
         if (letters) {
@@ -126,7 +126,7 @@ Ext.define('Ext.dataview.IndexBar', {
         }
     },
 
-    updateListPrefix: function(listPrefix) {
+    updateListPrefix: function (listPrefix) {
         if (listPrefix && listPrefix.length) {
             this.innerElement.createChild({
                 html: listPrefix
@@ -135,7 +135,7 @@ Ext.define('Ext.dataview.IndexBar', {
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.innerElement.on({
@@ -147,7 +147,7 @@ Ext.define('Ext.dataview.IndexBar', {
     },
 
     // @private
-    onDragStart: function(e, t) {
+    onDragStart: function (e, t) {
         e.stopPropagation();
         this.innerElement.addCls(this.getBaseCls() + '-pressed');
         this.pageBox = this.innerElement.getPageBox();
@@ -155,12 +155,12 @@ Ext.define('Ext.dataview.IndexBar', {
     },
 
     // @private
-    onDragEnd: function(e, t) {
+    onDragEnd: function (e, t) {
         this.innerElement.removeCls(this.getBaseCls() + '-pressed');
     },
 
     // @private
-    onDrag: function(e) {
+    onDrag: function (e) {
         var point = Ext.util.Point.fromEvent(e),
             target,
             pageBox = this.pageBox;
@@ -187,7 +187,7 @@ Ext.define('Ext.dataview.IndexBar', {
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var me = this,
             elements = Array.prototype.slice.call(me.innerElement.dom.childNodes),
             ln = elements.length,
@@ -199,7 +199,7 @@ Ext.define('Ext.dataview.IndexBar', {
         this.callParent();
     }
 
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
 
     /**

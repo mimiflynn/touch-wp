@@ -9,7 +9,7 @@ Ext.define("Ext.draw.sprite.Instancing", {
     alias: 'sprite.instancing',
     type: 'instancing',
     config: {
-        
+
         /**
          * @cfg {Object} [template=null] The sprite template used by all instances.
          */
@@ -37,7 +37,7 @@ Ext.define("Ext.draw.sprite.Instancing", {
 
     /**
      * Creates a new sprite instance.
-     * 
+     *
      * @param {Object} config The configuration of the instance.
      * @param {Object} [data]
      * @param {Boolean} [bypassNormalization] 'true' to bypass attribute normalization.
@@ -61,10 +61,12 @@ Ext.define("Ext.draw.sprite.Instancing", {
 
     /**
      * Not supported.
-     * 
+     *
      * @return {null}
      */
-    getBBox: function () { return null; },
+    getBBox: function () {
+        return null;
+    },
 
     /**
      * Returns the bounding box for the instance at the given index.
@@ -115,7 +117,7 @@ Ext.define("Ext.draw.sprite.Instancing", {
 
     /**
      * Sets the attributes for the instance at the given index.
-     * 
+     *
      * @param {Number} index the index of the instance
      * @param {Object} changes the attributes to change
      * @param {Boolean} [bypassNormalization] 'true' to avoid attribute normalization

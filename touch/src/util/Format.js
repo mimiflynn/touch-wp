@@ -28,11 +28,11 @@ Ext.define('Ext.util.Format', {
      * @param {Boolean} [word=false] True to try to find a common word break.
      * @return {String} The converted text.
      */
-    ellipsis: function(value, len, word) {
+    ellipsis: function (value, len, word) {
         if (value && value.length > len) {
             if (word) {
                 var vs = value.substr(0, len - 2),
-                index = Math.max(vs.lastIndexOf(' '), vs.lastIndexOf('.'), vs.lastIndexOf('!'), vs.lastIndexOf('?'));
+                    index = Math.max(vs.lastIndexOf(' '), vs.lastIndexOf('.'), vs.lastIndexOf('!'), vs.lastIndexOf('?'));
                 if (index != -1 && index >= (len - 15)) {
                     return vs.substr(0, index) + "...";
                 }
@@ -47,7 +47,7 @@ Ext.define('Ext.util.Format', {
      * @param {String} str
      * @return {String}
      */
-    escapeRegex: function(s) {
+    escapeRegex: function (s) {
         return s.replace(Ext.util.Format.escapeRegexRe, "\\$1");
     },
 
@@ -56,7 +56,7 @@ Ext.define('Ext.util.Format', {
      * @param {String} string The string to escape.
      * @return {String} The escaped string.
      */
-    escape: function(string) {
+    escape: function (string) {
         return string.replace(Ext.util.Format.escapeRe, "\\$1");
     },
 
@@ -78,7 +78,7 @@ Ext.define('Ext.util.Format', {
      * @param {String} other The new value to use if the string already equals the first value passed in
      * @return {String} The new value
      */
-    toggle: function(string, value, other) {
+    toggle: function (string, value, other) {
         return string == value ? other : value;
     },
 
@@ -92,7 +92,7 @@ Ext.define('Ext.util.Format', {
      * @param {String} string The string to escape
      * @return {String} The trimmed string
      */
-    trim: function(string) {
+    trim: function (string) {
         return string.replace(Ext.util.Format.trimRe, "");
     },
 
@@ -131,7 +131,7 @@ Ext.define('Ext.util.Format', {
      */
     format: function (format) {
         var args = Ext.toArray(arguments, 1);
-        return format.replace(Ext.util.Format.formatRe, function(m, i) {
+        return format.replace(Ext.util.Format.formatRe, function (m, i) {
             return args[i];
         });
     },
@@ -141,8 +141,8 @@ Ext.define('Ext.util.Format', {
      * @param {String} value The string to encode.
      * @return {String} The encoded text.
      */
-    htmlEncode: function(value) {
-        return ! value ? value: String(value).replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    htmlEncode: function (value) {
+        return !value ? value : String(value).replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
     },
 
     /**
@@ -150,8 +150,8 @@ Ext.define('Ext.util.Format', {
      * @param {String} value The string to decode.
      * @return {String} The decoded text.
      */
-    htmlDecode: function(value) {
-        return ! value ? value: String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
+    htmlDecode: function (value) {
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
     },
 
     /**
@@ -164,7 +164,7 @@ Ext.define('Ext.util.Format', {
      * @param {String} [format='m/d/Y'] (optional) Any valid date format string.
      * @return {String} The formatted date string.
      */
-    date: function(value, format) {
+    date: function (value, format) {
         var date = value;
         if (!value) {
             return "";

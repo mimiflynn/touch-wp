@@ -25,43 +25,38 @@
  * @autor Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 
-@mixin vertical-align-requirement
-{
-    html,
-    body
-    {
-        height:100%;
-        margin: 0;
-        padding: 0;
-    }
-}
-
-@mixin vertical-align-container
-{
-
-    display: table;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
+@mixin vertical-align-requirement {
+  html,
+  body {
     height: 100%;
-
-    // ie6 ie7
-    *position:relative;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-    @mixin vertical-align-content-container
-    {
-        display: table-cell;
-        vertical-align: middle;
+@mixin vertical-align-container {
 
-        // ie6 ie7
-        *position: absolute;
-        *top: 50%;
-    }
+  display: table;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
 
-        @mixin vertical-align-content
-        {
-            // ie6 ie7
-            *position: relative;
-            *top: -50%;
-        }
+// ie6 ie7
+  *position: relative;
+}
+
+@mixin vertical-align-content-container {
+  display: table-cell;
+  vertical-align: middle;
+
+// ie6 ie7
+  *position: absolute;
+  *top: 50%;
+}
+
+@mixin vertical-align-content {
+// ie6 ie7
+  *position: relative;
+  *top: -50%;
+}

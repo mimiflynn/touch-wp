@@ -8,12 +8,12 @@ Ext.define('Ext.scroll.indicator.Rounded', {
         cls: 'rounded'
     },
 
-    constructor: function() {
+    constructor: function () {
         this.callParent(arguments);
         this.transformPropertyName = Ext.browser.getVendorProperyName('transform');
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var config = this.callParent();
 
         config.children[0].children = [
@@ -31,7 +31,7 @@ Ext.define('Ext.scroll.indicator.Rounded', {
         return config;
     },
 
-    refresh: function() {
+    refresh: function () {
         var axis = this.getAxis(),
             startElementDom = this.startElement.dom,
             endElementDom = this.endElement.dom,
@@ -55,7 +55,7 @@ Ext.define('Ext.scroll.indicator.Rounded', {
         this.callParent();
     },
 
-    doUpdateLength: function(length) {
+    doUpdateLength: function (length) {
         if (!this.isDestroyed) {
             var axis = this.getAxis(),
                 endElement = this.endElement,

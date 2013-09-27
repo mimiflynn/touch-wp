@@ -17,7 +17,7 @@ Ext.define('Ext.event.recognizer.Tap', {
         moveDistance: 8
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         if (this.callSuper(arguments) === false) {
             return false;
         }
@@ -25,7 +25,7 @@ Ext.define('Ext.event.recognizer.Tap', {
         this.startPoint = e.changedTouches[0].point;
     },
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         var touch = e.changedTouches[0],
             point = touch.point;
 
@@ -37,7 +37,7 @@ Ext.define('Ext.event.recognizer.Tap', {
         }
     },
 
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         var touch = e.changedTouches[0];
 
         this.fire('tap', e, [touch], {

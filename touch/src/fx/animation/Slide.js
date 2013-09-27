@@ -50,7 +50,7 @@ Ext.define('Ext.fx.animation.Slide', {
         right: 'left'
     },
 
-    applyEasing: function(easing) {
+    applyEasing: function (easing) {
         if (easing === 'auto') {
             return 'ease-' + ((this.getOut()) ? 'in' : 'out');
         }
@@ -58,7 +58,7 @@ Ext.define('Ext.fx.animation.Slide', {
         return easing;
     },
 
-    getContainerBox: function() {
+    getContainerBox: function () {
         var box = this._containerBox;
 
         if (box === 'auto') {
@@ -68,7 +68,7 @@ Ext.define('Ext.fx.animation.Slide', {
         return box;
     },
 
-    getElementBox: function() {
+    getElementBox: function () {
         var box = this._elementBox;
 
         if (this.getIsElementBoxFit()) {
@@ -82,7 +82,7 @@ Ext.define('Ext.fx.animation.Slide', {
         return box;
     },
 
-    getData: function() {
+    getData: function () {
         var elementBox = this.getElementBox(),
             containerBox = this.getContainerBox(),
             box = elementBox ? elementBox : containerBox,

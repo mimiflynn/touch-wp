@@ -108,13 +108,13 @@ Ext.define('Ext.fx.animation.Cube', {
 //        return this.callParent(arguments);
 //    },
 
-    getData: function() {
+    getData: function () {
         var to = this.getTo(),
             from = this.getFrom(),
             before = this.getBefore(),
             after = this.getAfter(),
-            out  = this.getOut(),
-            direction  = this.getDirection(),
+            out = this.getOut(),
+            direction = this.getDirection(),
             el = this.getElement(),
             elW = el.getWidth(),
             elH = el.getHeight(),

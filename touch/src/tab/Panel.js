@@ -61,7 +61,7 @@
  */
 Ext.define('Ext.tab.Panel', {
     extend: 'Ext.Container',
-    xtype : 'tabpanel',
+    xtype: 'tabpanel',
     alternateClassName: 'Ext.TabPanel',
 
     requires: ['Ext.tab.Bar'],
@@ -120,20 +120,20 @@ Ext.define('Ext.tab.Panel', {
          */
     },
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.on({
             order: 'before',
             activetabchange: 'doTabChange',
             delegate: '> tabbar',
-            scope   : this
+            scope: this
         });
 
         this.on({
             disabledchange: 'onItemDisabledChange',
             delegate: '> component',
-            scope   : this
+            scope: this
         });
     },
 
@@ -142,14 +142,14 @@ Ext.define('Ext.tab.Panel', {
      * you want to scroll.
      * @private
      */
-    applyScrollable: function() {
+    applyScrollable: function () {
         return false;
     },
 
     /**
      * Updates the Ui for this component and the {@link #tabBar}.
      */
-    updateUi: function(newUi, oldUi) {
+    updateUi: function (newUi, oldUi) {
         this.callParent(arguments);
 
         if (this.initialized) {
@@ -160,7 +160,7 @@ Ext.define('Ext.tab.Panel', {
     /**
      * @private
      */
-    doSetActiveItem: function(newActiveItem, oldActiveItem) {
+    doSetActiveItem: function (newActiveItem, oldActiveItem) {
         if (newActiveItem) {
             var items = this.getInnerItems(),
                 oldIndex = items.indexOf(oldActiveItem),
@@ -199,7 +199,7 @@ Ext.define('Ext.tab.Panel', {
      * @param {Object} newTab
      * @return {Boolean}
      */
-    doTabChange: function(tabBar, newTab) {
+    doTabChange: function (tabBar, newTab) {
         var oldActiveItem = this.getActiveItem(),
             newActiveItem;
 
@@ -214,7 +214,7 @@ Ext.define('Ext.tab.Panel', {
      * @return {Object}
      * @private
      */
-    applyTabBar: function(config) {
+    applyTabBar: function (config) {
         if (config === true) {
             config = {};
         }
@@ -233,7 +233,7 @@ Ext.define('Ext.tab.Panel', {
      * Adds the new {@link Ext.tab.Bar} instance into this container.
      * @private
      */
-    updateTabBar: function(newTabBar) {
+    updateTabBar: function (newTabBar) {
         if (newTabBar) {
             this.add(newTabBar);
             this.setTabBarPosition(newTabBar.getDocked());
@@ -244,14 +244,14 @@ Ext.define('Ext.tab.Panel', {
      * Updates the docked position of the {@link #tabBar}.
      * @private
      */
-    updateTabBarPosition: function(position) {
+    updateTabBarPosition: function (position) {
         var tabBar = this.getTabBar();
         if (tabBar) {
             tabBar.setDocked(position);
         }
     },
 
-    onItemAdd: function(card) {
+    onItemAdd: function (card) {
         var me = this;
 
         if (!card.isInnerItem()) {
@@ -320,19 +320,19 @@ Ext.define('Ext.tab.Panel', {
      * If an item gets enabled/disabled and it has an tab, we should also enable/disable that tab
      * @private
      */
-    onItemDisabledChange: function(item, newDisabled) {
+    onItemDisabledChange: function (item, newDisabled) {
         if (item && item.tab) {
             item.tab.setDisabled(newDisabled);
         }
     },
 
     // @private
-    onItemRemove: function(item, index) {
+    onItemRemove: function (item, index) {
         this.getTabBar().remove(item.tab, this.getAutoDestroy());
 
         this.callParent(arguments);
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     /**
      * @cfg {Boolean} tabBarDock

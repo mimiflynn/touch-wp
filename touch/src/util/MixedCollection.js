@@ -38,13 +38,13 @@ Ext.define('Ext.util.MixedCollection', {
      * @param {Ext.util.MixedCollection} this
      */
 
-    constructor: function() {
+    constructor: function () {
         var me = this;
         me.callParent(arguments);
         me.mixins.sortable.initSortable.call(me);
     },
 
-    doSort: function(sorterFn) {
+    doSort: function (sorterFn) {
         this.sortBy(sorterFn);
     },
 
@@ -58,43 +58,43 @@ Ext.define('Ext.util.MixedCollection', {
      * @param {Function} fn (optional) Comparison function that defines the sort order.
      * Defaults to sorting by numeric value.
      */
-    _sort: function(property, dir, fn){
+    _sort: function (property, dir, fn) {
         var me = this,
             i, len,
-            dsc   = String(dir).toUpperCase() == 'DESC' ? -1 : 1,
+            dsc = String(dir).toUpperCase() == 'DESC' ? -1 : 1,
 
-            //this is a temporary array used to apply the sorting function
-            c     = [],
-            keys  = me.keys,
+        //this is a temporary array used to apply the sorting function
+            c = [],
+            keys = me.keys,
             items = me.items;
 
         //default to a simple sorter function if one is not provided
-        fn = fn || function(a, b) {
+        fn = fn || function (a, b) {
             return a - b;
         };
 
         //copy all the items into a temporary array, which we will sort
-        for(i = 0, len = items.length; i < len; i++){
+        for (i = 0, len = items.length; i < len; i++) {
             c[c.length] = {
-                key  : keys[i],
+                key: keys[i],
                 value: items[i],
                 index: i
             };
         }
 
         //sort the temporary array
-        Ext.Array.sort(c, function(a, b){
+        Ext.Array.sort(c, function (a, b) {
             var v = fn(a[property], b[property]) * dsc;
-            if(v === 0){
+            if (v === 0) {
                 v = (a.index < b.index ? -1 : 1);
             }
             return v;
         });
 
         //copy the temporary array back into the main this.items and this.keys objects
-        for(i = 0, len = c.length; i < len; i++){
+        for (i = 0, len = c.length; i < len; i++) {
             items[i] = c[i].value;
-            keys[i]  = c[i].key;
+            keys[i] = c[i].key;
         }
 
         me.fireEvent('sort', me);
@@ -104,24 +104,24 @@ Ext.define('Ext.util.MixedCollection', {
      * Sorts the collection by a single sorter function.
      * @param {Function} sorterFn The function to sort by.
      */
-    sortBy: function(sorterFn) {
-        var me     = this,
-            items  = me.items,
-            keys   = me.keys,
+    sortBy: function (sorterFn) {
+        var me = this,
+            items = me.items,
+            keys = me.keys,
             length = items.length,
-            temp   = [],
+            temp = [],
             i;
 
         //first we create a copy of the items array so that we can sort it
         for (i = 0; i < length; i++) {
             temp[i] = {
-                key  : keys[i],
+                key: keys[i],
                 value: items[i],
                 index: i
             };
         }
 
-        Ext.Array.sort(temp, function(a, b) {
+        Ext.Array.sort(temp, function (a, b) {
             var v = sorterFn(a.value, b.value);
             if (v === 0) {
                 v = (a.index < b.index ? -1 : 1);
@@ -133,7 +133,7 @@ Ext.define('Ext.util.MixedCollection', {
         //copy the temporary array back into the main this.items and this.keys objects
         for (i = 0; i < length; i++) {
             items[i] = temp[i].value;
-            keys[i]  = temp[i].key;
+            keys[i] = temp[i].key;
         }
 
         me.fireEvent('sort', me, items, keys);
@@ -144,7 +144,7 @@ Ext.define('Ext.util.MixedCollection', {
      * sort. The `sort` event is fired whenever reordering has occured.
      * @param {Object} mapping Mapping from old item index to new item index.
      */
-    reorder: function(mapping) {
+    reorder: function (mapping) {
         var me = this,
             items = me.items,
             index = 0,
@@ -185,8 +185,8 @@ Ext.define('Ext.util.MixedCollection', {
      * @param {Function} [fn] Comparison function that defines the sort order. Defaults to sorting by case insensitive
      * string.
      */
-    sortByKey: function(dir, fn){
-        this._sort('key', dir, fn || function(a, b){
+    sortByKey: function (dir, fn) {
+        this._sort('key', dir, fn || function (a, b) {
             var v1 = String(a).toUpperCase(), v2 = String(b).toUpperCase();
             return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
         });

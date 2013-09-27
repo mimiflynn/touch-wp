@@ -85,7 +85,7 @@
  */
 Ext.define('Ext.Audio', {
     extend: 'Ext.Media',
-    xtype : 'audio',
+    xtype: 'audio',
 
     config: {
         /**
@@ -108,7 +108,7 @@ Ext.define('Ext.Audio', {
     },
 
     // @private
-    onActivate: function() {
+    onActivate: function () {
         var me = this;
 
         me.callParent();
@@ -119,7 +119,7 @@ Ext.define('Ext.Audio', {
     },
 
     // @private
-    onDeactivate: function() {
+    onDeactivate: function () {
         var me = this;
 
         me.callParent();
@@ -129,10 +129,12 @@ Ext.define('Ext.Audio', {
         }
     },
 
-    template: [{
-        reference: 'media',
-        preload: 'auto',
-        tag: 'audio',
-        cls: Ext.baseCSSPrefix + 'component'
-    }]
+    template: [
+        {
+            reference: 'media',
+            preload: 'auto',
+            tag: 'audio',
+            cls: Ext.baseCSSPrefix + 'component'
+        }
+    ]
 });

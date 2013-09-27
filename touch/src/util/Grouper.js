@@ -29,7 +29,7 @@ Ext.define('Ext.util.Grouper', {
          * Grouper has a custom sorterFn that cannot be overridden by the user. If a property has been defined
          * on this grouper, we use the default `sorterFn`, else we sort based on the returned group string.
          */
-        sorterFn: function(item1, item2) {
+        sorterFn: function (item1, item2) {
             var property = this.getSortProperty(),
                 groupFn, group1, group2, modifier;
 
@@ -52,7 +52,7 @@ Ext.define('Ext.util.Grouper', {
      * @private
      * Basic default sorter function that just compares the defined property of each object.
      */
-    defaultSortFn: function(item1, item2) {
+    defaultSortFn: function (item1, item2) {
         var me = this,
             transform = me._transform,
             root = me._root,
@@ -75,11 +75,11 @@ Ext.define('Ext.util.Grouper', {
         return value1 > value2 ? 1 : (value1 < value2 ? -1 : 0);
     },
 
-    updateProperty: function(property) {
+    updateProperty: function (property) {
         this.setGroupFn(this.standardGroupFn);
     },
 
-    standardGroupFn: function(item) {
+    standardGroupFn: function (item) {
         var root = this.getRoot(),
             property = this.getProperty(),
             data = item;
@@ -91,7 +91,7 @@ Ext.define('Ext.util.Grouper', {
         return data[property];
     },
 
-    getGroupString: function(item) {
+    getGroupString: function (item) {
         var group = this.getGroupFn().call(this, item);
         return (group !== null && typeof group != 'undefined') ? group.toString() : '';
     }

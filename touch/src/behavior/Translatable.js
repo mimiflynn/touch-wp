@@ -9,7 +9,7 @@ Ext.define('Ext.behavior.Translatable', {
         'Ext.util.Translatable'
     ],
 
-    setConfig: function(config) {
+    setConfig: function (config) {
         var translatable = this.translatable,
             component = this.component;
 
@@ -30,15 +30,15 @@ Ext.define('Ext.behavior.Translatable', {
         return this;
     },
 
-    getTranslatable: function() {
+    getTranslatable: function () {
         return this.translatable;
     },
 
-    onTranslatableDestroy: function() {
+    onTranslatableDestroy: function () {
         delete this.translatable;
     },
 
-    onComponentDestroy: function() {
+    onComponentDestroy: function () {
         var translatable = this.translatable;
 
         if (translatable) {

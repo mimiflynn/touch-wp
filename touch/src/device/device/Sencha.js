@@ -4,7 +4,7 @@
 Ext.define('Ext.device.device.Sencha', {
     extend: 'Ext.device.device.Abstract',
 
-    constructor: function() {
+    constructor: function () {
         this.name = device.name;
         this.uuid = device.uuid;
         this.platform = device.platformName || Ext.os.name;
@@ -12,7 +12,7 @@ Ext.define('Ext.device.device.Sencha', {
         this.initURL();
     },
 
-    openURL: function(url) {
+    openURL: function (url) {
         Ext.device.Communicator.send({
             command: 'OpenURL#open',
             url: url
@@ -22,7 +22,7 @@ Ext.define('Ext.device.device.Sencha', {
     /**
      * @private
      */
-    initURL: function() {
+    initURL: function () {
         Ext.device.Communicator.send({
             command: "OpenURL#watch",
             callbacks: {
@@ -35,7 +35,7 @@ Ext.define('Ext.device.device.Sencha', {
     /**
      * @private
      */
-    updateURL: function() {
+    updateURL: function () {
         this.scheme = device.scheme || false;
         this.fireEvent('schemeupdate', this, this.scheme);
     }

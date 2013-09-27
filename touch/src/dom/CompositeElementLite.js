@@ -47,12 +47,12 @@ Ext.define('Ext.dom.CompositeElementLite', {
          * @static
          * Copies all of the functions from Ext.dom.Element's prototype onto CompositeElementLite's prototype.
          */
-        importElementMethods: function() {
+        importElementMethods: function () {
 
         }
     },
 
-    constructor: function(elements, root) {
+    constructor: function (elements, root) {
         /**
          * @property {HTMLElement[]} elements
          * @readonly
@@ -89,13 +89,13 @@ Ext.define('Ext.dom.CompositeElementLite', {
     isComposite: true,
 
     // @private
-    getElement: function(el) {
+    getElement: function (el) {
         // Set the shared flyweight dom property to the current element
         return this.el.attach(el).synchronize();
     },
 
     // @private
-    transformElement: function(el) {
+    transformElement: function (el) {
         return Ext.getDom(el);
     },
 
@@ -103,7 +103,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * Returns the number of elements in this Composite.
      * @return {Number}
      */
-    getCount: function() {
+    getCount: function () {
         return this.elements.length;
     },
 
@@ -114,7 +114,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @param {HTMLElement/String} [root] The root element of the query or id of the root.
      * @return {Ext.dom.CompositeElementLite} This Composite object.
      */
-    add: function(els, root) {
+    add: function (els, root) {
         var elements = this.elements,
             i, ln;
 
@@ -139,7 +139,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
         return this;
     },
 
-    invoke: function(fn, args) {
+    invoke: function (fn, args) {
         var elements = this.elements,
             ln = elements.length,
             element,
@@ -160,7 +160,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @param {Number} index
      * @return {Ext.dom.Element}
      */
-    item: function(index) {
+    item: function (index) {
         var el = this.elements[index],
             out = null;
 
@@ -172,10 +172,10 @@ Ext.define('Ext.dom.CompositeElementLite', {
     },
 
     // fixes scope with flyweight.
-    addListener: function(eventName, handler, scope, opt) {
+    addListener: function (eventName, handler, scope, opt) {
         var els = this.elements,
-                len = els.length,
-                i, e;
+            len = els.length,
+            i, e;
 
         for (i = 0; i < len; i++) {
             e = els[i];
@@ -196,11 +196,11 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * Defaults to the Element.
      * @return {Ext.dom.CompositeElementLite} this
      */
-    each: function(fn, scope) {
+    each: function (fn, scope) {
         var me = this,
-                els = me.elements,
-                len = els.length,
-                i, e;
+            els = me.elements,
+            len = els.length,
+            i, e;
 
         for (i = 0; i < len; i++) {
             e = els[i];
@@ -220,7 +220,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * to fill this Composite.
      * @return {Ext.dom.CompositeElementLite} this
      */
-    fill: function(els) {
+    fill: function (els) {
         var me = this;
         me.elements = [];
         me.add(els);
@@ -235,15 +235,15 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @param {Number} selector.index The current index within the collection.
      * @return {Ext.dom.CompositeElementLite} this
      */
-    filter: function(selector) {
+    filter: function (selector) {
         var els = [],
-                me = this,
-                fn = Ext.isFunction(selector) ? selector
-                        : function(el) {
-                    return el.is(selector);
-                };
+            me = this,
+            fn = Ext.isFunction(selector) ? selector
+                : function (el) {
+                return el.is(selector);
+            };
 
-        me.each(function(el, self, i) {
+        me.each(function (el, self, i) {
             if (fn(el, i) !== false) {
                 els[els.length] = me.transformElement(el);
             }
@@ -259,7 +259,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * to find within the composite collection.
      * @return {Number} The index of the passed Ext.dom.Element in the composite collection, or -1 if not found.
      */
-    indexOf: function(el) {
+    indexOf: function (el) {
         return Ext.Array.indexOf(this.elements, this.transformElement(el));
     },
 
@@ -271,9 +271,9 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @param {Boolean} [domReplace] `true` to remove and replace the element in the document too.
      * @return {Ext.dom.CompositeElementLite} this
      */
-    replaceElement: function(el, replacement, domReplace) {
+    replaceElement: function (el, replacement, domReplace) {
         var index = !isNaN(el) ? el : this.indexOf(el),
-                d;
+            d;
         if (index > -1) {
             replacement = Ext.getDom(replacement);
             if (domReplace) {
@@ -289,11 +289,11 @@ Ext.define('Ext.dom.CompositeElementLite', {
     /**
      * Removes all elements.
      */
-    clear: function() {
+    clear: function () {
         this.elements = [];
     },
 
-    addElements: function(els, root) {
+    addElements: function (els, root) {
         if (!els) {
             return this;
         }
@@ -304,7 +304,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
 
         var yels = this.elements;
 
-        Ext.each(els, function(e) {
+        Ext.each(els, function (e) {
             yels.push(Ext.get(e));
         });
 
@@ -315,7 +315,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * Returns the first Element
      * @return {Ext.dom.Element}
      */
-    first: function() {
+    first: function () {
         return this.item(0);
     },
 
@@ -323,7 +323,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * Returns the last Element
      * @return {Ext.dom.Element}
      */
-    last: function() {
+    last: function () {
         return this.item(this.getCount() - 1);
     },
 
@@ -333,7 +333,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * find within the composite collection.
      * @return {Boolean}
      */
-    contains: function(el) {
+    contains: function (el) {
         return this.indexOf(el) != -1;
     },
 
@@ -344,12 +344,12 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @param {Boolean} [removeDom] `true` to also remove the element from the document
      * @return {Ext.dom.CompositeElementLite} this
      */
-    removeElement: function(keys, removeDom) {
+    removeElement: function (keys, removeDom) {
         var me = this,
-                elements = this.elements,
-                el;
+            elements = this.elements,
+            el;
 
-        Ext.each(keys, function(val) {
+        Ext.each(keys, function (val) {
             if ((el = (elements[val] || elements[val = me.indexOf(val)]))) {
                 if (removeDom) {
                     if (el.dom) {
@@ -366,16 +366,16 @@ Ext.define('Ext.dom.CompositeElementLite', {
         return this;
     }
 
-}, function() {
+}, function () {
     var Element = Ext.dom.Element,
         elementPrototype = Element.prototype,
         prototype = this.prototype,
         name;
 
     for (name in elementPrototype) {
-        if (typeof elementPrototype[name] == 'function'){
-            (function(key) {
-                prototype[key] = prototype[key] || function() {
+        if (typeof elementPrototype[name] == 'function') {
+            (function (key) {
+                prototype[key] = prototype[key] || function () {
                     return this.invoke(key, arguments);
                 };
             }).call(prototype, name);
@@ -398,7 +398,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @method select
      * @static
      */
-    Ext.dom.Element.select = function(selector, composite, root) {
+    Ext.dom.Element.select = function (selector, composite, root) {
         var elements;
 
         if (typeof selector == "string") {
@@ -421,7 +421,7 @@ Ext.define('Ext.dom.CompositeElementLite', {
      * @method select
      * @alias Ext.dom.Element#select
      */
-    Ext.select = function() {
+    Ext.select = function () {
         return Element.select.apply(Element, arguments);
     };
 });

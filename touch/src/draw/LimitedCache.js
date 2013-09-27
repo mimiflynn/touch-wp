@@ -1,10 +1,10 @@
 /**
  * Limited cache is a size limited cache container that stores limited number of objects.
- * 
+ *
  * When {@link #get} is called, the container will try to find the object in the list.
  * If failed it will call the {@link #feeder} to create that object. If there are too many
  * objects in the container, the old ones are removed.
- * 
+ *
  * __Note:__ This is not using a Least Recently Used policy due to simplicity and performance consideration.
  */
 Ext.define("Ext.draw.LimitedCache", {

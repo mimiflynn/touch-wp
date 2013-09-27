@@ -12,15 +12,15 @@ Ext.define('Ext.fx.easing.Linear', {
         endValue: 0
     },
 
-    updateStartValue: function(startValue) {
+    updateStartValue: function (startValue) {
         this.distance = this.getEndValue() - startValue;
     },
 
-    updateEndValue: function(endValue) {
+    updateEndValue: function (endValue) {
         this.distance = endValue - this.getStartValue();
     },
 
-    getValue: function() {
+    getValue: function () {
         var deltaTime = Ext.Date.now() - this.getStartTime(),
             duration = this.getDuration();
 

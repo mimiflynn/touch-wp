@@ -2,7 +2,7 @@
  * Sencha Blink - Development
  * @author Jacky Nguyen <jacky@sencha.com>
  */
-(function() {
+(function () {
     var head = document.head;
 
     function write(content) {
@@ -32,10 +32,10 @@
             document.createTextNode(
                 "@media screen and (orientation: portrait) {" +
                     "@-ms-viewport {width: 320px !important;}" +
-                "}" +
-                "@media screen and (orientation: landscape) {" +
+                    "}" +
+                    "@media screen and (orientation: landscape) {" +
                     "@-ms-viewport {width: 560px !important;}" +
-                "}"
+                    "}"
             )
         );
         document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
@@ -50,7 +50,7 @@
     }
     Ext.microloaded = true;
 
-    var filterPlatform = window.Ext.filterPlatform = function(platform) {
+    var filterPlatform = window.Ext.filterPlatform = function (platform) {
         var profileMatch = false,
             ua = navigator.userAgent,
             j, jln;
@@ -66,9 +66,9 @@
             // - Android with "Mobile" in the UA
 
             return /(iPhone|iPod)/.test(ua) ||
-                      (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
-                      (/(BlackBerry|BB)/.test(ua) && isMobile) ||
-                      /(Windows Phone)/.test(ua);
+                (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
+                (/(BlackBerry|BB)/.test(ua) && isMobile) ||
+                /(Windows Phone)/.test(ua);
         }
 
         function isTablet(ua) {
@@ -132,7 +132,7 @@
     };
 
 
-    for (i = 0,ln = styleSheets.length; i < ln; i++) {
+    for (i = 0, ln = styleSheets.length; i < ln; i++) {
         path = styleSheets[i];
 
         if (typeof path != 'string') {
@@ -150,10 +150,10 @@
             };
         }
 
-        write('<link rel="stylesheet" href="'+path+'">');
+        write('<link rel="stylesheet" href="' + path + '">');
     }
 
-    for (i = 0,ln = scripts.length; i < ln; i++) {
+    for (i = 0, ln = scripts.length; i < ln; i++) {
         path = scripts[i];
 
         if (typeof path != 'string') {
@@ -167,7 +167,7 @@
             }
         }
 
-        write('<script src="'+path+'"></'+'script>');
+        write('<script src="' + path + '"></' + 'script>');
     }
 
 })();

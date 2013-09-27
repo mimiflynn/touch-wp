@@ -5,7 +5,7 @@ Ext.define('Ext.device.notification.PhoneGap', {
     extend: 'Ext.device.notification.Abstract',
     requires: ['Ext.device.Communicator'],
 
-    show: function() {
+    show: function () {
         var config = this.callParent(arguments),
             buttons = config.buttons,
             onShowCallback = function (index) {
@@ -14,7 +14,7 @@ Ext.define('Ext.device.notification.PhoneGap', {
                 }
             };
 
-         // change Ext.MessageBox buttons into normal arrays
+        // change Ext.MessageBox buttons into normal arrays
         var ln = buttons.length;
         if (ln && typeof buttons[0] != "string") {
             var newButtons = [],
@@ -35,7 +35,7 @@ Ext.define('Ext.device.notification.PhoneGap', {
         );
     },
 
-    vibrate: function() {
+    vibrate: function () {
         navigator.notification.vibrate(2000);
     }
 });

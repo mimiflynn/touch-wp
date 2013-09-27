@@ -77,13 +77,15 @@ Ext.define('Ext.Sheet', {
         } : null
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        enter: 'top',
-        exit: 'top'
-    }],
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            enter: 'top',
+            exit: 'top'
+        }
+    ],
 
-    applyHideAnimation: function(config) {
+    applyHideAnimation: function (config) {
         var exit = this.getExit(),
             direction = exit;
 
@@ -115,7 +117,7 @@ Ext.define('Ext.Sheet', {
         return anim;
     },
 
-    applyShowAnimation: function(config) {
+    applyShowAnimation: function (config) {
         var enter = this.getEnter(),
             direction = enter;
 
@@ -151,7 +153,7 @@ Ext.define('Ext.Sheet', {
         return anim;
     },
 
-    updateStretchX: function(newStretchX) {
+    updateStretchX: function (newStretchX) {
         this.getLeft();
         this.getRight();
 
@@ -161,7 +163,7 @@ Ext.define('Ext.Sheet', {
         }
     },
 
-    updateStretchY: function(newStretchY) {
+    updateStretchY: function (newStretchY) {
         this.getTop();
         this.getBottom();
 

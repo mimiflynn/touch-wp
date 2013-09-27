@@ -13,7 +13,7 @@ Ext.define('Ext.device.SQLite', {
         'Ext.device.sqlite.Sencha'
     ],
 
-    constructor: function() {
+    constructor: function () {
         return Ext.create('Ext.device.sqlite.Sencha');
     }
 });

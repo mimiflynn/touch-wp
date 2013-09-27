@@ -5,20 +5,17 @@
  *
  * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
-@mixin form-element-inline($label-width: 8em, $input-width: 20em)
-{
-    label
-    {
-        display: inline-block;
-        width: $label-width;
-        
-        vertical-align: middle;
-    }
+@mixin form-element-inline($label-width: 8em, $input-width: 20em) {
+  label {
+    display: inline-block;
+    width: $label-width;
 
-    input,
-    textarea
-    {
-        width: $input-width;
-        vertical-align: middle;
-    }
+    vertical-align: middle;
+  }
+
+  input,
+  textarea {
+    width: $input-width;
+    vertical-align: middle;
+  }
 }

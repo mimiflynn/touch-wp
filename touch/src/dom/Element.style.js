@@ -77,7 +77,7 @@ Ext.dom.Element.addMembers({
     /**
      * @private
      */
-    synchronize: function() {
+    synchronize: function () {
         var dom = this.dom,
             hasClassMap = {},
             className = dom.className,
@@ -110,7 +110,7 @@ Ext.dom.Element.addMembers({
      * @param {String} [prefix] (optional) Prefix to prepend to each class.
      * @param {String} [suffix] (optional) Suffix to append to each class.
      */
-    addCls: function(names, prefix, suffix) {
+    addCls: function (names, prefix, suffix) {
         if (!names) {
             return this;
         }
@@ -152,7 +152,7 @@ Ext.dom.Element.addMembers({
      * @param {String} [prefix=''] Prefix to prepend to each class to be removed.
      * @param {String} [suffix=''] Suffix to append to each class to be removed.
      */
-    removeCls: function(names, prefix, suffix) {
+    removeCls: function (names, prefix, suffix) {
         if (!names) {
             return this;
         }
@@ -201,7 +201,7 @@ Ext.dom.Element.addMembers({
      * @param {String} [suffix=''] Suffix to append to each class to be replaced.
      * @return {Ext.dom.Element} this
      */
-    replaceCls: function(oldName, newName, prefix, suffix) {
+    replaceCls: function (oldName, newName, prefix, suffix) {
         if (!oldName && !newName) {
             return this;
         }
@@ -261,7 +261,7 @@ Ext.dom.Element.addMembers({
      * @param {String} name The CSS class to check for.
      * @return {Boolean} `true` if the class exists, else `false`.
      */
-    hasCls: function(name) {
+    hasCls: function (name) {
         if (!this.isSynchronized) {
             this.synchronize();
         }
@@ -273,7 +273,7 @@ Ext.dom.Element.addMembers({
      * Sets the specified CSS class on this element's DOM node.
      * @param {String/Array} className The CSS class to set on this element.
      */
-    setCls: function(className) {
+    setCls: function (className) {
         var map = this.hasClassMap,
             i, ln, name;
 
@@ -297,13 +297,13 @@ Ext.dom.Element.addMembers({
      * @param {String} className The CSS class to toggle.
      * @return {Ext.dom.Element} this
      */
-    toggleCls: function(className, force){
+    toggleCls: function (className, force) {
         if (typeof force !== 'boolean') {
             force = !this.hasCls(className);
         }
 
-   		return (force) ? this.addCls(className) : this.removeCls(className);
-   	},
+        return (force) ? this.addCls(className) : this.removeCls(className);
+    },
 
     /**
      * @private
@@ -313,7 +313,7 @@ Ext.dom.Element.addMembers({
      * @param prefix
      * @return {Mixed}
      */
-    swapCls: function(firstClass, secondClass, flag, prefix) {
+    swapCls: function (firstClass, secondClass, flag, prefix) {
         if (flag === undefined) {
             flag = true;
         }
@@ -337,7 +337,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} width The new width.
      * @return {Ext.dom.Element} this
      */
-    setWidth: function(width) {
+    setWidth: function (width) {
         return this.setLengthValue(this.WIDTH, width);
     },
 
@@ -346,7 +346,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} height The new height.
      * @return {Ext.dom.Element} this
      */
-    setHeight: function(height) {
+    setHeight: function (height) {
         return this.setLengthValue(this.HEIGHT, height);
     },
 
@@ -365,7 +365,7 @@ Ext.dom.Element.addMembers({
      * - A String used to set the CSS height style. Animation may **not** be used.
      * @return {Ext.dom.Element} this
      */
-    setSize: function(width, height) {
+    setSize: function (width, height) {
         if (Ext.isObject(width)) {
             // in case of object from getSize()
             height = width.height;
@@ -383,7 +383,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} width The new minimum width.
      * @return {Ext.dom.Element} this
      */
-    setMinWidth: function(width) {
+    setMinWidth: function (width) {
         return this.setLengthValue(this.MIN_WIDTH, width);
     },
 
@@ -392,7 +392,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} height The new minimum height.
      * @return {Ext.dom.Element} this
      */
-    setMinHeight: function(height) {
+    setMinHeight: function (height) {
         return this.setLengthValue(this.MIN_HEIGHT, height);
     },
 
@@ -401,7 +401,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} width The new maximum width.
      * @return {Ext.dom.Element} this
      */
-    setMaxWidth: function(width) {
+    setMaxWidth: function (width) {
         return this.setLengthValue(this.MAX_WIDTH, width);
     },
 
@@ -410,7 +410,7 @@ Ext.dom.Element.addMembers({
      * @param {Number/String} height The new maximum height.
      * @return {Ext.dom.Element} this
      */
-    setMaxHeight: function(height) {
+    setMaxHeight: function (height) {
         return this.setLengthValue(this.MAX_HEIGHT, height);
     },
 
@@ -419,7 +419,7 @@ Ext.dom.Element.addMembers({
      * @param {String} top The top CSS property value.
      * @return {Ext.dom.Element} this
      */
-    setTop: function(top) {
+    setTop: function (top) {
         return this.setLengthValue(this.TOP, top);
     },
 
@@ -428,7 +428,7 @@ Ext.dom.Element.addMembers({
      * @param {String} right The right CSS property value.
      * @return {Ext.dom.Element} this
      */
-    setRight: function(right) {
+    setRight: function (right) {
         return this.setLengthValue(this.RIGHT, right);
     },
 
@@ -437,7 +437,7 @@ Ext.dom.Element.addMembers({
      * @param {String} bottom The bottom CSS property value.
      * @return {Ext.dom.Element} this
      */
-    setBottom: function(bottom) {
+    setBottom: function (bottom) {
         return this.setLengthValue(this.BOTTOM, bottom);
     },
 
@@ -446,11 +446,11 @@ Ext.dom.Element.addMembers({
      * @param {String} left The left CSS property value.
      * @return {Ext.dom.Element} this
      */
-    setLeft: function(left) {
+    setLeft: function (left) {
         return this.setLengthValue(this.LEFT, left);
     },
 
-    setMargin: function(margin) {
+    setMargin: function (margin) {
         var domStyle = this.dom.style;
 
         if (margin || margin === 0) {
@@ -465,7 +465,7 @@ Ext.dom.Element.addMembers({
         }
     },
 
-    setPadding: function(padding) {
+    setPadding: function (padding) {
         var domStyle = this.dom.style;
 
         if (padding || padding === 0) {
@@ -480,7 +480,7 @@ Ext.dom.Element.addMembers({
         }
     },
 
-    setBorder: function(border) {
+    setBorder: function (border) {
         var domStyle = this.dom.style;
 
         if (border || border === 0) {
@@ -495,7 +495,7 @@ Ext.dom.Element.addMembers({
         }
     },
 
-    setLengthValue: function(name, value) {
+    setLengthValue: function (name, value) {
         var domStyle = this.dom.style;
 
         if (value === null) {
@@ -517,7 +517,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} visible Whether the element is visible.
      * @return {Ext.Element} this
      */
-    setVisible: function(visible) {
+    setVisible: function (visible) {
         var mode = this.getVisibilityMode(),
             method = visible ? 'removeCls' : 'addCls';
 
@@ -541,7 +541,7 @@ Ext.dom.Element.addMembers({
         return this;
     },
 
-    getVisibilityMode: function() {
+    getVisibilityMode: function () {
         var dom = this.dom,
             mode = Ext.dom.Element.data(dom, 'visibilityMode');
 
@@ -555,7 +555,7 @@ Ext.dom.Element.addMembers({
     /**
      * Use this to change the visibility mode between {@link #VISIBILITY}, {@link #DISPLAY} or {@link #OFFSETS}.
      */
-    setVisibilityMode: function(mode) {
+    setVisibilityMode: function (mode) {
         this.self.data(this.dom, 'visibilityMode', mode);
 
         return this;
@@ -565,7 +565,7 @@ Ext.dom.Element.addMembers({
      * Shows this element.
      * Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
      */
-    show: function() {
+    show: function () {
         var dom = this.dom;
         if (dom) {
             dom.style.removeProperty('display');
@@ -576,11 +576,11 @@ Ext.dom.Element.addMembers({
      * Hides this element.
      * Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
      */
-    hide: function() {
+    hide: function () {
         this.dom.style.setProperty('display', 'none', 'important');
     },
 
-    setVisibility: function(isVisible) {
+    setVisibility: function (isVisible) {
         var domStyle = this.dom.style;
 
         if (isVisible) {
@@ -612,7 +612,7 @@ Ext.dom.Element.addMembers({
     styleHooks: {},
 
     // @private
-    addStyles: function(sides, styles) {
+    addStyles: function (sides, styles) {
         var totalSize = 0,
             sidesArr = sides.match(this.wordsRe),
             i = 0,
@@ -634,11 +634,11 @@ Ext.dom.Element.addMembers({
      * @param {String} value to check against.
      * @return {Boolean} `true` for when the current value equals the given value.
      */
-    isStyle: function(style, val) {
+    isStyle: function (style, val) {
         return this.getStyle(style) == val;
     },
 
-    getStyleValue: function(name) {
+    getStyleValue: function (name) {
         return this.dom.style.getPropertyValue(name);
     },
 
@@ -647,7 +647,7 @@ Ext.dom.Element.addMembers({
      * @param {String} prop The style property whose value is returned.
      * @return {String} The current value of the style property for this element.
      */
-    getStyle: function(prop) {
+    getStyle: function (prop) {
         var me = this,
             dom = me.dom,
             hook = me.styleHooks[prop],
@@ -683,7 +683,7 @@ Ext.dom.Element.addMembers({
      * @param {String} [value] The value to apply to the given property, or `null` if an object was passed.
      * @return {Ext.dom.Element} this
      */
-    setStyle: function(prop, value) {
+    setStyle: function (prop, value) {
         var me = this,
             dom = me.dom,
             hooks = me.styleHooks,
@@ -735,7 +735,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [contentHeight] `true` to get the height minus borders and padding.
      * @return {Number} The element's height.
      */
-    getHeight: function(contentHeight) {
+    getHeight: function (contentHeight) {
         var dom = this.dom,
             height = contentHeight ? (dom.clientHeight - this.getPadding("tb")) : dom.offsetHeight;
         return height > 0 ? height : 0;
@@ -746,7 +746,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [contentWidth] `true` to get the width minus borders and padding.
      * @return {Number} The element's width.
      */
-    getWidth: function(contentWidth) {
+    getWidth: function (contentWidth) {
         var dom = this.dom,
             width = contentWidth ? (dom.clientWidth - this.getPadding("lr")) : dom.offsetWidth;
         return width > 0 ? width : 0;
@@ -758,7 +758,7 @@ Ext.dom.Element.addMembers({
      * passing `'lr'` would get the border **l**eft width + the border **r**ight width.
      * @return {Number} The width of the sides passed added together
      */
-    getBorderWidth: function(side) {
+    getBorderWidth: function (side) {
         return this.addStyles(side, this.borders);
     },
 
@@ -768,7 +768,7 @@ Ext.dom.Element.addMembers({
      * passing `'lr'` would get the padding **l**eft + the padding **r**ight.
      * @return {Number} The padding of the sides passed added together.
      */
-    getPadding: function(side) {
+    getPadding: function (side) {
         return this.addStyles(side, this.paddings);
     },
 
@@ -778,7 +778,7 @@ Ext.dom.Element.addMembers({
      * a function which returns such a specification.
      * @return {Ext.dom.Element} this
      */
-    applyStyles: function(styles) {
+    applyStyles: function (styles) {
         if (styles) {
             var dom = this.dom,
                 styleType, i, len;
@@ -807,7 +807,7 @@ Ext.dom.Element.addMembers({
      * @return {Number} return.width
      * @return {Number} return.height
      */
-    getSize: function(contentSize) {
+    getSize: function (contentSize) {
         var dom = this.dom;
         return {
             width: Math.max(0, contentSize ? (dom.clientWidth - this.getPadding("lr")) : dom.offsetWidth),
@@ -819,10 +819,10 @@ Ext.dom.Element.addMembers({
      * Forces the browser to repaint this element.
      * @return {Ext.dom.Element} this
      */
-    repaint: function() {
+    repaint: function () {
         var dom = this.dom;
         this.addCls(Ext.baseCSSPrefix + 'repaint');
-        setTimeout(function() {
+        setTimeout(function () {
             Ext.fly(dom).removeCls(Ext.baseCSSPrefix + 'repaint');
         }, 1);
         return this;
@@ -834,7 +834,7 @@ Ext.dom.Element.addMembers({
      * @param {String} [sides] Any combination of 'l', 'r', 't', 'b' to get the sum of those sides.
      * @return {Object/Number}
      */
-    getMargin: function(side) {
+    getMargin: function (side) {
         var me = this,
             hash = {t: "top", l: "left", r: "right", b: "bottom"},
             o = {},
@@ -850,10 +850,10 @@ Ext.dom.Element.addMembers({
         }
     },
 
-    translate: function() {
+    translate: function () {
         var transformStyleName = 'webkitTransform' in document.createElement('div').style ? 'webkitTransform' : 'transform';
 
-        return function(x, y, z) {
+        return function (x, y, z) {
             this.dom.style[transformStyleName] = 'translate3d(' + (x || 0) + 'px, ' + (y || 0) + 'px, ' + (z || 0) + 'px)';
         }
     }()
@@ -882,7 +882,7 @@ Ext.dom.Element.addMembers({
      * @return {Number} return.width
      * @return {Number} return.height
      */
-    getViewSize: function() {
+    getViewSize: function () {
         //<debug warn>
         Ext.Logger.deprecate("Ext.dom.Element.getViewSize() is deprecated", this);
         //</debug>
@@ -912,7 +912,7 @@ Ext.dom.Element.addMembers({
      * @param {String} prop The style property whose value is to be tested.
      * @return {Boolean} `true` if the style property is visually transparent.
      */
-    isTransparent: function(prop) {
+    isTransparent: function (prop) {
         //<debug warn>
         Ext.Logger.deprecate("Ext.dom.Element.isTransparent() is deprecated", this);
         //</debug>
@@ -929,7 +929,7 @@ Ext.dom.Element.addMembers({
      * @param {String/String[]} className The CSS class to add, or an array of classes.
      * @return {Ext.dom.Element} this
      */
-    radioCls: function(className) {
+    radioCls: function (className) {
         //<debug warn>
         Ext.Logger.deprecate("Ext.dom.Element.radioCls() is deprecated", this);
         //</debug>

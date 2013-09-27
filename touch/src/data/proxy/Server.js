@@ -7,9 +7,9 @@
  */
 Ext.define('Ext.data.proxy.Server', {
     extend: 'Ext.data.proxy.Proxy',
-    alias : 'proxy.server',
+    alias: 'proxy.server',
     alternateClassName: 'Ext.data.ServerProxy',
-    requires  : ['Ext.data.Request'],
+    requires: ['Ext.data.Request'],
 
     config: {
         /**
@@ -86,7 +86,7 @@ Ext.define('Ext.data.proxy.Server', {
          * @cfg {Boolean} noCache
          * Disable caching by adding a unique parameter name to the request. Set to `false` to allow caching.
          */
-        noCache : true,
+        noCache: true,
 
         /**
          * @cfg {String} cacheString
@@ -98,7 +98,7 @@ Ext.define('Ext.data.proxy.Server', {
          * @cfg {Number} timeout
          * The number of milliseconds to wait for a response.
          */
-        timeout : 30000,
+        timeout: 30000,
 
         /**
          * @cfg {Object} api
@@ -128,10 +128,10 @@ Ext.define('Ext.data.proxy.Server', {
          * configured {@link Ext.data.proxy.Server#url url}.
          */
         api: {
-            create  : undefined,
-            read    : undefined,
-            update  : undefined,
-            destroy : undefined
+            create: undefined,
+            read: undefined,
+            update: undefined,
+            destroy: undefined
         },
 
         /**
@@ -142,7 +142,7 @@ Ext.define('Ext.data.proxy.Server', {
         extraParams: {}
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
         if (config.nocache !== undefined) {
             config.noCache = config.nocache;
@@ -154,19 +154,19 @@ Ext.define('Ext.data.proxy.Server', {
     },
 
     //in a ServerProxy all four CRUD operations are executed in the same manner, so we delegate to doRequest in each case
-    create: function() {
+    create: function () {
         return this.doRequest.apply(this, arguments);
     },
 
-    read: function() {
+    read: function () {
         return this.doRequest.apply(this, arguments);
     },
 
-    update: function() {
+    update: function () {
         return this.doRequest.apply(this, arguments);
     },
 
-    destroy: function() {
+    destroy: function () {
         return this.doRequest.apply(this, arguments);
     },
 
@@ -175,7 +175,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {String} name The key for the new value
      * @param {Object} value The value
      */
-    setExtraParam: function(name, value) {
+    setExtraParam: function (name, value) {
         this.getExtraParams()[name] = value;
     },
 
@@ -185,7 +185,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.data.Operation} operation The {@link Ext.data.Operation Operation} object to execute
      * @return {Ext.data.Request} The request object
      */
-    buildRequest: function(operation) {
+    buildRequest: function (operation) {
         var me = this,
             params = Ext.applyIf(operation.getParams() || {}, me.getExtraParams() || {}),
             request;
@@ -194,12 +194,12 @@ Ext.define('Ext.data.proxy.Server', {
         params = Ext.applyIf(params, me.getParams(operation));
 
         request = Ext.create('Ext.data.Request', {
-            params   : params,
-            action   : operation.getAction(),
-            records  : operation.getRecords(),
-            url      : operation.getUrl(),
+            params: params,
+            action: operation.getAction(),
+            records: operation.getRecords(),
+            url: operation.getUrl(),
             operation: operation,
-            proxy    : me
+            proxy: me
         });
 
         request.setUrl(me.buildUrl(request));
@@ -219,7 +219,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Object} scope The scope in which we call the callback
      * @protected
      */
-    processResponse: function(success, operation, request, response, callback, scope) {
+    processResponse: function (success, operation, request, response, callback, scope) {
         var me = this,
             action = operation.getAction(),
             reader, resultSet;
@@ -229,7 +229,7 @@ Ext.define('Ext.data.proxy.Server', {
 
             try {
                 resultSet = reader.process(me.getResponseResult(response));
-            } catch(e) {
+            } catch (e) {
                 operation.setException(e.message);
 
                 me.fireEvent('exception', me, response, operation);
@@ -267,7 +267,7 @@ Ext.define('Ext.data.proxy.Server', {
     /**
      * @private
      */
-    getResponseResult: function(response) {
+    getResponseResult: function (response) {
         return response;
     },
 
@@ -277,7 +277,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.data.Operation} operation The operation
      * @param {Object} response The response
      */
-    setException: function(operation, response) {
+    setException: function (operation, response) {
         if (Ext.isObject(response)) {
             operation.setException({
                 status: response.status,
@@ -292,7 +292,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Array} value An array of sorters/filters.
      * @return {Object} The encoded value
      */
-    applyEncoding: function(value) {
+    applyEncoding: function (value) {
         return Ext.encode(value);
     },
 
@@ -302,14 +302,14 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.util.Sorter[]} sorters The array of {@link Ext.util.Sorter Sorter} objects
      * @return {String} The encoded sorters
      */
-    encodeSorters: function(sorters) {
+    encodeSorters: function (sorters) {
         var min = [],
             length = sorters.length,
             i = 0;
 
         for (; i < length; i++) {
             min[i] = {
-                property : sorters[i].getProperty(),
+                property: sorters[i].getProperty(),
                 direction: sorters[i].getDirection()
             };
         }
@@ -323,7 +323,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.util.Filter[]} filters The array of {@link Ext.util.Filter Filter} objects
      * @return {String} The encoded filters
      */
-    encodeFilters: function(filters) {
+    encodeFilters: function (filters) {
         var min = [],
             length = filters.length,
             i = 0;
@@ -331,7 +331,7 @@ Ext.define('Ext.data.proxy.Server', {
         for (; i < length; i++) {
             min[i] = {
                 property: filters[i].getProperty(),
-                value   : filters[i].getValue()
+                value: filters[i].getValue()
             };
         }
         return this.applyEncoding(min);
@@ -341,7 +341,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @private
      * Copy any sorters, filters etc into the params so they can be sent over the wire
      */
-    getParams: function(operation) {
+    getParams: function (operation) {
         var me = this,
             params = {},
             grouper = operation.getGrouper(),
@@ -402,7 +402,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.data.Request} request The request object
      * @return {String} The url
      */
-    buildUrl: function(request) {
+    buildUrl: function (request) {
         var me = this,
             url = me.getUrl(request);
 
@@ -428,7 +428,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @param {Ext.data.Request} request The request
      * @return {String} The url
      */
-    getUrl: function(request) {
+    getUrl: function (request) {
         return request ? request.getUrl() || this.getApi()[request.getAction()] || this._url : this._url;
     },
 
@@ -444,7 +444,7 @@ Ext.define('Ext.data.proxy.Server', {
      * @protected
      * @template
      */
-    doRequest: function() {
+    doRequest: function () {
         //<debug>
         Ext.Logger.error("The doRequest function has not been implemented on your Ext.data.proxy.Server subclass. See src/data/ServerProxy.js for details");
         //</debug>

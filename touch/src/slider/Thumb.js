@@ -4,7 +4,7 @@
  */
 Ext.define('Ext.slider.Thumb', {
     extend: 'Ext.Component',
-    xtype : 'thumb',
+    xtype: 'thumb',
 
     config: {
         /**
@@ -24,18 +24,20 @@ Ext.define('Ext.slider.Thumb', {
 
     // Strange issue where the thumbs translation value is not being set when it is not visible. Happens when the thumb 
     // is contained within a modal panel.
-    platformConfig: [{
-        platform: ['ie10'],
-        draggable: {
-            translatable: {
-                translationMethod: 'csstransform'
+    platformConfig: [
+        {
+            platform: ['ie10'],
+            draggable: {
+                translatable: {
+                    translationMethod: 'csstransform'
+                }
             }
         }
-    }],
+    ],
 
     elementWidth: 0,
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.getDraggable().onBefore({
@@ -48,7 +50,7 @@ Ext.define('Ext.slider.Thumb', {
         this.element.on('resize', 'onElementResize', this);
     },
 
-    onDragStart: function() {
+    onDragStart: function () {
         if (this.isDisabled()) {
             return false;
         }
@@ -56,7 +58,7 @@ Ext.define('Ext.slider.Thumb', {
         this.relayEvent(arguments);
     },
 
-    onDrag: function() {
+    onDrag: function () {
         if (this.isDisabled()) {
             return false;
         }
@@ -64,7 +66,7 @@ Ext.define('Ext.slider.Thumb', {
         this.relayEvent(arguments);
     },
 
-    onDragEnd: function() {
+    onDragEnd: function () {
         if (this.isDisabled()) {
             return false;
         }
@@ -72,11 +74,11 @@ Ext.define('Ext.slider.Thumb', {
         this.relayEvent(arguments);
     },
 
-    onElementResize: function(element, info) {
+    onElementResize: function (element, info) {
         this.elementWidth = info.width;
     },
 
-    getElementWidth: function() {
+    getElementWidth: function () {
         return this.elementWidth;
     }
 });

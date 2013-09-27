@@ -4,20 +4,20 @@
  */
 
 .x-table-inner {
-    display: table !important;
-    width: 100% !important;
-    height: 100% !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
 
-    &.x-fixed-layout {
-        table-layout: fixed !important;
-    }
+  &.x-fixed-layout {
+    table-layout: fixed !important;
+  }
 }
 
 .x-table-row {
-    display: table-row !important;
+  display: table-row !important;
 }
 
 .x-table-cell {
-    display: table-cell !important;
-    vertical-align: middle;
+  display: table-cell !important;
+  vertical-align: middle;
 }

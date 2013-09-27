@@ -8,7 +8,7 @@ Ext.define('Ext.log.writer.Console', {
         throwOnWarnings: false
     },
 
-    doWrite: function(event) {
+    doWrite: function (event) {
         var message = event.message,
             priority = event.priorityName,
             consoleMethod;

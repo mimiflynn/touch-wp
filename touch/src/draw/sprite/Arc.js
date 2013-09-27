@@ -1,7 +1,7 @@
 /**
  * @class Ext.draw.sprite.Arc
  * @extend Ext.draw.sprite.Circle
- * 
+ *
  *  A sprite that represents a circular arc.
  *
  *     @example preview miniphone

@@ -144,7 +144,7 @@ Ext.define('Ext.draw.Component', {
                             reference: 'watermarkElement',
                             cls: 'x-chart-watermark',
                             html: Ext.draw.Component.WATERMARK,
-                            style: Ext.draw.Component.WATERMARK ? '': 'display: none'
+                            style: Ext.draw.Component.WATERMARK ? '' : 'display: none'
                         }
                     ]
                 }

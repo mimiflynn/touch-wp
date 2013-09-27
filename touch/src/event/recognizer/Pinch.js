@@ -49,7 +49,7 @@ Ext.define('Ext.event.recognizer.Pinch', {
 
     lastTouches: null,
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         if (!this.isTracking) {
             return;
         }
@@ -89,11 +89,11 @@ Ext.define('Ext.event.recognizer.Pinch', {
         this.lastTouches = touches;
     },
 
-    fireEnd: function(e) {
+    fireEnd: function (e) {
         this.fire('pinchend', e, this.lastTouches);
     },
 
-    fail: function() {
+    fail: function () {
         return this.callParent(arguments);
     }
 });

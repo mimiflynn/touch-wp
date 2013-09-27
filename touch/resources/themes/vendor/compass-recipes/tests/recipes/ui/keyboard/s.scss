@@ -1,15 +1,12 @@
 @import "tests";
-
 @import "recipes/ui/keyboard";
 
 // For a simpler approch, you can just include @include ui-keyboard-kbd
 
-kbd
-{
-    @include ui-keyboard-key;
+kbd {
+  @include ui-keyboard-key;
 
-    .ui-keyboard-dark &
-    {
-        @include ui-keyboard-key(dark);
-    }
+  .ui-keyboard-dark & {
+    @include ui-keyboard-key(dark);
+  }
 }

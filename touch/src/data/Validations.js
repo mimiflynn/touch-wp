@@ -48,7 +48,7 @@ Ext.define('Ext.data.Validations', {
         emailMessage: 'is not a valid email address'
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
@@ -57,7 +57,7 @@ Ext.define('Ext.data.Validations', {
      * @param {String} type The type of validation you want to get the error message for.
      * @return {Object}
      */
-    getMessage: function(type) {
+    getMessage: function (type) {
         var getterFn = this['get' + type[0].toUpperCase() + type.slice(1) + 'Message'];
         if (getterFn) {
             return getterFn.call(this);
@@ -82,7 +82,7 @@ Ext.define('Ext.data.Validations', {
      * @param {Object} value The value to validate.
      * @return {Boolean} `true` if validation passed.
      */
-    presence: function(config, value) {
+    presence: function (config, value) {
         if (arguments.length === 1) {
             value = config;
         }
@@ -99,14 +99,14 @@ Ext.define('Ext.data.Validations', {
      * @param {String} value The value to validate.
      * @return {Boolean} `true` if the value passes validation.
      */
-    length: function(config, value) {
+    length: function (config, value) {
         if (value === undefined || value === null) {
             return false;
         }
 
         var length = value.length,
-            min    = config.min,
-            max    = config.max;
+            min = config.min,
+            max = config.max;
 
         if ((min && length < min) || (max && length > max)) {
             return false;
@@ -121,7 +121,7 @@ Ext.define('Ext.data.Validations', {
      * @param {String} email The email address.
      * @return {Boolean} `true` if the value passes validation.
      */
-    email: function(config, email) {
+    email: function (config, email) {
         return Ext.data.validations.emailRe.test(email);
     },
 
@@ -135,7 +135,7 @@ Ext.define('Ext.data.Validations', {
      * @param {String} value The value to validate.
      * @return {Boolean} `true` if the value passes the format validation.
      */
-    format: function(config, value) {
+    format: function (config, value) {
         if (value === undefined || value === null) {
             value = '';
         }
@@ -152,8 +152,8 @@ Ext.define('Ext.data.Validations', {
      * @param {String} value The value to validate.
      * @return {Boolean} `true` if the value is present in the list.
      */
-    inclusion: function(config, value) {
-        return config.list && Ext.Array.indexOf(config.list,value) != -1;
+    inclusion: function (config, value) {
+        return config.list && Ext.Array.indexOf(config.list, value) != -1;
     },
 
     /**
@@ -166,7 +166,7 @@ Ext.define('Ext.data.Validations', {
      * @param {String} value The value to validate.
      * @return {Boolean} `true` if the value is not present in the list.
      */
-    exclusion: function(config, value) {
-        return config.list && Ext.Array.indexOf(config.list,value) == -1;
+    exclusion: function (config, value) {
+        return config.list && Ext.Array.indexOf(config.list, value) == -1;
     }
 });

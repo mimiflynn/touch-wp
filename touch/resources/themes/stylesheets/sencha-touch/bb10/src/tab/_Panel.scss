@@ -3,86 +3,86 @@
 //// Pictos icons are (c) 2010 Drew Wilson
 
 .x-tab {
-    height: 45px;
-    background-color: transparent;
-    border: 0;
-    border-left: 1px solid darken($dark-color, 1);
-    color: #fff;
+  height: 45px;
+  background-color: transparent;
+  border: 0;
+  border-left: 1px solid darken($dark-color, 1);
+  color: #fff;
 
-    .x-button-icon:before {
-        line-height: 2em;
-    }
+  .x-button-icon:before {
+    line-height: 2em;
+  }
 
-    .x-button-icon {
-        display: block !important;
-    }
+  .x-button-icon {
+    display: block !important;
+  }
 
-    &:last-child {
-        border-right: 1px solid darken($dark-color, 1);
-    }
+  &:last-child {
+    border-right: 1px solid darken($dark-color, 1);
+  }
 
-    &:before {
-        @include absolute-position;
-        content: '';
-        height: 3px;
-        bottom: auto;
-        background: lighten($dark-color, 10);
-    }
+  &:before {
+    @include absolute-position;
+    content: '';
+    height: 3px;
+    bottom: auto;
+    background: lighten($dark-color, 10);
+  }
 
-    .x-button-icon.x-hidden {
-        display: block !important;
-    }
+  .x-button-icon.x-hidden {
+    display: block !important;
+  }
 }
 
 .x-tabbar-light {
-    .x-tab {
-        border-color: darken($base-color, 13);
-        background-color: rgba(255,255,255,.1);
+  .x-tab {
+    border-color: darken($base-color, 13);
+    background-color: rgba(255, 255, 255, .1);
 
-        &:before {
-            background: lighten($base-color, 15);
-        }
+    &:before {
+      background: lighten($base-color, 15);
     }
+  }
 
-    .x-tab-active {
-        &:before {
-            background-color: #fff;
-        }
+  .x-tab-active {
+    &:before {
+      background-color: #fff;
     }
+  }
 }
 
 .x-tabbar-neutral,
 .x-tabbar-dark {
-    .x-tab {
-        border-color: darken($dark-color, 6);
-    }
+  .x-tab {
+    border-color: darken($dark-color, 6);
+  }
 
-    .x-tab-active {
-        @include bb-gradient(lighten($dark-color, 5));
+  .x-tab-active {
+    @include bb-gradient(lighten($dark-color, 5));
 
-        &:before {
-            background-color: $base-color;
-        }
+    &:before {
+      background-color: $base-color;
     }
+  }
 }
 
 .x-tabbar {
-    .x-tab {
-        @include st-box-orient(vertical);
+  .x-tab {
+    @include st-box-orient(vertical);
 
-        .x-button-icon {
-            margin: 0 auto;
-        }
-
-        .x-button-label {
-            margin: 5px 0;
-            font-size: 9px;
-            line-height: 12px;
-        }
-        .x-badge {
-            margin: 3px;
-        }
+    .x-button-icon {
+      margin: 0 auto;
     }
+
+    .x-button-label {
+      margin: 5px 0;
+      font-size: 9px;
+      line-height: 12px;
+    }
+    .x-badge {
+      margin: 3px;
+    }
+  }
 }
 
 ///**
@@ -295,7 +295,6 @@
 //  background-color: #eee;
 
 //  .x-tab {
-
 
 //    .x-button-label {
 //      color: #000;

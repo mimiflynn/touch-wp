@@ -44,7 +44,7 @@ Ext.define('Ext.util.Filter', {
         /**
          * @cfg {RegExp/Mixed} [value=null]
          * The value you want to match against. Can be a regular expression which will be used as matcher or any other
-         * value. Mixed can be an object or an array of objects. 
+         * value. Mixed can be an object or an array of objects.
          */
         value: null,
 
@@ -95,7 +95,7 @@ Ext.define('Ext.util.Filter', {
         scope: null
     },
 
-    applyId: function(id) {
+    applyId: function (id) {
         if (!id) {
             if (this.getProperty()) {
                 id = this.getProperty() + '-' + String(this.getValue());
@@ -112,11 +112,11 @@ Ext.define('Ext.util.Filter', {
      * Creates new Filter.
      * @param {Object} config Config object
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyFilterFn: function(filterFn) {
+    applyFilterFn: function (filterFn) {
         if (filterFn === Ext.emptyFn) {
             filterFn = this.getInitialConfig('filter');
             if (filterFn) {
@@ -141,12 +141,12 @@ Ext.define('Ext.util.Filter', {
      * @private
      * Creates a filter function for the configured property/value/anyMatch/caseSensitive options for this Filter
      */
-    createFilterFn: function() {
-        var me       = this,
-            matcher  = me.createValueMatcher();
+    createFilterFn: function () {
+        var me = this,
+            matcher = me.createValueMatcher();
 
-        return function(item) {
-            var root     = me.getRoot(),
+        return function (item) {
+            var root = me.getRoot(),
                 property = me.getProperty();
 
             if (root) {
@@ -161,13 +161,13 @@ Ext.define('Ext.util.Filter', {
      * @private
      * Returns a regular expression based on the given value and matching options
      */
-    createValueMatcher: function() {
-        var me            = this,
-            value         = me.getValue(),
-            anyMatch      = me.getAnyMatch(),
-            exactMatch    = me.getExactMatch(),
+    createValueMatcher: function () {
+        var me = this,
+            value = me.getValue(),
+            anyMatch = me.getAnyMatch(),
+            exactMatch = me.getExactMatch(),
             caseSensitive = me.getCaseSensitive(),
-            escapeRe      = Ext.String.escapeRegex;
+            escapeRe = Ext.String.escapeRegex;
 
         if (value === null || value === undefined || !value.exec) { // not a regex
             value = String(value);
@@ -181,8 +181,8 @@ Ext.define('Ext.util.Filter', {
                 }
             }
             value = new RegExp(value, caseSensitive ? '' : 'i');
-         }
+        }
 
-         return value;
+        return value;
     }
 });

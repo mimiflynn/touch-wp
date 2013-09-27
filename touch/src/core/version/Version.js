@@ -28,10 +28,10 @@
  *     console.log(version.match(1.0)); // true
  *     console.log(version.match('1.0.2')); // true
  */
-(function() {
+(function () {
 
 // Current core version
-var version = '4.1.0', Version;
+    var version = '4.1.0', Version;
     Ext.Version = Version = Ext.extend(Object, {
 
         /**
@@ -40,7 +40,7 @@ var version = '4.1.0', Version;
          * Examples: 1.0 or 1.2.3beta or 1.2.3.4RC
          * @return {Ext.Version} this
          */
-        constructor: function(version) {
+        constructor: function (version) {
             var toNumber = this.toNumber,
                 parts, releaseStartIndex;
 
@@ -73,7 +73,7 @@ var version = '4.1.0', Version;
          * @param value
          * @return {Number}
          */
-        toNumber: function(value) {
+        toNumber: function (value) {
             value = parseInt(value || 0, 10);
 
             if (isNaN(value)) {
@@ -88,7 +88,7 @@ var version = '4.1.0', Version;
          * @private
          * @return {String} version
          */
-        toString: function() {
+        toString: function () {
             return this.version;
         },
 
@@ -97,7 +97,7 @@ var version = '4.1.0', Version;
          * @private
          * @return {String} version
          */
-        valueOf: function() {
+        valueOf: function () {
             return this.version;
         },
 
@@ -105,7 +105,7 @@ var version = '4.1.0', Version;
          * Returns the major component value.
          * @return {Number} major
          */
-        getMajor: function() {
+        getMajor: function () {
             return this.major || 0;
         },
 
@@ -113,7 +113,7 @@ var version = '4.1.0', Version;
          * Returns the minor component value.
          * @return {Number} minor
          */
-        getMinor: function() {
+        getMinor: function () {
             return this.minor || 0;
         },
 
@@ -121,7 +121,7 @@ var version = '4.1.0', Version;
          * Returns the patch component value.
          * @return {Number} patch
          */
-        getPatch: function() {
+        getPatch: function () {
             return this.patch || 0;
         },
 
@@ -129,7 +129,7 @@ var version = '4.1.0', Version;
          * Returns the build component value.
          * @return {Number} build
          */
-        getBuild: function() {
+        getBuild: function () {
             return this.build || 0;
         },
 
@@ -137,7 +137,7 @@ var version = '4.1.0', Version;
          * Returns the release component value.
          * @return {Number} release
          */
-        getRelease: function() {
+        getRelease: function () {
             return this.release || '';
         },
 
@@ -146,7 +146,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version if greater than the target, `false` otherwise.
          */
-        isGreaterThan: function(target) {
+        isGreaterThan: function (target) {
             return Version.compare(this.version, target) === 1;
         },
 
@@ -155,7 +155,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version if greater than or equal to the target, `false` otherwise.
          */
-        isGreaterThanOrEqual: function(target) {
+        isGreaterThanOrEqual: function (target) {
             return Version.compare(this.version, target) >= 0;
         },
 
@@ -164,7 +164,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version if smaller than the target, `false` otherwise.
          */
-        isLessThan: function(target) {
+        isLessThan: function (target) {
             return Version.compare(this.version, target) === -1;
         },
 
@@ -173,7 +173,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version if less than or equal to the target, `false` otherwise.
          */
-        isLessThanOrEqual: function(target) {
+        isLessThanOrEqual: function (target) {
             return Version.compare(this.version, target) <= 0;
         },
 
@@ -182,23 +182,23 @@ var version = '4.1.0', Version;
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version equals to the target, `false` otherwise.
          */
-        equals: function(target) {
+        equals: function (target) {
             return Version.compare(this.version, target) === 0;
         },
 
         /**
          * Returns whether this version matches the supplied argument. Example:
-         * 
+         *
          *     var version = new Ext.Version('1.0.2beta');
          *     console.log(version.match(1)); // true
          *     console.log(version.match(1.0)); // true
          *     console.log(version.match('1.0.2')); // true
          *     console.log(version.match('1.0.2RC')); // false
-         * 
+         *
          * @param {String/Number} target The version to compare with.
          * @return {Boolean} `true` if this version matches the target, `false` otherwise.
          */
-        match: function(target) {
+        match: function (target) {
             target = String(target);
             return this.version.substr(0, target.length) === target;
         },
@@ -207,7 +207,7 @@ var version = '4.1.0', Version;
          * Returns this format: [major, minor, patch, build, release]. Useful for comparison.
          * @return {Number[]}
          */
-        toArray: function() {
+        toArray: function () {
             return [this.getMajor(), this.getMinor(), this.getPatch(), this.getBuild(), this.getRelease()];
         },
 
@@ -215,7 +215,7 @@ var version = '4.1.0', Version;
          * Returns shortVersion version without dots and release.
          * @return {String}
          */
-        getShortVersion: function() {
+        getShortVersion: function () {
             return this.shortVersion;
         },
 
@@ -224,7 +224,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target
          * @return {Boolean}
          */
-        gt: function() {
+        gt: function () {
             return this.isGreaterThan.apply(this, arguments);
         },
 
@@ -233,7 +233,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target
          * @return {Boolean}
          */
-        lt: function() {
+        lt: function () {
             return this.isLessThan.apply(this, arguments);
         },
 
@@ -242,7 +242,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target
          * @return {Boolean}
          */
-        gtEq: function() {
+        gtEq: function () {
             return this.isGreaterThanOrEqual.apply(this, arguments);
         },
 
@@ -251,7 +251,7 @@ var version = '4.1.0', Version;
          * @param {String/Number} target
          * @return {Boolean}
          */
-        ltEq: function() {
+        ltEq: function () {
             return this.isLessThanOrEqual.apply(this, arguments);
         }
     });
@@ -277,7 +277,7 @@ var version = '4.1.0', Version;
          * @param {Object} value The value to convert
          * @return {Object}
          */
-        getComponentValue: function(value) {
+        getComponentValue: function (value) {
             return !value ? 0 : (isNaN(value) ? this.releaseValueMap[value] || value : parseInt(value, 10));
         },
 
@@ -291,7 +291,7 @@ var version = '4.1.0', Version;
          * @param {String} target The target version to compare to.
          * @return {Number} Returns -1 if the current version is smaller than the target version, 1 if greater, and 0 if they're equivalent.
          */
-        compare: function(current, target) {
+        compare: function (current, target) {
             var currentValue, targetValue, i;
 
             current = new Version(current).toArray();
@@ -330,7 +330,7 @@ var version = '4.1.0', Version;
          * @param {String/Ext.Version} version The version, for example: '1.2.3alpha', '2.4.0-dev'.
          * @return {Ext}
          */
-        setVersion: function(packageName, version) {
+        setVersion: function (packageName, version) {
             Ext.versions[packageName] = new Version(version);
             Ext.lastRegisteredVersion = Ext.versions[packageName];
 
@@ -344,7 +344,7 @@ var version = '4.1.0', Version;
          * @param {String} packageName (Optional) The package name, for example: 'core', 'touch', 'extjs'.
          * @return {Ext.Version} The version.
          */
-        getVersion: function(packageName) {
+        getVersion: function (packageName) {
             if (packageName === undefined) {
                 return Ext.lastRegisteredVersion;
             }
@@ -368,7 +368,7 @@ var version = '4.1.0', Version;
          * @param {Function} closure The callback function to be executed with the specified version is less than the current version.
          * @param {Object} scope The execution scope (`this`) if the closure
          */
-        deprecate: function(packageName, since, closure, scope) {
+        deprecate: function (packageName, since, closure, scope) {
             if (Version.compare(Ext.getVersion(packageName), since) < 1) {
                 closure.call(scope);
             }

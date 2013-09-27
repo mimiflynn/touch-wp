@@ -1,8 +1,8 @@
 /**
- * 
+ *
  *
  * @mixins Ext.device.purchases.Sencha
- * 
+ *
  * @aside guide native_apis
  */
 Ext.define('Ext.device.Purchases', {
@@ -13,7 +13,7 @@ Ext.define('Ext.device.Purchases', {
         'Ext.device.purchases.Sencha'
     ],
 
-    constructor: function() {
+    constructor: function () {
         return Ext.create('Ext.device.purchases.Sencha');
     }
 });

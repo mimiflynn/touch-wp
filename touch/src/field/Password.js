@@ -57,7 +57,7 @@ Ext.define('Ext.field.Password', {
          * @inheritdoc
          */
         component: {
-	        type: 'password'
-	    }
+            type: 'password'
+        }
     }
 });

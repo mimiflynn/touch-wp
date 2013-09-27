@@ -5,7 +5,7 @@ Ext.define('Ext.util.sizemonitor.Scroll', {
 
     extend: 'Ext.util.sizemonitor.Abstract',
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         return {
             reference: 'detectorsContainer',
             classList: ['x-size-monitors', 'scroll'],
@@ -22,28 +22,28 @@ Ext.define('Ext.util.sizemonitor.Scroll', {
         }
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.onScroll = Ext.Function.bind(this.onScroll, this);
 
         this.callSuper(arguments);
     },
 
-    bindListeners: function(bind) {
+    bindListeners: function (bind) {
         var method = bind ? 'addEventListener' : 'removeEventListener';
 
         this.expandMonitor[method]('scroll', this.onScroll, true);
         this.shrinkMonitor[method]('scroll', this.onScroll, true);
     },
 
-    forceRefresh: function() {
+    forceRefresh: function () {
         Ext.TaskQueue.requestRead('refresh', this, [true]);
     },
 
-    onScroll: function() {
+    onScroll: function () {
         Ext.TaskQueue.requestRead('refresh', this);
     },
 
-    refreshMonitors: function() {
+    refreshMonitors: function () {
         var expandMonitor = this.expandMonitor,
             shrinkMonitor = this.shrinkMonitor,
             end = 1000000;

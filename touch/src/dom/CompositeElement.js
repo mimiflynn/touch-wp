@@ -25,13 +25,13 @@ Ext.define('Ext.dom.CompositeElement', {
     extend: 'Ext.dom.CompositeElementLite',
 
     // @private
-    getElement: function(el) {
+    getElement: function (el) {
         // In this case just return it, since we already have a reference to it
         return el;
     },
 
     // @private
-    transformElement: function(el) {
+    transformElement: function (el) {
         return Ext.get(el);
     }
 

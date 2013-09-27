@@ -41,7 +41,7 @@ Ext.define('Ext.event.recognizer.DoubleTap', {
 
     lastTapTime: 0,
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         if (this.callParent(arguments) === false) {
             return false;
         }
@@ -51,11 +51,11 @@ Ext.define('Ext.event.recognizer.DoubleTap', {
         clearTimeout(this.singleTapTimer);
     },
 
-    onTouchMove: function() {
+    onTouchMove: function () {
         return this.fail(this.self.TOUCH_MOVED);
     },
 
-    onEnd: function(e) {
+    onEnd: function (e) {
         var me = this,
             maxDuration = this.getMaxDuration(),
             touch = e.changedTouches[0],
@@ -92,13 +92,13 @@ Ext.define('Ext.event.recognizer.DoubleTap', {
             this.fireSingleTap(e, touch);
         }
         else {
-            this.singleTapTimer = setTimeout(function() {
+            this.singleTapTimer = setTimeout(function () {
                 me.fireSingleTap(e, touch);
             }, maxDuration);
         }
     },
 
-    fireSingleTap: function(e, touch) {
+    fireSingleTap: function (e, touch) {
         this.fire('singletap', e, [touch], {
             touch: touch
         });

@@ -13,13 +13,13 @@ Ext.define('Ext.event.publisher.ComponentSize', {
 
     handledEvents: ['resize', 'innerresize'],
 
-    constructor: function() {
+    constructor: function () {
         this.callParent(arguments);
 
         this.sizeMonitors = {};
     },
 
-    getSubscribers: function(target, createIfNotExist) {
+    getSubscribers: function (target, createIfNotExist) {
         var subscribers = this.subscribers;
 
         if (!subscribers.hasOwnProperty(target)) {
@@ -35,7 +35,7 @@ Ext.define('Ext.event.publisher.ComponentSize', {
         return subscribers[target];
     },
 
-    subscribe: function(target, eventName) {
+    subscribe: function (target, eventName) {
         var match = target.match(this.idSelectorRegex),
             sizeMonitors = this.sizeMonitors,
             dispatcher = this.dispatcher,
@@ -82,7 +82,7 @@ Ext.define('Ext.event.publisher.ComponentSize', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         var match = target.match(this.idSelectorRegex),
             dispatcher = this.dispatcher,
             targetType = this.targetType,
@@ -114,7 +114,7 @@ Ext.define('Ext.event.publisher.ComponentSize', {
         return true;
     },
 
-    onComponentPainted: function(component) {
+    onComponentPainted: function (component) {
         var target = component.getObservableId(),
             sizeMonitors = this.sizeMonitors[target];
 
@@ -127,7 +127,7 @@ Ext.define('Ext.event.publisher.ComponentSize', {
         }
     },
 
-    onComponentSizeChange: function(component, observableId, eventName) {
+    onComponentSizeChange: function (component, observableId, eventName) {
         this.dispatcher.doDispatchEvent(this.targetType, observableId, eventName, [component]);
     }
 });

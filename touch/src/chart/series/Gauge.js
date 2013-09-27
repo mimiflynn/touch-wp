@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.Gauge
  * @extends Ext.chart.series.Series
- * 
+ *
  * Creates a Gauge Chart.
  *
  *     @example preview
@@ -55,7 +55,7 @@ Ext.define('Ext.chart.series.Gauge', {
          * @deprecated Use `needleLength` directly
          * Ratio of the length of needle compared to the radius of the entire disk.
          */
-         needleLengthRatio: undefined,
+        needleLengthRatio: undefined,
 
         /**
          * @cfg {Number} needleLength
@@ -102,7 +102,7 @@ Ext.define('Ext.chart.series.Gauge', {
          * It can be an array of numbers (each between `minimum` and `maximum`) that
          * define the highest value of each sector. For N sectors, only (N-1) values are
          * needed because it is assumed that the first sector starts at `minimum` and the
-         * last sector ends at `maximum`. Example: a water temperature gauge that is blue 
+         * last sector ends at `maximum`. Example: a water temperature gauge that is blue
          * below 20C, red above 80C, gray in-between, and with an orange needle...
          *
          *      minimum: 0,
@@ -111,7 +111,7 @@ Ext.define('Ext.chart.series.Gauge', {
          *      colors: ['orange', 'blue', 'lightgray', 'red']
          *
          * It can be also an array of objects, each with the following properties:
-         * 
+         *
          * @cfg {Number} sectors.start The starting value of the sector. If omitted, it
          * uses the previous sector's `end` value or the chart's `minimum`.
          * @cfg {Number} sectors.end The ending value of the sector. If omitted, it uses
@@ -172,7 +172,7 @@ Ext.define('Ext.chart.series.Gauge', {
         wholeDisk: false
     },
 
-    updateNeedle: function(needle) {
+    updateNeedle: function (needle) {
         var me = this,
             sprites = me.getSprites(),
             angle = me.valueToAngle(me.getValue());
@@ -206,18 +206,18 @@ Ext.define('Ext.chart.series.Gauge', {
 
         // Make sure the 'sectors' colors are not overridden.
         for (i = 0; i < sectorCount; i++) {
-            newColors[i+1] = sectors[i].color || newColors[i+1] || colors[i%colorCount];
+            newColors[i + 1] = sectors[i].color || newColors[i + 1] || colors[i % colorCount];
         }
 
-        sprites[0].setAttributes({stroke:newColors[0]});
-        this.setSubStyle({color:newColors});
+        sprites[0].setAttributes({stroke: newColors[0]});
+        this.setSubStyle({color: newColors});
         this.doUpdateStyles();
     },
-    
+
     updateAngleField: function (angleField) {
         this.setField(angleField);
     },
-    
+
     updateNeedleLengthRatio: function (needleLengthRatio) {
         this.setNeedleLength(needleLengthRatio * 100);
     },
@@ -261,14 +261,14 @@ Ext.define('Ext.chart.series.Gauge', {
         var endRhoArray,
             sectors = this.getSectors(),
             sectorCount = (sectors && sectors.length) || 0;
-            needle = this.getNeedle(),
+        needle = this.getNeedle(),
             needleLength = this.getNeedleLength() / 100;
 
         // Initialize an array that contains the endRho for each sprite.
         // The first sprite is for the needle, the others for the gauge background sectors. 
         // Note: SubStyle arrays are handled in series.getOverriddenStyleByIndex().
         endRhoArray = [radius * needleLength, radius];
-        while (sectorCount --) {
+        while (sectorCount--) {
             endRhoArray.push(radius);
         }
 
@@ -289,7 +289,7 @@ Ext.define('Ext.chart.series.Gauge', {
         this.doUpdateShape(radius, donut);
     },
 
-    valueToAngle: function(value) {
+    valueToAngle: function (value) {
         value = this.applyValue(value);
         return this.getTotalAngle() * (value - this.getMinimum()) / (this.getMaximum() - this.getMinimum());
     },
@@ -347,23 +347,23 @@ Ext.define('Ext.chart.series.Gauge', {
         };
     },
 
-    normalizeSectors: function(sectors) {
+    normalizeSectors: function (sectors) {
         // Make sure all the sectors in the array have a legit start and end.
         // Note: the array is modified in-place.
         var me = this,
             sectorCount = (sectors && sectors.length) || 0,
             i, value, start, end;
-    
+
         if (sectorCount) {
             for (i = 0; i < sectorCount; i++) {
                 value = sectors[i];
                 if (typeof value == "number") {
                     sectors[i] = {
-                        start: (i > 0 ? sectors[i-1].end : me.getMinimum()),
+                        start: (i > 0 ? sectors[i - 1].end : me.getMinimum()),
                         end: Math.min(value, me.getMaximum())
                     };
                     if (i == (sectorCount - 1) && sectors[i].end < me.getMaximum()) {
-                        sectors[i+1] = {
+                        sectors[i + 1] = {
                             start: sectors[i].end,
                             end: me.getMaximum()
                         };
@@ -372,7 +372,7 @@ Ext.define('Ext.chart.series.Gauge', {
                     if (typeof value.start == "number") {
                         start = Math.max(value.start, me.getMinimum());
                     } else {
-                        start = (i > 0 ? sectors[i-1].end : me.getMinimum());
+                        start = (i > 0 ? sectors[i - 1].end : me.getMinimum());
                     }
                     if (typeof value.end == "number") {
                         end = Math.min(value.end, me.getMaximum());
@@ -384,17 +384,19 @@ Ext.define('Ext.chart.series.Gauge', {
                 }
             }
         } else {
-            sectors = [{
-                start: me.getMinimum(),
-                end: me.getMaximum()
-            }];
+            sectors = [
+                {
+                    start: me.getMinimum(),
+                    end: me.getMaximum()
+                }
+            ];
         }
         return sectors;
     },
 
     getSprites: function () {
         // The store must be initialized, or the value must be set
-        if(!this.getStore() && !Ext.isNumber(this.getValue())) {
+        if (!this.getStore() && !Ext.isNumber(this.getValue())) {
             return null;
         }
 
@@ -450,7 +452,7 @@ Ext.define('Ext.chart.series.Gauge', {
         // Make sure we have some default colors
         var colors = me.getColors() || (chart && chart.config.colors);
         if (!colors) {
-            me.setColors(['blue','lightgray']);
+            me.setColors(['blue', 'lightgray']);
         }
 
         me.doUpdateStyles();

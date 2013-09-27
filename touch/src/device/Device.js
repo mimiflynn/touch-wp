@@ -8,9 +8,9 @@
  * ## Examples
  *
  * #### Device Information
- * 
+ *
  * Getting the device information:
- * 
+ *
  *     Ext.application({
  *         name: 'Sencha',
  *
@@ -27,7 +27,7 @@
  *     });
  *
  * ### Custom Scheme URLs
- * 
+ *
  * Using custom scheme URLs to application your application from other applications:
  *
  *     Ext.application({
@@ -51,7 +51,7 @@
  *
  * Of course, you must add add the custom URLs you would like to use when packaging your application. You can do this by adding
  * the following code into the `rawConfig` property inside your `package.json` file (Sencha Native Packager configuration file):
- * 
+ *
  *     {
  *         ...
  *         "rawConfig": "<key>CFBundleURLTypes</key><array><dict><key>CFBundleURLSchemes</key><array><string>sencha</string></array><key>CFBundleURLName</key><string>com.sencha.example</string></dict></array>"
@@ -59,13 +59,13 @@
  *     }
  *
  * You can change the available URL schemes and the application identifier above.
- * 
+ *
  * You can then test it by packaging and installing the application onto a device/iOS Simulator, opening Safari and typing: `sencha:testing`.
  * The application will launch and it will `alert` the URL you specified.
  *
- * **PLEASE NOTE: This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with 
+ * **PLEASE NOTE: This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with
  * PhoneGap or simply in the browser, it will not function.**
- * 
+ *
  * @mixins Ext.device.device.Abstract
  *
  * @aside guide native_apis
@@ -80,7 +80,7 @@ Ext.define('Ext.device.Device', {
         'Ext.device.device.Simulator'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView) {

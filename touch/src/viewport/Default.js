@@ -145,7 +145,7 @@ Ext.define('Ext.viewport.Default', {
      */
     fullscreenItemCls: Ext.baseCSSPrefix + 'fullscreen',
 
-    constructor: function(config) {
+    constructor: function (config) {
         var bind = Ext.Function.bind;
 
         this.doPreventPanning = bind(this.doPreventPanning, this);
@@ -190,27 +190,27 @@ Ext.define('Ext.viewport.Default', {
         return this;
     },
 
-    onDomReady: function() {
+    onDomReady: function () {
         this.isReady = true;
         this.updateSize();
         this.fireEvent('ready', this);
     },
 
-    onReady: function() {
+    onReady: function () {
         if (this.getAutoRender()) {
             this.render();
         }
     },
 
-    onElementFocus: function(e) {
+    onElementFocus: function (e) {
         this.focusedElement = e.target;
     },
 
-    onElementBlur: function() {
+    onElementBlur: function () {
         this.focusedElement = null;
     },
 
-    render: function() {
+    render: function () {
         if (!this.rendered) {
             var body = Ext.getBody(),
                 clsPrefix = Ext.baseCSSPrefix,
@@ -254,7 +254,7 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    applyAutoBlurInput: function(autoBlurInput) {
+    applyAutoBlurInput: function (autoBlurInput) {
         var touchstart = (Ext.feature.has.Touch) ? 'touchstart' : 'mousedown';
 
         if (autoBlurInput) {
@@ -267,7 +267,7 @@ Ext.define('Ext.viewport.Default', {
         return autoBlurInput;
     },
 
-    applyAutoMaximize: function(autoMaximize) {
+    applyAutoMaximize: function (autoMaximize) {
         if (Ext.browser.is.WebView) {
             autoMaximize = false;
         }
@@ -283,7 +283,7 @@ Ext.define('Ext.viewport.Default', {
         return autoMaximize;
     },
 
-    applyPreventPanning: function(preventPanning) {
+    applyPreventPanning: function (preventPanning) {
         if (preventPanning) {
             this.addWindowListener('touchmove', this.doPreventPanning, false);
         }
@@ -294,7 +294,7 @@ Ext.define('Ext.viewport.Default', {
         return preventPanning;
     },
 
-    applyPreventZooming: function(preventZooming) {
+    applyPreventZooming: function (preventZooming) {
         var touchstart = (Ext.feature.has.Touch) ? 'touchstart' : 'mousedown';
 
         if (preventZooming) {
@@ -307,14 +307,14 @@ Ext.define('Ext.viewport.Default', {
         return preventZooming;
     },
 
-    doAutoMaximizeOnReady: function() {
+    doAutoMaximizeOnReady: function () {
         var controller = arguments[arguments.length - 1];
 
         controller.pause();
 
         this.isMaximizing = true;
 
-        this.on('maximize', function() {
+        this.on('maximize', function () {
             this.isMaximizing = false;
 
             this.updateSize();
@@ -327,7 +327,7 @@ Ext.define('Ext.viewport.Default', {
         this.maximize();
     },
 
-    doAutoMaximizeOnOrientationChange: function() {
+    doAutoMaximizeOnOrientationChange: function () {
         var controller = arguments[arguments.length - 1],
             firingArguments = controller.firingArguments;
 
@@ -335,7 +335,7 @@ Ext.define('Ext.viewport.Default', {
 
         this.isMaximizing = true;
 
-        this.on('maximize', function() {
+        this.on('maximize', function () {
             this.isMaximizing = false;
 
             this.updateSize();
@@ -349,7 +349,7 @@ Ext.define('Ext.viewport.Default', {
         this.maximize();
     },
 
-    doBlurInput: function(e) {
+    doBlurInput: function (e) {
         var target = e.target,
             focusedElement = this.focusedElement;
         //In IE9/10 browser window loses focus and becomes inactive if focused element is <body>. So we shouldn't call blur for <body>
@@ -359,11 +359,11 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    doPreventPanning: function(e) {
+    doPreventPanning: function (e) {
         e.preventDefault();
     },
 
-    doPreventZooming: function(e) {
+    doPreventZooming: function (e) {
         // Don't prevent right mouse event
         if ('button' in e && e.button !== 0) {
             return;
@@ -376,15 +376,15 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    addWindowListener: function(eventName, fn, capturing) {
+    addWindowListener: function (eventName, fn, capturing) {
         window.addEventListener(eventName, fn, Boolean(capturing));
     },
 
-    removeWindowListener: function(eventName, fn, capturing) {
+    removeWindowListener: function (eventName, fn, capturing) {
         window.removeEventListener(eventName, fn, Boolean(capturing));
     },
 
-    doAddListener: function(eventName, fn, scope, options) {
+    doAddListener: function (eventName, fn, scope, options) {
         if (eventName === 'ready' && this.isReady && !this.isMaximizing) {
             fn.call(scope);
             return this;
@@ -393,11 +393,11 @@ Ext.define('Ext.viewport.Default', {
         return this.callSuper(arguments);
     },
 
-    supportsOrientation: function() {
+    supportsOrientation: function () {
         return Ext.feature.has.Orientation;
     },
 
-    onResize: function() {
+    onResize: function () {
         var oldWidth = this.windowWidth,
             oldHeight = this.windowHeight,
             width = this.getWindowWidth(),
@@ -412,7 +412,7 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    onOrientationChange: function() {
+    onOrientationChange: function () {
         var currentOrientation = this.getOrientation(),
             newOrientation = this.determineOrientation();
 
@@ -421,7 +421,7 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    fireOrientationChangeEvent: function(newOrientation, oldOrientation) {
+    fireOrientationChangeEvent: function (newOrientation, oldOrientation) {
         var clsPrefix = Ext.baseCSSPrefix;
         Ext.getBody().replaceCls(clsPrefix + oldOrientation, clsPrefix + newOrientation);
 
@@ -431,14 +431,14 @@ Ext.define('Ext.viewport.Default', {
         this.fireEvent('orientationchange', this, newOrientation, this.windowWidth, this.windowHeight);
     },
 
-    updateSize: function(width, height) {
+    updateSize: function (width, height) {
         this.windowWidth = width !== undefined ? width : this.getWindowWidth();
         this.windowHeight = height !== undefined ? height : this.getWindowHeight();
 
         return this;
     },
 
-    waitUntil: function(condition, onSatisfied, onTimeout, delay, timeoutDuration) {
+    waitUntil: function (condition, onSatisfied, onTimeout, delay, timeoutDuration) {
         if (!delay) {
             delay = 50;
         }
@@ -471,28 +471,28 @@ Ext.define('Ext.viewport.Default', {
         }, delay);
     },
 
-    maximize: function() {
+    maximize: function () {
         this.fireMaximizeEvent();
     },
 
-    fireMaximizeEvent: function() {
+    fireMaximizeEvent: function () {
         this.updateSize();
         this.fireEvent('maximize', this);
     },
 
-    doSetHeight: function(height) {
+    doSetHeight: function (height) {
         Ext.getBody().setHeight(height);
 
         this.callParent(arguments);
     },
 
-    doSetWidth: function(width) {
+    doSetWidth: function (width) {
         Ext.getBody().setWidth(width);
 
         this.callParent(arguments);
     },
 
-    scrollToTop: function() {
+    scrollToTop: function () {
         window.scrollTo(0, -1);
     },
 
@@ -500,7 +500,7 @@ Ext.define('Ext.viewport.Default', {
      * Retrieves the document width.
      * @return {Number} width in pixels.
      */
-    getWindowWidth: function() {
+    getWindowWidth: function () {
         return window.innerWidth;
     },
 
@@ -508,15 +508,15 @@ Ext.define('Ext.viewport.Default', {
      * Retrieves the document height.
      * @return {Number} height in pixels.
      */
-    getWindowHeight: function() {
+    getWindowHeight: function () {
         return window.innerHeight;
     },
 
-    getWindowOuterHeight: function() {
+    getWindowOuterHeight: function () {
         return window.outerHeight;
     },
 
-    getWindowOrientation: function() {
+    getWindowOrientation: function () {
         return window.orientation;
     },
 
@@ -524,18 +524,18 @@ Ext.define('Ext.viewport.Default', {
      * Returns the current orientation.
      * @return {String} `portrait` or `landscape`
      */
-    getOrientation: function() {
+    getOrientation: function () {
         return this.orientation;
     },
 
-    getSize: function() {
+    getSize: function () {
         return {
             width: this.windowWidth,
             height: this.windowHeight
         };
     },
 
-    determineOrientation: function() {
+    determineOrientation: function () {
         var portrait = this.PORTRAIT,
             landscape = this.LANDSCAPE;
 
@@ -555,7 +555,7 @@ Ext.define('Ext.viewport.Default', {
         }
     },
 
-    onItemFullscreenChange: function(item) {
+    onItemFullscreenChange: function (item) {
         item.addCls(this.fullscreenItemCls);
         this.add(item);
     }

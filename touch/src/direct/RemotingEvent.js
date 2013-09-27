@@ -19,7 +19,7 @@ Ext.define('Ext.direct.RemotingEvent', {
      * Get the transaction associated with this event.
      * @return {Ext.direct.Transaction} The transaction
      */
-    getTransaction: function() {
+    getTransaction: function () {
         return this._transaction || Ext.direct.Manager.getTransaction(this.getTid());
     }
 });

@@ -21,30 +21,30 @@ Ext.define('Ext.direct.Transaction', {
         form: null
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyId: function(id) {
+    applyId: function (id) {
         if (id === undefined) {
             id = ++this.self.TRANSACTION_ID;
         }
         return id;
     },
 
-    updateId: function(id) {
+    updateId: function (id) {
         this.id = this.tid = id;
     },
 
-    getTid: function() {
+    getTid: function () {
         return this.tid;
     },
 
-    send: function(){
-         this.getProvider().queueTransaction(this);
+    send: function () {
+        this.getProvider().queueTransaction(this);
     },
 
-    retry: function(){
+    retry: function () {
         this.setRetryCount(this.getRetryCount() + 1);
         this.send();
     }

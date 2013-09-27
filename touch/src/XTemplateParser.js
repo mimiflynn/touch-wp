@@ -30,7 +30,7 @@ Ext.define('Ext.XTemplateParser', {
 
     /**
      * This method is called to process simple tags (like `{tag}`).
-     * @param {String} tag 
+     * @param {String} tag
      * @method doTag
      */
     // doTag: function (tag)
@@ -153,12 +153,12 @@ Ext.define('Ext.XTemplateParser', {
             }
 
             if (m[1]) {
-                end = str.indexOf('%}', begin+2);
-                me.doEval(str.substring(begin+2, end));
+                end = str.indexOf('%}', begin + 2);
+                me.doEval(str.substring(begin + 2, end));
                 end += 2;
             } else if (m[2]) {
-                end = str.indexOf(']}', begin+2);
-                me.doExpr(str.substring(begin+2, end));
+                end = str.indexOf(']}', begin + 2);
+                me.doExpr(str.substring(begin + 2, end));
                 end += 2;
             } else if (m[3]) { // if ('{' token)
                 me.doTag(m[3]);
@@ -222,10 +222,10 @@ Ext.define('Ext.XTemplateParser', {
                     stack.push({ type: 'exec', actions: actions });
                 }
                 /*
-                else {
-                    // todo - error
-                }
-                */
+                 else {
+                 // todo - error
+                 }
+                 */
             } else if (m[0].length === 5) {
                 // if the length of m[0] is 5, assume that we're dealing with an opening tpl tag with no attributes (e.g. <tpl>...</tpl>)
                 // in this case no action is needed other than pushing it on to the stack
@@ -241,10 +241,10 @@ Ext.define('Ext.XTemplateParser', {
     },
 
     // Internal regexes
-    
-    topRe:     /(?:(\{\%)|(\{\[)|\{([^{}]*)\})|(?:<tpl([^>]*)\>)|(?:<\/tpl>)/g,
+
+    topRe: /(?:(\{\%)|(\{\[)|\{([^{}]*)\})|(?:<tpl([^>]*)\>)|(?:<\/tpl>)/g,
     actionsRe: /\s*(elif|elseif|if|for|exec|switch|case|eval)\s*\=\s*(?:(?:"([^"]*)")|(?:'([^']*)'))\s*/g,
-    propRe:    /prop=(?:(?:"([^"]*)")|(?:'([^']*)'))/,
+    propRe: /prop=(?:(?:"([^"]*)")|(?:'([^']*)'))/,
     defaultRe: /^\s*default\s*$/,
-    elseRe:    /^\s*else\s*$/
+    elseRe: /^\s*else\s*$/
 });

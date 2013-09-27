@@ -39,8 +39,8 @@ Ext.Function = {
      * @param {Function} fn
      * @return {Function} flexSetter
      */
-    flexSetter: function(fn) {
-        return function(a, b) {
+    flexSetter: function (fn) {
+        return function (a, b) {
             var k, i;
 
             if (a === null) {
@@ -84,9 +84,9 @@ Ext.Function = {
      * if a number the args are inserted at the specified position.
      * @return {Function} The new function.
      */
-    bind: function(fn, scope, args, appendArgs) {
+    bind: function (fn, scope, args, appendArgs) {
         if (arguments.length === 2) {
-            return function() {
+            return function () {
                 return fn.apply(scope, arguments);
             }
         }
@@ -94,7 +94,7 @@ Ext.Function = {
         var method = fn,
             slice = Array.prototype.slice;
 
-        return function() {
+        return function () {
             var callArgs = args || arguments;
 
             if (appendArgs === true) {
@@ -133,12 +133,12 @@ Ext.Function = {
      * @param {Object} scope (optional) The scope (`this` reference) in which the function is executed.
      * @return {Function} The new callback function.
      */
-    pass: function(fn, args, scope) {
+    pass: function (fn, args, scope) {
         if (!Ext.isArray(args)) {
             args = Ext.Array.clone(args);
         }
 
-        return function() {
+        return function () {
             args.push.apply(args, arguments);
             return fn.apply(scope || this, args);
         };
@@ -152,8 +152,8 @@ Ext.Function = {
      * @param {String} methodName
      * @return {Function} aliasFn
      */
-    alias: function(object, methodName) {
-        return function() {
+    alias: function (object, methodName) {
+        return function () {
             return object[methodName].apply(object, arguments);
         };
     },
@@ -165,8 +165,8 @@ Ext.Function = {
      * @param {Function} method
      * @return {Function} cloneFn
      */
-    clone: function(method) {
-        return function() {
+    clone: function (method) {
+        return function () {
             return method.apply(this, arguments);
         };
     },
@@ -198,13 +198,13 @@ Ext.Function = {
      * @param {Object} [returnValue=null] (optional) The value to return if the passed function return `false`.
      * @return {Function} The new function.
      */
-    createInterceptor: function(origFn, newFn, scope, returnValue) {
+    createInterceptor: function (origFn, newFn, scope, returnValue) {
         var method = origFn;
         if (!Ext.isFunction(newFn)) {
             return origFn;
         }
         else {
-            return function() {
+            return function () {
                 var me = this,
                     args = arguments;
                 newFn.target = me;
@@ -226,16 +226,16 @@ Ext.Function = {
      * if a number the args are inserted at the specified position.
      * @return {Function} A function which, when called, executes the original function after the specified delay.
      */
-    createDelayed: function(fn, delay, scope, args, appendArgs) {
+    createDelayed: function (fn, delay, scope, args, appendArgs) {
         if (scope || args) {
             fn = Ext.Function.bind(fn, scope, args, appendArgs);
         }
 
-        return function() {
+        return function () {
             var me = this,
                 args = Array.prototype.slice.call(arguments);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 fn.apply(me, args);
             }, delay);
         }
@@ -272,7 +272,7 @@ Ext.Function = {
      * if a number the args are inserted at the specified position.
      * @return {Number} The timeout id that can be used with `clearTimeout()`.
      */
-    defer: function(fn, millis, scope, args, appendArgs) {
+    defer: function (fn, millis, scope, args, appendArgs) {
         fn = Ext.Function.bind(fn, scope, args, appendArgs);
         if (millis > 0) {
             return setTimeout(fn, millis);
@@ -304,12 +304,12 @@ Ext.Function = {
      * If omitted, defaults to the scope in which the original function is called or the browser window.
      * @return {Function} The new function.
      */
-    createSequence: function(originalFn, newFn, scope) {
+    createSequence: function (originalFn, newFn, scope) {
         if (!newFn) {
             return originalFn;
         }
         else {
-            return function() {
+            return function () {
                 var result = originalFn.apply(this, arguments);
                 newFn.apply(scope || this, arguments);
                 return result;
@@ -333,10 +333,10 @@ Ext.Function = {
      * @return {Function} A function which invokes the passed function after buffering for the specified time.
      */
 
-    createBuffered: function(fn, buffer, scope, args) {
+    createBuffered: function (fn, buffer, scope, args) {
         var timerId;
 
-        return function() {
+        return function () {
             var callArgs = args || Array.prototype.slice.call(arguments, 0),
                 me = scope || this;
 
@@ -344,7 +344,7 @@ Ext.Function = {
                 clearTimeout(timerId);
             }
 
-            timerId = setTimeout(function(){
+            timerId = setTimeout(function () {
                 fn.apply(me, callArgs);
             }, buffer);
         };
@@ -364,13 +364,13 @@ Ext.Function = {
      * the passed function is executed. If omitted, defaults to the scope specified by the caller.
      * @return {Function} A function which invokes the passed function at the specified interval.
      */
-    createThrottled: function(fn, interval, scope) {
-        var lastCallTime, elapsed, lastArgs, timer, execute = function() {
+    createThrottled: function (fn, interval, scope) {
+        var lastCallTime, elapsed, lastArgs, timer, execute = function () {
             fn.apply(scope || this, lastArgs);
             lastCallTime = new Date().getTime();
         };
 
-        return function() {
+        return function () {
             elapsed = new Date().getTime() - lastCallTime;
             lastArgs = arguments;
 
@@ -383,10 +383,10 @@ Ext.Function = {
         };
     },
 
-    interceptBefore: function(object, methodName, fn) {
+    interceptBefore: function (object, methodName, fn) {
         var method = object[methodName] || Ext.emptyFn;
 
-        return object[methodName] = function() {
+        return object[methodName] = function () {
             var ret = fn.apply(this, arguments);
             method.apply(this, arguments);
 
@@ -394,10 +394,10 @@ Ext.Function = {
         };
     },
 
-    interceptAfter: function(object, methodName, fn) {
+    interceptAfter: function (object, methodName, fn) {
         var method = object[methodName] || Ext.emptyFn;
 
-        return object[methodName] = function() {
+        return object[methodName] = function () {
             method.apply(this, arguments);
             return fn.apply(this, arguments);
         };

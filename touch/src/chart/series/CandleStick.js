@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.CandleStick
  * @extends Ext.chart.series.Cartesian
- * 
+ *
  * Creates a candlestick or OHLC Chart.
  *
  *     @example preview

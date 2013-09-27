@@ -14,11 +14,11 @@ Ext.define('Ext.fx.layout.card.Scroll', {
         duration: 150
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    getEasing: function() {
+    getEasing: function () {
         var easing = this.easing;
 
         if (!easing) {
@@ -28,11 +28,11 @@ Ext.define('Ext.fx.layout.card.Scroll', {
         return easing;
     },
 
-    updateDuration: function(duration) {
+    updateDuration: function (duration) {
         this.getEasing().setDuration(duration);
     },
 
-    onActiveItemChange: function(cardLayout, newItem, oldItem, options, controller) {
+    onActiveItemChange: function (cardLayout, newItem, oldItem, options, controller) {
         var direction = this.getDirection(),
             easing = this.getEasing(),
             containerElement, inElement, outElement, containerWidth, containerHeight, reverse;
@@ -114,13 +114,13 @@ Ext.define('Ext.fx.layout.card.Scroll', {
         }
     },
 
-    startAnimation: function() {
+    startAnimation: function () {
         this.isAnimating = true;
         this.getEasing().setStartTime(Date.now());
         Ext.AnimationQueue.start(this.doAnimationFrame, this);
     },
 
-    doAnimationFrame: function() {
+    doAnimationFrame: function () {
         var easing = this.getEasing(),
             direction = this.getDirection(),
             scroll = 'scrollTop',
@@ -139,7 +139,7 @@ Ext.define('Ext.fx.layout.card.Scroll', {
         }
     },
 
-    stopAnimation: function() {
+    stopAnimation: function () {
         var me = this,
             direction = me.getDirection(),
             scroll = 'setTop',

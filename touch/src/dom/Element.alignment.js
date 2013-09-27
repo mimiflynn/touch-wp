@@ -21,7 +21,7 @@ Ext.dom.Element.addMembers({
      * `{width: (target width), height: (target height)}` (defaults to the element's current size)
      * @return {Array} [x, y] An array containing the element's x and y coordinates.
      */
-    getAnchorXY: function(anchor, local, size) {
+    getAnchorXY: function (anchor, local, size) {
         //<debug warn>
         Ext.Logger.deprecate("getAnchorXY() is no longer available for Ext.Element. Please see Ext.Component#showBy() " +
             "to do anchoring at Component level instead", this);
@@ -34,13 +34,13 @@ Ext.dom.Element.addMembers({
 
         var me = this,
             vp = me.dom == document.body || me.dom == document,
-            width = size.width || vp ? window.innerWidth: me.getWidth(),
-            height = size.height || vp ? window.innerHeight: me.getHeight(),
+            width = size.width || vp ? window.innerWidth : me.getWidth(),
+            height = size.height || vp ? window.innerHeight : me.getHeight(),
             xy,
             rnd = Math.round,
             myXY = me.getXY(),
-            extraX = vp ? 0: !local ? myXY[0] : 0,
-            extraY = vp ? 0: !local ? myXY[1] : 0,
+            extraX = vp ? 0 : !local ? myXY[0] : 0,
+            extraY = vp ? 0 : !local ? myXY[1] : 0,
             hash = {
                 c: [rnd(width * 0.5), rnd(height * 0.5)],
                 t: [rnd(width * 0.5), 0],
@@ -66,7 +66,7 @@ Ext.dom.Element.addMembers({
      * @param {Array} [offsets] Offset the positioning by [x, y].
      * @return {Array} [x, y]
      */
-    getAlignToXY: function(el, position, offsets, local) {
+    getAlignToXY: function (el, position, offsets, local) {
         //<debug warn>
         Ext.Logger.deprecate("getAlignToXY() is no longer available for Ext.Element. Please see Ext.Component#showBy() " +
             "to do anchoring at Component level instead", this);
@@ -85,7 +85,7 @@ Ext.dom.Element.addMembers({
         if (!position || position == '?') {
             position = 'tl-bl?';
         }
-        else if (! (/-/).test(position) && position !== "") {
+        else if (!(/-/).test(position) && position !== "") {
             position = 'tl-' + position;
         }
         position = position.toLowerCase();
@@ -145,16 +145,16 @@ Ext.dom.Element.addMembers({
             swapX = ((p1x == "r" && p2x == "l") || (p1x == "l" && p2x == "r"));
 
             if (x + width > dw) {
-                x = swapX ? region.left - width: dw - width;
+                x = swapX ? region.left - width : dw - width;
             }
             if (x < 0) {
-                x = swapX ? region.right: 0;
+                x = swapX ? region.right : 0;
             }
             if (y + height > dh) {
-                y = swapY ? region.top - height: dh - height;
+                y = swapY ? region.top - height : dh - height;
             }
             if (y < 0) {
-                y = swapY ? region.bottom: 0;
+                y = swapY ? region.bottom : 0;
             }
         }
 
@@ -162,14 +162,14 @@ Ext.dom.Element.addMembers({
     },
 
     // @private
-    getAnchor: function(){
+    getAnchor: function () {
         var dom = this.dom;
-            if (!dom) {
-                return;
-            }
-            var anchor = this.self.data.call(this.self, dom, '_anchor');
+        if (!dom) {
+            return;
+        }
+        var anchor = this.self.data.call(this.self, dom, '_anchor');
 
-        if(!anchor){
+        if (!anchor) {
             anchor = this.self.data.call(this.self, dom, '_anchor', {});
         }
         return anchor;
@@ -177,7 +177,7 @@ Ext.dom.Element.addMembers({
 
     // @private
     // used outside of core
-    adjustForConstraints: function(xy, parent) {
+    adjustForConstraints: function (xy, parent) {
         var vector = this.getConstrainVector(parent, xy);
         if (vector) {
             xy[0] += vector[0];

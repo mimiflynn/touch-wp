@@ -54,7 +54,7 @@ Ext.define('Ext.layout.Default', {
         right: 'horizontal'
     },
 
-    setContainer: function(container) {
+    setContainer: function (container) {
         var options = {
             delegate: '> component'
         };
@@ -69,17 +69,17 @@ Ext.define('Ext.layout.Default', {
             .on('afterdockedchange', 'onAfterItemDockedChange', this, options);
     },
 
-    monitorSizeStateChange: function() {
+    monitorSizeStateChange: function () {
         this.monitorSizeStateChange = Ext.emptyFn;
         this.container.on('sizestatechange', 'onContainerSizeStateChange', this);
     },
 
-    monitorSizeFlagsChange: function() {
+    monitorSizeFlagsChange: function () {
         this.monitorSizeFlagsChange = Ext.emptyFn;
         this.container.on('sizeflagschange', 'onContainerSizeFlagsChange', this);
     },
 
-    onItemAdd: function(item) {
+    onItemAdd: function (item) {
         var docked = item.getDocked();
 
         if (docked !== null) {
@@ -102,7 +102,7 @@ Ext.define('Ext.layout.Default', {
      * @param isInner
      * @param [destroying]
      */
-    onItemInnerStateChange: function(item, isInner, destroying) {
+    onItemInnerStateChange: function (item, isInner, destroying) {
         if (isInner) {
             this.insertInnerItem(item, this.container.innerIndexOf(item));
         }
@@ -111,7 +111,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    insertInnerItem: function(item, index) {
+    insertInnerItem: function (item, index) {
         var container = this.container,
             containerDom = container.innerElement.dom,
             itemDom = item.element.dom,
@@ -134,7 +134,7 @@ Ext.define('Ext.layout.Default', {
         return this;
     },
 
-    insertBodyItem: function(item) {
+    insertBodyItem: function (item) {
         var container = this.container.setUseBodyElement(true),
             bodyDom = container.bodyElement.dom;
 
@@ -147,16 +147,16 @@ Ext.define('Ext.layout.Default', {
         return this;
     },
 
-    removeInnerItem: function(item) {
+    removeInnerItem: function (item) {
         item.element.detach();
     },
 
-    removeBodyItem: function(item) {
+    removeBodyItem: function (item) {
         item.setZIndex(null);
         item.element.detach();
     },
 
-    onItemRemove: function(item, index, destroying) {
+    onItemRemove: function (item, index, destroying) {
         var docked = item.getDocked();
 
         if (docked) {
@@ -173,7 +173,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    onItemMove: function(item, toIndex, fromIndex) {
+    onItemMove: function (item, toIndex, fromIndex) {
         if (item.isCentered() || item.isFloating()) {
             item.setZIndex((toIndex + 1) * 2);
         }
@@ -186,7 +186,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    onItemCenteredChange: function(item, centered) {
+    onItemCenteredChange: function (item, centered) {
         var wrapperName = '$centerWrapper';
 
         if (centered) {
@@ -201,7 +201,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    onItemFloatingChange: function(item, floating) {
+    onItemFloatingChange: function (item, floating) {
         if (floating) {
             this.insertBodyItem(item);
         }
@@ -210,19 +210,19 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    onBeforeItemDockedChange: function(item, docked, oldDocked) {
+    onBeforeItemDockedChange: function (item, docked, oldDocked) {
         if (oldDocked) {
             this.undockItem(item);
         }
     },
 
-    onAfterItemDockedChange: function(item, docked, oldDocked) {
+    onAfterItemDockedChange: function (item, docked, oldDocked) {
         if (docked) {
             this.dockItem(item);
         }
     },
 
-    onContainerSizeStateChange: function() {
+    onContainerSizeStateChange: function () {
         var dockWrapper = this.getDockWrapper();
 
         if (dockWrapper) {
@@ -230,7 +230,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    onContainerSizeFlagsChange: function() {
+    onContainerSizeFlagsChange: function () {
         var items = this.dockedItems,
             i, ln, item;
 
@@ -240,7 +240,7 @@ Ext.define('Ext.layout.Default', {
         }
     },
 
-    refreshDockedItemLayoutSizeFlags: function(item) {
+    refreshDockedItemLayoutSizeFlags: function (item) {
         var container = this.container,
             dockedDirection = this.positionDirectionMap[item.getDocked()],
             binaryMask = (dockedDirection === 'horizontal') ? container.LAYOUT_HEIGHT : container.LAYOUT_WIDTH,
@@ -249,7 +249,7 @@ Ext.define('Ext.layout.Default', {
         item.setLayoutSizeFlags(flags);
     },
 
-    dockItem: function(item) {
+    dockItem: function (item) {
         var DockClass = Ext.layout.wrapper.BoxDock,
             dockedItems = this.dockedItems,
             ln = dockedItems.length,
@@ -349,7 +349,7 @@ Ext.define('Ext.layout.Default', {
         container.onInitialized('refreshDockedItemLayoutSizeFlags', this, [item]);
     },
 
-    getDockWrapper: function() {
+    getDockWrapper: function () {
         var dockedItems = this.dockedItems;
 
         if (dockedItems.length > 0) {
@@ -359,7 +359,7 @@ Ext.define('Ext.layout.Default', {
         return null;
     },
 
-    undockItem: function(item) {
+    undockItem: function (item) {
         var dockedItems = this.dockedItems;
 
         if (item.$dockWrapper) {
@@ -371,7 +371,7 @@ Ext.define('Ext.layout.Default', {
         item.setLayoutSizeFlags(0);
     },
 
-    destroy: function() {
+    destroy: function () {
         this.dockedItems.length = 0;
 
         delete this.dockedItems;

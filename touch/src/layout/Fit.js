@@ -12,7 +12,7 @@ Ext.define('Ext.layout.Fit', {
 
     itemClass: 'x-layout-fit-item',
 
-    setContainer: function(container) {
+    setContainer: function (container) {
         this.callSuper(arguments);
 
         container.innerElement.addCls(this.layoutClass);
@@ -20,7 +20,7 @@ Ext.define('Ext.layout.Fit', {
         this.monitorSizeFlagsChange();
     },
 
-    onContainerSizeFlagsChange: function() {
+    onContainerSizeFlagsChange: function () {
         var container = this.container,
             sizeFlags = container.getSizeFlags(),
             stretched = Boolean(sizeFlags & container.LAYOUT_STRETCHED),
@@ -29,7 +29,7 @@ Ext.define('Ext.layout.Fit', {
 
         this.callSuper();
 
-        for (i = 0,ln = innerItems.length; i < ln; i++) {
+        for (i = 0, ln = innerItems.length; i < ln; i++) {
             item = innerItems[i];
             item.setLayoutSizeFlags(sizeFlags);
         }
@@ -37,7 +37,7 @@ Ext.define('Ext.layout.Fit', {
         container.innerElement.toggleCls('x-stretched', stretched);
     },
 
-    onItemInnerStateChange: function(item, isInner) {
+    onItemInnerStateChange: function (item, isInner) {
         this.callSuper(arguments);
         item.toggleCls(this.itemClass, isInner);
         item.setLayoutSizeFlags(isInner ? this.container.getSizeFlags() : 0);

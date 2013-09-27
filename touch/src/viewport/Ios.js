@@ -5,15 +5,15 @@
 Ext.define('Ext.viewport.Ios', {
     extend: 'Ext.viewport.Default',
 
-    isFullscreen: function() {
+    isFullscreen: function () {
         return this.isHomeScreen();
     },
 
-    isHomeScreen: function() {
+    isHomeScreen: function () {
         return window.navigator.standalone === true;
     },
 
-    constructor: function() {
+    constructor: function () {
         this.callParent(arguments);
 
         if (this.getAutoMaximize() && !this.isFullscreen()) {
@@ -21,7 +21,7 @@ Ext.define('Ext.viewport.Ios', {
         }
     },
 
-    maximize: function() {
+    maximize: function () {
         if (this.isFullscreen()) {
             return this.callParent();
         }
@@ -48,17 +48,17 @@ Ext.define('Ext.viewport.Ios', {
 
             this.setHeight(height);
 
-            this.waitUntil(function() {
+            this.waitUntil(function () {
                 this.scrollToTop();
                 return currentHeight !== this.getWindowHeight();
-            }, function() {
+            }, function () {
                 if (!stretchHeights[orientation]) {
                     height = stretchHeights[orientation] = this.getWindowHeight();
                     this.setHeight(height);
                 }
 
                 this.fireMaximizeEvent();
-            }, function() {
+            }, function () {
                 //<debug error>
                 Ext.Logger.error("Timeout waiting for window.innerHeight to change", this);
                 //</debug>
@@ -69,11 +69,11 @@ Ext.define('Ext.viewport.Ios', {
         }
     },
 
-    getScreenHeight: function() {
+    getScreenHeight: function () {
         return window.screen[this.orientation === this.PORTRAIT ? 'height' : 'width'];
     },
 
-    onElementFocus: function() {
+    onElementFocus: function () {
         if (this.getAutoMaximize() && !this.isFullscreen()) {
             clearTimeout(this.scrollToTopTimer);
         }
@@ -81,7 +81,7 @@ Ext.define('Ext.viewport.Ios', {
         this.callParent(arguments);
     },
 
-    onElementBlur: function() {
+    onElementBlur: function () {
         if (this.getAutoMaximize() && !this.isFullscreen()) {
             this.scrollToTopTimer = setTimeout(this.scrollToTop, 500);
         }
@@ -89,24 +89,24 @@ Ext.define('Ext.viewport.Ios', {
         this.callParent(arguments);
     },
 
-    onTouchStart: function() {
+    onTouchStart: function () {
         if (this.focusedElement === null) {
             this.scrollToTop();
         }
     },
 
-    scrollToTop: function() {
+    scrollToTop: function () {
         window.scrollTo(0, 0);
     }
 
-}, function() {
+}, function () {
     if (!Ext.os.is.iOS) {
         return;
     }
 
     if (Ext.os.version.lt('3.2')) {
         this.override({
-            constructor: function() {
+            constructor: function () {
                 var stretchHeights = this.stretchHeights = {};
 
                 stretchHeights[this.PORTRAIT] = 416;
@@ -121,11 +121,10 @@ Ext.define('Ext.viewport.Ios', {
         this.override({
             fieldMaskClsTest: '-field-mask',
 
-            doPreventZooming: function(e) {
+            doPreventZooming: function (e) {
                 var target = e.target;
 
-                if (target && target.nodeType === 1 &&
-                    !this.isInputRegex.test(target.tagName) &&
+                if (target && target.nodeType === 1 && !this.isInputRegex.test(target.tagName) &&
                     target.className.indexOf(this.fieldMaskClsTest) == -1) {
                     e.preventDefault();
                 }
@@ -135,7 +134,7 @@ Ext.define('Ext.viewport.Ios', {
 
     if (Ext.os.is.iPad) {
         this.override({
-            isFullscreen: function() {
+            isFullscreen: function () {
                 return true;
             }
         });

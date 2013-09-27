@@ -66,7 +66,7 @@ Ext.define('Ext.util.Droppable', {
      * element on the page.
      * @param {Object} config Configuration options for this class.
      */
-    constructor: function(el, config) {
+    constructor: function (el, config) {
         var me = this;
 
         config = config || {};
@@ -120,7 +120,7 @@ Ext.define('Ext.util.Droppable', {
     },
 
     // @private
-    onDragStart: function(draggable, e) {
+    onDragStart: function (draggable, e) {
         if (draggable.group === this.group) {
             this.monitoring = true;
             this.el.addCls(this.activeCls);
@@ -141,7 +141,7 @@ Ext.define('Ext.util.Droppable', {
         }
         else {
             draggable.on({
-                dragend: function() {
+                dragend: function () {
                     this.el.removeCls(this.invalidCls);
                 },
                 scope: this,
@@ -152,17 +152,17 @@ Ext.define('Ext.util.Droppable', {
     },
 
     // @private
-    isDragOver: function(draggable, region) {
+    isDragOver: function (draggable, region) {
         return this.region[this.validDropMode](draggable.region);
     },
 
     // @private
-    onDrag: function(draggable, e) {
+    onDrag: function (draggable, e) {
         this.setCanDrop(this.isDragOver(draggable), draggable, e);
     },
 
     // @private
-    setCanDrop: function(canDrop, draggable, e) {
+    setCanDrop: function (canDrop, draggable, e) {
         if (canDrop && !this.canDrop) {
             this.canDrop = true;
             this.el.addCls(this.hoverCls);
@@ -176,12 +176,12 @@ Ext.define('Ext.util.Droppable', {
     },
 
     // @private
-    onBeforeDragEnd: function(draggable, e) {
+    onBeforeDragEnd: function (draggable, e) {
         draggable.cancelRevert = this.canDrop;
     },
 
     // @private
-    onDragEnd: function(draggable, e) {
+    onDragEnd: function (draggable, e) {
         this.monitoring = false;
         this.el.removeCls(this.activeCls);
 
@@ -207,7 +207,7 @@ Ext.define('Ext.util.Droppable', {
      * This is invoked immediately after constructing a Droppable if the
      * disabled parameter is NOT set to true.
      */
-    enable: function() {
+    enable: function () {
         if (!this.mgr) {
             this.mgr = Ext.util.Observable.observe(Ext.util.Draggable);
         }
@@ -221,7 +221,7 @@ Ext.define('Ext.util.Droppable', {
     /**
      * Disable the Droppable target.
      */
-    disable: function() {
+    disable: function () {
         this.mgr.un({
             dragstart: this.onDragStart,
             scope: this
@@ -233,7 +233,7 @@ Ext.define('Ext.util.Droppable', {
      * Method to determine whether this Component is currently disabled.
      * @return {Boolean} the disabled state of this Component.
      */
-    isDisabled: function() {
+    isDisabled: function () {
         return this.disabled;
     },
 
@@ -241,7 +241,7 @@ Ext.define('Ext.util.Droppable', {
      * Method to determine whether this Droppable is currently monitoring drag operations of Draggables.
      * @return {Boolean} the monitoring state of this Droppable
      */
-    isMonitoring: function() {
+    isMonitoring: function () {
         return this.monitoring;
     }
 });

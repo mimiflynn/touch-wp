@@ -170,7 +170,7 @@ Ext.define('Ext.field.DatePicker', {
         }
     },
 
-    initialize: function() {
+    initialize: function () {
         var me = this,
             component = me.getComponent();
 
@@ -191,7 +191,7 @@ Ext.define('Ext.field.DatePicker', {
 
     syncEmptyCls: Ext.emptyFn,
 
-    applyValue: function(value) {
+    applyValue: function (value) {
         if (!Ext.isDate(value) && !Ext.isObject(value)) {
             return null;
         }
@@ -203,8 +203,8 @@ Ext.define('Ext.field.DatePicker', {
         return value;
     },
 
-    updateValue: function(newValue, oldValue) {
-        var me     = this,
+    updateValue: function (newValue, oldValue) {
+        var me = this,
             picker = me._picker;
 
         if (picker && picker.isPicker) {
@@ -227,7 +227,7 @@ Ext.define('Ext.field.DatePicker', {
      * Updates the date format in the field.
      * @private
      */
-    updateDateFormat: function(newDateFormat, oldDateFormat) {
+    updateDateFormat: function (newDateFormat, oldDateFormat) {
         var value = this.getValue();
         if (newDateFormat != oldDateFormat && Ext.isDate(value)) {
             this.getComponent().setValue(Ext.Date.format(value, newDateFormat || Ext.util.Format.defaultDateFormat));
@@ -239,7 +239,7 @@ Ext.define('Ext.field.DatePicker', {
      * If you wanted a formated date
      * @return {Date} The date selected
      */
-    getValue: function() {
+    getValue: function () {
         if (this._picker && this._picker instanceof Ext.picker.Date) {
             return this._picker.getValue();
         }
@@ -253,12 +253,12 @@ Ext.define('Ext.field.DatePicker', {
      * @param {String} format The format to be returned.
      * @return {String} The formatted date.
      */
-    getFormattedValue: function(format) {
+    getFormattedValue: function (format) {
         var value = this.getValue();
         return (Ext.isDate(value)) ? Ext.Date.format(value, format || this.getDateFormat() || Ext.util.Format.defaultDateFormat) : value;
     },
 
-    applyPicker: function(picker, pickerInstance) {
+    applyPicker: function (picker, pickerInstance) {
         if (pickerInstance && pickerInstance.isPicker) {
             picker = pickerInstance.setConfig(picker);
         }
@@ -266,7 +266,7 @@ Ext.define('Ext.field.DatePicker', {
         return picker;
     },
 
-    getPicker: function() {
+    getPicker: function () {
         var picker = this._picker,
             value = this.getValue();
 
@@ -280,7 +280,7 @@ Ext.define('Ext.field.DatePicker', {
         picker.on({
             scope: this,
             change: 'onPickerChange',
-            hide  : 'onPickerHide'
+            hide: 'onPickerHide'
         });
 
         this._picker = picker;
@@ -292,7 +292,7 @@ Ext.define('Ext.field.DatePicker', {
      * @private
      * Listener to the tap event of the mask element. Shows the internal DatePicker component when the button has been tapped.
      */
-    onMaskTap: function() {
+    onMaskTap: function () {
         if (this.getDisabled()) {
             return false;
         }
@@ -308,7 +308,7 @@ Ext.define('Ext.field.DatePicker', {
      * @param {Object} value The new value from the date picker.
      * @private
      */
-    onPickerChange: function(picker, value) {
+    onPickerChange: function (picker, value) {
         var me = this,
             oldValue = me.getValue();
 
@@ -328,8 +328,8 @@ Ext.define('Ext.field.DatePicker', {
      * {@link Ext.field.DatePicker#destroyPickerOnHide destroyPickerOnHide} is set to `true`.
      * @private
      */
-    onPickerHide: function() {
-        var me     = this,
+    onPickerHide: function () {
+        var me = this,
             picker = me.getPicker();
 
         if (me.getDestroyPickerOnHide() && picker) {
@@ -338,11 +338,11 @@ Ext.define('Ext.field.DatePicker', {
         }
     },
 
-    reset: function() {
+    reset: function () {
         this.setValue(this.originalValue);
     },
 
-    onFocus: function(e) {
+    onFocus: function (e) {
         var component = this.getComponent();
         this.fireEvent('focus', this, e);
 
@@ -361,7 +361,7 @@ Ext.define('Ext.field.DatePicker', {
     },
 
     // @private
-    destroy: function() {
+    destroy: function () {
         var picker = this._picker;
 
         if (picker && picker.isPicker) {
@@ -371,9 +371,9 @@ Ext.define('Ext.field.DatePicker', {
         this.callParent(arguments);
     }
     //<deprecated product=touch since=2.0>
-}, function() {
+}, function () {
     this.override({
-        getValue: function(format) {
+        getValue: function (format) {
             if (format) {
                 //<debug warn>
                 Ext.Logger.deprecate("format argument of the getValue method is deprecated, please use getFormattedValue instead", this);

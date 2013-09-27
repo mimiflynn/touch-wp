@@ -215,16 +215,16 @@ Ext.define('Ext.dataview.NestedList', {
         /**
          * @cfg {Ext.Container} detailContainer The container of the `detailCard`.
          * A detailContainer is a reference to the container where a detail card
-         * displays.  
+         * displays.
          *
          * See http://docs.sencha.com/touch/2-2/#!/guide/nested_list-section-4
          * and http://en.wikipedia.org/wiki/Miller_columns
-         * 
-         * The two possible values for a detailContainer are undefined (default), 
-         * which indicates that a detailCard appear in the same container, or you 
+         *
+         * The two possible values for a detailContainer are undefined (default),
+         * which indicates that a detailCard appear in the same container, or you
          * can specify a new container location. The default condition uses the
          * current List container.
-         * 
+         *
          * The following example shows creating a location for a detailContainer:
          *
          * var detailContainer = Ext.create('Ext.Container', {
@@ -236,24 +236,24 @@ Ext.define('Ext.dataview.NestedList', {
          *     detailCard: true,
          *     detailContainer: detailContainer
          * });
-         * 
-         * The default value is typically used for phone devices in portrait mode 
-         * where the small screen size dictates that the detailCard replace the 
+         *
+         * The default value is typically used for phone devices in portrait mode
+         * where the small screen size dictates that the detailCard replace the
          * current container.
          * @accessor
          */
         detailContainer: undefined,
 
         /**
-         * @cfg {Ext.Component} detailCard provides the information for a leaf 
-         * in a Miller column list. In a Miller column, users follow a 
-         * hierarchial tree structure to a leaf, which provides information 
-         * about the item in the list. The detailCard lists the information at 
+         * @cfg {Ext.Component} detailCard provides the information for a leaf
+         * in a Miller column list. In a Miller column, users follow a
+         * hierarchial tree structure to a leaf, which provides information
+         * about the item in the list. The detailCard lists the information at
          * the leaf.
-         * 
+         *
          * See http://docs.sencha.com/touch/2-2/#!/guide/nested_list-section-3
          * and http://en.wikipedia.org/wiki/Miller_columns
-         * 
+         *
          * @accessor
          */
         detailCard: null,
@@ -303,10 +303,12 @@ Ext.define('Ext.dataview.NestedList', {
         ui: null
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        itemHeight: 42
-    }],
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            itemHeight: 42
+        }
+    ],
 
     /**
      * @event itemtap

@@ -6,7 +6,7 @@ Ext.define('Ext.log.filter.Priority', {
         minPriority: 1
     },
 
-    accept: function(event) {
+    accept: function (event) {
         return event.priority >= this.getMinPriority();
     }
 });

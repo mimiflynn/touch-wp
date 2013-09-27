@@ -3,16 +3,16 @@ Ext.define('Ext.field.DatePickerNative', {
     alternateClassName: 'Ext.form.DatePickerNative',
     xtype: 'datepickernativefield',
 
-    initialize: function() {
+    initialize: function () {
 
         this.callParent();
 
     },
 
-    onFocus: function(e) {
+    onFocus: function (e) {
         var me = this;
 
-        if (!(navigator.plugins && navigator.plugins.dateTimePicker)){
+        if (!(navigator.plugins && navigator.plugins.dateTimePicker)) {
 
             me.callParent();
             return;

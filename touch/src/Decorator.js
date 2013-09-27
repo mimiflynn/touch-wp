@@ -51,23 +51,23 @@ Ext.define('Ext.Decorator', {
     },
 
     statics: {
-        generateProxySetter: function(name) {
-            return function(value) {
+        generateProxySetter: function (name) {
+            return function (value) {
                 var component = this.getComponent();
                 component[name].call(component, value);
 
                 return this;
             }
         },
-        generateProxyGetter: function(name) {
-            return function() {
+        generateProxyGetter: function (name) {
+            return function () {
                 var component = this.getComponent();
                 return component[name].call(component);
             }
         }
     },
 
-    onClassExtended: function(Class, members) {
+    onClassExtended: function (Class, members) {
         if (!members.hasOwnProperty('proxyConfig')) {
             return;
         }
@@ -93,12 +93,12 @@ Ext.define('Ext.Decorator', {
     },
 
     // @private
-    applyComponent: function(config) {
+    applyComponent: function (config) {
         return Ext.factory(config, Ext.Component);
     },
 
     // @private
-    updateComponent: function(newComponent, oldComponent) {
+    updateComponent: function (newComponent, oldComponent) {
         if (oldComponent) {
             if (this.isRendered() && oldComponent.setRendered(false)) {
                 oldComponent.fireAction('renderedchange', [this, oldComponent, false],
@@ -121,7 +121,7 @@ Ext.define('Ext.Decorator', {
     },
 
     // @private
-    doUnsetComponent: function(component) {
+    doUnsetComponent: function (component) {
         if (component.renderElement.dom) {
             component.setLayoutSizeFlags(0);
             this.innerElement.dom.removeChild(component.renderElement.dom);
@@ -129,7 +129,7 @@ Ext.define('Ext.Decorator', {
     },
 
     // @private
-    doSetComponent: function(component) {
+    doSetComponent: function (component) {
         if (component.renderElement.dom) {
             component.setLayoutSizeFlags(this.getSizeFlags());
             this.innerElement.dom.appendChild(component.renderElement.dom);
@@ -137,7 +137,7 @@ Ext.define('Ext.Decorator', {
     },
 
     // @private
-    setRendered: function(rendered) {
+    setRendered: function (rendered) {
         var component;
 
         if (this.callParent(arguments)) {
@@ -154,12 +154,12 @@ Ext.define('Ext.Decorator', {
     },
 
     // @private
-    setDisabled: function(disabled) {
+    setDisabled: function (disabled) {
         this.callParent(arguments);
         this.getComponent().setDisabled(disabled);
     },
 
-    destroy: function() {
+    destroy: function () {
         Ext.destroy(this.getComponent());
         this.callParent();
     }

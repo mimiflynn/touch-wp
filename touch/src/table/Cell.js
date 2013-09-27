@@ -7,7 +7,7 @@ Ext.define('Ext.table.Cell', {
         baseCls: 'x-table-cell'
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var config = this.callParent();
 
         config.children.length = 0;

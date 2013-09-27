@@ -50,7 +50,7 @@ Ext.define('Ext.mixin.Filterable', {
      */
     filtered: false,
 
-    applyFilters: function(filters, collection) {
+    applyFilters: function (filters, collection) {
         if (!collection) {
             collection = this.createFiltersCollection();
         }
@@ -67,8 +67,8 @@ Ext.define('Ext.mixin.Filterable', {
         return collection;
     },
 
-    createFiltersCollection: function() {
-        this._filters = Ext.create('Ext.util.Collection', function(filter) {
+    createFiltersCollection: function () {
+        this._filters = Ext.create('Ext.util.Collection', function (filter) {
             return filter.getId();
         });
         return this._filters;
@@ -79,7 +79,7 @@ Ext.define('Ext.mixin.Filterable', {
      * @param {Ext.util.Sorter/Function/Object} filter Can be an instance of Ext.util.Filter,
      * an object representing an Ext.util.Filter configuration, or a filter function.
      */
-    addFilter: function(filter) {
+    addFilter: function (filter) {
         this.addFilters([filter]);
     },
 
@@ -89,7 +89,7 @@ Ext.define('Ext.mixin.Filterable', {
      * an object representing an Ext.util.Filter configuration, or a filter function.
      * @return {Object}
      */
-    addFilters: function(filters) {
+    addFilters: function (filters) {
         var currentFilters = this.getFilters();
         return this.insertFilters(currentFilters ? currentFilters.length : 0, filters);
     },
@@ -101,7 +101,7 @@ Ext.define('Ext.mixin.Filterable', {
      * an object representing an Ext.util.Filter configuration, or a filter function.
      * @return {Object}
      */
-    insertFilter: function(index, filter) {
+    insertFilter: function (index, filter) {
         return this.insertFilters(index, [filter]);
     },
 
@@ -112,7 +112,7 @@ Ext.define('Ext.mixin.Filterable', {
      * an object representing an Ext.util.Filter configuration, or a filter function.
      * @return {Array}
      */
-    insertFilters: function(index, filters) {
+    insertFilters: function (index, filters) {
         // We begin by making sure we are dealing with an array of sorters
         if (!Ext.isArray(filters)) {
             filters = [filters];
@@ -189,7 +189,7 @@ Ext.define('Ext.mixin.Filterable', {
      * function (sorterFn), an object containing a property and value keys or
      * {@link Ext.util.Sorter Sorter} instance.
      */
-    removeFilters: function(filters) {
+    removeFilters: function (filters) {
         // We begin by making sure we are dealing with an array of sorters
         if (!Ext.isArray(filters)) {
             filters = [filters];
@@ -203,14 +203,14 @@ Ext.define('Ext.mixin.Filterable', {
             filter = filters[i];
 
             if (typeof filter === 'string') {
-                currentFilters.each(function(item) {
+                currentFilters.each(function (item) {
                     if (item.getProperty() === filter) {
                         currentFilters.remove(item);
                     }
                 });
             }
             else if (typeof filter === 'function') {
-                currentFilters.each(function(item) {
+                currentFilters.each(function (item) {
                     if (item.getFilterFn() === filter) {
                         currentFilters.remove(item);
                     }
@@ -221,7 +221,7 @@ Ext.define('Ext.mixin.Filterable', {
                     currentFilters.remove(filter);
                 }
                 else if (filter.property !== undefined && filter.value !== undefined) {
-                    currentFilters.each(function(item) {
+                    currentFilters.each(function (item) {
                         if (item.getProperty() === filter.property && item.getValue() === filter.value) {
                             currentFilters.remove(item);
                         }
@@ -240,18 +240,18 @@ Ext.define('Ext.mixin.Filterable', {
      * @return {Function} sortFn The generated sort function.
      * @private
      */
-    updateFilterFn: function() {
+    updateFilterFn: function () {
         var filters = this.getFilters().items;
 
-        this.filterFn = function(item) {
+        this.filterFn = function (item) {
             var isMatch = true,
                 length = filters.length,
                 i;
 
             for (i = 0; i < length; i++) {
                 var filter = filters[i],
-                    fn     = filter.getFilterFn(),
-                    scope  = filter.getScope() || this;
+                    fn = filter.getFilterFn(),
+                    scope = filter.getScope() || this;
 
                 isMatch = isMatch && fn.call(scope, item);
             }
@@ -268,11 +268,11 @@ Ext.define('Ext.mixin.Filterable', {
      * @param {Array} data The array you want to have sorted.
      * @return {Array} The array you passed after it is sorted.
      */
-    filter: function(data) {
+    filter: function (data) {
         return this.getFilters().length ? Ext.Array.filter(data, this.getFilterFn()) : data;
     },
 
-    isFiltered: function(item) {
+    isFiltered: function (item) {
         return this.getFilters().length ? !this.getFilterFn()(item) : false;
     },
 
@@ -280,7 +280,7 @@ Ext.define('Ext.mixin.Filterable', {
      * Returns an up to date sort function.
      * @return {Function} sortFn The sort function.
      */
-    getFilterFn: function() {
+    getFilterFn: function () {
         if (this.dirtyFilterFn) {
             return this.updateFilterFn();
         }

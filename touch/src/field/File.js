@@ -3,14 +3,14 @@
  */
 Ext.define('Ext.field.File', {
     extend: 'Ext.field.Input',
-    xtype : 'file',
+    xtype: 'file',
 
     cachedConfig: {
         type: 'file'
     },
 
     // @private
-    getTemplate: function() {
+    getTemplate: function () {
         var items = [
             {
                 reference: 'input',
@@ -27,7 +27,7 @@ Ext.define('Ext.field.File', {
         return items;
     },
 
-    updateType: function(newType, oldType) {
+    updateType: function (newType, oldType) {
         var prefix = Ext.baseCSSPrefix + 'input-';
         this.input.replaceCls(prefix + oldType, prefix + newType);
     }

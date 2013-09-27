@@ -36,7 +36,7 @@ Ext.define('Ext.direct.Event', {
         transaction: null
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config)
     }
 });

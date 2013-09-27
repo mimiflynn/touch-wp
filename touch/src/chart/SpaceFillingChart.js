@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.SpaceFillingChart
  * @extends Ext.chart.AbstractChart
- * 
+ *
  * Creates a chart that fills the entire area of the chart.
  * e.g. Gauge, Treemap
  */

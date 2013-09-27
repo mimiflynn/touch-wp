@@ -3,7 +3,7 @@
  * @extends Ext.chart.series.StackedCartesian
  *
  * Creates an Area Chart.
- * 
+ *
  *     @example preview
  *     var chart = new Ext.chart.CartesianChart({
  *         animate: true,

@@ -53,7 +53,7 @@ Ext.define('Ext.data.writer.Json', {
         encodeRequest: false
     },
 
-    applyRootProperty: function(root) {
+    applyRootProperty: function (root) {
         if (!root && (this.getEncode() || this.getEncodeRequest())) {
             root = 'data';
         }
@@ -61,7 +61,7 @@ Ext.define('Ext.data.writer.Json', {
     },
 
     //inherit docs
-    writeRecords: function(request, data) {
+    writeRecords: function (request, data) {
         var root = this.getRootProperty(),
             params = request.getParams(),
             allowSingle = this.getAllowSingle(),
@@ -110,7 +110,7 @@ Ext.define('Ext.data.writer.Json', {
     }
 
     //<deprecated product=touch since=2.0.1>
-}, function() {
+}, function () {
     /**
      * @cfg {String} root
      * The key under which the records in this Writer will be placed. If you specify {@link #encode} to be true,
@@ -123,7 +123,7 @@ Ext.define('Ext.data.writer.Json', {
      * @deprecated 2.0.1 Please use the {@link #rootProperty} configuration instead.
      */
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             config = config || {};
 
             if (config.root) {

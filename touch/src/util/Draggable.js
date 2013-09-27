@@ -94,7 +94,7 @@ Ext.define('Ext.util.Draggable', {
      * Creates new Draggable.
      * @param {Object} config The configuration object for this Draggable.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         var element;
 
         this.extraConstraint = {};
@@ -108,9 +108,9 @@ Ext.define('Ext.util.Draggable', {
 
         this.listeners = {
             dragstart: 'onDragStart',
-            drag     : 'onDrag',
-            dragend  : 'onDragEnd',
-            resize   : 'onElementResize',
+            drag: 'onDrag',
+            dragend: 'onDragEnd',
+            resize: 'onElementResize',
             scope: this
         };
 
@@ -124,7 +124,7 @@ Ext.define('Ext.util.Draggable', {
         return this;
     },
 
-    applyElement: function(element) {
+    applyElement: function (element) {
         if (!element) {
             return;
         }
@@ -132,13 +132,13 @@ Ext.define('Ext.util.Draggable', {
         return Ext.get(element);
     },
 
-    updateElement: function(element) {
+    updateElement: function (element) {
         element.on(this.listeners);
 
         this.initConfig(this.initialConfig);
     },
 
-    updateInitialOffset: function(initialOffset) {
+    updateInitialOffset: function (initialOffset) {
         if (typeof initialOffset == 'number') {
             initialOffset = {
                 x: initialOffset,
@@ -155,11 +155,11 @@ Ext.define('Ext.util.Draggable', {
         this.getTranslatable().translate(x, y);
     },
 
-    updateCls: function(cls) {
+    updateCls: function (cls) {
         this.getElement().addCls(cls);
     },
 
-    applyTranslatable: function(translatable, currentInstance) {
+    applyTranslatable: function (translatable, currentInstance) {
         translatable = Ext.factory(translatable, Ext.util.Translatable, currentInstance);
         if (translatable) {
             translatable.setElement(this.getElement());
@@ -168,7 +168,7 @@ Ext.define('Ext.util.Draggable', {
         return translatable;
     },
 
-    setExtraConstraint: function(constraint) {
+    setExtraConstraint: function (constraint) {
         this.extraConstraint = constraint || {};
 
         this.refreshConstraint();
@@ -176,7 +176,7 @@ Ext.define('Ext.util.Draggable', {
         return this;
     },
 
-    addExtraConstraint: function(constraint) {
+    addExtraConstraint: function (constraint) {
         Ext.merge(this.extraConstraint, constraint);
 
         this.refreshConstraint();
@@ -184,7 +184,7 @@ Ext.define('Ext.util.Draggable', {
         return this;
     },
 
-    applyConstraint: function(newConstraint) {
+    applyConstraint: function (newConstraint) {
         this.currentConstraint = newConstraint;
 
         if (!newConstraint) {
@@ -198,11 +198,11 @@ Ext.define('Ext.util.Draggable', {
         return Ext.merge({}, this.extraConstraint, newConstraint);
     },
 
-    updateConstraint: function() {
+    updateConstraint: function () {
         this.refreshOffset();
     },
 
-    getContainerConstraint: function() {
+    getContainerConstraint: function () {
         var container = this.getContainer(),
             element = this.getElement();
 
@@ -216,7 +216,7 @@ Ext.define('Ext.util.Draggable', {
         };
     },
 
-    getContainer: function() {
+    getContainer: function () {
         var container = this.container;
 
         if (!container) {
@@ -236,30 +236,30 @@ Ext.define('Ext.util.Draggable', {
         return container;
     },
 
-    onElementResize: function(element, info) {
+    onElementResize: function (element, info) {
         this.width = info.width;
         this.height = info.height;
 
         this.refresh();
     },
 
-    onContainerResize: function(container, info) {
+    onContainerResize: function (container, info) {
         this.containerWidth = info.width;
         this.containerHeight = info.height;
 
         this.refresh();
     },
 
-    onContainerDestroy: function() {
+    onContainerDestroy: function () {
         delete this.container;
         delete this.containerSizeMonitor;
     },
 
-    detachListeners: function() {
+    detachListeners: function () {
         this.getElement().un(this.listeners);
     },
 
-    isAxisEnabled: function(axis) {
+    isAxisEnabled: function (axis) {
         var direction = this.getDirection();
 
         if (axis === 'x') {
@@ -269,7 +269,7 @@ Ext.define('Ext.util.Draggable', {
         return (direction === this.DIRECTION_BOTH || direction === this.DIRECTION_VERTICAL);
     },
 
-    onDragStart: function(e) {
+    onDragStart: function (e) {
         if (this.getDisabled()) {
             return false;
         }
@@ -278,7 +278,7 @@ Ext.define('Ext.util.Draggable', {
         this.fireAction('dragstart', [this, e, offset.x, offset.y], this.initDragStart);
     },
 
-    initDragStart: function(me, e, offsetX, offsetY) {
+    initDragStart: function (me, e, offsetX, offsetY) {
         this.dragStartOffset = {
             x: offsetX,
             y: offsetY
@@ -289,7 +289,7 @@ Ext.define('Ext.util.Draggable', {
         this.getElement().addCls(this.getDraggingCls());
     },
 
-    onDrag: function(e) {
+    onDrag: function (e) {
         if (!this.isDragging) {
             return;
         }
@@ -299,11 +299,11 @@ Ext.define('Ext.util.Draggable', {
         this.fireAction('drag', [this, e, startOffset.x + e.deltaX, startOffset.y + e.deltaY], this.doDrag);
     },
 
-    doDrag: function(me, e, offsetX, offsetY) {
+    doDrag: function (me, e, offsetX, offsetY) {
         me.setOffset(offsetX, offsetY);
     },
 
-    onDragEnd: function(e) {
+    onDragEnd: function (e) {
         if (!this.isDragging) {
             return;
         }
@@ -317,7 +317,7 @@ Ext.define('Ext.util.Draggable', {
         this.fireEvent('dragend', this, e, this.offset.x, this.offset.y);
     },
 
-    setOffset: function(x, y, animation) {
+    setOffset: function (x, y, animation) {
         var currentOffset = this.offset,
             constraint = this.getConstraint(),
             minOffset = constraint.min,
@@ -345,21 +345,21 @@ Ext.define('Ext.util.Draggable', {
         this.getTranslatable().translate(x, y, animation);
     },
 
-    getOffset: function() {
+    getOffset: function () {
         return this.offset;
     },
 
-    refreshConstraint: function() {
+    refreshConstraint: function () {
         this.setConstraint(this.currentConstraint);
     },
 
-    refreshOffset: function() {
+    refreshOffset: function () {
         var offset = this.offset;
 
         this.setOffset(offset.x, offset.y);
     },
 
-    refresh: function() {
+    refresh: function () {
         this.refreshConstraint();
         this.getTranslatable().refresh();
         this.refreshOffset();
@@ -369,7 +369,7 @@ Ext.define('Ext.util.Draggable', {
      * Enable the Draggable.
      * @return {Ext.util.Draggable} This Draggable instance
      */
-    enable: function() {
+    enable: function () {
         return this.setDisabled(false);
     },
 
@@ -377,11 +377,11 @@ Ext.define('Ext.util.Draggable', {
      * Disable the Draggable.
      * @return {Ext.util.Draggable} This Draggable instance
      */
-    disable: function() {
+    disable: function () {
         return this.setDisabled(true);
     },
 
-    destroy: function() {
+    destroy: function () {
         var translatable = this.getTranslatable();
 
         var element = this.getElement();
@@ -396,10 +396,10 @@ Ext.define('Ext.util.Draggable', {
         }
     }
 
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             if (config && config.constrain) {
                 //<debug warn>
                 Ext.Logger.deprecate("'constrain' config is deprecated, please use 'contraint' instead");

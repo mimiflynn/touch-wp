@@ -55,15 +55,15 @@ Ext.define('Ext.util.translatable.Abstract', {
 
     isTranslatable: true,
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    factoryEasing: function(easing) {
+    factoryEasing: function (easing) {
         return Ext.factory(easing, Ext.fx.easing.Linear, null, 'easing');
     },
 
-    applyEasing: function(easing) {
+    applyEasing: function (easing) {
         if (!this.getEasingX()) {
             this.setEasingX(this.factoryEasing(easing));
         }
@@ -73,17 +73,17 @@ Ext.define('Ext.util.translatable.Abstract', {
         }
     },
 
-    applyEasingX: function(easing) {
+    applyEasingX: function (easing) {
         return this.factoryEasing(easing);
     },
 
-    applyEasingY: function(easing) {
+    applyEasingY: function (easing) {
         return this.factoryEasing(easing);
     },
 
     doTranslate: Ext.emptyFn,
 
-    translate: function(x, y, animation) {
+    translate: function (x, y, animation) {
         if (animation) {
             return this.translateAnimated(x, y, animation);
         }
@@ -102,7 +102,7 @@ Ext.define('Ext.util.translatable.Abstract', {
         this.doTranslate(x, y);
     },
 
-    translateAxis: function(axis, value, animation) {
+    translateAxis: function (axis, value, animation) {
         var x, y;
 
         if (axis == 'x') {
@@ -115,7 +115,7 @@ Ext.define('Ext.util.translatable.Abstract', {
         return this.translate(x, y, animation);
     },
 
-    animate: function(easingX, easingY) {
+    animate: function (easingX, easingY) {
         this.activeEasingX = easingX;
         this.activeEasingY = easingY;
 
@@ -129,7 +129,7 @@ Ext.define('Ext.util.translatable.Abstract', {
         return this;
     },
 
-    translateAnimated: function(x, y, animation) {
+    translateAnimated: function (x, y, animation) {
         if (!Ext.isObject(animation)) {
             animation = {};
         }
@@ -168,7 +168,7 @@ Ext.define('Ext.util.translatable.Abstract', {
         return this.animate(easingX, easingY);
     },
 
-    doAnimationFrame: function() {
+    doAnimationFrame: function () {
         var me = this,
             easingX = me.activeEasingX,
             easingY = me.activeEasingY,
@@ -220,7 +220,7 @@ Ext.define('Ext.util.translatable.Abstract', {
         me.fireEvent('animationframe', me, x, y);
     },
 
-    stopAnimation: function() {
+    stopAnimation: function () {
         if (!this.isAnimating) {
             return;
         }
@@ -234,11 +234,11 @@ Ext.define('Ext.util.translatable.Abstract', {
         this.fireEvent('animationend', this, this.x, this.y);
     },
 
-    refresh: function() {
+    refresh: function () {
         this.translate(this.x, this.y);
     },
 
-    destroy: function() {
+    destroy: function () {
         if (this.isAnimating) {
             this.stopAnimation();
         }

@@ -7,7 +7,7 @@ Ext.define('Ext.device.device.Abstract', {
     /**
      * @event schemeupdate
      * Event which is fired when your Sencha Native packaged application is opened from another application using a custom URL scheme.
-     * 
+     *
      * This event will only fire if the application was already open (in other words; `onReady` was already fired). This means you should check
      * if {@link Ext.device.Device#scheme} is set in your Application `launch`/`onReady` method, and perform any needed changes for that URL (if defined).
      * Then listen to this event for future changed.
@@ -35,13 +35,13 @@ Ext.define('Ext.device.device.Abstract', {
      *
      * __Note:__ This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with
      * PhoneGap or simply in the browser, it will never fire.**
-     * 
+     *
      * @param {Ext.device.Device} this The instance of Ext.device.Device
      * @param {Object/Boolean} scheme The scheme information, if opened via another application
      * @param {String} scheme.url The URL that was opened, if this application was opened via another application. Example: `sencha:`
      * @param {String} scheme.sourceApplication The source application that opened this application. Example: `com.apple.safari`.
      */
-    
+
     /**
      * @property {String} name
      * Returns the name of the current device. If the current device does not have a name (for example, in a browser), it will
@@ -70,10 +70,10 @@ Ext.define('Ext.device.device.Abstract', {
 
     /**
      * @property {Object/Boolean} scheme
-     * 
+     *
      */
     scheme: false,
-    
+
     /**
      * Opens a specified URL. The URL can contain a custom URL Scheme for another app or service:
      *
@@ -91,14 +91,14 @@ Ext.define('Ext.device.device.Abstract', {
      *
      * You can find a full list of available URL schemes here: [http://wiki.akosma.com/IPhone_URL_Schemes](http://wiki.akosma.com/IPhone_URL_Schemes).
      *
-     * __Note:__ This currently only works on iOS using the Sencha Native Packager. Attempting to use this on PhoneGap, iOS Simulator 
+     * __Note:__ This currently only works on iOS using the Sencha Native Packager. Attempting to use this on PhoneGap, iOS Simulator
      * or the browser will simply result in the current window location changing.**
      *
      * If successful, this will close the application (as another one opens).
-     * 
+     *
      * @param {String} url The URL to open
      */
-    openURL: function(url) {
+    openURL: function (url) {
         window.location = url;
     }
 });

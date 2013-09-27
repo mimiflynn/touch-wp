@@ -12,11 +12,11 @@ Ext.define('Ext.direct.RemotingMethod', {
         ordered: true
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyParams: function(params) {
+    applyParams: function (params) {
         if (Ext.isNumber(params)) {
             this.setLen(params);
         } else if (Ext.isArray(params)) {
@@ -36,7 +36,7 @@ Ext.define('Ext.direct.RemotingMethod', {
         }
     },
 
-    getArgs: function(params, paramOrder, paramsAsHash) {
+    getArgs: function (params, paramOrder, paramsAsHash) {
         var args = [],
             i, ln;
 
@@ -65,10 +65,10 @@ Ext.define('Ext.direct.RemotingMethod', {
      * @param {Array} args The arguments passed to the direct call
      * @return {Object} An object with 3 properties, args, callback & scope.
      */
-    getCallData: function(args) {
+    getCallData: function (args) {
         var me = this,
             data = null,
-            len  = me.getLen(),
+            len = me.getLen(),
             params = me.getParams(),
             callback, scope, name;
 

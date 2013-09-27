@@ -7,7 +7,7 @@
  */
 Ext.define('Ext.dataview.component.SimpleListItem', {
     extend: 'Ext.Component',
-    xtype : 'simplelistitem',
+    xtype: 'simplelistitem',
 
     config: {
         baseCls: Ext.baseCSSPrefix + 'list-item',
@@ -36,31 +36,31 @@ Ext.define('Ext.dataview.component.SimpleListItem', {
         record: null
     },
 
-    initialize: function() {
+    initialize: function () {
         this.element.addCls(this.getBaseCls() + '-tpl');
     },
 
-    applyHeader: function(header) {
+    applyHeader: function (header) {
         if (header && !header.isComponent) {
             header = Ext.factory(header, Ext.Component, this.getHeader());
         }
         return header;
     },
 
-    updateHeader: function(header, oldHeader) {
+    updateHeader: function (header, oldHeader) {
         if (oldHeader) {
             oldHeader.destroy();
         }
     },
 
-    applyDisclosure: function(disclosure) {
+    applyDisclosure: function (disclosure) {
         if (disclosure && !disclosure.isComponent) {
             disclosure = Ext.factory(disclosure, Ext.Component, this.getDisclosure());
         }
         return disclosure;
     },
 
-    updateDisclosure: function(disclosure, oldDisclosure) {
+    updateDisclosure: function (disclosure, oldDisclosure) {
         if (disclosure) {
             this.element.appendChild(disclosure.renderElement);
         } else if (oldDisclosure) {
@@ -68,7 +68,7 @@ Ext.define('Ext.dataview.component.SimpleListItem', {
         }
     },
 
-    updateRecord: function(record) {
+    updateRecord: function (record) {
         var me = this,
             dataview = me.dataview || this.getDataview(),
             data = record && dataview.prepareData(record.getData(true), dataview.getStore().indexOf(record), record),
@@ -90,7 +90,7 @@ Ext.define('Ext.dataview.component.SimpleListItem', {
         me.fireEvent('updatedata', me, data);
     },
 
-    destroy: function() {
+    destroy: function () {
         Ext.destroy(this.getHeader(), this.getDisclosure());
         this.callParent(arguments);
     }

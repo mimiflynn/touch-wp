@@ -33,7 +33,7 @@
 
 Ext.define('Ext.dataview.component.DataItem', {
     extend: 'Ext.Container',
-    xtype : 'dataitem',
+    xtype: 'dataitem',
 
     config: {
         baseCls: Ext.baseCSSPrefix + 'data-item',
@@ -79,18 +79,20 @@ Ext.define('Ext.dataview.component.DataItem', {
 
         width: '100%',
 
-        items: [{
-            xtype: 'component'
-        }]
+        items: [
+            {
+                xtype: 'component'
+            }
+        ]
     },
 
-    updateBaseCls: function(newBaseCls, oldBaseCls) {
+    updateBaseCls: function (newBaseCls, oldBaseCls) {
         var me = this;
 
         me.callParent(arguments);
     },
 
-    updateItemCls: function(newCls, oldCls) {
+    updateItemCls: function (newCls, oldCls) {
         if (oldCls) {
             this.removeCls(oldCls);
         }
@@ -99,7 +101,7 @@ Ext.define('Ext.dataview.component.DataItem', {
         }
     },
 
-    doMapData: function(dataMap, data, item) {
+    doMapData: function (dataMap, data, item) {
         var componentName, component, setterMap, setterName;
 
         for (componentName in dataMap) {
@@ -125,7 +127,7 @@ Ext.define('Ext.dataview.component.DataItem', {
      * @param newRecord
      * @private
      */
-    updateRecord: function(newRecord) {
+    updateRecord: function (newRecord) {
         if (!newRecord) {
             return;
         }

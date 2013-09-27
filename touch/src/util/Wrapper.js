@@ -4,7 +4,7 @@
 Ext.define('Ext.util.Wrapper', {
     mixins: ['Ext.mixin.Bindable'],
 
-    constructor: function(elementConfig, wrappedElement) {
+    constructor: function (elementConfig, wrappedElement) {
         var element = this.link('element', Ext.Element.create(elementConfig));
 
         if (wrappedElement) {
@@ -13,7 +13,7 @@ Ext.define('Ext.util.Wrapper', {
         }
     },
 
-    bindSize: function(sizeName) {
+    bindSize: function (sizeName) {
         var wrappedElement = this.wrappedElement,
             boundMethodName;
 
@@ -24,7 +24,7 @@ Ext.define('Ext.util.Wrapper', {
         wrappedElement[boundMethodName].call(wrappedElement, wrappedElement.getStyleValue(sizeName));
     },
 
-    onBoundSizeChange: function(size, args) {
+    onBoundSizeChange: function (size, args) {
         var element = this.element;
 
         if (typeof size === 'string' && size.substr(-1) === '%') {
@@ -37,7 +37,7 @@ Ext.define('Ext.util.Wrapper', {
         element[this.boundMethodName].call(element, size);
     },
 
-    wrap: function(wrappedElement) {
+    wrap: function (wrappedElement) {
         var element = this.element,
             innerDom;
 
@@ -52,7 +52,7 @@ Ext.define('Ext.util.Wrapper', {
         innerDom.appendChild(wrappedElement.dom);
     },
 
-    destroy: function() {
+    destroy: function () {
         var element = this.element,
             dom = element.dom,
             wrappedElement = this.wrappedElement,

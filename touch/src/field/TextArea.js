@@ -79,17 +79,17 @@ Ext.define('Ext.field.TextArea', {
     },
 
     // @private
-    updateMaxRows: function(newRows) {
+    updateMaxRows: function (newRows) {
         this.getComponent().setMaxRows(newRows);
     },
 
-    doSetHeight: function(newHeight) {
+    doSetHeight: function (newHeight) {
         this.callParent(arguments);
         var component = this.getComponent();
         component.input.setHeight(newHeight);
     },
 
-    doSetWidth: function(newWidth) {
+    doSetWidth: function (newWidth) {
         this.callParent(arguments);
         var component = this.getComponent();
         component.input.setWidth(newWidth);
@@ -99,7 +99,7 @@ Ext.define('Ext.field.TextArea', {
      * Called when a key has been pressed in the `<input>`
      * @private
      */
-    doKeyUp: function(me) {
+    doKeyUp: function (me) {
         // getValue to ensure that we are in sync with the dom
         var value = me.getValue();
 

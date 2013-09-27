@@ -6,10 +6,10 @@ Ext.define('Ext.log.formatter.Default', {
         messageFormat: "[{priorityName}][{callerDisplayName}] {message}"
     },
 
-    format: function(event) {
+    format: function (event) {
         var event = Ext.merge({}, event, {
-                priorityName: event.priorityName.toUpperCase()
-            });
+            priorityName: event.priorityName.toUpperCase()
+        });
 
         return this.callParent([event]);
     }

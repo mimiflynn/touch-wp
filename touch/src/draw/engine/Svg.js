@@ -11,7 +11,7 @@ Ext.define('Ext.draw.engine.Svg', {
     statics: {
         BBoxTextCache: {}
     },
-    
+
     config: {
         /**
          * Nothing needs to be done in high precision mode.
@@ -180,12 +180,12 @@ Ext.define('Ext.draw.engine.Svg', {
         delete me.ctx;
         me.callSuper(arguments);
     },
-    
+
     remove: function (sprite, destroySprite) {
         if (sprite && sprite.element) {
-          //if sprite has an associated svg element remove it from the surface
-          sprite.element.destroy();
-          sprite.element = null;
+            //if sprite has an associated svg element remove it from the surface
+            sprite.element.destroy();
+            sprite.element = null;
         }
         this.callSuper(arguments);
     }

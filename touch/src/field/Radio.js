@@ -63,16 +63,16 @@ Ext.define('Ext.field.Radio', {
         }
     },
 
-    getValue: function() {
+    getValue: function () {
         return (this._value) ? this._value : null;
     },
 
-    setValue: function(value) {
+    setValue: function (value) {
         this._value = value;
         return this;
     },
 
-    getSubmitValue: function() {
+    getSubmitValue: function () {
         var value = this._value;
         if (typeof value == "undefined" || value == null) {
             value = true;
@@ -80,7 +80,7 @@ Ext.define('Ext.field.Radio', {
         return (this.getChecked()) ? value : null;
     },
 
-    updateChecked: function(newChecked) {
+    updateChecked: function (newChecked) {
         this.getComponent().setChecked(newChecked);
 
         if (this.initialized) {
@@ -89,7 +89,7 @@ Ext.define('Ext.field.Radio', {
     },
 
     // @private
-    onMaskTap: function(component, e) {
+    onMaskTap: function (component, e) {
         var me = this,
             dom = me.getComponent().input.dom;
 
@@ -111,7 +111,7 @@ Ext.define('Ext.field.Radio', {
      * Returns the selected value if this radio is part of a group (other radio fields with the same name, in the same FormPanel),
      * @return {String}
      */
-    getGroupValue: function() {
+    getGroupValue: function () {
         var fields = this.getSameGroupFields(),
             ln = fields.length,
             i = 0,
@@ -132,7 +132,7 @@ Ext.define('Ext.field.Radio', {
      * @param {String} value The value of the radio field to check.
      * @return {Ext.field.Radio} The field that is checked.
      */
-    setGroupValue: function(value) {
+    setGroupValue: function (value) {
         var fields = this.getSameGroupFields(),
             ln = fields.length,
             i = 0,
@@ -152,7 +152,7 @@ Ext.define('Ext.field.Radio', {
      * calls `onChange` on those fields so the appropriate event is fired.
      * @private
      */
-    refreshGroupValues: function() {
+    refreshGroupValues: function () {
         var fields = this.getSameGroupFields(),
             ln = fields.length,
             i = 0,

@@ -6,7 +6,7 @@ Ext.define('Ext.fx.layout.card.ScrollCover', {
 
     alias: 'fx.layout.card.scrollcover',
 
-    onActiveItemChange: function(cardLayout, inItem, outItem, options, controller) {
+    onActiveItemChange: function (cardLayout, inItem, outItem, options, controller) {
         var containerElement, containerSize, xy, animConfig,
             inTranslate, outTranslate;
 
@@ -44,11 +44,11 @@ Ext.define('Ext.fx.layout.card.ScrollCover', {
         }
     },
 
-    onInAnimationStart: function() {
+    onInAnimationStart: function () {
         this.inItem.renderElement.dom.style.removeProperty('visibility');
     },
 
-    onInAnimationEnd: function() {
+    onInAnimationEnd: function () {
         this.inItem.getTranslatable().getWrapper().dom.style.removeProperty('z-index'); // Remove this when we can remove translatable
 //        this.inItem.setTranslatable(null);
         this.lastController.resume();

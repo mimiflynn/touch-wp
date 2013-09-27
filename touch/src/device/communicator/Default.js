@@ -75,11 +75,11 @@ Ext.define('Ext.device.communicator.Default', {
 
     globalScopeId: '0',
 
-    generateId: function() {
+    generateId: function () {
         return String(++this.idSeed);
     },
 
-    getId: function(object) {
+    getId: function (object) {
         var id = object.$callbackId;
 
         if (!id) {
@@ -89,7 +89,7 @@ Ext.define('Ext.device.communicator.Default', {
         return id;
     },
 
-    getCallbackId: function(callback, scope) {
+    getCallbackId: function (callback, scope) {
         var idMap = this.callbackIdMap,
             dataMap = this.callbackDataMap,
             id, scopeId, callbackId, data;
@@ -122,17 +122,17 @@ Ext.define('Ext.device.communicator.Default', {
         return idMap[scopeId][callbackId];
     },
 
-    getCallbackData: function(id) {
+    getCallbackData: function (id) {
         return this.callbackDataMap[id];
     },
 
-    invoke: function(id, args) {
+    invoke: function (id, args) {
         var data = this.getCallbackData(id);
 
         data.callback.apply(data.scope, args);
     },
 
-    send: function(args) {
+    send: function (args) {
         var callbacks, scope, name, callback;
 
         if (!args) {
@@ -162,7 +162,7 @@ Ext.define('Ext.device.communicator.Default', {
         return (result && result.length > 0) ? JSON.parse(result) : null;
     },
 
-    doSend: function(args) {
+    doSend: function (args) {
         var xhr = new XMLHttpRequest();
 
         xhr.open('GET', this.SERVER_URL + '?' + Ext.Object.toQueryString(args) + '&_dc=' + new Date().getTime(), false);
@@ -173,7 +173,7 @@ Ext.define('Ext.device.communicator.Default', {
             xhr.send(null);
 
             return xhr.responseText;
-        } catch(e) {
+        } catch (e) {
             if (args.failure) {
                 this.invoke(args.failure);
             } else if (args.callback) {

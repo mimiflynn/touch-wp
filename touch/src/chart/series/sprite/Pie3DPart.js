@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.sprite.Pie3DPart
  * @extends Ext.draw.sprite.Path
- * 
+ *
  * Pie3D series sprite.
  */
 Ext.define("Ext.chart.series.sprite.Pie3DPart", {
@@ -201,11 +201,11 @@ Ext.define("Ext.chart.series.sprite.Pie3DPart", {
         plain.x = attr.centerX - rho;
         plain.y = attr.centerY - rho * attr.distortion;
     },
-    
+
     updateTransformedBBox: function (transform) {
         return this.updatePlainBBox(transform);
     },
-    
+
     updatePath: function (path) {
         if (this.attr.endAngle < this.attr.startAngle) {
             return;

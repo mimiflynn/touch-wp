@@ -9,8 +9,8 @@ Ext.define('Ext.draw.engine.SvgContext', {
      * Properties to be saved/restored in `save` and `restore` method.
      */
     toSave: ["strokeOpacity", "strokeStyle", "fillOpacity", "fillStyle", "globalAlpha", "lineWidth", "lineCap",
-             "lineJoin", "miterLimit", "shadowOffsetX", "shadowOffsetY", "shadowBlur", "shadowColor",
-             "globalCompositeOperation", "position"],
+        "lineJoin", "miterLimit", "shadowOffsetX", "shadowOffsetY", "shadowBlur", "shadowColor",
+        "globalCompositeOperation", "position"],
 
     "strokeOpacity": 1,
     "strokeStyle": "none",

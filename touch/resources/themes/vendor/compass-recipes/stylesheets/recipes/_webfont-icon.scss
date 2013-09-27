@@ -1,5 +1,4 @@
 @import 'compass';
-
 @import 'shared';
 @import 'background/gradients';
 
@@ -39,58 +38,40 @@ $webfont-icon-default-gradient: matte !default;
 // @todo Doc me yo
 
 .webfont-icon-base {
-    color: transparent;
-    @include background-clip(text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-indent: 0;
-    @include text-shadow(none);
-    @include user-select(none);
+  color: transparent;
+  @include background-clip(text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
+  @include text-shadow(none);
+  @include user-select(none);
 }
 
 // @todo Doc me yo
 
 @mixin include-font-websymbols {
-    @include font-face(
-        "websymbols",
-        font-files(
-            "websymbols/websymbols-regular-webfont.ttf", truetype,
-
-            "websymbols/websymbols-regular-webfont.eot", opentype
-        )
-    );
-    .webfont-icon-websymbols {
-        font-family: websymbols;
-        @extend .webfont-icon-base;
-    }
+  @include font-face("websymbols", font-files("websymbols/websymbols-regular-webfont.ttf", truetype, "websymbols/websymbols-regular-webfont.eot", opentype));
+  .webfont-icon-websymbols {
+    font-family: websymbols;
+    @extend .webfont-icon-base;
+  }
 }
 
 @mixin include-font-heydings {
-    @include font-face(
-        "heydings",
-        font-files(
-            "heydings/heydings_icons.ttf", truetype
-        )
-    );
-    .webfont-icon-heydings {
-        font-family: heydings;
-        @extend .webfont-icon-base;
-    }
+  @include font-face("heydings", font-files("heydings/heydings_icons.ttf", truetype));
+  .webfont-icon-heydings {
+    font-family: heydings;
+    @extend .webfont-icon-base;
+  }
 }
 
 @mixin include-font-iconic {
-    @include font-face(
-        "iconic",
-        font-files(
-            "iconic/iconic_stroke.ttf", truetype,
-            "iconic/iconic_stroke.otf", opentype
-        )
-    );
-    .webfont-icon-iconic {
-        font-family: iconic;
-        @extend .webfont-icon-base;
-    }
+  @include font-face("iconic", font-files("iconic/iconic_stroke.ttf", truetype, "iconic/iconic_stroke.otf", opentype));
+  .webfont-icon-iconic {
+    font-family: iconic;
+    @extend .webfont-icon-base;
+  }
 }
 
 /**
@@ -110,100 +91,92 @@ $webfont-icon-default-gradient: matte !default;
  * @param {boolean} $include-staes
  * True to include states for hover and active. Defaults to `true`.
  */
-@mixin webfont-icon(
-    $character: attr(data-icon),
-    $class: 'base',
-    
-    $color: $webfont-icon-base-color,
-    $color-hover: $webfont-icon-highlight-color,
-    $color-active: darken($color-hover, 7%),
+@mixin webfont-icon($character: attr(data-icon),
+$class: 'base',
+$color: $webfont-icon-base-color,
+$color-hover: $webfont-icon-highlight-color,
+$color-active: darken($color-hover, 7%),
+$size: 48px,
+$glow: null,
+$glow-hover: $webfont-icon-highlight-color 0 0 10px,
+$glow-active: $glow-hover,
+$shadow: rgba(#000, .5) 0 1px 3px, // Shadow doesn't change, but hover does
 
-    $size: 48px,
-    
-    $glow: null,
-    $glow-hover: $webfont-icon-highlight-color 0 0 10px,
-    $glow-active: $glow-hover,
+$stroke: false,
+$stroke-hover: 1px darken($color-hover, 5),
+$stroke-active: 1px darken($color-active, 5),
+$gradient: $webfont-icon-default-gradient,
+$gradient-hover: $gradient,
+$gradient-active: recessed,
+$include-states: true,
+$hide-text: true,
+$text-align: right,
+$text-spacing: 4px) {
+  @include background-clip(text);
+  overflow: visible;
+  position: relative;
+  display: inline-block;
+  line-height: $size;
 
-    $shadow: rgba(#000, .5) 0 1px 3px, // Shadow doesn't change, but hover does
-
-    $stroke: false,
-    $stroke-hover: 1px darken($color-hover, 5),
-    $stroke-active: 1px darken($color-active, 5),
-
-    $gradient: $webfont-icon-default-gradient,
-    $gradient-hover: $gradient,
-    $gradient-active: recessed,
-
-    $include-states: true,
-    $hide-text: true,
-    $text-align: right,
-    $text-spacing: 4px
-) {
-    @include background-clip(text);
-    overflow: visible;
-    position: relative;
-    display: inline-block;
-    line-height: $size;
-
-    @if $hide-text == true {
-        text-indent: -9000px;  
-        width: $size;
-        height: $size;
+  @if $hide-text == true {
+    text-indent: -9000px;
+    width: $size;
+    height: $size;
+  } @else {
+    @if $text-align == right {
+      padding-left: $size + $text-spacing;
     } @else {
-        @if $text-align == right {
-            padding-left: $size + $text-spacing;
-        } @else {
-            padding-right: $size + $text-spacing;
-        }
+      padding-right: $size + $text-spacing;
+    }
+  }
+
+  @if $stroke {
+    -webkit-text-stroke: if($stroke == true, darken($color, 10), $stroke);
+  }
+  &:after, &:before {
+    @extend .webfont-icon-#{$class};
+
+    @if ($hide-text != true and $text-align == left) {
+      left: auto;
+      right: 0;
     }
 
-    @if $stroke {
-        -webkit-text-stroke: if($stroke == true, darken($color, 10), $stroke);
-    }
-    &:after, &:before {
-        @extend .webfont-icon-#{$class};
+    font-size: $size;
+    content: $character;
 
-        @if ($hide-text != true and $text-align == left) {
-            left: auto;
-            right: 0;
-        }
+    @include background-gradient($color, $gradient);
+  }
+  &:before {
+    // @include background-clip(padding-box);
+    background: none;
+    @include text-shadow($shadow);
+  }
 
-        font-size: $size;
-        content: $character;
-        
-        @include background-gradient($color, $gradient);
-    }
-    &:before {
-        // @include background-clip(padding-box);
-        background: none;
-        @include text-shadow($shadow);
-    }
-    
-    @if $include-states {
-        &:hover {
-            @if $stroke-hover and $stroke {
-                -webkit-text-stroke: $stroke-hover;
-            }
-            color: $color-hover;
+  @if $include-states {
+    &:hover {
+      @if $stroke-hover and $stroke {
+        -webkit-text-stroke: $stroke-hover;
+      }
+      color: $color-hover;
 
-            &:before {
-                @include text-shadow($shadow, $glow-hover);
-            }
-            &:after {
-                @include background-gradient($color-hover, $gradient-hover);
-            }
-        }
-        &:active {            
-            @if $stroke-active and $stroke {
-                -webkit-text-stroke: $stroke-active;
-            }
-            color: $color-active;
-            &:before {
-                @include text-shadow($shadow, $glow-active);
-            }
-            &:after {
-                @include background-gradient($color-active, $gradient-active);
-            }
-        }
+      &:before {
+        @include text-shadow($shadow, $glow-hover);
+      }
+      &:after {
+        @include background-gradient($color-hover, $gradient-hover);
+      }
     }
+    &:active {
+      @if $stroke-active and $stroke {
+        -webkit-text-stroke: $stroke-active;
+      }
+      color: $color-active;
+      &:before {
+        @include text-shadow($shadow, $glow-active);
+      }
+      &:after {
+        @include background-gradient($color-active, $gradient-active);
+      }
+    }
+  }
 }

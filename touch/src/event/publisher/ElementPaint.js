@@ -14,13 +14,13 @@ Ext.define('Ext.event.publisher.ElementPaint', {
 
     handledEvents: ['painted'],
 
-    constructor: function() {
+    constructor: function () {
         this.monitors = {};
 
         this.callSuper(arguments);
     },
 
-    subscribe: function(target) {
+    subscribe: function (target) {
         var match = target.match(this.idSelectorRegex),
             subscribers = this.subscribers,
             id, element;
@@ -50,7 +50,7 @@ Ext.define('Ext.event.publisher.ElementPaint', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         var match = target.match(this.idSelectorRegex),
             subscribers = this.subscribers,
             id;
@@ -73,7 +73,7 @@ Ext.define('Ext.event.publisher.ElementPaint', {
         return true;
     },
 
-    onElementPainted: function(target, element) {
+    onElementPainted: function (target, element) {
         Ext.TaskQueue.requestRead('dispatch', this, [target, 'painted', [element]]);
     }
 });

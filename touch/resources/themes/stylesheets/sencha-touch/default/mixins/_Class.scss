@@ -9,30 +9,30 @@
  * @param {color} $type Gradient style for the button, will automatically use "recessed" when pressed.
  */
 @mixin toolbar-button($bg-color, $type: $button-gradient) {
-    &,
-    .x-toolbar & {
-        border: 1px solid darken($bg-color, 20%);
-        border-top-color: darken($bg-color, 15%);
-        background-color: $bg-color;
-        @include color-by-background($bg-color);
+  &,
+  .x-toolbar & {
+    border: 1px solid darken($bg-color, 20%);
+    border-top-color: darken($bg-color, 15%);
+    background-color: $bg-color;
+    @include color-by-background($bg-color);
 
-        &.x-button-back:before,
-        &.x-button-forward:before {
-            background: darken($bg-color, 20%);
-        }
-
-        &,
-        &.x-button-back:after,
-        &.x-button-forward:after {
-            @include background-gradient($bg-color, $type);
-        }
-
-        &.x-button-pressing, &.x-button-pressed, &.x-button-active {
-            &, &:after {
-                @include background-gradient(darken($bg-color, 3%), 'recessed');
-            }
-        }
+    &.x-button-back:before,
+    &.x-button-forward:before {
+      background: darken($bg-color, 20%);
     }
+
+    &,
+    &.x-button-back:after,
+    &.x-button-forward:after {
+      @include background-gradient($bg-color, $type);
+    }
+
+    &.x-button-pressing, &.x-button-pressed, &.x-button-active {
+      &, &:after {
+        @include background-gradient(darken($bg-color, 3%), 'recessed');
+      }
+    }
+  }
 }
 
 /**
@@ -41,13 +41,13 @@
  * @param {string} $type Either shadow or highlight, decides whether to apply a light shadow or dark.
  */
 @mixin bevel-text($type: 'shadow') {
-    @if $include-highlights {
-        @if $type == shadow {
-            text-shadow: rgba(0,0,0,.5) 0 -.08em 0;
-        } @else {
-            text-shadow: rgba(255,255,255,.25) 0 .08em 0;
-        }
+  @if $include-highlights {
+    @if $type == shadow {
+      text-shadow: rgba(0, 0, 0, .5) 0 -.08em 0;
+    } @else {
+      text-shadow: rgba(255, 255, 255, .25) 0 .08em 0;
     }
+  }
 }
 
 /**
@@ -56,13 +56,13 @@
  * @param {string} $type Either shadow or highlight, decides whether to apply a light shadow or dark.
  */
 @mixin bevel-box($type: 'light') {
-    @if $include-highlights {
-        @if $type == shadow {
-            @include st-box-shadow(rgba(#000, .5) 0 -.06em 0);
-        } @else {
-            @include st-box-shadow(rgba(#fff, .35) 0 .06em 0);
-        }
+  @if $include-highlights {
+    @if $type == shadow {
+      @include st-box-shadow(rgba(#000, .5) 0 -.06em 0);
+    } @else {
+      @include st-box-shadow(rgba(#fff, .35) 0 .06em 0);
     }
+  }
 }
 
 /**
@@ -73,11 +73,11 @@
  * See {@link #bevel-text}.
  */
 @mixin bevel-by-background($bg-color) {
-    @if (lightness($bg-color) > 50) {
-        @include bevel-text(light);
-    } @else {
-        @include bevel-text;
-    }
+  @if (lightness($bg-color) > 50) {
+    @include bevel-text(light);
+  } @else {
+    @include bevel-text;
+  }
 }
 
 /**
@@ -90,9 +90,9 @@
  * See background-gradient mixin.
  */
 @mixin mask-by-background($bg-color, $contrast: 100%, $style: $base-gradient) {
-    @if (lightness($bg-color) > 50) {
-        @include background-gradient(darken($bg-color, $contrast), $style);
-    } @else {
-        @include background-gradient(lighten($bg-color, $contrast), $style);
-    }
+  @if (lightness($bg-color) > 50) {
+    @include background-gradient(darken($bg-color, $contrast), $style);
+  } @else {
+    @include background-gradient(lighten($bg-color, $contrast), $style);
+  }
 }

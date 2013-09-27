@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.axis.segmenter.Numeric
  * @extends Ext.chart.axis.segmenter.Segmenter
- * 
+ *
  * Numeric data type.
  */
 Ext.define("Ext.chart.axis.segmenter.Numeric", {

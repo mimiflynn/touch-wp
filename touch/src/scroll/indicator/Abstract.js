@@ -38,14 +38,14 @@ Ext.define('Ext.scroll.indicator.Abstract', {
 
     gapLength: 0,
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         return {
             reference: 'barElement',
             children: [this.callParent()]
         };
     },
 
-    applyRatio: function(ratio) {
+    applyRatio: function (ratio) {
         if (isNaN(ratio) || ratio > 1) {
             ratio = 1;
         }
@@ -53,7 +53,7 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         return ratio;
     },
 
-    refresh: function() {
+    refresh: function () {
         var bar = this.barElement,
             barDom = bar.dom,
             ratio = this.getRatio(),
@@ -70,16 +70,16 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         this.updateValue(this.getValue());
     },
 
-    updateBarCls: function(barCls) {
+    updateBarCls: function (barCls) {
         this.barElement.addCls(barCls);
     },
 
-    updateAxis: function(axis) {
+    updateAxis: function (axis) {
         this.element.addCls(this.getBaseCls(), null, axis);
         this.barElement.addCls(this.getBarCls(), null, axis);
     },
 
-    updateValue: function(value) {
+    updateValue: function (value) {
         var barLength = this.barLength,
             gapLength = this.gapLength,
             length = this.getLength(),
@@ -103,11 +103,11 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         this.setOffset(offset);
     },
 
-    updateActive: function(active) {
+    updateActive: function (active) {
         this.barElement[active ? 'addCls' : 'removeCls']('active');
     },
 
-    doSetHidden: function(hidden) {
+    doSetHidden: function (hidden) {
         if (hidden) {
             this.setOffset(-10000);
         } else {
@@ -117,11 +117,11 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         }
     },
 
-    applyLength: function(length) {
+    applyLength: function (length) {
         return Math.max(this.getMinLength(), length);
     },
 
-    updateLength: function(length) {
+    updateLength: function (length) {
         length = Math.round(length);
         if (this.lastLength === length) {
             return;
@@ -130,7 +130,7 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         Ext.TaskQueue.requestWrite('doUpdateLength', this, [length]);
     },
 
-    doUpdateLength: function(length){
+    doUpdateLength: function (length) {
         if (!this.isDestroyed) {
             var axis = this.getAxis(),
                 element = this.element;
@@ -144,16 +144,16 @@ Ext.define('Ext.scroll.indicator.Abstract', {
         }
     },
 
-    setOffset: function(offset) {
+    setOffset: function (offset) {
         offset = Math.round(offset);
         if (this.lastOffset === offset || this.lastOffset === -10000) {
             return;
         }
         this.lastOffset = offset;
-        Ext.TaskQueue.requestWrite('doSetOffset', this,[offset]);
+        Ext.TaskQueue.requestWrite('doSetOffset', this, [offset]);
     },
 
-    doSetOffset: function(offset) {
+    doSetOffset: function (offset) {
         if (!this.isDestroyed) {
             var axis = this.getAxis(),
                 element = this.element;

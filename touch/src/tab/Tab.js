@@ -49,7 +49,7 @@ Ext.define('Ext.tab.Tab', {
         title: '&nbsp;'
     },
 
-    updateIconCls : function(newCls, oldCls) {
+    updateIconCls: function (newCls, oldCls) {
         this.callParent([newCls, oldCls]);
 
         if (oldCls) {
@@ -73,11 +73,11 @@ Ext.define('Ext.tab.Tab', {
      * @param {Ext.tab.Tab} this
      */
 
-    updateTitle: function(title) {
+    updateTitle: function (title) {
         this.setText(title);
     },
 
-    updateActive: function(active, oldActive) {
+    updateActive: function (active, oldActive) {
         var activeCls = this.getActiveCls();
         if (active && !oldActive) {
             this.element.addCls(activeCls);
@@ -87,13 +87,13 @@ Ext.define('Ext.tab.Tab', {
             this.fireEvent('deactivate', this);
         }
     }
-}, function() {
+}, function () {
     this.override({
-        activate: function() {
+        activate: function () {
             this.setActive(true);
         },
 
-        deactivate: function() {
+        deactivate: function () {
             this.setActive(false);
         }
     });

@@ -279,14 +279,14 @@ Ext.define('Ext.data.Field', {
          *        }
          *     }
          */
-        sortType : undefined,
+        sortType: undefined,
 
         /**
          * @cfg {String} sortDir
          *
          * Initial direction to sort (`"ASC"` or `"DESC"`).
          */
-        sortDir : "ASC",
+        sortDir: "ASC",
 
         /**
          * @cfg {Boolean} allowBlank
@@ -295,7 +295,7 @@ Ext.define('Ext.data.Field', {
          * Used for validating a {@link Ext.data.Model model}. An empty value here will cause
          * {@link Ext.data.Model}.{@link Ext.data.Model#isValid isValid} to evaluate to `false`.
          */
-        allowBlank : true,
+        allowBlank: true,
 
         /**
          * @cfg {Boolean} persist
@@ -313,7 +313,7 @@ Ext.define('Ext.data.Field', {
         bubbleEvents: 'action'
     },
 
-    constructor : function(config) {
+    constructor: function (config) {
         // This adds support for just passing a string used as the field name
         if (Ext.isString(config)) {
             config = {name: config};
@@ -322,7 +322,7 @@ Ext.define('Ext.data.Field', {
         this.initConfig(config);
     },
 
-    applyType: function(type) {
+    applyType: function (type) {
         var types = Ext.data.Types,
             autoType = types.AUTO;
 
@@ -338,14 +338,14 @@ Ext.define('Ext.data.Field', {
         return autoType;
     },
 
-    updateType: function(newType, oldType) {
+    updateType: function (newType, oldType) {
         var convert = this.getConvert();
         if (oldType && convert === oldType.convert) {
             this.setConvert(newType.convert);
         }
     },
 
-    applySortType: function(sortType) {
+    applySortType: function (sortType) {
         var sortTypes = Ext.data.SortTypes,
             type = this.getType(),
             defaultSortType = type.sortType;
@@ -362,7 +362,7 @@ Ext.define('Ext.data.Field', {
         return defaultSortType;
     },
 
-    applyConvert: function(convert) {
+    applyConvert: function (convert) {
         var defaultConvert = this.getType().convert;
         if (convert && convert !== defaultConvert) {
             this._hasCustomConvert = true;
@@ -373,12 +373,12 @@ Ext.define('Ext.data.Field', {
         }
     },
 
-    hasCustomConvert: function() {
+    hasCustomConvert: function () {
         return this._hasCustomConvert;
     }
 
     // <deprecated product=touch since=2.0>
-}, function() {
+}, function () {
     /**
      * @member Ext.data.Field
      * @cfg {Boolean} useNull

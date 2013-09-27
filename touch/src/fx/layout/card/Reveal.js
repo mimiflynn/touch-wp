@@ -29,7 +29,7 @@ Ext.define('Ext.fx.layout.card.Reveal', {
         }
     },
 
-    updateReverse: function(reverse) {
+    updateReverse: function (reverse) {
         this.getInAnimation().setReverse(reverse);
         this.getOutAnimation().setReverse(reverse);
     }

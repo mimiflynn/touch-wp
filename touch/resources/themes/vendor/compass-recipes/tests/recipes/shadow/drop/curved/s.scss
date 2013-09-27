@@ -1,27 +1,23 @@
 @import "tests";
-
 @import "recipes/shadow";
 
 $background: #eee;
 
-div
-{
-    width: 18em;
-    height: 10em;
-    margin: 5em auto;
-    background: $background;
-    border: 1px solid #ccc;
+div {
+  width: 18em;
+  height: 10em;
+  margin: 5em auto;
+  background: $background;
+  border: 1px solid #ccc;
 
-    p
-    {
-        padding: 3em 0;
-        text-align: center;
-    }
+  p {
+    padding: 3em 0;
+    text-align: center;
+  }
 
-    &:hover
-    {
-        @include transform(rotate(3deg));
-    }
+  &:hover {
+    @include transform(rotate(3deg));
+  }
 }
 
 /*
@@ -32,37 +28,30 @@ div
 .drop-shadow-curved-vt,
 .drop-shadow-curved-hz-1,
 .drop-shadow-curved-hz-2,
-.drop-shadow-curved-hz
-{
-    @include drop-shadow-transform-requirement($background);
+.drop-shadow-curved-hz {
+  @include drop-shadow-transform-requirement($background);
 }
 
-.drop-shadow-curved-vt-1
-{
-    @include drop-shadow-curved('left');
+.drop-shadow-curved-vt-1 {
+  @include drop-shadow-curved('left');
 }
 
-.drop-shadow-curved-vt-2
-{
-    @include drop-shadow-curved('right');
+.drop-shadow-curved-vt-2 {
+  @include drop-shadow-curved('right');
 }
 
-.drop-shadow-curved-vt
-{
-    @include drop-shadow-curved;
+.drop-shadow-curved-vt {
+  @include drop-shadow-curved;
 }
 
-.drop-shadow-curved-hz-1
-{
-    @include drop-shadow-curved('top');
+.drop-shadow-curved-hz-1 {
+  @include drop-shadow-curved('top');
 }
 
-.drop-shadow-curved-hz-2
-{
-    @include drop-shadow-curved('bottom');
+.drop-shadow-curved-hz-2 {
+  @include drop-shadow-curved('bottom');
 }
 
-.drop-shadow-curved-hz
-{
-    @include drop-shadow-curved('horizontal');
+.drop-shadow-curved-hz {
+  @include drop-shadow-curved('horizontal');
 }

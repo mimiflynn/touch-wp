@@ -34,18 +34,18 @@ Ext.define('Ext.fx.layout.card.Flip', {
         }
     },
 
-    onActiveItemChange: function(cardLayout, newItem, oldItem, options, controller) {
+    onActiveItemChange: function (cardLayout, newItem, oldItem, options, controller) {
         var parent = newItem.element.getParent();
         parent.addCls('x-layout-card-perspective');
 
-        this.on('animationend', function() {
+        this.on('animationend', function () {
             parent.removeCls('x-layout-card-perspective');
         }, this, {single: true});
 
         this.callParent(arguments);
     },
 
-    updateDuration: function(duration) {
+    updateDuration: function (duration) {
         var halfDuration = duration / 2,
             inAnimation = this.getInAnimation(),
             outAnimation = this.getOutAnimation();

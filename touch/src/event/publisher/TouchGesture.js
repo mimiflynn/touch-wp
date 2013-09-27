@@ -28,7 +28,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         recognizers: {}
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.eventProcessors = {
             touchstart: this.onTouchStart,
             touchmove: this.onTouchMove,
@@ -64,7 +64,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return this.callSuper();
     },
 
-    applyRecognizers: function(recognizers) {
+    applyRecognizers: function (recognizers) {
         var i, recognizer;
 
         for (i in recognizers) {
@@ -80,15 +80,15 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return recognizers;
     },
 
-    handles: function(eventName) {
+    handles: function (eventName) {
         return this.callSuper(arguments) || this.eventToRecognizerMap.hasOwnProperty(eventName);
     },
 
-    doesEventBubble: function() {
+    doesEventBubble: function () {
         // All touch events bubble
         return true;
     },
-    onEvent: function(e) {
+    onEvent: function (e) {
         var type = e.type,
             lastEventType = this.lastEventType,
             touchList = [e];
@@ -106,10 +106,10 @@ Ext.define('Ext.event.publisher.TouchGesture', {
             // when the element is being animated with webkit-transition (2 mousedowns without any mouseup)
             if (type === 'mousedown' && lastEventType && lastEventType !== 'mouseup') {
                 var fixedEvent = document.createEvent("MouseEvent");
-                    fixedEvent.initMouseEvent('mouseup', e.bubbles, e.cancelable,
-                        document.defaultView, e.detail, e.screenX, e.screenY, e.clientX,
-                        e.clientY, e.ctrlKey, e.altKey, e.shiftKey, e.metaKey, e.metaKey,
-                        e.button, e.relatedTarget);
+                fixedEvent.initMouseEvent('mouseup', e.bubbles, e.cancelable,
+                    document.defaultView, e.detail, e.screenX, e.screenY, e.clientX,
+                    e.clientY, e.ctrlKey, e.altKey, e.shiftKey, e.metaKey, e.metaKey,
+                    e.button, e.relatedTarget);
 
                 this.onEvent(fixedEvent);
             }
@@ -127,7 +127,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     },
 
-    registerRecognizer: function(recognizer) {
+    registerRecognizer: function (recognizer) {
         var map = this.eventToRecognizerMap,
             activeRecognizers = this.activeRecognizers,
             handledEvents = recognizer.getHandledEvents(),
@@ -136,7 +136,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         recognizer.setOnRecognized(this.onRecognized);
         recognizer.setCallbackScope(this);
 
-        for (i = 0,ln = handledEvents.length; i < ln; i++) {
+        for (i = 0, ln = handledEvents.length; i < ln; i++) {
             eventName = handledEvents[i];
 
             map[eventName] = recognizer;
@@ -147,7 +147,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return this;
     },
 
-    onRecognized: function(eventName, e, touches, info) {
+    onRecognized: function (eventName, e, touches, info) {
         var targetGroups = [],
             ln = touches.length,
             targets, i, touch;
@@ -166,12 +166,12 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         this.publish(eventName, targets, e, info);
     },
 
-    publish: function(eventName, targets, event, info) {
+    publish: function (eventName, targets, event, info) {
         event.set(info);
         return this.callSuper([eventName, targets, event]);
     },
 
-    getCommonTargets: function(targetGroups) {
+    getCommonTargets: function (targetGroups) {
         var firstTargetGroup = targetGroups[0],
             ln = targetGroups.length;
 
@@ -205,7 +205,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return commonTargets;
     },
 
-    invokeRecognizers: function(methodName, e) {
+    invokeRecognizers: function (methodName, e) {
         var recognizers = this.activeRecognizers,
             ln = recognizers.length,
             i, recognizer;
@@ -224,11 +224,11 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     },
 
-    getActiveRecognizers: function() {
+    getActiveRecognizers: function () {
         return this.activeRecognizers;
     },
 
-    updateTouch: function(touch) {
+    updateTouch: function (touch) {
         var identifier = touch.identifier,
             currentTouch = this.touchesMap[identifier],
             target, x, y;
@@ -268,8 +268,8 @@ Ext.define('Ext.event.publisher.TouchGesture', {
 //        x = Math.round(offsets.x + screenX);
 //        y = Math.round(offsets.y + screenY);
 
-        x  = touch.pageX;
-        y  = touch.pageY;
+        x = touch.pageX;
+        y = touch.pageY;
 
         if (x === currentTouch.pageX && y === currentTouch.pageY) {
             return false;
@@ -283,7 +283,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return currentTouch;
     },
 
-    updateTouches: function(touches) {
+    updateTouches: function (touches) {
         var i, ln, touch,
             changedTouches = [];
 
@@ -297,11 +297,11 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         return changedTouches;
     },
 
-    factoryEvent: function(e) {
+    factoryEvent: function (e) {
         return new Ext.event.Touch(e, null, this.touchesMap, this.currentIdentifiers);
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         var changedTouches = e.changedTouches,
             target = e.target,
             ln = changedTouches.length,
@@ -333,7 +333,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     },
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         if (!this.isStarted) {
             return;
         }
@@ -346,7 +346,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         this.lastMoveEvent = e;
     },
 
-    onAnimationFrame: function() {
+    onAnimationFrame: function () {
         var event = this.lastMoveEvent;
 
         if (event) {
@@ -355,7 +355,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     },
 
-    doTouchMove: function(e) {
+    doTouchMove: function (e) {
         var changedTouches, i, ln, touch;
 
         changedTouches = this.updateTouches(e.changedTouches);
@@ -374,7 +374,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     },
 
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         if (!this.isStarted) {
             return;
         }
@@ -425,7 +425,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         }
     }
 
-}, function() {
+}, function () {
     if (Ext.feature.has.Pointer) {
         this.override({
             pointerToTouchMap: {
@@ -442,7 +442,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
                 touchcancel: 'MSPointerCancel'
             },
 
-            attachListener: function(eventName, doc) {
+            attachListener: function (eventName, doc) {
                 eventName = this.touchToPointerMap[eventName];
 
                 if (!eventName) {
@@ -452,7 +452,7 @@ Ext.define('Ext.event.publisher.TouchGesture', {
                 return this.callOverridden([eventName, doc]);
             },
 
-            onEvent: function(e) {
+            onEvent: function (e) {
                 if ('button' in e && e.button > 0) {
                     return;
                 }
@@ -473,8 +473,8 @@ Ext.define('Ext.event.publisher.TouchGesture', {
     }
     else if (!Ext.browser.is.Silk && Ext.feature.has.Touch) {
         // Stop all mousedown events on Touch capable browsers. This will prevent the 'focus' event from the emulated mouse events on non-iOS devices
-        Ext.onDocumentReady(function() {
-            window.document.body.addEventListener('mousedown', function(e){
+        Ext.onDocumentReady(function () {
+            window.document.body.addEventListener('mousedown', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;

@@ -1,10 +1,10 @@
 Ext.define('Ext.BingMap', {
     extend: 'Ext.Map',
-    xtype : 'bingmap',
+    xtype: 'bingmap',
     requires: ['Ext.util.Geolocation'],
 
     // @private
-    renderMap: function() {
+    renderMap: function () {
         var me = this,
             element = me.mapContainer,
             mapOptions = me.getMapOptions(),
@@ -13,11 +13,11 @@ Ext.define('Ext.BingMap', {
         var MM = Microsoft.Maps;
         var key = "AokX-S2lieXTaXG8pvEw3i2AKYuStBMK8RsUu6BDJ6hrL5AYv0IfQqM9zc-BAA-v";
         //TODO Investigate why does merge lead to exception in Bing
-            mapOptions = Ext.merge({
-                credentials: key,
-                mapTypeId: "r",
-                zoom: 12
-            }, mapOptions);
+        mapOptions = Ext.merge({
+            credentials: key,
+            mapTypeId: "r",
+            zoom: 12
+        }, mapOptions);
 
         // This is done separately from the above merge so we don't have to instantiate
         // a new LatLng if we don't need to
@@ -30,8 +30,8 @@ Ext.define('Ext.BingMap', {
         }
 
         MM.loadModule('Microsoft.Maps.Overlays.Style', { callback: function () {
-            me.setMap(new MM.Map(element.dom,mapOptions));
-            if(mapOptions.callback){
+            me.setMap(new MM.Map(element.dom, mapOptions));
+            if (mapOptions.callback) {
                 mapOptions.callback();
             }
         }
@@ -50,7 +50,7 @@ Ext.define('Ext.BingMap', {
         return;
 
     },
-    setMapCenter: function(coordinates) {
+    setMapCenter: function (coordinates) {
         var me = this,
             map = me.getMap(),
             MM = Microsoft.Maps;
@@ -80,6 +80,6 @@ Ext.define('Ext.BingMap', {
             });
         }
     }
-}, function() {
+}, function () {
 
 });

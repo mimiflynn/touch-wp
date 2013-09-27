@@ -182,7 +182,7 @@
 Ext.define('Ext.data.reader.Json', {
     extend: 'Ext.data.reader.Reader',
     alternateClassName: 'Ext.data.JsonReader',
-    alias : 'reader.json',
+    alias: 'reader.json',
 
     config: {
         /**
@@ -205,7 +205,7 @@ Ext.define('Ext.data.reader.Json', {
     objectRe: /[\[\.]/,
 
     // @inheritdoc
-    getResponseData: function(response) {
+    getResponseData: function (response) {
         var responseText = response;
 
         // Handle an XMLHttpRequest object
@@ -244,7 +244,7 @@ Ext.define('Ext.data.reader.Json', {
     },
 
     // @inheritdoc
-    buildExtractors: function() {
+    buildExtractors: function () {
         var me = this,
             root = me.getRootProperty();
 
@@ -266,7 +266,7 @@ Ext.define('Ext.data.reader.Json', {
      * data. Else it returns the object in the data bound to the root.
      * @private
      */
-    getRoot: function(data) {
+    getRoot: function (data) {
         var fieldsCollection = this.getModel().getFields();
 
         /*
@@ -294,7 +294,7 @@ Ext.define('Ext.data.reader.Json', {
      * @param {Object} root The JSON root node
      * @return {Ext.data.Model[]} The records
      */
-    extractData: function(root) {
+    extractData: function (root) {
         var recordName = this.getRecord(),
             data = [],
             length, i;
@@ -324,10 +324,10 @@ Ext.define('Ext.data.reader.Json', {
      * 'some["property"]'
      * This is used by buildExtractors to create optimized extractor functions when casting raw data into model instances.
      */
-    createAccessor: function() {
+    createAccessor: function () {
         var re = /[\[\.]/;
 
-        return function(expr) {
+        return function (expr) {
             if (Ext.isEmpty(expr)) {
                 return Ext.emptyFn;
             }
@@ -340,7 +340,7 @@ Ext.define('Ext.data.reader.Json', {
                     return Ext.functionFactory('obj', 'var value; try {value = obj' + (i > 0 ? '.' : '') + expr + '} catch(e) {}; return value;');
                 }
             }
-            return function(obj) {
+            return function (obj) {
                 return obj[expr];
             };
         };
@@ -354,11 +354,11 @@ Ext.define('Ext.data.reader.Json', {
      * 'some["property"]'
      * This is used by buildExtractors to create optimized on extractor function which converts raw data into model instances.
      */
-    createFieldAccessExpression: function(field, fieldVarName, dataName) {
-        var me     = this,
-            re     = me.objectRe,
+    createFieldAccessExpression: function (field, fieldVarName, dataName) {
+        var me = this,
+            re = me.objectRe,
             hasMap = (field.getMapping() !== null),
-            map    = hasMap ? field.getMapping() : field.getName(),
+            map = hasMap ? field.getMapping() : field.getName(),
             result, operatorSearch;
 
         if (typeof map === 'function') {

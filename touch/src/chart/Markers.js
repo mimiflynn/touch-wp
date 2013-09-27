@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.Markers
  * @extends Ext.draw.sprite.Instancing
- * 
+ *
  * Marker sprite. A specialized version of instancing sprite that groups instances.
  * Putting a marker is grouped by its category id. Clearing removes that category.
  */
@@ -68,7 +68,9 @@ Ext.define("Ext.chart.Markers", {
         }
     },
 
-    getBBox: function () { return null; },
+    getBBox: function () {
+        return null;
+    },
 
     render: function (surface, ctx, clipRegion) {
         var me = this,

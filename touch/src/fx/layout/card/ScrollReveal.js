@@ -6,7 +6,7 @@ Ext.define('Ext.fx.layout.card.ScrollReveal', {
 
     alias: 'fx.layout.card.scrollreveal',
 
-    onActiveItemChange: function(cardLayout, inItem, outItem, options, controller) {
+    onActiveItemChange: function (cardLayout, inItem, outItem, options, controller) {
         var containerElement, containerSize, xy, animConfig,
             outTranslate, inTranslate;
 
@@ -43,7 +43,7 @@ Ext.define('Ext.fx.layout.card.ScrollReveal', {
         }
     },
 
-    onOutAnimationEnd: function() {
+    onOutAnimationEnd: function () {
         this.outItem.getTranslatable().getWrapper().dom.style.removeProperty('z-index'); // Remove this when we can remove translatable
 //        this.outItem.setTranslatable(null);
         this.lastController.resume();

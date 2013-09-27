@@ -6,7 +6,7 @@
  * to retrieve an array of contacts.
  *
  * **Please note that this will *only* work using the Sencha Native Packager.**
- * 
+ *
  * # Example
  *
  *     Ext.application({
@@ -38,7 +38,7 @@ Ext.define('Ext.device.Contacts', {
         'Ext.device.contacts.Sencha'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView && !browserEnv.PhoneGap) {

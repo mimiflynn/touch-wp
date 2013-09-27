@@ -129,19 +129,19 @@
  *
  */
 Ext.define('Ext.dom.Helper', {
-    emptyTags : /^(?:br|frame|hr|img|input|link|meta|range|spacer|wbr|area|param|col)$/i,
-    confRe : /tag|children|cn|html|tpl|tplData$/i,
-    endRe : /end/i,
+    emptyTags: /^(?:br|frame|hr|img|input|link|meta|range|spacer|wbr|area|param|col)$/i,
+    confRe: /tag|children|cn|html|tpl|tplData$/i,
+    endRe: /end/i,
 
-    attribXlat: { cls : 'class', htmlFor : 'for' },
+    attribXlat: { cls: 'class', htmlFor: 'for' },
 
     closeTags: {},
 
-    decamelizeName : function () {
+    decamelizeName: function () {
         var camelCaseRe = /([a-z])([A-Z])/g,
             cache = {};
 
-        function decamel (match, p1, p2) {
+        function decamel(match, p1, p2) {
             return p1 + '-' + p2.toLowerCase();
         }
 
@@ -150,7 +150,7 @@ Ext.define('Ext.dom.Helper', {
         };
     }(),
 
-    generateMarkup: function(spec, buffer) {
+    generateMarkup: function (spec, buffer) {
         var me = this,
             attr, val, tag, i, closeTags;
 
@@ -253,7 +253,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {Object} spec The DOM object spec (and children).
      * @return {String}
      */
-    markup: function(spec) {
+    markup: function (spec) {
         if (typeof spec == "string") {
             return spec;
         }
@@ -268,7 +268,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {String/Object/Function} styles A style specification string e.g. 'width:100px', or object in the form {width:'100px'}, or
      * a function which returns such a specification.
      */
-    applyStyles: function(el, styles) {
+    applyStyles: function (el, styles) {
         Ext.fly(el).applyStyles(styles);
     },
 
@@ -276,7 +276,7 @@ Ext.define('Ext.dom.Helper', {
      * @private
      * Fix for browsers which no longer support createContextualFragment
      */
-    createContextualFragment: function(html){
+    createContextualFragment: function (html) {
         var div = document.createElement("div"),
             fragment = document.createDocumentFragment(),
             i = 0,
@@ -310,13 +310,13 @@ Ext.define('Ext.dom.Helper', {
      * @param {String} html The HTML fragment
      * @return {HTMLElement} The new node
      */
-    insertHtml: function(where, el, html) {
+    insertHtml: function (where, el, html) {
         var setStart, range, frag, rangeEl, isBeforeBegin, isAfterBegin;
 
         where = where.toLowerCase();
 
         if (Ext.isTextNode(el)) {
-            if (where == 'afterbegin' ) {
+            if (where == 'afterbegin') {
                 where = 'beforebegin';
             }
             else if (where == 'beforeend') {
@@ -370,7 +370,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {Boolean} [returnElement] true to return a Ext.Element
      * @return {HTMLElement/Ext.Element} The new node
      */
-    insertBefore: function(el, o, returnElement) {
+    insertBefore: function (el, o, returnElement) {
         return this.doInsert(el, o, returnElement, 'beforebegin');
     },
 
@@ -381,7 +381,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {Boolean} [returnElement] true to return a Ext.Element
      * @return {HTMLElement/Ext.Element} The new node
      */
-    insertAfter: function(el, o, returnElement) {
+    insertAfter: function (el, o, returnElement) {
         return this.doInsert(el, o, returnElement, 'afterend');
     },
 
@@ -392,7 +392,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {Boolean} [returnElement] true to return a Ext.Element
      * @return {HTMLElement/Ext.Element} The new node
      */
-    insertFirst: function(el, o, returnElement) {
+    insertFirst: function (el, o, returnElement) {
         return this.doInsert(el, o, returnElement, 'afterbegin');
     },
 
@@ -403,7 +403,7 @@ Ext.define('Ext.dom.Helper', {
      * @param {Boolean} [returnElement] true to return a Ext.Element
      * @return {HTMLElement/Ext.Element} The new node
      */
-    append: function(el, o, returnElement) {
+    append: function (el, o, returnElement) {
         return this.doInsert(el, o, returnElement, 'beforeend');
     },
 
@@ -414,13 +414,13 @@ Ext.define('Ext.dom.Helper', {
      * @param {Boolean} [returnElement] true to return a Ext.Element
      * @return {HTMLElement/Ext.Element} The new node
      */
-    overwrite: function(el, o, returnElement) {
+    overwrite: function (el, o, returnElement) {
         el = Ext.getDom(el);
         el.innerHTML = this.markup(o);
         return returnElement ? Ext.get(el.firstChild) : el.firstChild;
     },
 
-    doInsert: function(el, o, returnElement, pos) {
+    doInsert: function (el, o, returnElement, pos) {
         var newNode = this.insertHtml(pos, Ext.getDom(el), this.markup(o));
         return returnElement ? Ext.get(newNode, true) : newNode;
     },
@@ -430,11 +430,11 @@ Ext.define('Ext.dom.Helper', {
      * @param {Object} o The DOM object spec (and children)
      * @return {Ext.Template} The new template
      */
-    createTemplate: function(o) {
+    createTemplate: function (o) {
         var html = this.markup(o);
         return new Ext.Template(html);
     }
-}, function() {
+}, function () {
     Ext.ns('Ext.core');
     Ext.core.DomHelper = Ext.DomHelper = new this;
 });

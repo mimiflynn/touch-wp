@@ -212,28 +212,28 @@ Ext.define('Ext.util.Geolocation', {
         maximumAge: 0,
 
         // @private
-        provider : undefined
+        provider: undefined
     },
 
-    updateMaximumAge: function() {
+    updateMaximumAge: function () {
         if (this.watchOperation) {
             this.updateWatchOperation();
         }
     },
 
-    updateTimeout: function() {
+    updateTimeout: function () {
         if (this.watchOperation) {
             this.updateWatchOperation();
         }
     },
 
-    updateAllowHighAccuracy: function() {
+    updateAllowHighAccuracy: function () {
         if (this.watchOperation) {
             this.updateWatchOperation();
         }
     },
 
-    applyProvider: function(config) {
+    applyProvider: function (config) {
         if (Ext.feature.has.Geolocation) {
             if (!config) {
                 if (navigator && navigator.geolocation) {
@@ -250,7 +250,7 @@ Ext.define('Ext.util.Geolocation', {
         return config;
     },
 
-    updateAutoUpdate: function(newAutoUpdate, oldAutoUpdate) {
+    updateAutoUpdate: function (newAutoUpdate, oldAutoUpdate) {
         var me = this,
             provider = me.getProvider();
 
@@ -268,14 +268,14 @@ Ext.define('Ext.util.Geolocation', {
             try {
                 me.updateWatchOperation();
             }
-            catch(e) {
+            catch (e) {
                 me.fireEvent('locationerror', me, false, false, true, e.message);
             }
         }
     },
 
     // @private
-    updateWatchOperation: function() {
+    updateWatchOperation: function () {
         var me = this,
             provider = me.getProvider();
 
@@ -321,11 +321,11 @@ Ext.define('Ext.util.Geolocation', {
      *
      * <!--positonOptions undocumented param, see W3C spec-->
      */
-    updateLocation: function(callback, scope, positionOptions) {
+    updateLocation: function (callback, scope, positionOptions) {
         var me = this,
             provider = me.getProvider();
 
-        var failFunction = function(message, error) {
+        var failFunction = function (message, error) {
             if (error) {
                 me.fireError(error);
             }
@@ -345,26 +345,26 @@ Ext.define('Ext.util.Geolocation', {
         try {
             provider.getCurrentPosition(
                 //success callback
-                function(position) {
+                function (position) {
                     me.fireUpdate(position);
                     if (callback) {
                         callback.call(scope || me, me, me); //last parameter for legacy purposes
                     }
                 },
                 //error callback
-                function(error) {
+                function (error) {
                     failFunction(null, error);
                 },
                 positionOptions || me.parseOptions()
             );
         }
-        catch(e) {
+        catch (e) {
             failFunction(e.message);
         }
     },
 
     // @private
-    fireUpdate: function(position) {
+    fireUpdate: function (position) {
         var me = this,
             coords = position.coords;
 
@@ -385,7 +385,7 @@ Ext.define('Ext.util.Geolocation', {
     },
 
     // @private
-    fireError: function(error) {
+    fireError: function (error) {
         var errorCode = error.code;
         this.fireEvent('locationerror', this,
             errorCode == error.TIMEOUT,
@@ -396,7 +396,7 @@ Ext.define('Ext.util.Geolocation', {
     },
 
     // @private
-    parseOptions: function() {
+    parseOptions: function () {
         var timeout = this.getTimeout(),
             ret = {
                 maximumAge: this.getMaximumAge(),
@@ -410,7 +410,7 @@ Ext.define('Ext.util.Geolocation', {
         return ret;
     },
 
-    destroy : function() {
+    destroy: function () {
         this.setAutoUpdate(false);
     }
 });

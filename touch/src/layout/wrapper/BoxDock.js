@@ -22,7 +22,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         right: 'end'
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.items = {
             start: [],
             end: []
@@ -33,7 +33,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         this.initConfig(config);
     },
 
-    addItems: function(items) {
+    addItems: function (items) {
         var i, ln, item;
 
         for (i = 0, ln = items.length; i < ln; i++) {
@@ -42,7 +42,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         }
     },
 
-    addItem: function(item) {
+    addItem: function (item) {
         var docked = item.getDocked(),
             position = this.positionMap[docked],
             wrapper = item.$dockWrapper,
@@ -87,7 +87,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         }
     },
 
-    removeItem: function(item) {
+    removeItem: function (item) {
         var position = item.getDocked(),
             items = this.items[this.positionMap[position]];
 
@@ -102,7 +102,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         }
     },
 
-    getItemsSlice: function(index) {
+    getItemsSlice: function (index) {
         var container = this.getContainer(),
             items = this.items,
             slice = [],
@@ -125,23 +125,23 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         return slice;
     },
 
-    applyElement: function(element) {
+    applyElement: function (element) {
         return Ext.Element.create(element);
     },
 
-    updateElement: function(element) {
+    updateElement: function (element) {
         element.addCls('x-dock-' + this.getDirection());
     },
 
-    applyBodyElement: function(bodyElement) {
+    applyBodyElement: function (bodyElement) {
         return Ext.Element.create(bodyElement);
     },
 
-    updateBodyElement: function(bodyElement) {
+    updateBodyElement: function (bodyElement) {
         this.getElement().append(bodyElement);
     },
 
-    updateInnerWrapper: function(innerWrapper, oldInnerWrapper) {
+    updateInnerWrapper: function (innerWrapper, oldInnerWrapper) {
         var bodyElement = this.getBodyElement();
 
         if (oldInnerWrapper && oldInnerWrapper.$outerWrapper === this) {
@@ -156,7 +156,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         }
     },
 
-    updateSizeState: function(state) {
+    updateSizeState: function (state) {
         var innerWrapper = this.getInnerWrapper();
 
         this.getElement().setSizeState(state);
@@ -166,7 +166,7 @@ Ext.define('Ext.layout.wrapper.BoxDock', {
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var innerWrapper = this.getInnerWrapper(),
             outerWrapper = this.$outerWrapper,
             innerWrapperElement;

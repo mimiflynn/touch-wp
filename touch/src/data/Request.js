@@ -120,7 +120,7 @@ Ext.define('Ext.data.Request', {
      * Creates the Request object.
      * @param {Object} [config] Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     }
 });

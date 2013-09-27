@@ -126,10 +126,12 @@ Ext.define('Ext.navigation.Bar', {
         }
     },
 
-    platformConfig: [{
-        platform: ['blackberry'],
-        animation: false
-    }],
+    platformConfig: [
+        {
+            platform: ['blackberry'],
+            animation: false
+        }
+    ],
 
     /**
      * @event back
@@ -137,7 +139,7 @@ Ext.define('Ext.navigation.Bar', {
      * @param {Ext.navigation.Bar} this This bar
      */
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (!config.items) {
@@ -153,14 +155,14 @@ Ext.define('Ext.navigation.Bar', {
     /**
      * @private
      */
-    applyBackButton: function(config) {
+    applyBackButton: function (config) {
         return Ext.factory(config, Ext.Button, this.getBackButton());
     },
 
     /**
      * @private
      */
-    updateBackButton: function(newBackButton, oldBackButton) {
+    updateBackButton: function (newBackButton, oldBackButton) {
         if (oldBackButton) {
             this.remove(oldBackButton);
         }
@@ -175,14 +177,14 @@ Ext.define('Ext.navigation.Bar', {
         }
     },
 
-    onBackButtonTap: function() {
+    onBackButtonTap: function () {
         this.fireEvent('back', this);
     },
 
     /**
      * @private
      */
-    updateView: function(newView) {
+    updateView: function (newView) {
         var me = this,
             backButton = me.getBackButton(),
             innerItems, i, backButtonText, item, title, titleText;
@@ -218,7 +220,7 @@ Ext.define('Ext.navigation.Bar', {
     /**
      * @private
      */
-    onViewAdd: function(view, item) {
+    onViewAdd: function (view, item) {
         var me = this,
             backButtonStack = me.backButtonStack,
             hasPrevious, title;
@@ -236,7 +238,7 @@ Ext.define('Ext.navigation.Bar', {
     /**
      * @private
      */
-    onViewRemove: function(view) {
+    onViewRemove: function (view) {
         var me = this,
             backButtonStack = me.backButtonStack,
             hasPrevious;
@@ -251,7 +253,7 @@ Ext.define('Ext.navigation.Bar', {
     /**
      * @private
      */
-    doChangeView: function(view, hasPrevious, reverse) {
+    doChangeView: function (view, hasPrevious, reverse) {
         var me = this,
             leftBox = me.leftBox,
             leftBoxElement = leftBox.element,
@@ -280,7 +282,7 @@ Ext.define('Ext.navigation.Bar', {
 
             me.isAnimating = true;
             me.animate(leftBoxElement, leftProps.element);
-            me.animate(titleElement, titleProps.element, function() {
+            me.animate(titleElement, titleProps.element, function () {
                 titleElement.setLeft(properties.titleLeft);
                 me.isAnimating = false;
                 me.refreshTitlePosition();
@@ -292,7 +294,7 @@ Ext.define('Ext.navigation.Bar', {
             }
             else {
                 me.animate(leftGhost.ghost, leftProps.ghost);
-                me.animate(titleGhost.ghost, titleProps.ghost, function() {
+                me.animate(titleGhost.ghost, titleProps.ghost, function () {
                     leftGhost.ghost.destroy();
                     titleGhost.ghost.destroy();
                 });
@@ -314,7 +316,7 @@ Ext.define('Ext.navigation.Bar', {
      * Calculates and returns the position values needed for the back button when you are pushing a title.
      * @private
      */
-    measureView: function(oldLeft, oldTitle, reverse) {
+    measureView: function (oldLeft, oldTitle, reverse) {
         var me = this,
             barElement = me.element,
             newLeftElement = me.leftBox.element,
@@ -472,7 +474,7 @@ Ext.define('Ext.navigation.Bar', {
      * If it is anything else, it will use transform.
      * @private
      */
-    animate: function(element, config, callback) {
+    animate: function (element, config, callback) {
         var me = this,
             animation;
 
@@ -487,7 +489,7 @@ Ext.define('Ext.navigation.Bar', {
         });
 
         animation = new Ext.fx.Animation(config);
-        animation.on('animationend', function() {
+        animation.on('animationend', function () {
             if (callback) {
                 callback.call(me);
             }
@@ -497,7 +499,7 @@ Ext.define('Ext.navigation.Bar', {
         me.activeAnimations.push(animation);
     },
 
-    endAnimation: function() {
+    endAnimation: function () {
         var activeAnimations = this.activeAnimations,
             animation, i, ln;
 
@@ -516,7 +518,7 @@ Ext.define('Ext.navigation.Bar', {
         }
     },
 
-    refreshTitlePosition: function() {
+    refreshTitlePosition: function () {
         if (!this.isAnimating) {
             this.callParent();
         }
@@ -526,7 +528,7 @@ Ext.define('Ext.navigation.Bar', {
      * Returns the text needed for the current back button at anytime.
      * @private
      */
-    getBackButtonText: function() {
+    getBackButtonText: function () {
         var text = this.backButtonStack[this.backButtonStack.length - 2],
             useTitleForBackButtonText = this.getUseTitleForBackButtonText();
 
@@ -543,7 +545,7 @@ Ext.define('Ext.navigation.Bar', {
      * Returns the text needed for the current title at anytime.
      * @private
      */
-    getTitleText: function() {
+    getTitleText: function () {
         return this.backButtonStack[this.backButtonStack.length - 1];
     },
 
@@ -551,7 +553,7 @@ Ext.define('Ext.navigation.Bar', {
      * Handles removing back button stacks from this bar
      * @private
      */
-    beforePop: function(count) {
+    beforePop: function (count) {
         count--;
         for (var i = 0; i < count; i++) {
             this.backButtonStack.pop();
@@ -564,7 +566,7 @@ Ext.define('Ext.navigation.Bar', {
      * this bar at any time.
      * @private
      */
-    doSetHidden: function(hidden) {
+    doSetHidden: function (hidden) {
         if (!hidden) {
             this.element.setStyle({
                 position: 'relative',
@@ -587,7 +589,7 @@ Ext.define('Ext.navigation.Bar', {
      * The createNavigationBarProxy method uses this to create proxies of the backButton and the title elements.
      * @private
      */
-    createProxy: function(element) {
+    createProxy: function (element) {
         var ghost, x, y, left, width;
 
         ghost = element.dom.cloneNode(true);

@@ -8,21 +8,21 @@ Ext.define('Ext.device.purchases.Sencha', {
 
     /**
      * Checks if the current user is able to make payments.
-     * 
+     *
      * ## Example
-     * 
+     *
      *     Ext.device.Purchases.canMakePayments({
      *         callback: function(flag) {
      *             console.log(flag ? 'Yup! :)' : 'Nope! :(');
      *         }
      *     });
-     * 
+     *
      * @param {Object} config
      * @param {Function} config.callback
      * @param {Boolean} config.callback.flag whether current user is able to make payments.
      * @param {Object} config.scope
      */
-    canMakePayments: function(config) {
+    canMakePayments: function (config) {
         if (!config.callback) {
             Ext.Logger.error('You must specify a `callback` for `#canMakePayments` to work.');
             return false;
@@ -31,7 +31,7 @@ Ext.define('Ext.device.purchases.Sencha', {
         Ext.device.Communicator.send({
             command: 'Purchase#canMakePayments',
             callbacks: {
-                callback: function(flag) {
+                callback: function (flag) {
                     config.callback.call(config.scope || this, flag);
                 }
             },
@@ -41,9 +41,9 @@ Ext.define('Ext.device.purchases.Sencha', {
 
     /**
      * Returns a {@link Ext.data.Store} instance of all products available to purchase.
-     * 
+     *
      * ## Example
-     * 
+     *
      *     Ext.device.Purchases.getProducts({
      *         success: function(store) {
      *             console.log('Got the store! You have ' + store.getCount() + ' products.');
@@ -52,7 +52,7 @@ Ext.define('Ext.device.purchases.Sencha', {
      *             console.log('Oops. Looks like something went wrong.');
      *         }
      *     });
-     * 
+     *
      * @param {Object} config
      * @param {Array[]} config.productInfos An array of all products productInfos
      * @param {Function} config.success
@@ -60,7 +60,7 @@ Ext.define('Ext.device.purchases.Sencha', {
      * @param {Function} config.failure
      * @param {Object} config.scope
      */
-    getProducts: function(config) {
+    getProducts: function (config) {
         if (!config.success) {
             Ext.Logger.error('You must specify a `success` callback for `#getProducts` to work.');
             return false;
@@ -75,7 +75,7 @@ Ext.define('Ext.device.purchases.Sencha', {
             command: 'Purchase#getProducts',
             productInfos: JSON.stringify(config.productInfos),
             callbacks: {
-                success: function(products) {
+                success: function (products) {
                     var store = Ext.create('Ext.data.Store', {
                         model: 'Ext.device.Purchases.Product',
                         data: products
@@ -91,13 +91,13 @@ Ext.define('Ext.device.purchases.Sencha', {
 
     /**
      * Returns a {@link Ext.data.Store} instance of all purchases delivered to the current user.
-     * 
+     *
      * @param {Object} config
      * @param {Function} config.callback
      * @param {Ext.data.Store} config.callback.store A store of all purchases delivered to the current user.
      * @param {Object} config.scope
      */
-    getCompletedPurchases: function(config) {
+    getCompletedPurchases: function (config) {
         if (!config.callback) {
             Ext.Logger.error('You must specify a `callback` for `#getCompletedPurchases` to work.');
             return false;
@@ -106,7 +106,7 @@ Ext.define('Ext.device.purchases.Sencha', {
         Ext.device.Communicator.send({
             command: 'Purchase#getCompletedPurchases',
             callbacks: {
-                callback: function(purchases) {
+                callback: function (purchases) {
                     var ln = purchases.length,
                         i;
 
@@ -128,13 +128,13 @@ Ext.define('Ext.device.purchases.Sencha', {
 
     /**
      * Returns a {@link Ext.data.Store} instance of all purchases the current user has been charged.
-     * 
+     *
      * @param {Object} config
      * @param {Function} config.callback
      * @param {Ext.data.Store} config.callback.store  A store of all purchases the current user has been charged.
      * @param {Object} config.scope
      */
-    getPurchases: function(config) {
+    getPurchases: function (config) {
         if (!config.callback) {
             Ext.Logger.error('You must specify a `callback` for `#getPurchases` to work.');
             return false;
@@ -143,7 +143,7 @@ Ext.define('Ext.device.purchases.Sencha', {
         Ext.device.Communicator.send({
             command: 'Purchase#getPurchases',
             callbacks: {
-                callback: function(purchases) {
+                callback: function (purchases) {
                     var ln = purchases.length,
                         i;
 
@@ -162,7 +162,7 @@ Ext.define('Ext.device.purchases.Sencha', {
             scope: config.scope || this
         });
     }
-}, function() {
+}, function () {
     /**
      * The product model class which is used when fetching available products using {@link Ext.device.Purchases#getProducts}.
      */
@@ -180,9 +180,9 @@ Ext.define('Ext.device.purchases.Sencha', {
 
         /**
          * Will attempt to purchase this product.
-         * 
+         *
          * ## Example
-         * 
+         *
          *     product.purchase({
          *         success: function() {
          *             console.log(product.get('localizedTitle') + ' purchased!');
@@ -191,13 +191,13 @@ Ext.define('Ext.device.purchases.Sencha', {
          *             console.log('Something went wrong while trying to purchase ' + product.get('localizedTitle'));
          *         }
          *     });
-         * 
+         *
          * @param {Object} config
          * @param {Ext.data.Model/String} config.product
          * @param {Function} config.success
          * @param {Function} config.failure
          */
-        purchase: function(config) {
+        purchase: function (config) {
             if (!config.success) {
                 Ext.Logger.error('You must specify a `success` callback for `#purchase` to work.');
                 return false;
@@ -241,7 +241,7 @@ Ext.define('Ext.device.purchases.Sencha', {
          * @param {Function} config.failure
          * @param {Object} config.scope
          */
-        complete: function(config) {
+        complete: function (config) {
             var me = this;
 
             if (!config.success) {
@@ -262,11 +262,11 @@ Ext.define('Ext.device.purchases.Sencha', {
                 command: 'Purchase#complete',
                 identifier: me.get('transactionIdentifier'),
                 callbacks: {
-                    success: function() {
+                    success: function () {
                         me.set('state', 'completed');
                         config.success.call(config.scope || this);
                     },
-                    failure: function() {
+                    failure: function () {
                         me.set('state', 'charged');
                         config.failure.call(config.scope || this);
                     }

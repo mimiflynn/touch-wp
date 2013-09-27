@@ -58,13 +58,13 @@ Ext.define('Ext.app.Action', {
         currentFilterIndex: -1
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         this.getUrl();
     },
 
-    applyBeforeFilters: function(filters) {
+    applyBeforeFilters: function (filters) {
         return filters || [];
     },
 
@@ -72,7 +72,7 @@ Ext.define('Ext.app.Action', {
      * Starts execution of this Action by calling each of the {@link #beforeFilters} in turn (if any are specified),
      * before calling the Controller {@link #action}. Same as calling {@link #resume}.
      */
-    execute: function() {
+    execute: function () {
         this.resume();
     },
 
@@ -82,8 +82,8 @@ Ext.define('Ext.app.Action', {
      * sole argument, and is expected to call `action.resume()` in order to allow the next filter to be called, or if
      * this is the final filter, the original {@link Ext.app.Controller Controller} function.
      */
-    resume: function() {
-        var index   = this.getCurrentFilterIndex() + 1,
+    resume: function () {
+        var index = this.getCurrentFilterIndex() + 1,
             filters = this.getBeforeFilters(),
             controller = this.getController(),
             nextFilter = filters[index];
@@ -99,7 +99,7 @@ Ext.define('Ext.app.Action', {
     /**
      * @private
      */
-    applyUrl: function(url) {
+    applyUrl: function (url) {
         if (url === null || url === undefined) {
             url = this.urlEncode();
         }
@@ -112,7 +112,7 @@ Ext.define('Ext.app.Action', {
      * If the controller config is a string, swap it for a reference to the actual controller instance.
      * @param {String} controller The controller name.
      */
-    applyController: function(controller) {
+    applyController: function (controller) {
         var app = this.getApplication(),
             profile = app.getCurrentProfile();
 
@@ -126,7 +126,7 @@ Ext.define('Ext.app.Action', {
     /**
      * @private
      */
-    urlEncode: function() {
+    urlEncode: function () {
         var controller = this.getController(),
             splits;
 

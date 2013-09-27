@@ -4,7 +4,7 @@
  */
 Ext.define('Ext.carousel.Indicator', {
     extend: 'Ext.Component',
-    xtype : 'carouselindicator',
+    xtype: 'carouselindicator',
     alternateClassName: 'Ext.Carousel.Indicator',
 
     config: {
@@ -29,7 +29,7 @@ Ext.define('Ext.carousel.Indicator', {
      * @param {Ext.carousel.Indicator} this
      */
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
 
         this.indicators = [];
@@ -40,7 +40,7 @@ Ext.define('Ext.carousel.Indicator', {
         });
     },
 
-    updateDirection: function(newDirection, oldDirection) {
+    updateDirection: function (newDirection, oldDirection) {
         var baseCls = this.getBaseCls();
 
         this.element.replaceCls(oldDirection, newDirection, baseCls);
@@ -55,13 +55,13 @@ Ext.define('Ext.carousel.Indicator', {
         }
     },
 
-    addIndicator: function() {
+    addIndicator: function () {
         this.indicators.push(this.element.createChild({
             tag: 'span'
         }));
     },
 
-    removeIndicator: function() {
+    removeIndicator: function () {
         var indicators = this.indicators;
 
         if (indicators.length > 0) {
@@ -69,7 +69,7 @@ Ext.define('Ext.carousel.Indicator', {
         }
     },
 
-    setActiveIndex: function(index) {
+    setActiveIndex: function (index) {
         var indicators = this.indicators,
             currentActiveIndex = this.activeIndex,
             currentActiveItem = indicators[currentActiveIndex],
@@ -90,7 +90,7 @@ Ext.define('Ext.carousel.Indicator', {
     },
 
     // @private
-    onTap: function(e) {
+    onTap: function (e) {
         var touch = e.touch,
             box = this.element.getPageBox(),
             centerX = box.left + (box.width / 2),
@@ -105,11 +105,11 @@ Ext.define('Ext.carousel.Indicator', {
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var indicators = this.indicators,
             i, ln, indicator;
 
-        for (i = 0,ln = indicators.length; i < ln; i++) {
+        for (i = 0, ln = indicators.length; i < ln; i++) {
             indicator = indicators[i];
             indicator.destroy();
         }

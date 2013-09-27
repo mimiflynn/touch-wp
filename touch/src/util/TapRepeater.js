@@ -46,7 +46,7 @@ Ext.define('Ext.util.TapRepeater', {
      * Creates new TapRepeater.
      * @param {Object} config
      */
-    constructor: function(config) {
+    constructor: function (config) {
         var me = this;
         //<debug warn>
         for (var configName in config) {
@@ -59,13 +59,13 @@ Ext.define('Ext.util.TapRepeater', {
         me.initConfig(config);
     },
 
-    updateEl: function(newEl, oldEl) {
+    updateEl: function (newEl, oldEl) {
         var eventCfg = {
-                touchstart: 'onTouchStart',
-                touchend: 'onTouchEnd',
-                tap: 'eventOptions',
-                scope: this
-            };
+            touchstart: 'onTouchStart',
+            touchend: 'onTouchEnd',
+            tap: 'eventOptions',
+            scope: this
+        };
         if (oldEl) {
             oldEl.un(eventCfg)
         }
@@ -73,7 +73,7 @@ Ext.define('Ext.util.TapRepeater', {
     },
 
     // @private
-    eventOptions: function(e) {
+    eventOptions: function (e) {
         if (this.getPreventDefault()) {
             e.preventDefault();
         }
@@ -83,13 +83,13 @@ Ext.define('Ext.util.TapRepeater', {
     },
 
     // @private
-    destroy: function() {
+    destroy: function () {
         this.clearListeners();
         Ext.destroy(this.el);
     },
 
     // @private
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         var me = this,
             pressCls = me.getPressCls();
         clearTimeout(me.getTimer());
@@ -109,7 +109,7 @@ Ext.define('Ext.util.TapRepeater', {
     },
 
     // @private
-    tap: function(e) {
+    tap: function (e) {
         var me = this;
         me.fireEvent('tap', me, e);
         me.setTimer(Ext.defer(me.tap, me.getAccelerate() ? me.easeOutExpo(Ext.Date.getElapsed(me.tapStartTime),
@@ -120,12 +120,12 @@ Ext.define('Ext.util.TapRepeater', {
 
     // Easing calculation
     // @private
-    easeOutExpo: function(t, b, c, d) {
-        return (t == d) ? b + c : c * ( - Math.pow(2, -10 * t / d) + 1) + b;
+    easeOutExpo: function (t, b, c, d) {
+        return (t == d) ? b + c : c * ( -Math.pow(2, -10 * t / d) + 1) + b;
     },
 
     // @private
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         var me = this;
         clearTimeout(me.getTimer());
         me.getEl().removeCls(me.getPressCls());

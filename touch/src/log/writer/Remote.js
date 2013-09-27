@@ -16,7 +16,7 @@ Ext.define('Ext.log.writer.Remote', {
 
     sendingTimer: null,
 
-    constructor: function() {
+    constructor: function () {
         this.queue = [];
 
         this.send = Ext.Function.bind(this.send, this);
@@ -24,7 +24,7 @@ Ext.define('Ext.log.writer.Remote', {
         return this.callParent(arguments);
     },
 
-    doWrite: function(event) {
+    doWrite: function (event) {
         var queue = this.queue;
         queue.push(event.message);
 
@@ -33,7 +33,7 @@ Ext.define('Ext.log.writer.Remote', {
         }
     },
 
-    send: function() {
+    send: function () {
         var queue = this.queue,
             messages = queue.slice();
 
@@ -46,7 +46,7 @@ Ext.define('Ext.log.writer.Remote', {
         }
     },
 
-    doSend: function(messages) {
+    doSend: function (messages) {
         var me = this;
 
         me.isSending = true;
@@ -57,12 +57,12 @@ Ext.define('Ext.log.writer.Remote', {
             params: {
                 messages: messages.join("\n")
             },
-            success: function(){
+            success: function () {
                 me.isSending = false;
                 me.send();
             },
-            failure: function() {
-                setTimeout(function() {
+            failure: function () {
+                setTimeout(function () {
                     me.doSend(messages);
                 }, me.getOnFailureRetryDelay());
             },

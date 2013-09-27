@@ -4,81 +4,81 @@
 Ext.define('Ext.fx.State', {
 
     isAnimatable: {
-        'background-color'   : true,
-        'background-image'   : true,
+        'background-color': true,
+        'background-image': true,
         'background-position': true,
         'border-bottom-color': true,
         'border-bottom-width': true,
-        'border-color'       : true,
-        'border-left-color'  : true,
-        'border-left-width'  : true,
-        'border-right-color' : true,
-        'border-right-width' : true,
-        'border-spacing'     : true,
-        'border-top-color'   : true,
-        'border-top-width'   : true,
-        'border-width'       : true,
-        'bottom'             : true,
-        'color'              : true,
-        'crop'               : true,
-        'font-size'          : true,
-        'font-weight'        : true,
-        'height'             : true,
-        'left'               : true,
-        'letter-spacing'     : true,
-        'line-height'        : true,
-        'margin-bottom'      : true,
-        'margin-left'        : true,
-        'margin-right'       : true,
-        'margin-top'         : true,
-        'max-height'         : true,
-        'max-width'          : true,
-        'min-height'         : true,
-        'min-width'          : true,
-        'opacity'            : true,
-        'outline-color'      : true,
-        'outline-offset'     : true,
-        'outline-width'      : true,
-        'padding-bottom'     : true,
-        'padding-left'       : true,
-        'padding-right'      : true,
-        'padding-top'        : true,
-        'right'              : true,
-        'text-indent'        : true,
-        'text-shadow'        : true,
-        'top'                : true,
-        'vertical-align'     : true,
-        'visibility'         : true,
-        'width'              : true,
-        'word-spacing'       : true,
-        'z-index'            : true,
-        'zoom'               : true,
-        'transform'          : true
+        'border-color': true,
+        'border-left-color': true,
+        'border-left-width': true,
+        'border-right-color': true,
+        'border-right-width': true,
+        'border-spacing': true,
+        'border-top-color': true,
+        'border-top-width': true,
+        'border-width': true,
+        'bottom': true,
+        'color': true,
+        'crop': true,
+        'font-size': true,
+        'font-weight': true,
+        'height': true,
+        'left': true,
+        'letter-spacing': true,
+        'line-height': true,
+        'margin-bottom': true,
+        'margin-left': true,
+        'margin-right': true,
+        'margin-top': true,
+        'max-height': true,
+        'max-width': true,
+        'min-height': true,
+        'min-width': true,
+        'opacity': true,
+        'outline-color': true,
+        'outline-offset': true,
+        'outline-width': true,
+        'padding-bottom': true,
+        'padding-left': true,
+        'padding-right': true,
+        'padding-top': true,
+        'right': true,
+        'text-indent': true,
+        'text-shadow': true,
+        'top': true,
+        'vertical-align': true,
+        'visibility': true,
+        'width': true,
+        'word-spacing': true,
+        'z-index': true,
+        'zoom': true,
+        'transform': true
     },
 
-    constructor: function(data) {
+    constructor: function (data) {
         this.data = {};
 
         this.set(data);
     },
 
-    setConfig: function(data) {
+    setConfig: function (data) {
         this.set(data);
 
         return this;
     },
 
-    setRaw: function(data) {
+    setRaw: function (data) {
         this.data = data;
 
         return this;
     },
 
-    clear: function() {
+    clear: function () {
         return this.setRaw({});
     },
 
-    setTransform: function(name, value) {
+    setTransform: function (name, value) {
         var data = this.data,
             isArray = Ext.isArray(value),
             transform = data.transform,
@@ -107,15 +107,21 @@ Ext.define('Ext.fx.State', {
                     if (isArray) {
                         ln = value.length;
 
-                        if (ln == 0) { break; }
+                        if (ln == 0) {
+                            break;
+                        }
 
                         transform.translateX = value[0];
 
-                        if (ln == 1) { break; }
+                        if (ln == 1) {
+                            break;
+                        }
 
                         transform.translateY = value[1];
 
-                        if (ln == 2) { break; }
+                        if (ln == 2) {
+                            break;
+                        }
 
                         transform.translateZ = value[2];
                     }
@@ -128,15 +134,21 @@ Ext.define('Ext.fx.State', {
                     if (isArray) {
                         ln = value.length;
 
-                        if (ln == 0) { break; }
+                        if (ln == 0) {
+                            break;
+                        }
 
                         transform.rotateX = value[0];
 
-                        if (ln == 1) { break; }
+                        if (ln == 1) {
+                            break;
+                        }
 
                         transform.rotateY = value[1];
 
-                        if (ln == 2) { break; }
+                        if (ln == 2) {
+                            break;
+                        }
 
                         transform.rotateZ = value[2];
                     }
@@ -150,15 +162,21 @@ Ext.define('Ext.fx.State', {
                     if (isArray) {
                         ln = value.length;
 
-                        if (ln == 0) { break; }
+                        if (ln == 0) {
+                            break;
+                        }
 
                         transform.scaleX = value[0];
 
-                        if (ln == 1) { break; }
+                        if (ln == 1) {
+                            break;
+                        }
 
                         transform.scaleY = value[1];
 
-                        if (ln == 2) { break; }
+                        if (ln == 2) {
+                            break;
+                        }
 
                         transform.scaleZ = value[2];
                     }
@@ -172,11 +190,15 @@ Ext.define('Ext.fx.State', {
                     if (isArray) {
                         ln = value.length;
 
-                        if (ln == 0) { break; }
+                        if (ln == 0) {
+                            break;
+                        }
 
                         transform.skewX = value[0];
 
-                        if (ln == 1) { break; }
+                        if (ln == 1) {
+                            break;
+                        }
 
                         transform.skewY = value[1];
                     }
@@ -200,7 +222,7 @@ Ext.define('Ext.fx.State', {
         }
     },
 
-    set: function(name, value) {
+    set: function (name, value) {
         var data = this.data,
             key;
 
@@ -228,7 +250,7 @@ Ext.define('Ext.fx.State', {
         return this;
     },
 
-    unset: function(name) {
+    unset: function (name) {
         var data = this.data;
 
         if (data.hasOwnProperty(name)) {
@@ -238,7 +260,7 @@ Ext.define('Ext.fx.State', {
         return this;
     },
 
-    getData: function() {
+    getData: function () {
         return this.data;
     }
 });

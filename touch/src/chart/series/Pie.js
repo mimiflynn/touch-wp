@@ -114,7 +114,7 @@ Ext.define('Ext.chart.series.Pie', {
             for (i = 0, ln = sprites.length; i < ln; i++) {
                 sprite = sprites[i];
                 sprite.setAttributes({label: labels[i]});
-                sprite.putMarker('labels', {hidden:hidden[i]}, sprite.attr.attributeId);
+                sprite.putMarker('labels', {hidden: hidden[i]}, sprite.attr.attributeId);
             }
         }
     },
@@ -287,7 +287,7 @@ Ext.define('Ext.chart.series.Pie', {
                 i, ln, attr;
 
             for (i = 0, ln = items.length; i < ln; i++) {
-                if(!hidden[i]) {
+                if (!hidden[i]) {
                     // Fortunately, the id of items equals the index of it in instances list.
                     attr = sprites[i].attr;
                     if (startRadius + attr.margin <= donutLimit && donutLimit + attr.margin <= endRadius) {
@@ -316,7 +316,7 @@ Ext.define('Ext.chart.series.Pie', {
                 hidden = this.getHidden();
             for (var i = 0; i < items.length; i++) {
                 target.push({
-                    name: labelField ? String(items[i].get(labelField))  : field + " " + i,
+                    name: labelField ? String(items[i].get(labelField)) : field + " " + i,
                     mark: this.getStyleByIndex(i).fillStyle || this.getStyleByIndex(i).strokeStyle || 'black',
                     disabled: hidden[i],
                     series: this.getId(),

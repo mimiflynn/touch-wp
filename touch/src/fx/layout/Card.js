@@ -13,7 +13,7 @@ Ext.define('Ext.fx.layout.Card', {
         'Ext.fx.layout.card.Scroll'
     ],
 
-    constructor: function(config) {
+    constructor: function (config) {
         var defaultClass = Ext.fx.layout.card.Abstract,
             type;
 

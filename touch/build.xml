@@ -25,49 +25,49 @@
         <!--
             Produce base concatenation for standard distribution files
         -->
-         <x-sencha-command>
+        <x-sencha-command>
             compile
             --ignore=${classpath.excludes}
             --include-preprocessor-tags=true
             --options=debug:true,product:touch,minVersion:3,logger:yes,charts:yes
-                concatenate
-                    --output-file=${build.dir}/sencha-touch-all-debug.js
-                and
-                union
-                    --tag=core
-                and
-                concatenate
-                    --output-file=${build.dir}/sencha-touch-debug.js
-                and
-                include
-                    +all
-                and
-                exclude
-                    --tag=core
-                and
-                metadata
-                    +append
-                    +alternates
-                    --base-path=${build.dir}
-                    --output-file=${build.dir}/sencha-touch-debug.js
-                and
-                metadata
-                    +append
-                    +alias
-                    --base-path=${build.dir}
-                    --output-file=${build.dir}/sencha-touch-debug.js
-                and
+            concatenate
+            --output-file=${build.dir}/sencha-touch-all-debug.js
+            and
+            union
+            --tag=core
+            and
+            concatenate
+            --output-file=${build.dir}/sencha-touch-debug.js
+            and
+            include
+            +all
+            and
+            exclude
+            --tag=core
+            and
+            metadata
+            +append
+            +alternates
+            --base-path=${build.dir}
+            --output-file=${build.dir}/sencha-touch-debug.js
+            and
+            metadata
+            +append
+            +alias
+            --base-path=${build.dir}
+            --output-file=${build.dir}/sencha-touch-debug.js
+            and
             --options=debug:false,logger:no
-                union
-                    +all
-                and
-                concatenate
-                    +yui
-                    --output-file=${build.dir}/sencha-touch-all.js
-                and
+            union
+            +all
+            and
+            concatenate
+            +yui
+            --output-file=${build.dir}/sencha-touch-all.js
+            and
             --options=debug:true,minVersion:2,logger:yes
-                concatenate
-                    --output-file=${build.dir}/builds/sencha-touch-all-compat.js
+            concatenate
+            --output-file=${build.dir}/builds/sencha-touch-all-compat.js
         </x-sencha-command>
 
         <loadfile property="header.text" srcfile="${build.dir}/file-header.txt"/>
@@ -109,7 +109,7 @@
                     <available file="@{example.app}/.sencha/app/sencha.cfg"/>
                     <then>
                         <echo>*** Building @{example.app} ***</echo>
-                        
+
                         <!--Update metadata files from current Cmd build-->
                         <x-sencha-command>
                             -sdk
@@ -118,7 +118,7 @@
                             upgrade
                             -noframework
                         </x-sencha-command>
-                        
+
                         <!--Run app build with upgraded metadata files-->
                         <x-sencha-command>
                             -sdk
@@ -141,7 +141,6 @@
             </sequential>
         </for>
     </target>
-
 
 
 </project>

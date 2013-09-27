@@ -30,7 +30,7 @@ Ext.define('Ext.env.OS', {
         prefixes: {
             ios: 'i(?:Pad|Phone|Pod)(?:.*)CPU(?: iPhone)? OS ',
             android: '(Android |HTC_|Silk/)', // Some HTC devices ship with an OSX userAgent by default,
-                                        // so we need to add a direct check for HTC_
+            // so we need to add a direct check for HTC_
             windowsPhone: 'Windows Phone ',
             blackberry: '(?:BlackBerry|BB)(?:.*)Version\/',
             rimTablet: 'RIM Tablet OS ',
@@ -107,7 +107,7 @@ Ext.define('Ext.env.OS', {
      */
     version: null,
 
-    setFlag: function(name, value) {
+    setFlag: function (name, value) {
         if (typeof value == 'undefined') {
             value = true;
         }
@@ -118,7 +118,7 @@ Ext.define('Ext.env.OS', {
         return this;
     },
 
-    constructor: function(userAgent, platform, browserScope) {
+    constructor: function (userAgent, platform, browserScope) {
         var statics = this.statics(),
             names = statics.names,
             prefixes = statics.prefixes,
@@ -128,7 +128,7 @@ Ext.define('Ext.env.OS', {
 
         browserScope = browserScope || Ext.browser;
 
-        is = this.is = function(name) {
+        is = this.is = function (name) {
             return this.is[name] === true;
         };
 
@@ -136,7 +136,7 @@ Ext.define('Ext.env.OS', {
             if (prefixes.hasOwnProperty(i)) {
                 prefix = prefixes[i];
 
-                match = userAgent.match(new RegExp('(?:'+prefix+')([^\\s;]+)'));
+                match = userAgent.match(new RegExp('(?:' + prefix + ')([^\\s;]+)'));
 
                 if (match) {
                     name = names[i];
@@ -209,14 +209,14 @@ Ext.define('Ext.env.OS', {
         return this;
     }
 
-}, function() {
+}, function () {
 
     var navigation = Ext.global.navigator,
         userAgent = navigation.userAgent,
         osEnv, osName, deviceType;
 
     //<deprecated product=touch since=2.0>
-    this.override('constructor', function() {
+    this.override('constructor', function () {
         this.callOverridden(arguments);
 
         var is = this.is;

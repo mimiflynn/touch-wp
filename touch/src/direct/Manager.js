@@ -73,14 +73,14 @@ Ext.define('Ext.direct.Manager', {
      * @param {Ext.direct.Event} e The event type that occurred.
      */
 
-    constructor: function() {
+    constructor: function () {
         var me = this;
 
         me.transactions = Ext.create('Ext.util.Collection', this.getKey);
         me.providers = Ext.create('Ext.util.Collection', this.getKey);
     },
 
-    getKey: function(item) {
+    getKey: function (item) {
         return item.getId();
     },
 
@@ -114,7 +114,7 @@ Ext.define('Ext.direct.Manager', {
      * client-side stub methods.
      * @return {Object}
      */
-    addProvider : function(provider) {
+    addProvider: function (provider) {
         var me = this,
             args = Ext.toArray(arguments),
             i = 0, ln;
@@ -146,7 +146,7 @@ Ext.define('Ext.direct.Manager', {
      * @param {String/Ext.direct.Provider} id The id of the provider, or the provider instance.
      * @return {Object}
      */
-    getProvider : function(id){
+    getProvider: function (id) {
         return id.isProvider ? id : this.providers.get(id);
     },
 
@@ -155,7 +155,7 @@ Ext.define('Ext.direct.Manager', {
      * @param {String/Ext.direct.Provider} provider The provider instance or the id of the provider.
      * @return {Ext.direct.Provider/null} The provider, `null` if not found.
      */
-    removeProvider : function(provider) {
+    removeProvider: function (provider) {
         var me = this,
             providers = me.providers;
 
@@ -175,7 +175,7 @@ Ext.define('Ext.direct.Manager', {
      * @param {Ext.direct.Transaction} transaction The transaction to add
      * @return {Ext.direct.Transaction} transaction
      */
-    addTransaction: function(transaction) {
+    addTransaction: function (transaction) {
         this.transactions.add(transaction);
         return transaction;
     },
@@ -186,7 +186,7 @@ Ext.define('Ext.direct.Manager', {
      * @param {String/Ext.direct.Transaction} transaction The transaction/id of transaction to remove
      * @return {Ext.direct.Transaction} transaction
      */
-    removeTransaction: function(transaction) {
+    removeTransaction: function (transaction) {
         transaction = this.getTransaction(transaction);
         this.transactions.remove(transaction);
         return transaction;
@@ -198,11 +198,11 @@ Ext.define('Ext.direct.Manager', {
      * @param {String/Ext.direct.Transaction} transaction The transaction/id of transaction to get
      * @return {Ext.direct.Transaction}
      */
-    getTransaction: function(transaction) {
+    getTransaction: function (transaction) {
         return Ext.isObject(transaction) ? transaction : this.transactions.get(transaction);
     },
 
-    onProviderData : function(provider, event) {
+    onProviderData: function (provider, event) {
         var me = this,
             i = 0, ln,
             name;
@@ -232,7 +232,7 @@ Ext.define('Ext.direct.Manager', {
      * @param {String/Function} fn The direct function
      * @return {Function} The function to use in the direct call. Null if not found
      */
-    parseMethod: function(fn) {
+    parseMethod: function (fn) {
         if (Ext.isString(fn)) {
             var parts = fn.split('.'),
                 i = 0,

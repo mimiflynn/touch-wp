@@ -168,13 +168,15 @@ Ext.define('Ext.field.Select', {
         pickerSlotAlign: 'center'
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        pickerSlotAlign: 'left'
-    }],
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            pickerSlotAlign: 'left'
+        }
+    ],
 
     // @private
-    initialize: function() {
+    initialize: function () {
         var me = this,
             component = me.getComponent();
 
@@ -195,7 +197,7 @@ Ext.define('Ext.field.Select', {
     /**
      * @private
      */
-    updateDefaultPhonePickerConfig: function(newConfig) {
+    updateDefaultPhonePickerConfig: function (newConfig) {
         var picker = this.picker;
         if (picker) {
             picker.setConfig(newConfig);
@@ -205,7 +207,7 @@ Ext.define('Ext.field.Select', {
     /**
      * @private
      */
-    updateDefaultTabletPickerConfig: function(newConfig) {
+    updateDefaultTabletPickerConfig: function (newConfig) {
         var listPanel = this.listPanel;
         if (listPanel) {
             listPanel.setConfig(newConfig);
@@ -217,7 +219,7 @@ Ext.define('Ext.field.Select', {
      * Checks if the value is `auto`. If it is, it only uses the picker if the current device type
      * is a phone.
      */
-    applyUsePicker: function(usePicker) {
+    applyUsePicker: function (usePicker) {
         if (usePicker == "auto") {
             usePicker = (Ext.os.deviceType == 'Phone');
         }
@@ -230,7 +232,7 @@ Ext.define('Ext.field.Select', {
     /**
      * @private
      */
-    applyValue: function(value) {
+    applyValue: function (value) {
         var record = value,
             index, store;
 
@@ -253,13 +255,13 @@ Ext.define('Ext.field.Select', {
         return record;
     },
 
-    updateValue: function(newValue, oldValue) {
+    updateValue: function (newValue, oldValue) {
         this.record = newValue;
 
         this.callParent([(newValue && newValue.isModel) ? newValue.get(this.getDisplayField()) : '']);
     },
 
-    getValue: function() {
+    getValue: function () {
         var record = this.record;
         return (record && record.isModel) ? record.get(this.getValueField()) : null;
     },
@@ -268,24 +270,26 @@ Ext.define('Ext.field.Select', {
      * Returns the current selected {@link Ext.data.Model record} instance selected in this field.
      * @return {Ext.data.Model} the record.
      */
-    getRecord: function() {
+    getRecord: function () {
         return this.record;
     },
 
     // @private
-    getPhonePicker: function() {
+    getPhonePicker: function () {
         var config = this.getDefaultPhonePickerConfig();
 
         if (!this.picker) {
             this.picker = Ext.create('Ext.picker.Picker', Ext.apply({
-                slots: [{
-                    align       : this.getPickerSlotAlign(),
-                    name        : this.getName(),
-                    valueField  : this.getValueField(),
-                    displayField: this.getDisplayField(),
-                    value       : this.getValue(),
-                    store       : this.getStore()
-                }],
+                slots: [
+                    {
+                        align: this.getPickerSlotAlign(),
+                        name: this.getName(),
+                        valueField: this.getValueField(),
+                        displayField: this.getDisplayField(),
+                        value: this.getValue(),
+                        store: this.getStore()
+                    }
+                ],
                 listeners: {
                     change: this.onPickerChange,
                     scope: this
@@ -297,7 +301,7 @@ Ext.define('Ext.field.Select', {
     },
 
     // @private
-    getTabletPicker: function() {
+    getTabletPicker: function () {
         var config = this.getDefaultTabletPickerConfig();
 
         if (!this.listPanel) {
@@ -315,9 +319,9 @@ Ext.define('Ext.field.Select', {
                     store: this.getStore(),
                     itemTpl: '<span class="x-list-label">{' + this.getDisplayField() + ':htmlEncode}</span>',
                     listeners: {
-                        select : this.onListSelect,
+                        select: this.onListSelect,
                         itemtap: this.onListTap,
-                        scope  : this
+                        scope: this
                     }
                 }
             }, config));
@@ -327,7 +331,7 @@ Ext.define('Ext.field.Select', {
     },
 
     // @private
-    onMaskTap: function() {
+    onMaskTap: function () {
         this.onFocus();
 
         return false;
@@ -337,7 +341,7 @@ Ext.define('Ext.field.Select', {
      * Shows the picker for the select field, whether that is a {@link Ext.picker.Picker} or a simple
      * {@link Ext.List list}.
      */
-    showPicker: function() {
+    showPicker: function () {
         var store = this.getStore();
         //check if the store is empty, if it is, return
         if (!store || store.getCount() === 0) {
@@ -352,8 +356,8 @@ Ext.define('Ext.field.Select', {
 
         if (this.getUsePicker()) {
             var picker = this.getPhonePicker(),
-                name   = this.getName(),
-                value  = {};
+                name = this.getName(),
+                value = {};
 
             value[name] = this.getValue();
             picker.setValue(value);
@@ -380,23 +384,23 @@ Ext.define('Ext.field.Select', {
     },
 
     // @private
-    onListSelect: function(item, record) {
+    onListSelect: function (item, record) {
         var me = this;
         if (record) {
             me.setValue(record);
         }
     },
 
-    onListTap: function() {
+    onListTap: function () {
         this.listPanel.hide({
-            type : 'fade',
-            out  : true,
+            type: 'fade',
+            out: true,
             scope: this
         });
     },
 
     // @private
-    onPickerChange: function(picker, value) {
+    onPickerChange: function (picker, value) {
         var me = this,
             newValue = value[me.getName()],
             store = me.getStore(),
@@ -406,7 +410,7 @@ Ext.define('Ext.field.Select', {
         me.setValue(record);
     },
 
-    onChange: function(component, newValue, oldValue) {
+    onChange: function (component, newValue, oldValue) {
         var me = this,
             store = me.getStore(),
             index = (store) ? store.find(me.getDisplayField(), oldValue, null, null, null, true) : -1,
@@ -434,7 +438,7 @@ Ext.define('Ext.field.Select', {
      *
      * @return {Ext.field.Select} this
      */
-    updateOptions: function(newOptions) {
+    updateOptions: function (newOptions) {
         var store = this.getStore();
 
         if (!store) {
@@ -452,7 +456,7 @@ Ext.define('Ext.field.Select', {
         return this;
     },
 
-    applyStore: function(store) {
+    applyStore: function (store) {
         if (store === true) {
             store = Ext.create('Ext.data.Store', {
                 fields: [this.getValueField(), this.getDisplayField()],
@@ -475,7 +479,7 @@ Ext.define('Ext.field.Select', {
         return store;
     },
 
-    updateStore: function(newStore) {
+    updateStore: function (newStore) {
         if (newStore) {
             this.onStoreDataChanged(newStore);
         }
@@ -490,7 +494,7 @@ Ext.define('Ext.field.Select', {
     /**
      * Called when the internal {@link #store}'s data has changed.
      */
-    onStoreDataChanged: function(store) {
+    onStoreDataChanged: function (store) {
         var initialConfig = this.getInitialConfig(),
             value = this.getValue();
 
@@ -514,7 +518,7 @@ Ext.define('Ext.field.Select', {
     /**
      * @private
      */
-    doSetDisabled: function(disabled) {
+    doSetDisabled: function (disabled) {
         var component = this.getComponent();
         if (component) {
             component.setDisabled(disabled);
@@ -525,7 +529,7 @@ Ext.define('Ext.field.Select', {
     /**
      * @private
      */
-    setDisabled: function() {
+    setDisabled: function () {
         Ext.Component.prototype.setDisabled.apply(this, arguments);
     },
 
@@ -534,7 +538,7 @@ Ext.define('Ext.field.Select', {
      * @return {Ext.field.Select} this
      * @chainable
      */
-    reset: function() {
+    reset: function () {
         var store = this.getStore(),
             record = (this.originalValue) ? this.originalValue : store.getAt(0);
 
@@ -545,7 +549,7 @@ Ext.define('Ext.field.Select', {
         return this;
     },
 
-    onFocus: function(e) {
+    onFocus: function (e) {
         if (this.getDisabled()) {
             return false;
         }

@@ -10,7 +10,7 @@
  *
  * A set of useful static methods to deal with arrays; provide missing methods for older browsers.
  */
-(function() {
+(function () {
 
     var arrayPrototype = Array.prototype,
         slice = arrayPrototype.slice,
@@ -30,12 +30,12 @@
                 array.push("A");
             }
 
-            array.splice(15, 0, "F", "F", "F", "F", "F","F","F","F","F","F","F","F","F","F","F","F","F","F","F","F","F");
+            array.splice(15, 0, "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F");
 
             lengthBefore = array.length; //41
             array.splice(13, 0, "XXX"); // add one element
 
-            if (lengthBefore+1 != array.length) {
+            if (lengthBefore + 1 != array.length) {
                 return false;
             }
             // end IE8 bug
@@ -48,8 +48,10 @@
         supportsEvery = 'every' in arrayPrototype,
         supportsSome = 'some' in arrayPrototype,
         supportsFilter = 'filter' in arrayPrototype,
-        supportsSort = function() {
-            var a = [1,2,3,4,5].sort(function(){ return 0; });
+        supportsSort = function () {
+            var a = [1, 2, 3, 4, 5].sort(function () {
+                return 0;
+            });
             return a[0] === 1 && a[1] === 2 && a[2] === 3 && a[3] === 4 && a[4] === 5;
         }(),
         supportsSliceOnNodeList = true,
@@ -64,42 +66,42 @@
         supportsSliceOnNodeList = false;
     }
 
-    function fixArrayIndex (array, index) {
+    function fixArrayIndex(array, index) {
         return (index < 0) ? Math.max(0, array.length + index)
-                           : Math.min(array.length, index);
+            : Math.min(array.length, index);
     }
 
     /*
-    Does the same work as splice, but with a slightly more convenient signature. The splice
-    method has bugs in IE8, so this is the implementation we use on that platform.
+     Does the same work as splice, but with a slightly more convenient signature. The splice
+     method has bugs in IE8, so this is the implementation we use on that platform.
 
-    The rippling of items in the array can be tricky. Consider two use cases:
+     The rippling of items in the array can be tricky. Consider two use cases:
 
-                  index=2
-                  removeCount=2
-                 /=====\
-        +---+---+---+---+---+---+---+---+
-        | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-        +---+---+---+---+---+---+---+---+
-                         /  \/  \/  \/  \
-                        /   /\  /\  /\   \
-                       /   /  \/  \/  \   +--------------------------+
-                      /   /   /\  /\   +--------------------------+   \
-                     /   /   /  \/  +--------------------------+   \   \
-                    /   /   /   /+--------------------------+   \   \   \
-                   /   /   /   /                             \   \   \   \
-                  v   v   v   v                               v   v   v   v
-        +---+---+---+---+---+---+       +---+---+---+---+---+---+---+---+---+
-        | 0 | 1 | 4 | 5 | 6 | 7 |       | 0 | 1 | a | b | c | 4 | 5 | 6 | 7 |
-        +---+---+---+---+---+---+       +---+---+---+---+---+---+---+---+---+
-        A                               B        \=========/
-                                                 insert=[a,b,c]
+     index=2
+     removeCount=2
+     /=====\
+     +---+---+---+---+---+---+---+---+
+     | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+     +---+---+---+---+---+---+---+---+
+     /  \/  \/  \/  \
+     /   /\  /\  /\   \
+     /   /  \/  \/  \   +--------------------------+
+     /   /   /\  /\   +--------------------------+   \
+     /   /   /  \/  +--------------------------+   \   \
+     /   /   /   /+--------------------------+   \   \   \
+     /   /   /   /                             \   \   \   \
+     v   v   v   v                               v   v   v   v
+     +---+---+---+---+---+---+       +---+---+---+---+---+---+---+---+---+
+     | 0 | 1 | 4 | 5 | 6 | 7 |       | 0 | 1 | a | b | c | 4 | 5 | 6 | 7 |
+     +---+---+---+---+---+---+       +---+---+---+---+---+---+---+---+---+
+     A                               B        \=========/
+     insert=[a,b,c]
 
-    In case A, it is obvious that copying of [4,5,6,7] must be left-to-right so
-    that we don't end up with [0,1,6,7,6,7]. In case B, we have the opposite; we
-    must go right-to-left or else we would end up with [0,1,a,b,c,4,4,4,4].
-    */
-    function replaceSim (array, index, removeCount, insert) {
+     In case A, it is obvious that copying of [4,5,6,7] must be left-to-right so
+     that we don't end up with [0,1,6,7,6,7]. In case B, we have the opposite; we
+     must go right-to-left or else we would end up with [0,1,a,b,c,4,4,4,4].
+     */
+    function replaceSim(array, index, removeCount, insert) {
         var add = insert ? insert.length : 0,
             length = array.length,
             pos = fixArrayIndex(array, index);
@@ -119,11 +121,11 @@
 
             if (tailNewPos < tailOldPos) { // case A
                 for (i = 0; i < tailCount; ++i) {
-                    array[tailNewPos+i] = array[tailOldPos+i];
+                    array[tailNewPos + i] = array[tailOldPos + i];
                 }
             } else if (tailNewPos > tailOldPos) { // case B
-                for (i = tailCount; i--; ) {
-                    array[tailNewPos+i] = array[tailOldPos+i];
+                for (i = tailCount; i--;) {
+                    array[tailNewPos + i] = array[tailOldPos + i];
                 }
             } // else, add == remove (nothing to do)
 
@@ -133,7 +135,7 @@
             } else {
                 array.length = lengthAfterRemove + add; // reserves space
                 for (i = 0; i < add; ++i) {
-                    array[pos+i] = insert[i];
+                    array[pos + i] = insert[i];
                 }
             }
         }
@@ -141,7 +143,7 @@
         return array;
     }
 
-    function replaceNative (array, index, removeCount, insert) {
+    function replaceNative(array, index, removeCount, insert) {
         if (insert && insert.length) {
             if (index < array.length) {
                 array.splice.apply(array, [index, removeCount].concat(insert));
@@ -154,18 +156,18 @@
         return array;
     }
 
-    function eraseSim (array, index, removeCount) {
+    function eraseSim(array, index, removeCount) {
         return replaceSim(array, index, removeCount);
     }
 
-    function eraseNative (array, index, removeCount) {
+    function eraseNative(array, index, removeCount) {
         array.splice(index, removeCount);
         return array;
     }
 
-    function spliceSim (array, index, removeCount) {
+    function spliceSim(array, index, removeCount) {
         var pos = fixArrayIndex(array, index),
-            removed = array.slice(index, fixArrayIndex(array, pos+removeCount));
+            removed = array.slice(index, fixArrayIndex(array, pos + removeCount));
 
         if (arguments.length < 4) {
             replaceSim(array, pos, removeCount);
@@ -176,7 +178,7 @@
         return removed;
     }
 
-    function spliceNative (array) {
+    function spliceNative(array) {
         return array.splice.apply(array, slice.call(arguments, 1));
     }
 
@@ -229,7 +231,7 @@
          * @param {Boolean} [reverse=false] (Optional) Reverse the iteration order (loop from the end to the beginning).
          * @return {Boolean} See description for the `fn` parameter.
          */
-        each: function(array, fn, scope, reverse) {
+        each: function (array, fn, scope, reverse) {
             array = ExtArray.from(array);
 
             var i,
@@ -266,9 +268,9 @@
          * @param {Array}  fn.allItems The `array` itself which was passed as the first argument.
          * @param {Object} scope (Optional) The execution scope (`this`) in which the specified function is executed.
          */
-        forEach: supportsForEach ? function(array, fn, scope) {
-                return array.forEach(fn, scope);
-        } : function(array, fn, scope) {
+        forEach: supportsForEach ? function (array, fn, scope) {
+            return array.forEach(fn, scope);
+        } : function (array, fn, scope) {
             var i = 0,
                 ln = array.length;
 
@@ -286,9 +288,9 @@
          * @param {Number} from (Optional) The index at which to begin the search.
          * @return {Number} The index of item in the array (or -1 if it is not found).
          */
-        indexOf: (supportsIndexOf) ? function(array, item, from) {
+        indexOf: (supportsIndexOf) ? function (array, item, from) {
             return array.indexOf(item, from);
-        } : function(array, item, from) {
+        } : function (array, item, from) {
             var i, length = array.length;
 
             for (i = (from < 0) ? Math.max(0, length + from) : from || 0; i < length; i++) {
@@ -307,9 +309,9 @@
          * @param {Object} item The item to look for.
          * @return {Boolean} `true` if the array contains the item, `false` otherwise.
          */
-        contains: supportsIndexOf ? function(array, item) {
+        contains: supportsIndexOf ? function (array, item) {
             return array.indexOf(item) !== -1;
-        } : function(array, item) {
+        } : function (array, item) {
             var i, ln;
 
             for (i = 0, ln = array.length; i < ln; i++) {
@@ -346,7 +348,7 @@
          * @param {Number} [end=-1] (Optional) a zero-based index that specifies the end of extraction.
          * @return {Array}
          */
-        toArray: function(iterable, start, end){
+        toArray: function (iterable, start, end) {
             if (!iterable || !iterable.length) {
                 return [];
             }
@@ -381,7 +383,7 @@
          * @param {String} propertyName The property name to pluck from each element.
          * @return {Array} The value from each item in the Array.
          */
-        pluck: function(array, propertyName) {
+        pluck: function (array, propertyName) {
             var ret = [],
                 i, ln, item;
 
@@ -402,9 +404,9 @@
          * @param {Object} scope Callback function scope.
          * @return {Array} results
          */
-        map: supportsMap ? function(array, fn, scope) {
+        map: supportsMap ? function (array, fn, scope) {
             return array.map(fn, scope);
-        } : function(array, fn, scope) {
+        } : function (array, fn, scope) {
             var results = [],
                 i = 0,
                 len = array.length;
@@ -426,7 +428,7 @@
          * @param {Object} scope Callback function scope.
          * @return {Boolean} `true` if no `false` value is returned by the callback function.
          */
-        every: function(array, fn, scope) {
+        every: function (array, fn, scope) {
             //<debug>
             if (!fn) {
                 Ext.Error.raise('Ext.Array.every must have a callback function passed as second argument.');
@@ -457,7 +459,7 @@
          * @param {Object} scope Callback function scope.
          * @return {Boolean} `true` if the callback function returns a truthy value.
          */
-        some: function(array, fn, scope) {
+        some: function (array, fn, scope) {
             //<debug>
             if (!fn) {
                 Ext.Error.raise('Ext.Array.some must have a callback function passed as second argument.');
@@ -487,7 +489,7 @@
          * @param {Array} array
          * @return {Array} results
          */
-        clean: function(array) {
+        clean: function (array) {
             var results = [],
                 i = 0,
                 ln = array.length,
@@ -510,7 +512,7 @@
          * @param {Array} array
          * @return {Array} results
          */
-        unique: function(array) {
+        unique: function (array) {
             var clone = [],
                 i = 0,
                 ln = array.length,
@@ -536,7 +538,7 @@
          * @param {Object} scope Callback function scope.
          * @return {Array} results
          */
-        filter: function(array, fn, scope) {
+        filter: function (array, fn, scope) {
             if (supportsFilter) {
                 return array.filter(fn, scope);
             }
@@ -566,7 +568,7 @@
          * @param {Boolean} [newReference=false] (Optional) `true` to clone the given array and return a new reference if necessary.
          * @return {Array} array
          */
-        from: function(value, newReference) {
+        from: function (value, newReference) {
             if (value === undefined || value === null) {
                 return [];
             }
@@ -589,7 +591,7 @@
          * @param {Object} item The item to remove.
          * @return {Array} The passed array itself.
          */
-        remove: function(array, item) {
+        remove: function (array, item) {
             var index = ExtArray.indexOf(array, item);
 
             if (index !== -1) {
@@ -605,7 +607,7 @@
          * @param {Array} array The array.
          * @param {Object} item The item to include.
          */
-        include: function(array, item) {
+        include: function (array, item) {
             if (!ExtArray.contains(array, item)) {
                 array.push(item);
             }
@@ -619,7 +621,7 @@
          * @param {Array} array The array
          * @return {Array} The clone array
          */
-        clone: function(array) {
+        clone: function (array) {
             return slice.call(array);
         },
 
@@ -633,7 +635,7 @@
          * @param {Array} etc
          * @return {Array} merged
          */
-        merge: function() {
+        merge: function () {
             var args = slice.call(arguments),
                 array = [],
                 i, ln;
@@ -653,7 +655,7 @@
          * @param {Array} etc
          * @return {Array} intersect
          */
-        intersect: function() {
+        intersect: function () {
             var intersect = [],
                 arrays = slice.call(arguments),
                 item, minArray, itemIndex, arrayIndex;
@@ -663,7 +665,7 @@
             }
 
             //Find the Smallest Array
-            arrays = arrays.sort(function(a, b) {
+            arrays = arrays.sort(function (a, b) {
                 if (a.length > b.length) {
                     return 1;
                 } else if (a.length < b.length) {
@@ -700,12 +702,12 @@
          * @param {Array} arrayB
          * @return {Array} difference
          */
-        difference: function(arrayA, arrayB) {
+        difference: function (arrayA, arrayB) {
             var clone = slice.call(arrayA),
                 ln = clone.length,
                 i, j, lnB;
 
-            for (i = 0,lnB = arrayB.length; i < lnB; i++) {
+            for (i = 0, lnB = arrayB.length; i < lnB; i++) {
                 for (j = 0; j < ln; j++) {
                     if (clone[j] === arrayB[i]) {
                         erase(clone, j, 1);
@@ -732,7 +734,7 @@
          * all items up to the end of the array are copied.
          * @return {Array} The copied piece of the array.
          */
-        slice: function(array, begin, end) {
+        slice: function (array, begin, end) {
             return slice.call(array, begin, end);
         },
 
@@ -744,7 +746,7 @@
          * @param {Function} sortFn (optional) The comparison function.
          * @return {Array} The sorted array.
          */
-        sort: function(array, sortFn) {
+        sort: function (array, sortFn) {
             if (supportsSort) {
                 if (sortFn) {
                     return array.sort(sortFn);
@@ -786,7 +788,7 @@
          * @param {Array} array The array to flatten
          * @return {Array} The 1-d array.
          */
-        flatten: function(array) {
+        flatten: function (array) {
             var worker = [];
 
             function rFlatten(a) {
@@ -817,7 +819,7 @@
          * __Note:__ gt = 1; eq = 0; lt = -1
          * @return {Object} minValue The minimum value.
          */
-        min: function(array, comparisonFn) {
+        min: function (array, comparisonFn) {
             var min = array[0],
                 i, ln, item;
 
@@ -848,7 +850,7 @@
          * __Note:__ gt = 1; eq = 0; lt = -1
          * @return {Object} maxValue The maximum value
          */
-        max: function(array, comparisonFn) {
+        max: function (array, comparisonFn) {
             var max = array[0],
                 i, ln, item;
 
@@ -876,7 +878,7 @@
          * @param {Array} array The Array to calculate the mean value of.
          * @return {Number} The mean.
          */
-        mean: function(array) {
+        mean: function (array) {
             return array.length > 0 ? ExtArray.sum(array) / array.length : undefined;
         },
 
@@ -886,11 +888,11 @@
          * @param {Array} array The Array to calculate the sum value of.
          * @return {Number} The sum.
          */
-        sum: function(array) {
+        sum: function (array) {
             var sum = 0,
                 i, ln, item;
 
-            for (i = 0,ln = array.length; i < ln; i++) {
+            for (i = 0, ln = array.length; i < ln; i++) {
                 item = array[i];
 
                 sum += item;
@@ -1050,7 +1052,7 @@
      * @member Ext
      * @alias Ext.Array#toArray
      */
-    Ext.toArray = function() {
+    Ext.toArray = function () {
         return ExtArray.toArray.apply(ExtArray, arguments);
     };
 })();

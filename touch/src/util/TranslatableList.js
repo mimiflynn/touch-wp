@@ -8,11 +8,11 @@ Ext.define('Ext.util.TranslatableList', {
         items: []
     },
 
-    applyItems: function(items) {
+    applyItems: function (items) {
         return Ext.Array.from(items);
     },
 
-    doTranslate: function(x, y) {
+    doTranslate: function (x, y) {
         var items = this.getItems(),
             offset = 0,
             i, ln, item, translateY;

@@ -9,7 +9,7 @@
 Ext.define('Ext.tab.Bar', {
     extend: 'Ext.Toolbar',
     alternateClassName: 'Ext.TabBar',
-    xtype : 'tabbar',
+    xtype: 'tabbar',
 
     requires: ['Ext.tab.Tab'],
 
@@ -49,14 +49,16 @@ Ext.define('Ext.tab.Bar', {
      * @param {Ext.tab.Tab} oldTab The old Tab
      */
 
-    platformConfig: [{
-        theme: ['Blackberry'],
-        defaults: {
-            flex: 1
+    platformConfig: [
+        {
+            theme: ['Blackberry'],
+            defaults: {
+                flex: 1
+            }
         }
-    }],
+    ],
 
-    initialize: function() {
+    initialize: function () {
         var me = this;
         me.callParent();
 
@@ -64,19 +66,19 @@ Ext.define('Ext.tab.Bar', {
             tap: 'onTabTap',
 
             delegate: '> tab',
-            scope   : me
+            scope: me
         });
     },
 
     // @private
-    onTabTap: function(tab) {
+    onTabTap: function (tab) {
         this.setActiveTab(tab);
     },
 
     /**
      * @private
      */
-    applyActiveTab: function(newActiveTab, oldActiveTab) {
+    applyActiveTab: function (newActiveTab, oldActiveTab) {
         if (!newActiveTab && newActiveTab !== 0) {
             return;
         }
@@ -98,7 +100,7 @@ Ext.define('Ext.tab.Bar', {
      * @private
      * Default pack to center when docked to the bottom, otherwise default pack to left
      */
-    doSetDocked: function(newDocked) {
+    doSetDocked: function (newDocked) {
         var layout = this.getLayout(),
             initialConfig = this.getInitialConfig(),
             pack;
@@ -113,14 +115,14 @@ Ext.define('Ext.tab.Bar', {
             }
         }
 
-		this.callParent(arguments);
+        this.callParent(arguments);
     },
 
     /**
      * @private
      * Sets the active tab
      */
-    doSetActiveTab: function(newTab, oldTab) {
+    doSetActiveTab: function (newTab, oldTab) {
         if (newTab) {
             newTab.setActive(true);
         }
@@ -135,10 +137,10 @@ Ext.define('Ext.tab.Bar', {
      * @private
      * Parses the active tab, which can be a number or string
      */
-    parseActiveTab: function(tab) {
+    parseActiveTab: function (tab) {
         //we need to call getItems to initialize the items, otherwise they will not exist yet.
         if (typeof tab == 'number') {
-			return this.getItems().items[tab];
+            return this.getItems().items[tab];
         }
         else if (typeof tab == 'string') {
             tab = Ext.getCmp(tab);

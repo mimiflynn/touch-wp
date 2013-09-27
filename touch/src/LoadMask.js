@@ -51,7 +51,7 @@ Ext.define('Ext.LoadMask', {
         indicator: true
     },
 
-    getTemplate: function() {
+    getTemplate: function () {
         var prefix = Ext.baseCSSPrefix;
 
         return [
@@ -89,7 +89,7 @@ Ext.define('Ext.LoadMask', {
      * Updates the message element with the new value of the {@link #message} configuration
      * @private
      */
-    updateMessage: function(newMessage) {
+    updateMessage: function (newMessage) {
         var cls = Ext.baseCSSPrefix + 'has-message';
 
         if (newMessage) {
@@ -105,7 +105,7 @@ Ext.define('Ext.LoadMask', {
      * Replaces the cls of the message element with the value of the {@link #messageCls} configuration.
      * @private
      */
-    updateMessageCls: function(newMessageCls, oldMessageCls) {
+    updateMessageCls: function (newMessageCls, oldMessageCls) {
         this.messageElement.replaceCls(oldMessageCls, newMessageCls);
     },
 
@@ -113,14 +113,14 @@ Ext.define('Ext.LoadMask', {
      * Shows or hides the loading indicator when the {@link #indicator} configuration is changed.
      * @private
      */
-    updateIndicator: function(newIndicator) {
+    updateIndicator: function (newIndicator) {
         this[newIndicator ? 'removeCls' : 'addCls'](Ext.baseCSSPrefix + 'indicator-hidden');
     }
 
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     this.override({
-        constructor: function(config, other) {
+        constructor: function (config, other) {
             if (typeof other !== "undefined") {
                 config = other;
 
@@ -171,7 +171,7 @@ Ext.define('Ext.LoadMask', {
          * @param {Ext.data.Store} store The store to bind to this LoadMask
          * @removed 2.0.0 You can no longer bind a store to a {@link Ext.LoadMask}.
          */
-        bindStore: function() {
+        bindStore: function () {
             Ext.Logger.deprecate("You can no longer bind a store to a Ext.LoadMask", this);
         }
     });

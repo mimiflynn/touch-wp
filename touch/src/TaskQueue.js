@@ -11,24 +11,24 @@ Ext.define('Ext.TaskQueue', {
 
     mode: true,
 
-    constructor: function() {
+    constructor: function () {
         this.readQueue = [];
         this.writeQueue = [];
 
         this.run = Ext.Function.bind(this.run, this);
     },
 
-    requestRead: function(fn, scope, args) {
+    requestRead: function (fn, scope, args) {
         this.request(true);
         this.readQueue.push(arguments);
     },
 
-    requestWrite: function(fn, scope, args) {
+    requestWrite: function (fn, scope, args) {
         this.request(false);
         this.writeQueue.push(arguments);
     },
 
-    request: function(mode) {
+    request: function (mode) {
         if (!this.pending) {
             this.pending = true;
             this.mode = mode;
@@ -40,7 +40,7 @@ Ext.define('Ext.TaskQueue', {
         }
     },
 
-    run: function() {
+    run: function () {
         this.pending = false;
 
         var readQueue = this.readQueue,

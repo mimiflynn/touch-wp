@@ -152,7 +152,7 @@
 Ext.define('Ext.data.reader.Xml', {
     extend: 'Ext.data.reader.Reader',
     alternateClassName: 'Ext.data.XmlReader',
-    alias : 'reader.xml',
+    alias: 'reader.xml',
 
     config: {
         /**
@@ -168,7 +168,7 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {String} expr
      * @return {Function}
      */
-    createAccessor: function(expr) {
+    createAccessor: function (expr) {
         var me = this;
 
         if (Ext.isEmpty(expr)) {
@@ -179,12 +179,12 @@ Ext.define('Ext.data.reader.Xml', {
             return expr;
         }
 
-        return function(root) {
+        return function (root) {
             return me.getNodeValue(Ext.DomQuery.selectNode(expr, root));
         };
     },
 
-    getNodeValue: function(node) {
+    getNodeValue: function (node) {
         if (node && node.firstChild) {
             return node.firstChild.nodeValue;
         }
@@ -192,7 +192,7 @@ Ext.define('Ext.data.reader.Xml', {
     },
 
     //inherit docs
-    getResponseData: function(response) {
+    getResponseData: function (response) {
         // Check to see if the response is already an xml node.
         if (response.nodeType === 1 || response.nodeType === 9) {
             return response;
@@ -222,7 +222,7 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {Object} data The raw data object.
      * @return {Object} Returns the `documentElement` property of the data object if present, or the same object if not.
      */
-    getData: function(data) {
+    getData: function (data) {
         return data.documentElement || data;
     },
 
@@ -232,9 +232,9 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {Object} data The XML data object.
      * @return {XMLElement} The root node element.
      */
-    getRoot: function(data) {
+    getRoot: function (data) {
         var nodeName = data.nodeName,
-            root     = this.getRootProperty();
+            root = this.getRootProperty();
 
         if (!root || (nodeName && nodeName == root)) {
             return data;
@@ -252,7 +252,7 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {XMLElement} root The XML root node.
      * @return {Ext.data.Model[]} The records.
      */
-    extractData: function(root) {
+    extractData: function (root) {
         var recordName = this.getRecord();
 
         //<debug>
@@ -276,7 +276,7 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {String} associationName The name of the association to get data for (uses {@link Ext.data.association.Association#associationKey} if present).
      * @return {XMLElement} The root.
      */
-    getAssociatedDataRoot: function(data, associationName) {
+    getAssociatedDataRoot: function (data, associationName) {
         return Ext.DomQuery.select(associationName, data)[0];
     },
 
@@ -285,7 +285,7 @@ Ext.define('Ext.data.reader.Xml', {
      * @param {Object} doc Parsed XML document.
      * @return {Ext.data.ResultSet} The parsed result set.
      */
-    readRecords: function(doc) {
+    readRecords: function (doc) {
         //it's possible that we get passed an array here by associations. Make sure we strip that out (see Ext.data.reader.Reader#readAssociated)
         if (Ext.isArray(doc)) {
             doc = doc[0];
@@ -300,7 +300,7 @@ Ext.define('Ext.data.reader.Xml', {
      *
      * This is used by `buildExtractors` to create optimized on extractor function which converts raw data into model instances.
      */
-    createFieldAccessExpression: function(field, fieldVarName, dataName) {
+    createFieldAccessExpression: function (field, fieldVarName, dataName) {
         var selector = field.getMapping() || field.getName(),
             result;
 

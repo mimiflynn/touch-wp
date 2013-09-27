@@ -102,19 +102,19 @@ Ext.define('Ext.util.Sorter', {
         id: undefined
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
     // <debug>
-    applySorterFn: function(sorterFn) {
+    applySorterFn: function (sorterFn) {
         if (!sorterFn && !this.getProperty()) {
             Ext.Logger.error("A Sorter requires either a property or a sorterFn.");
         }
         return sorterFn;
     },
 
-    applyProperty: function(property) {
+    applyProperty: function (property) {
         if (!property && !this.getSorterFn()) {
             Ext.Logger.error("A Sorter requires either a property or a sorterFn.");
         }
@@ -122,7 +122,7 @@ Ext.define('Ext.util.Sorter', {
     },
     // </debug>
 
-    applyId: function(id) {
+    applyId: function (id) {
         if (!id) {
             id = this.getProperty();
             if (!id) {
@@ -138,13 +138,13 @@ Ext.define('Ext.util.Sorter', {
      * Creates and returns a function which sorts an array by the given property and direction
      * @return {Function} A function which sorts by the property/direction combination provided
      */
-    createSortFunction: function(sorterFn) {
-        var me        = this,
-            modifier  = me.getDirection().toUpperCase() == "DESC" ? -1 : 1;
+    createSortFunction: function (sorterFn) {
+        var me = this,
+            modifier = me.getDirection().toUpperCase() == "DESC" ? -1 : 1;
 
         //create a comparison function. Takes 2 objects, returns 1 if object 1 is greater,
         //-1 if object 2 is greater or 0 if they are equal
-        return function(o1, o2) {
+        return function (o1, o2) {
             return modifier * sorterFn.call(me, o1, o2);
         };
     },
@@ -153,7 +153,7 @@ Ext.define('Ext.util.Sorter', {
      * @private
      * Basic default sorter function that just compares the defined property of each object
      */
-    defaultSortFn: function(item1, item2) {
+    defaultSortFn: function (item1, item2) {
         var me = this,
             transform = me._transform,
             root = me._root,
@@ -176,11 +176,11 @@ Ext.define('Ext.util.Sorter', {
         return value1 > value2 ? 1 : (value1 < value2 ? -1 : 0);
     },
 
-    updateDirection: function() {
+    updateDirection: function () {
         this.updateSortFn();
     },
 
-    updateSortFn: function() {
+    updateSortFn: function () {
         this.sort = this.createSortFunction(this.getSorterFn() || this.defaultSortFn);
     },
 
@@ -188,7 +188,7 @@ Ext.define('Ext.util.Sorter', {
      * Toggles the direction of this Sorter. Note that when you call this function,
      * the Collection this Sorter is part of does not get refreshed automatically.
      */
-    toggle: function() {
+    toggle: function () {
         this.setDirection(Ext.String.toggle(this.getDirection(), "ASC", "DESC"));
     }
 });

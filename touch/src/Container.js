@@ -335,7 +335,7 @@ Ext.define('Ext.Container', {
 
     isContainer: true,
 
-    constructor: function(config) {
+    constructor: function (config) {
         var me = this;
 
         me._items = me.items = new Ext.ItemCollection();
@@ -346,14 +346,16 @@ Ext.define('Ext.Container', {
         me.callParent(arguments);
     },
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         return {
             reference: 'element',
             classList: ['x-container', 'x-unsized'],
-            children: [{
-                reference: 'innerElement',
-                className: 'x-inner'
-            }]
+            children: [
+                {
+                    reference: 'innerElement',
+                    className: 'x-inner'
+                }
+            ]
         };
     },
 
@@ -364,7 +366,7 @@ Ext.define('Ext.Container', {
      * @param {Boolean/Object/Ext.Mask/Ext.LoadMask} masked
      * @return {Object}
      */
-    applyMasked: function(masked) {
+    applyMasked: function (masked) {
         var isVisible = true,
             currentMask;
 
@@ -388,7 +390,7 @@ Ext.define('Ext.Container', {
      * functionality, call the {@link #setMasked} function direction (See the {@link #masked} configuration documentation
      * for more information).
      */
-    mask: function(mask) {
+    mask: function (mask) {
         this.setMasked(mask || true);
     },
 
@@ -397,12 +399,12 @@ Ext.define('Ext.Container', {
      * functionality, call the {@link #setMasked} function direction (See the {@link #masked} configuration documentation
      * for more information).
      */
-    unmask: function() {
+    unmask: function () {
         this.setMasked(false);
     },
 
 
-    setParent: function(container) {
+    setParent: function (container) {
         this.callSuper(arguments);
 
         if (container) {
@@ -415,7 +417,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    applyModal: function(modal, currentModal) {
+    applyModal: function (modal, currentModal) {
         var isVisible = true;
 
         if (modal === false) {
@@ -432,7 +434,7 @@ Ext.define('Ext.Container', {
         return currentModal;
     },
 
-    updateModal: function(modal) {
+    updateModal: function (modal) {
         var container = this.getParent();
 
         if (container) {
@@ -446,7 +448,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    updateHideOnMaskTap : function(hide) {
+    updateHideOnMaskTap: function (hide) {
         var mask = this.getModal();
 
         if (mask) {
@@ -454,7 +456,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    updateZIndex: function(zIndex) {
+    updateZIndex: function (zIndex) {
         var modal = this.getModal();
 
         this.callParent(arguments);
@@ -464,7 +466,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    updateBaseCls: function(newBaseCls, oldBaseCls) {
+    updateBaseCls: function (newBaseCls, oldBaseCls) {
         var me = this,
             ui = me.getUi();
 
@@ -487,7 +489,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    updateUseBodyElement: function(useBodyElement) {
+    updateUseBodyElement: function (useBodyElement) {
         if (useBodyElement) {
             this.link('bodyElement', this.innerElement.wrap({
                 cls: 'x-body'
@@ -495,7 +497,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    applyItems: function(items, collection) {
+    applyItems: function (items, collection) {
         if (items) {
             var me = this;
 
@@ -520,33 +522,33 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-     applyControl: function(selectors) {
-         var selector, key, listener, listeners;
+    applyControl: function (selectors) {
+        var selector, key, listener, listeners;
 
-         for (selector in selectors) {
-             listeners = selectors[selector];
+        for (selector in selectors) {
+            listeners = selectors[selector];
 
-             for (key in listeners) {
-                 listener = listeners[key];
+            for (key in listeners) {
+                listener = listeners[key];
 
-                 if (Ext.isObject(listener)) {
-                     listener.delegate = selector;
-                 }
-             }
+                if (Ext.isObject(listener)) {
+                    listener.delegate = selector;
+                }
+            }
 
-             listeners.delegate = selector;
+            listeners.delegate = selector;
 
-             this.addListener(listeners);
-         }
+            this.addListener(listeners);
+        }
 
-         return selectors;
-     },
+        return selectors;
+    },
 
     /**
      * Initialize layout and event listeners the very first time an item is added
      * @private
      */
-    onFirstItemAdd: function() {
+    onFirstItemAdd: function () {
         delete this.onItemAdd;
 
         if (this.innerHtmlElement && !this.getHtml()) {
@@ -562,14 +564,14 @@ Ext.define('Ext.Container', {
     },
 
     //<debug error>
-    updateLayout: function(newLayout, oldLayout) {
+    updateLayout: function (newLayout, oldLayout) {
         if (oldLayout && oldLayout.isLayout) {
             Ext.Logger.error('Replacing a layout after one has already been initialized is not currently supported.');
         }
     },
     //</debug>
 
-    getLayout: function() {
+    getLayout: function () {
         var layout = this.layout;
         if (!layout) {
             layout = this.link('_layout', this.link('layout', Ext.factory(this._layout || 'default', Ext.layout.Default, null, 'layout')));
@@ -579,7 +581,7 @@ Ext.define('Ext.Container', {
         return layout;
     },
 
-    updateDefaultType: function(defaultType) {
+    updateDefaultType: function (defaultType) {
         // Cache the direct reference to the default item class here for performance
         this.defaultItemClass = Ext.ClassManager.getByAlias('widget.' + defaultType);
 
@@ -590,14 +592,14 @@ Ext.define('Ext.Container', {
         //</debug>
     },
 
-    applyDefaults: function(defaults) {
+    applyDefaults: function (defaults) {
         if (defaults) {
             this.factoryItem = this.factoryItemWithDefaults;
             return defaults;
         }
     },
 
-    factoryItem: function(item) {
+    factoryItem: function (item) {
         //<debug error>
         if (!item) {
             Ext.Logger.error("Invalid item given: " + item + ", must be either the config object to factory a new item, " +
@@ -608,7 +610,7 @@ Ext.define('Ext.Container', {
         return Ext.factory(item, this.defaultItemClass);
     },
 
-    factoryItemWithDefaults: function(item) {
+    factoryItemWithDefaults: function (item) {
         //<debug error>
         if (!item) {
             Ext.Logger.error("Invalid item given: " + item + ", must be either the config object to factory a new item, " +
@@ -640,7 +642,7 @@ Ext.define('Ext.Container', {
                 // - defaults is only applied to inner items
                 // - we merge the given config together with defaults into a new object so that the original object stays intact
                 if (!(
-                        item.hasOwnProperty('left') &&
+                    item.hasOwnProperty('left') &&
                         item.hasOwnProperty('right') &&
                         item.hasOwnProperty('top') &&
                         item.hasOwnProperty('bottom') &&
@@ -669,7 +671,7 @@ Ext.define('Ext.Container', {
      * @param {Object/Object[]/Ext.Component/Ext.Component[]} newItems The new items to add to the Container.
      * @return {Ext.Component} The last item added to the Container from the `newItems` array.
      */
-    add: function(newItems) {
+    add: function (newItems) {
         var me = this,
             i, ln, item, newActiveItem;
 
@@ -700,7 +702,7 @@ Ext.define('Ext.Container', {
      * @private
      * @param item
      */
-    doAdd: function(item) {
+    doAdd: function (item) {
         var me = this,
             items = me.getItems(),
             index;
@@ -726,7 +728,7 @@ Ext.define('Ext.Container', {
      * method if `true`.
      * @return {Ext.Component} this
      */
-    remove: function(item, destroy) {
+    remove: function (item, destroy) {
         var me = this,
             index = me.indexOf(item),
             innerItems = me.getInnerItems();
@@ -758,7 +760,7 @@ Ext.define('Ext.Container', {
         return me;
     },
 
-    doResetActiveItem: function(innerIndex) {
+    doResetActiveItem: function (innerIndex) {
         if (innerIndex === 0) {
             this.setActiveItem(1);
         }
@@ -767,7 +769,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    doRemove: function(item, index, destroy) {
+    doRemove: function (item, index, destroy) {
         var me = this;
 
         me.items.remove(item);
@@ -793,7 +795,7 @@ Ext.define('Ext.Container', {
      * docked / centered and floating items.
      * @return {Ext.Component} this
      */
-    removeAll: function(destroy, everything) {
+    removeAll: function (destroy, everything) {
         var items = this.items,
             ln = items.length,
             i = 0,
@@ -829,11 +831,11 @@ Ext.define('Ext.Container', {
      * @param {Number} index The index of the Component to return.
      * @return {Ext.Component} The item at the specified `index`, if found.
      */
-    getAt: function(index) {
+    getAt: function (index) {
         return this.items.getAt(index);
     },
 
-    getInnerAt: function(index) {
+    getInnerAt: function (index) {
         return this.innerItems[index];
     },
 
@@ -844,7 +846,7 @@ Ext.define('Ext.Container', {
      *
      * @param {Number} index The index of the Component to remove.
      */
-    removeAt: function(index) {
+    removeAt: function (index) {
         var item = this.getAt(index);
 
         if (item) {
@@ -861,7 +863,7 @@ Ext.define('Ext.Container', {
      *
      * @param {Number} index The index of the Component to remove.
      */
-    removeInnerAt: function(index) {
+    removeInnerAt: function (index) {
         var item = this.getInnerItems()[index];
 
         if (item) {
@@ -874,25 +876,25 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    has: function(item) {
+    has: function (item) {
         return this.getItems().indexOf(item) != -1;
     },
 
     /**
      * @private
      */
-    hasInnerItem: function(item) {
+    hasInnerItem: function (item) {
         return this.innerItems.indexOf(item) != -1;
     },
 
     /**
      * @private
      */
-    indexOf: function(item) {
+    indexOf: function (item) {
         return this.getItems().indexOf(item);
     },
 
-    innerIndexOf: function(item) {
+    innerIndexOf: function (item) {
         return this.innerItems.indexOf(item);
     },
 
@@ -901,7 +903,7 @@ Ext.define('Ext.Container', {
      * @param item
      * @param index
      */
-    insertInner: function(item, index) {
+    insertInner: function (item, index) {
         var items = this.getItems().items,
             innerItems = this.innerItems,
             currentInnerIndex = innerItems.indexOf(item),
@@ -941,7 +943,7 @@ Ext.define('Ext.Container', {
      * @private
      * @param item
      */
-    removeInner: function(item) {
+    removeInner: function (item) {
         Ext.Array.remove(this.innerItems, item);
 
         return this;
@@ -956,7 +958,7 @@ Ext.define('Ext.Container', {
      * @param {Number} index The index to insert the Component at.
      * @param {Object} item The Component to insert.
      */
-    insert: function(index, item) {
+    insert: function (index, item) {
         var me = this,
             i;
 
@@ -986,7 +988,7 @@ Ext.define('Ext.Container', {
      * @param index
      * @param item
      */
-    doInsert: function(index, item) {
+    doInsert: function (index, item) {
         var me = this,
             items = me.items,
             itemsLength = items.length,
@@ -1033,21 +1035,21 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    insertFirst: function(item) {
+    insertFirst: function (item) {
         return this.insert(0, item);
     },
 
     /**
      * @private
      */
-    insertLast: function(item) {
+    insertLast: function (item) {
         return this.insert(this.getItems().length, item);
     },
 
     /**
      * @private
      */
-    insertBefore: function(item, relativeToItem) {
+    insertBefore: function (item, relativeToItem) {
         var index = this.indexOf(relativeToItem);
 
         if (index !== -1) {
@@ -1059,7 +1061,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    insertAfter: function(item, relativeToItem) {
+    insertAfter: function (item, relativeToItem) {
         var index = this.indexOf(relativeToItem);
 
         if (index !== -1) {
@@ -1071,7 +1073,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    onItemAdd: function(item, index) {
+    onItemAdd: function (item, index) {
         this.doItemLayoutAdd(item, index);
 
         if (this.initialized) {
@@ -1079,7 +1081,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    doItemLayoutAdd: function(item, index) {
+    doItemLayoutAdd: function (item, index) {
         var layout = this.getLayout();
 
         if (this.isRendered() && item.setRendered(true)) {
@@ -1093,13 +1095,13 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    onItemRemove: function(item, index) {
+    onItemRemove: function (item, index) {
         this.doItemLayoutRemove(item, index);
 
         this.fireEvent('remove', this, item, index);
     },
 
-    doItemLayoutRemove: function(item, index) {
+    doItemLayoutRemove: function (item, index) {
         var layout = this.getLayout();
 
         if (this.isRendered() && item.setRendered(false)) {
@@ -1113,7 +1115,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    onItemMove: function(item, toIndex, fromIndex) {
+    onItemMove: function (item, toIndex, fromIndex) {
         if (item.isDocked()) {
             item.setDocked(null);
         }
@@ -1123,11 +1125,11 @@ Ext.define('Ext.Container', {
         this.fireEvent('move', this, item, toIndex, fromIndex);
     },
 
-    doItemLayoutMove: function(item, toIndex, fromIndex) {
+    doItemLayoutMove: function (item, toIndex, fromIndex) {
         this.getLayout().onItemMove(item, toIndex, fromIndex);
     },
 
-    onItemInnerStateChange: function(item, isInner) {
+    onItemInnerStateChange: function (item, isInner) {
         var layout = this.getLayout();
 
         if (isInner) {
@@ -1145,7 +1147,7 @@ Ext.define('Ext.Container', {
      * `floating`.
      * @return {Array} The inner items of this container.
      */
-    getInnerItems: function() {
+    getInnerItems: function () {
         return this.innerItems;
     },
 
@@ -1153,7 +1155,7 @@ Ext.define('Ext.Container', {
      * Returns all the {@link Ext.Component#docked} items in this container.
      * @return {Array} The docked items of this container.
      */
-    getDockedItems: function() {
+    getDockedItems: function () {
         var items = this.getItems().items,
             dockedItems = [],
             ln = items.length,
@@ -1172,7 +1174,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    applyActiveItem: function(activeItem, currentActiveItem) {
+    applyActiveItem: function (activeItem, currentActiveItem) {
         var innerItems = this.getInnerItems();
 
         // Make sure the items are already initialized
@@ -1201,7 +1203,7 @@ Ext.define('Ext.Container', {
                 item = this.child(activeItem);
 
                 activeItem = {
-                    xtype : activeItem
+                    xtype: activeItem
                 };
             }
 
@@ -1231,7 +1233,7 @@ Ext.define('Ext.Container', {
      * @param {Object/Number} activeItem The item or item index to make active.
      * @param {Object/Ext.fx.layout.Card} animation Card animation configuration or instance.
      */
-    animateActiveItem: function(activeItem, animation) {
+    animateActiveItem: function (activeItem, animation) {
         var layout = this.getLayout(),
             defaultAnimation;
 
@@ -1245,7 +1247,7 @@ Ext.define('Ext.Container', {
             if (defaultAnimation) {
                 defaultAnimation.disable();
             }
-            animation.on('animationend', function() {
+            animation.on('animationend', function () {
                 if (defaultAnimation) {
                     defaultAnimation.enable();
                 }
@@ -1258,7 +1260,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    doSetActiveItem: function(newActiveItem, oldActiveItem) {
+    doSetActiveItem: function (newActiveItem, oldActiveItem) {
         delete this.pendingActiveItem;
         if (oldActiveItem) {
             oldActiveItem.fireEvent('deactivate', oldActiveItem, this, newActiveItem);
@@ -1269,7 +1271,7 @@ Ext.define('Ext.Container', {
         }
     },
 
-    doSetHidden: function(hidden) {
+    doSetHidden: function (hidden) {
         var modal = this.getModal();
 
         if (modal) {
@@ -1282,12 +1284,12 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    setRendered: function(rendered) {
+    setRendered: function (rendered) {
         if (this.callParent(arguments)) {
             var items = this.items.items,
                 i, ln;
 
-            for (i = 0,ln = items.length; i < ln; i++) {
+            for (i = 0, ln = items.length; i < ln; i++) {
                 items[i].setRendered(rendered);
             }
 
@@ -1300,7 +1302,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    getScrollableBehavior: function() {
+    getScrollableBehavior: function () {
         var behavior = this.scrollableBehavior;
 
         if (!behavior) {
@@ -1313,7 +1315,7 @@ Ext.define('Ext.Container', {
     /**
      * @private
      */
-    applyScrollable: function(config) {
+    applyScrollable: function (config) {
         if (typeof config === 'boolean') {
             //<debug warn>
             if (config === false && !(this.getHeight() !== null || this.heightLayoutSized || (this.getTop() !== null && this.getBottom() !== null))) {
@@ -1328,7 +1330,7 @@ Ext.define('Ext.Container', {
         return config;
     },
 
-    doSetScrollable: function() {
+    doSetScrollable: function () {
         // Used for plugins when they need to reinitialize scroller listeners
     },
 
@@ -1339,7 +1341,7 @@ Ext.define('Ext.Container', {
      * and {@link Ext.scroll.Scroller} for more information.
      * @return {Ext.scroll.View} The scroll view.
      */
-    getScrollable: function() {
+    getScrollable: function () {
         return this.getScrollableBehavior().getScrollView();
     },
 
@@ -1348,7 +1350,7 @@ Ext.define('Ext.Container', {
     // This should be overridden by components which have child items
     // that are not contained in items. For example `dockedItems`, `menu`, etc
     // @private
-    getRefItems: function(deep) {
+    getRefItems: function (deep) {
         var items = this.getItems().items.slice(),
             ln = items.length,
             i, item;
@@ -1379,7 +1381,7 @@ Ext.define('Ext.Container', {
      * For additional information see {@link Ext.util.MixedCollection#get}.
      * @return {Ext.Component} The component (if found).
      */
-    getComponent: function(component) {
+    getComponent: function (component) {
         if (Ext.isObject(component)) {
             component = component.getItemId();
         }
@@ -1393,7 +1395,7 @@ Ext.define('Ext.Container', {
      * @param {String/Number} component The `id` or `index` of the component to find.
      * @return {Ext.Component/Boolean} The docked component, if found.
      */
-    getDockedComponent: function(component) {
+    getDockedComponent: function (component) {
         if (Ext.isObject(component)) {
             component = component.getItemId();
         }
@@ -1422,7 +1424,7 @@ Ext.define('Ext.Container', {
      * @param {String} selector Selector complying to an Ext.ComponentQuery selector.
      * @return {Array} Ext.Component's which matched the selector.
      */
-    query: function(selector) {
+    query: function (selector) {
         return Ext.ComponentQuery.query(selector, this);
     },
 
@@ -1432,7 +1434,7 @@ Ext.define('Ext.Container', {
      * @param {String} selector An {@link Ext.ComponentQuery} selector.
      * @return {Ext.Component}
      */
-    child: function(selector) {
+    child: function (selector) {
         return this.query('> ' + selector)[0] || null;
     },
 
@@ -1442,22 +1444,22 @@ Ext.define('Ext.Container', {
      * @param {String} selector An {@link Ext.ComponentQuery} selector.
      * @return {Ext.Component}
      */
-    down: function(selector) {
+    down: function (selector) {
         return this.query(selector)[0] || null;
     },
 
 
     //<deprecated product=touch since=2.0>
-    onClassExtended: function(Class, members) {
+    onClassExtended: function (Class, members) {
         if ('onAdd' in members || 'onRemove' in members) {
-            throw new Error("["+Class.$className+"] 'onAdd()' and 'onRemove()' methods " +
-                            "no longer exist in Ext.Container, please use 'onItemAdd()' " +
-                            "and 'onItemRemove()' instead }");
+            throw new Error("[" + Class.$className + "] 'onAdd()' and 'onRemove()' methods " +
+                "no longer exist in Ext.Container, please use 'onItemAdd()' " +
+                "and 'onItemRemove()' instead }");
         }
     },
     //</deprecated>
 
-    destroy: function() {
+    destroy: function () {
         var me = this,
             modal = me.getModal();
 
@@ -1472,7 +1474,7 @@ Ext.define('Ext.Container', {
         me.callSuper();
     }
 
-}, function() {
+}, function () {
     this.addMember('defaultItemClass', this);
 
     //<deprecated product=touch since=2.0>
@@ -1504,7 +1506,7 @@ Ext.define('Ext.Container', {
      * @deprecated 2.0.0 Please use {@link #getItems} method instead.
      */
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             config = config || {};
 
             var dockedItems = config.dockedItems,
@@ -1533,7 +1535,7 @@ Ext.define('Ext.Container', {
 
                 dockedItems = Ext.Array.from(dockedItems);
 
-                for (i = 0,ln = dockedItems.length; i < ln; i++) {
+                for (i = 0, ln = dockedItems.length; i < ln; i++) {
                     item = dockedItems[i];
                     if ('dock' in item) {
                         //<debug warn>
@@ -1547,7 +1549,7 @@ Ext.define('Ext.Container', {
             }
         },
 
-        add: function() {
+        add: function () {
             var args = arguments;
 
             if (args.length > 1) {
@@ -1566,7 +1568,7 @@ Ext.define('Ext.Container', {
             return this.callOverridden(args);
         },
 
-        doAdd: function(item) {
+        doAdd: function (item) {
             var docked = item.getDocked(),
                 overlay = item.overlay,
                 position;
@@ -1605,7 +1607,7 @@ Ext.define('Ext.Container', {
             return this.callOverridden(arguments);
         },
 
-        applyDefaults: function(defaults) {
+        applyDefaults: function (defaults) {
             if (typeof defaults == 'function') {
                 //<debug warn>
                 Ext.Logger.deprecate("Passing a function as 'defaults' is deprecated. To add custom logics when " +
@@ -1616,9 +1618,9 @@ Ext.define('Ext.Container', {
             return this.callOverridden(arguments);
         },
 
-        factoryItemWithDefaults: function(item) {
+        factoryItemWithDefaults: function (item) {
             var defaults = this.getDefaults(),
-            customDefaults, ret;
+                customDefaults, ret;
 
             // Defaults is a function (must return a string, object, or class instance)
             if (typeof defaults == 'function') {
@@ -1628,7 +1630,7 @@ Ext.define('Ext.Container', {
             // String (must be the id of an existent component)
             if (typeof item == 'string') {
                 //<debug warn>
-                Ext.Logger.deprecate("Passing a string id of item ('"+item+"') is deprecated, please pass a reference to that item instead");
+                Ext.Logger.deprecate("Passing a string id of item ('" + item + "') is deprecated, please pass a reference to that item instead");
                 //</debug>
 
                 item = Ext.getCmp(item);
@@ -1647,7 +1649,7 @@ Ext.define('Ext.Container', {
             return ret;
         },
 
-        applyMasked: function(masked) {
+        applyMasked: function (masked) {
             if (Ext.isObject(masked) && !masked.isInstance && 'message' in masked && !('xtype' in masked) && !('xclass' in masked)) {
                 masked.xtype = 'loadmask';
 

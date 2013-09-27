@@ -275,7 +275,7 @@ Ext.define('Ext.XTemplate', {
      * @hide
      */
 
-    apply: function(values) {
+    apply: function (values) {
         return this.applyOut(values, []).join('');
     },
 
@@ -286,16 +286,16 @@ Ext.define('Ext.XTemplate', {
      * @param {Object} parent
      * @return {Array} The given out array.
      */
-    applyOut: function(values, out, parent) {
-        var me     = this,
+    applyOut: function (values, out, parent) {
+        var me = this,
             xindex = values.xindex,
             xcount = values.xcount,
             compiler;
 
         if (!me.fn) {
             compiler = new Ext.XTemplateCompiler({
-                useFormat   : me.disableFormats !== true,
-                definitions : me.definitions
+                useFormat: me.disableFormats !== true,
+                definitions: me.definitions
             });
 
             me.fn = compiler.compile(me.html);
@@ -319,7 +319,7 @@ Ext.define('Ext.XTemplate', {
      * Does nothing. XTemplates are compiled automatically, so this function simply returns this.
      * @return {Ext.XTemplate} this
      */
-    compile: function() {
+    compile: function () {
         return this;
     },
 

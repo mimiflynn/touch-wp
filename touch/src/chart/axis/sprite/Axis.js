@@ -21,12 +21,12 @@ Ext.define("Ext.chart.axis.sprite.Axis", {
                  * @cfg {Boolean} grid 'true' if the axis has a grid.
                  */
                 grid: 'bool',
-                
+
                 /**
                  * @cfg {Boolean} axisLine 'true' if the main line of the axis is drawn.
                  */
                 axisLine: 'bool',
-                
+
                 /**
                  * @cfg {Boolean} minorTricks 'true' if the axis has sub ticks.
                  */
@@ -148,7 +148,7 @@ Ext.define("Ext.chart.axis.sprite.Axis", {
                  * Unused.
                  */
                 data: 'default',
-                
+
                 /**
                  * @cfg {Boolean} 'true' if the estimated step size is adjusted by text size.
                  */
@@ -255,7 +255,9 @@ Ext.define("Ext.chart.axis.sprite.Axis", {
 
     stepSize: 0,
 
-    getBBox: function () { return null; },
+    getBBox: function () {
+        return null;
+    },
 
     doLayout: function () {
         var me = this,

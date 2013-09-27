@@ -27,7 +27,7 @@ Ext.define('Ext.util.sizemonitor.Abstract', {
 
     contentHeight: 0,
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.refresh = Ext.Function.bind(this.refresh, this);
 
         this.info = {
@@ -47,40 +47,40 @@ Ext.define('Ext.util.sizemonitor.Abstract', {
 
     bindListeners: Ext.emptyFn,
 
-    applyElement: function(element) {
+    applyElement: function (element) {
         if (element) {
             return Ext.get(element);
         }
     },
 
-    updateElement: function(element) {
+    updateElement: function (element) {
         element.append(this.detectorsContainer);
         element.addCls('x-size-monitored');
     },
 
-    applyArgs: function(args) {
+    applyArgs: function (args) {
         return args.concat([this.info]);
     },
 
     refreshMonitors: Ext.emptyFn,
 
-    forceRefresh: function() {
+    forceRefresh: function () {
         Ext.TaskQueue.requestRead('refresh', this);
     },
 
-    getContentBounds: function() {
+    getContentBounds: function () {
         return this.detectorsContainer.getBoundingClientRect();
     },
 
-    getContentWidth: function() {
+    getContentWidth: function () {
         return this.detectorsContainer.offsetWidth;
     },
 
-    getContentHeight: function() {
+    getContentHeight: function () {
         return this.detectorsContainer.offsetHeight;
     },
 
-    refreshSize: function() {
+    refreshSize: function () {
         var element = this.getElement();
 
         if (!element || element.isDestroyed) {
@@ -118,13 +118,13 @@ Ext.define('Ext.util.sizemonitor.Abstract', {
         return resized;
     },
 
-    refresh: function(force) {
+    refresh: function (force) {
         if (this.refreshSize() || force) {
             Ext.TaskQueue.requestWrite('refreshMonitors', this);
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var element = this.getElement();
 
         this.bindListeners(false);

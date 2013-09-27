@@ -51,8 +51,8 @@ Ext.define('Ext.field.Email', {
          * @inheritdoc
          */
         component: {
-	        type: 'email'
-	    },
+            type: 'email'
+        },
 
         /**
          * @cfg

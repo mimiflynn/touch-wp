@@ -22,7 +22,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         minDistance: 8
     },
 
-    constructor: function() {
+    constructor: function () {
         this.callSuper(arguments);
 
         this.info = {
@@ -59,7 +59,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         };
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         if (this.callSuper(arguments) === false) {
             if (this.isStarted && this.lastMoveEvent !== null) {
                 this.onTouchEnd(this.lastMoveEvent);
@@ -71,7 +71,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         this.startPoint = e.changedTouches[0].point;
     },
 
-    tryDragStart: function(e) {
+    tryDragStart: function (e) {
         var startPoint = this.startPoint,
             touches = e.changedTouches,
             touch = touches[0],
@@ -93,7 +93,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         }
     },
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         if (!this.isStarted) {
             this.tryDragStart(e);
         }
@@ -121,7 +121,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         this.fire('drag', e, touches, this.info);
     },
 
-    onAxisDragEnd: function(axis, info) {
+    onAxisDragEnd: function (axis, info) {
         var duration = info.time - info.previousTime[axis];
 
         if (duration > 0) {
@@ -129,7 +129,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         }
     },
 
-    resetInfo: function(axis, e, touch) {
+    resetInfo: function (axis, e, touch) {
         var value = this.lastPoint[axis],
             startValue = this.startPoint[axis],
             delta = value - startValue,
@@ -155,7 +155,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         info.startTime = this.startTime;
     },
 
-    updateInfo: function(axis, e, touch, updatePrevious) {
+    updateInfo: function (axis, e, touch, updatePrevious) {
         var time = e.time,
             value = this.lastPoint[axis],
             previousValue = this.previousPoint[axis],
@@ -196,7 +196,7 @@ Ext.define('Ext.event.recognizer.Drag', {
         info.startTime = this.startTime;
     },
 
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         if (!this.isStarted) {
             this.tryDragStart(e);
         }

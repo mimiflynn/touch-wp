@@ -19,7 +19,7 @@
  * Ext.Class is the factory and **not** the superclass of everything. For the base class that **all** Ext classes inherit
  * from, see {@link Ext.Base}.
  */
-(function() {
+(function () {
     var ExtClass,
         Base = Ext.Base,
         baseStaticMembers = [],
@@ -43,7 +43,7 @@
      *
      * @return {Ext.Base} The newly created class
      */
-    Ext.Class = ExtClass = function(Class, data, onCreated) {
+    Ext.Class = ExtClass = function (Class, data, onCreated) {
         if (typeof Class != 'function') {
             onCreated = data;
             data = Class;
@@ -66,7 +66,7 @@
          * @private
          * @static
          */
-        onBeforeCreated: function(Class, data, hooks) {
+        onBeforeCreated: function (Class, data, hooks) {
             Class.addMembers(data);
 
             hooks.onCreated.call(Class, Class);
@@ -76,11 +76,11 @@
          * @private
          * @static
          */
-        create: function(Class) {
+        create: function (Class) {
             var name, i;
 
             if (!Class) {
-                Class = function() {
+                Class = function () {
                     return this.constructor.apply(this, arguments);
                 };
             }
@@ -97,7 +97,7 @@
          * @private
          * @static
          */
-        process: function(Class, data, onCreated) {
+        process: function (Class, data, onCreated) {
             var preprocessorStack = data.preprocessors || ExtClass.defaultPreprocessors,
                 preprocessors = this.preprocessors,
                 hooks = {
@@ -110,7 +110,7 @@
 
             delete data.preprocessors;
 
-            process = function(Class, data, hooks) {
+            process = function (Class, data, hooks) {
                 fn = null;
 
                 while (fn === null) {
@@ -124,7 +124,7 @@
                             fn = preprocessor.fn;
                         }
                         else {
-                            for (i = 0,ln = properties.length; i < ln; i++) {
+                            for (i = 0, ln = properties.length; i < ln; i++) {
                                 property = properties[i];
 
                                 if (data.hasOwnProperty(property)) {
@@ -182,7 +182,7 @@
          * @param {Object} [relativeTo]
          * @return {Ext.Class} this
          */
-        registerPreprocessor: function(name, fn, properties, position, relativeTo) {
+        registerPreprocessor: function (name, fn, properties, position, relativeTo) {
             if (!position) {
                 position = 'last';
             }
@@ -210,7 +210,7 @@
          * @param {String} name
          * @return {Function} preprocessor
          */
-        getPreprocessor: function(name) {
+        getPreprocessor: function (name) {
             return this.preprocessors[name];
         },
 
@@ -218,7 +218,7 @@
          * @private
          * @static
          */
-        getPreprocessors: function() {
+        getPreprocessors: function () {
             return this.preprocessors;
         },
 
@@ -234,7 +234,7 @@
          * @static
          * @return {Function} defaultPreprocessors
          */
-        getDefaultPreprocessors: function() {
+        getDefaultPreprocessors: function () {
             return this.defaultPreprocessors;
         },
 
@@ -246,7 +246,7 @@
          * @param {Array} preprocessors
          * @return {Ext.Class} this
          */
-        setDefaultPreprocessors: function(preprocessors) {
+        setDefaultPreprocessors: function (preprocessors) {
             this.defaultPreprocessors = Ext.Array.from(preprocessors);
 
             return this;
@@ -273,7 +273,7 @@
          * @param {String} relativeName
          * @return {Ext.Class} this
          */
-        setDefaultPreprocessorPosition: function(name, offset, relativeName) {
+        setDefaultPreprocessorPosition: function (name, offset, relativeName) {
             var defaultPreprocessors = this.defaultPreprocessors,
                 index;
 
@@ -311,7 +311,7 @@
          * @private
          * @static
          */
-        getConfigNameMap: function(name) {
+        getConfigNameMap: function (name) {
             var cache = this.configNameCache,
                 map = cache[name],
                 capitalizedName;
@@ -328,7 +328,7 @@
                     set: 'set' + capitalizedName,
                     get: 'get' + capitalizedName,
                     initGet: 'initGet' + capitalizedName,
-                    doSet : 'doSet' + capitalizedName,
+                    doSet: 'doSet' + capitalizedName,
                     changeEvent: name.toLowerCase() + 'change'
                 }
             }
@@ -340,14 +340,14 @@
          * @private
          * @static
          */
-        generateSetter: function(nameMap) {
+        generateSetter: function (nameMap) {
             var internalName = nameMap.internal,
                 getName = nameMap.get,
                 applyName = nameMap.apply,
                 updateName = nameMap.update,
                 setter;
 
-            setter = function(value) {
+            setter = function (value) {
                 var oldValue = this[internalName],
                     applier = this[applyName],
                     updater = this[updateName];
@@ -379,13 +379,13 @@
          * @private
          * @static
          */
-        generateInitGetter: function(nameMap) {
+        generateInitGetter: function (nameMap) {
             var name = nameMap.name,
                 setName = nameMap.set,
                 getName = nameMap.get,
                 initializingName = nameMap.initializing;
 
-            return function() {
+            return function () {
                 this[initializingName] = true;
                 delete this[getName];
 
@@ -400,10 +400,10 @@
          * @private
          * @static
          */
-        generateGetter: function(nameMap) {
+        generateGetter: function (nameMap) {
             var internalName = nameMap.internal;
 
-            return function() {
+            return function () {
                 return this[internalName];
             }
         }
@@ -433,7 +433,7 @@
      *     var developer1 = Ext.create("Developer");
      *     developer1.say("Ted");
      */
-    ExtClass.registerPreprocessor('extend', function(Class, data) {
+    ExtClass.registerPreprocessor('extend', function (Class, data) {
         var Base = Ext.Base,
             extend = data.extend,
             Parent;
@@ -478,7 +478,7 @@
      *
      *     var dellComputer = Computer.factory('Dell');
      */
-    ExtClass.registerPreprocessor('statics', function(Class, data) {
+    ExtClass.registerPreprocessor('statics', function (Class, data) {
         Class.addStatics(data.statics);
 
         delete data.statics;
@@ -491,14 +491,14 @@
      * List of inheritable static methods for this class.
      * Otherwise just like {@link #statics} but subclasses inherit these methods.
      */
-    ExtClass.registerPreprocessor('inheritableStatics', function(Class, data) {
+    ExtClass.registerPreprocessor('inheritableStatics', function (Class, data) {
         Class.addInheritableStatics(data.inheritableStatics);
 
         delete data.inheritableStatics;
     });
     //</feature>
 
-        //<feature classSystem.platformConfig>
+    //<feature classSystem.platformConfig>
     /**
      * @cfg {Object} platformConfig
      * Allows for setting default config values on specific platforms or themes
@@ -516,7 +516,7 @@
      *          }]
      *     });
      */
-    ExtClass.registerPreprocessor('platformConfig', function(Class, data, hooks) {
+    ExtClass.registerPreprocessor('platformConfig', function (Class, data, hooks) {
         var platformConfigs = data.platformConfig,
             config = data.config || {},
             platform, theme, platformConfig, i, ln, j , ln2;
@@ -524,7 +524,7 @@
         delete data.platformConfig;
 
         if (!Ext.filterPlatform) {
-            Ext.filterPlatform = function(platform) {
+            Ext.filterPlatform = function (platform) {
                 var profileMatch = false,
                     ua = navigator.userAgent,
                     j, jln;
@@ -540,9 +540,9 @@
                     // - Android with "Mobile" in the UA
 
                     return /(iPhone|iPod)/.test(ua) ||
-                              (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
-                              (/(BlackBerry|BB)/.test(ua) && isMobile) ||
-                              /(Windows Phone)/.test(ua);
+                        (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
+                        (/(BlackBerry|BB)/.test(ua) && isMobile) ||
+                        /(Windows Phone)/.test(ua);
                 }
 
                 function isTablet(ua) {
@@ -742,7 +742,7 @@
      * When it comes to inheritance, the default config of the parent class is automatically, recursively merged with
      * the child's default config. The same applies for mixins.
      */
-    ExtClass.registerPreprocessor('config', function(Class, data) {
+    ExtClass.registerPreprocessor('config', function (Class, data) {
         var config = data.config,
             prototype = Class.prototype,
             defaultConfig = prototype.config,
@@ -799,15 +799,15 @@
      *          }
      *     });
      */
-    ExtClass.registerPreprocessor('mixins', function(Class, data, hooks) {
+    ExtClass.registerPreprocessor('mixins', function (Class, data, hooks) {
         var mixins = data.mixins,
             name, mixin, i, ln;
 
         delete data.mixins;
 
-        Ext.Function.interceptBefore(hooks, 'onCreated', function() {
+        Ext.Function.interceptBefore(hooks, 'onCreated', function () {
             if (mixins instanceof Array) {
-                for (i = 0,ln = mixins.length; i < ln; i++) {
+                for (i = 0, ln = mixins.length; i < ln; i++) {
                     mixin = mixins[i];
                     name = mixin.prototype.mixinId || mixin.$className;
 
@@ -827,7 +827,7 @@
 
     //<feature classSystem.backwardsCompatible>
     // Backwards compatible
-    Ext.extend = function(Class, Parent, members) {
+    Ext.extend = function (Class, Parent, members) {
         if (arguments.length === 2 && Ext.isObject(Parent)) {
             members = Parent;
             Parent = Class;
@@ -845,23 +845,23 @@
             'extend'
 
             //<feature classSystem.statics>
-            ,'statics'
+            , 'statics'
             //</feature>
 
             //<feature classSystem.inheritableStatics>
-            ,'inheritableStatics'
+            , 'inheritableStatics'
             //</feature>
 
             //<feature classSystem.mixins>
-            ,'mixins'
+            , 'mixins'
             //</feature>
 
             //<feature classSystem.platformConfig>
-            ,'platformConfig'
+            , 'platformConfig'
             //</feature>
 
             //<feature classSystem.config>
-            ,'config'
+            , 'config'
             //</feature>
         ];
 
@@ -872,7 +872,7 @@
             cls = new ExtClass(members);
         }
 
-        cls.prototype.override = function(o) {
+        cls.prototype.override = function (o) {
             for (var m in o) {
                 if (o.hasOwnProperty(m)) {
                     this[m] = o[m];

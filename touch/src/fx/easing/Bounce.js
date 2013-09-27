@@ -11,7 +11,7 @@ Ext.define('Ext.fx.easing.Bounce', {
         startVelocity: 0
     },
 
-    getValue: function() {
+    getValue: function () {
         var deltaTime = Ext.Date.now() - this.getStartTime(),
             theta = (deltaTime / this.getAcceleration()),
             powTime = theta * Math.pow(Math.E, -this.getSpringTension() * theta);

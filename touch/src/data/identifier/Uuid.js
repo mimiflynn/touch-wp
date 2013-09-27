@@ -89,14 +89,14 @@ Ext.define('Ext.data.identifier.Uuid', {
         version: 4
     },
 
-    applyId: function(id) {
+    applyId: function (id) {
         if (id === undefined) {
             return Ext.data.identifier.Uuid.Global;
         }
         return id;
     },
 
-    constructor: function() {
+    constructor: function () {
         var me = this;
         me.callParent(arguments);
         me.parts = [];
@@ -106,7 +106,7 @@ Ext.define('Ext.data.identifier.Uuid', {
     /**
      * Reconfigures this generator given new config properties.
      */
-    reconfigure: function(config) {
+    reconfigure: function (config) {
         this.setConfig(config);
         this.init();
     },
@@ -119,34 +119,34 @@ Ext.define('Ext.data.identifier.Uuid', {
             time = me.getTimestamp();
 
         /*
-           The magic decoder ring (derived from RFC 4122 Section 4.2.2):
+         The magic decoder ring (derived from RFC 4122 Section 4.2.2):
 
-           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-           |                          time_low                             |
-           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-           |           time_mid            |  ver  |        time_hi        |
-           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-           |res|  clock_hi |   clock_low   |    salt 0   |M|     salt 1    |
-           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-           |                         salt (2-5)                            |
-           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         |                          time_low                             |
+         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         |           time_mid            |  ver  |        time_hi        |
+         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         |res|  clock_hi |   clock_low   |    salt 0   |M|     salt 1    |
+         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         |                         salt (2-5)                            |
+         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-                     time_mid      clock_hi (low 6 bits)
-            time_low     | time_hi |clock_lo
-                |        |     |   || salt[0]
-                |        |     |   ||   | salt[1..5]
-                v        v     v   vv   v v
-                0badf00d-aced-1def-b123-dfad0badbeef
-                              ^    ^     ^
-                        version    |     multicast (low bit)
-                                   |
-                                reserved (upper 2 bits)
-        */
+         time_mid      clock_hi (low 6 bits)
+         time_low     | time_hi |clock_lo
+         |        |     |   || salt[0]
+         |        |     |   ||   | salt[1..5]
+         v        v     v   vv   v v
+         0badf00d-aced-1def-b123-dfad0badbeef
+         ^    ^     ^
+         version    |     multicast (low bit)
+         |
+         reserved (upper 2 bits)
+         */
         parts[0] = me.toHex(time.lo, 8);
         parts[1] = me.toHex(time.hi & 0xFFFF, 4);
         parts[2] = me.toHex(((time.hi >>> 16) & 0xFFF) | (version << 12), 4);
         parts[3] = me.toHex(0x80 | ((me.clockSeq >>> 8) & 0x3F), 2) +
-                   me.toHex(me.clockSeq & 0xFF, 2);
+            me.toHex(me.clockSeq & 0xFF, 2);
         parts[4] = me.toHex(salt.hi, 4) + me.toHex(salt.lo, 8);
 
         if (version == 4) {
@@ -176,7 +176,7 @@ Ext.define('Ext.data.identifier.Uuid', {
             //   o  If the state was unavailable (e.g., non-existent or corrupted),
             //      or the saved node ID is different than the current node ID,
             //      generate a random clock sequence value.
-            me.clockSeq = me.rand(0, me.twoPow14-1);
+            me.clockSeq = me.rand(0, me.twoPow14 - 1);
 
             if (!salt) {
                 salt = {};
@@ -189,10 +189,10 @@ Ext.define('Ext.data.identifier.Uuid', {
             }
 
             // See RFC 4122 (Secion 4.4)
-            salt.lo = me.rand(0, me.twoPow32-1);
-            salt.hi = me.rand(0, me.twoPow16-1);
-            time.lo = me.rand(0, me.twoPow32-1);
-            time.hi = me.rand(0, me.twoPow28-1);
+            salt.lo = me.rand(0, me.twoPow32 - 1);
+            salt.hi = me.rand(0, me.twoPow16 - 1);
+            time.lo = me.rand(0, me.twoPow32 - 1);
+            time.hi = me.rand(0, me.twoPow28 - 1);
         } else {
             // this is run only once per-instance
             me.setSalt(me.split(me.getSalt()));
@@ -220,7 +220,7 @@ Ext.define('Ext.data.identifier.Uuid', {
      * @param length
      * @private
      */
-    toHex: function(value, length) {
+    toHex: function (value, length) {
         var ret = value.toString(16);
         if (ret.length > length) {
             ret = ret.substring(ret.length - length); // right-most digits
@@ -236,7 +236,7 @@ Ext.define('Ext.data.identifier.Uuid', {
      * @param hi
      * @private
      */
-    rand: function(lo, hi) {
+    rand: function (lo, hi) {
         var v = Math.random() * (hi - lo + 1);
         return Math.floor(v) + lo;
     },
@@ -246,7 +246,7 @@ Ext.define('Ext.data.identifier.Uuid', {
      * @param bignum
      * @private
      */
-    split: function(bignum) {
+    split: function (bignum) {
         if (typeof(bignum) == 'number') {
             var hi = Math.floor(bignum / this.twoPow32);
             return {
@@ -256,7 +256,7 @@ Ext.define('Ext.data.identifier.Uuid', {
         }
         return bignum;
     }
-}, function() {
+}, function () {
     this.Global = new this({
         id: 'uuid'
     });

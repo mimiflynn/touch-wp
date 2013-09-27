@@ -74,7 +74,7 @@ Ext.define('Ext.data.proxy.Memory', {
      * by the create, update and destroy methods to perform the bare minimum
      * processing required for the proxy to register a result from the action.
      */
-    finishOperation: function(operation, callback, scope) {
+    finishOperation: function (operation, callback, scope) {
         if (operation) {
             var i = 0,
                 recs = operation.getRecords(),
@@ -102,7 +102,7 @@ Ext.define('Ext.data.proxy.Memory', {
      * @param {Object} scope Scope to execute the callback function in
      * @method
      */
-    create: function() {
+    create: function () {
         this.finishOperation.apply(this, arguments);
     },
 
@@ -117,7 +117,7 @@ Ext.define('Ext.data.proxy.Memory', {
      * @param {Object} scope Scope to execute the callback function in
      * @method
      */
-    update: function() {
+    update: function () {
         this.finishOperation.apply(this, arguments);
     },
 
@@ -132,7 +132,7 @@ Ext.define('Ext.data.proxy.Memory', {
      * @param {Object} scope Scope to execute the callback function in
      * @method
      */
-    destroy: function() {
+    destroy: function () {
         this.finishOperation.apply(this, arguments);
     },
 
@@ -142,8 +142,8 @@ Ext.define('Ext.data.proxy.Memory', {
      * @param {Function} callback The callback to call when reading has completed
      * @param {Object} scope The scope to call the callback function in
      */
-    read: function(operation, callback, scope) {
-        var me     = this,
+    read: function (operation, callback, scope) {
+        var me = this,
             reader = me.getReader();
 
         if (operation.process('read', reader.process(me.getData())) === false) {

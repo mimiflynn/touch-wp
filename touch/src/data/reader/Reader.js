@@ -265,7 +265,7 @@ Ext.define('Ext.data.reader.Reader', {
         model: undefined
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
@@ -288,7 +288,7 @@ Ext.define('Ext.data.reader.Reader', {
 
     fieldCount: 0,
 
-    applyModel: function(model) {
+    applyModel: function (model) {
         if (typeof model == 'string') {
             model = Ext.data.ModelManager.getModel(model);
 
@@ -304,14 +304,14 @@ Ext.define('Ext.data.reader.Reader', {
         return model;
     },
 
-    applyIdProperty: function(idProperty) {
+    applyIdProperty: function (idProperty) {
         if (!idProperty && this.getModel()) {
             idProperty = this.getModel().getIdProperty();
         }
         return idProperty;
     },
 
-    updateModel: function(model) {
+    updateModel: function (model) {
         if (model) {
             if (!this.getIdProperty()) {
                 this.setIdProperty(model.getIdProperty());
@@ -322,7 +322,7 @@ Ext.define('Ext.data.reader.Reader', {
 
     createAccessor: Ext.emptyFn,
 
-    createFieldAccessExpression: function() {
+    createFieldAccessExpression: function () {
         return 'undefined';
     },
 
@@ -331,7 +331,7 @@ Ext.define('Ext.data.reader.Reader', {
      * This builds optimized functions for retrieving record data and meta data from an object.
      * Subclasses may need to implement their own getRoot function.
      */
-    buildExtractors: function() {
+    buildExtractors: function () {
         if (!this.getModel()) {
             return;
         }
@@ -368,7 +368,7 @@ Ext.define('Ext.data.reader.Reader', {
      * - `source` - A raw row data object of whatever type this Reader consumes
      * - `record - The record which is being populated.
      */
-    buildRecordDataExtractor: function() {
+    buildRecordDataExtractor: function () {
         var me = this,
             model = me.getModel(),
             fields = model.getFields(),
@@ -439,7 +439,7 @@ Ext.define('Ext.data.reader.Reader', {
         return Ext.functionFactory(code.join('')).call(me);
     },
 
-    getFields: function() {
+    getFields: function () {
         return this.getModel().getFields().items;
     },
 
@@ -450,7 +450,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object} data The data object
      * @return {Object} The normalized data object
      */
-    getData: function(data) {
+    getData: function (data) {
         return data;
     },
 
@@ -460,7 +460,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object} response The response object
      * @return {Object} The useful data from the response
      */
-    getResponseData: function(response) {
+    getResponseData: function (response) {
         return response;
     },
 
@@ -472,7 +472,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object} data The data object
      * @return {Object} The same data object
      */
-    getRoot: function(data) {
+    getRoot: function (data) {
         return data;
     },
 
@@ -482,7 +482,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object} response The response object. This may be either an XMLHttpRequest object or a plain JS object
      * @return {Ext.data.ResultSet} The parsed ResultSet object
      */
-    read: function(response) {
+    read: function (response) {
         var data = response,
             Model = this.getModel(),
             resultSet, records, i, ln, record;
@@ -504,7 +504,7 @@ Ext.define('Ext.data.reader.Reader', {
         }
     },
 
-    process: function(response) {
+    process: function (response) {
         var data = response;
 
         if (response) {
@@ -525,8 +525,8 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object} data The raw data object
      * @return {Ext.data.ResultSet} A ResultSet object
      */
-    readRecords: function(data) {
-        var me  = this;
+    readRecords: function (data) {
+        var me = this;
 
         /**
          * @property {Object} rawData
@@ -587,8 +587,8 @@ Ext.define('Ext.data.reader.Reader', {
         }
 
         return new Ext.data.ResultSet({
-            total  : total,
-            count  : recordCount,
+            total: total,
+            count: recordCount,
             records: records,
             success: success,
             message: message
@@ -600,10 +600,10 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Object[]/Object} root from server response
      * @private
      */
-    extractData : function(root) {
+    extractData: function (root) {
         var me = this,
             records = [],
-            length  = root.length,
+            length = root.length,
             model = me.getModel(),
             idProperty = model.getIdProperty(),
             fieldsCollection = model.getFields(),
@@ -650,7 +650,7 @@ Ext.define('Ext.data.reader.Reader', {
             }
 
             if (me.getImplicitIncludes()) {
-                 me.readAssociated(data, node);
+                me.readAssociated(data, node);
             }
 
             records.push({
@@ -671,7 +671,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {Ext.data.Model} record The record to load associations for
      * @param {Object} data The data object
      */
-    readAssociated: function(record, data) {
+    readAssociated: function (record, data) {
         var associations = this.getModel().associations.items,
             length = associations.length,
             i = 0,
@@ -697,9 +697,9 @@ Ext.define('Ext.data.reader.Reader', {
      * @param {String} associationName The name of the association to get data for (uses associationKey if present)
      * @return {Object} The root
      */
-    getAssociatedDataRoot: function(data, associationName) {
+    getAssociatedDataRoot: function (data, associationName) {
         var re = /[\[\.]/,
-            i  = String(associationName).search(re);
+            i = String(associationName).search(re);
 
         if (i >= 0) {
             return Ext.functionFactory('obj', 'return obj' + (i > 0 ? '.' : '') + associationName)(data);
@@ -712,7 +712,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @private
      * Reconfigures the meta data tied to this Reader
      */
-    onMetaChange : function(meta) {
+    onMetaChange: function (meta) {
         var fields = meta.fields,
             me = this,
             newModel, config, idProperty;
@@ -770,7 +770,7 @@ Ext.define('Ext.data.reader.Reader', {
 
     // Convert old properties in data into a config object
     // <deprecated product=touch since=2.0>
-    ,onClassExtended: function(cls, data, hooks) {
+    , onClassExtended: function (cls, data, hooks) {
         var Component = this,
             defaultConfig = Component.prototype.config,
             config = data.config || {},
@@ -791,13 +791,13 @@ Ext.define('Ext.data.reader.Reader', {
         data.config = config;
     }
     // </deprecated>
-}, function() {
+}, function () {
     Ext.apply(this.prototype, {
         // @private
         // Empty ResultSet to return when response is falsy (null|undefined|empty string)
         nullResultSet: new Ext.data.ResultSet({
-            total  : 0,
-            count  : 0,
+            total: 0,
+            count: 0,
             records: [],
             success: false
         })
@@ -816,7 +816,7 @@ Ext.define('Ext.data.reader.Reader', {
      * @deprecated 2.0.0 Please use the {@link #rootProperty} configuration instead.
      */
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             config = config || {};
 
             if (config.root) {

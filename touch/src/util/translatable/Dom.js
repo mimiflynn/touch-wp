@@ -8,7 +8,7 @@ Ext.define('Ext.util.translatable.Dom', {
         element: null
     },
 
-    applyElement: function(element) {
+    applyElement: function (element) {
         if (!element) {
             return;
         }
@@ -16,7 +16,7 @@ Ext.define('Ext.util.translatable.Dom', {
         return Ext.get(element);
     },
 
-    updateElement: function() {
+    updateElement: function () {
         this.refresh();
     }
 });

@@ -31,7 +31,7 @@ Ext.define('Ext.device.Push', {
         'Ext.device.push.Sencha'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView) {

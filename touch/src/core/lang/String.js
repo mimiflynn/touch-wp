@@ -21,7 +21,7 @@ Ext.String = {
      * @return {String} The encoded text.
      * @method
      */
-    htmlEncode: (function() {
+    htmlEncode: (function () {
         var entities = {
             '&': '&amp;',
             '>': '&gt;',
@@ -35,8 +35,8 @@ Ext.String = {
 
         regex = new RegExp('(' + keys.join('|') + ')', 'g');
 
-        return function(value) {
-            return (!value) ? value : String(value).replace(regex, function(match, capture) {
+        return function (value) {
+            return (!value) ? value : String(value).replace(regex, function (match, capture) {
                 return entities[capture];
             });
         };
@@ -48,7 +48,7 @@ Ext.String = {
      * @return {String} The decoded text.
      * @method
      */
-    htmlDecode: (function() {
+    htmlDecode: (function () {
         var entities = {
             '&amp;': '&',
             '&gt;': '>',
@@ -62,8 +62,8 @@ Ext.String = {
 
         regex = new RegExp('(' + keys.join('|') + '|&#[0-9]{1,5};' + ')', 'g');
 
-        return function(value) {
-            return (!value) ? value : String(value).replace(regex, function(match, capture) {
+        return function (value) {
+            return (!value) ? value : String(value).replace(regex, function (match, capture) {
                 if (capture in entities) {
                     return entities[capture];
                 } else {
@@ -80,7 +80,7 @@ Ext.String = {
      * @param {String} string The content to append to the URL.
      * @return {String} The resulting URL.
      */
-    urlAppend : function(url, string) {
+    urlAppend: function (url, string) {
         if (!Ext.isEmpty(string)) {
             return url + (url.indexOf('?') === -1 ? '?' : '&') + string;
         }
@@ -99,7 +99,7 @@ Ext.String = {
      * @param {String} string The string to escape
      * @return {String} The trimmed string
      */
-    trim: function(string) {
+    trim: function (string) {
         return string.replace(Ext.String.trimRegex, "");
     },
 
@@ -108,7 +108,7 @@ Ext.String = {
      * @param {String} string
      * @return {String}
      */
-    capitalize: function(string) {
+    capitalize: function (string) {
         return string.charAt(0).toUpperCase() + string.substr(1);
     },
 
@@ -119,11 +119,11 @@ Ext.String = {
      * @param {Boolean} word `true` to try to find a common word break.
      * @return {String} The converted text.
      */
-    ellipsis: function(value, len, word) {
+    ellipsis: function (value, len, word) {
         if (value && value.length > len) {
             if (word) {
                 var vs = value.substr(0, len - 2),
-                index = Math.max(vs.lastIndexOf(' '), vs.lastIndexOf('.'), vs.lastIndexOf('!'), vs.lastIndexOf('?'));
+                    index = Math.max(vs.lastIndexOf(' '), vs.lastIndexOf('.'), vs.lastIndexOf('!'), vs.lastIndexOf('?'));
                 if (index !== -1 && index >= (len - 15)) {
                     return vs.substr(0, index) + "...";
                 }
@@ -138,7 +138,7 @@ Ext.String = {
      * @param {String} string
      * @return {String}
      */
-    escapeRegex: function(string) {
+    escapeRegex: function (string) {
         return string.replace(Ext.String.escapeRegexRe, "\\$1");
     },
 
@@ -147,7 +147,7 @@ Ext.String = {
      * @param {String} string The string to escape.
      * @return {String} The escaped string.
      */
-    escape: function(string) {
+    escape: function (string) {
         return string.replace(Ext.String.escapeRe, "\\$1");
     },
 
@@ -168,7 +168,7 @@ Ext.String = {
      * @param {String} other The new value to use if the string already equals the first value passed in.
      * @return {String} The new value.
      */
-    toggle: function(string, value, other) {
+    toggle: function (string, value, other) {
         return string === value ? other : value;
     },
 
@@ -184,7 +184,7 @@ Ext.String = {
      * @param {String} [character= ] (optional) The character with which to pad the original string (defaults to empty string " ").
      * @return {String} The padded string.
      */
-    leftPad: function(string, size, character) {
+    leftPad: function (string, size, character) {
         var result = String(string);
         character = character || " ";
         while (result.length < size) {
@@ -207,9 +207,9 @@ Ext.String = {
      * param to replace `{1}` etc.
      * @return {String} The formatted string.
      */
-    format: function(format) {
+    format: function (format) {
         var args = Ext.Array.toArray(arguments, 1);
-        return format.replace(Ext.String.formatRe, function(m, i) {
+        return format.replace(Ext.String.formatRe, function (m, i) {
             return args[i];
         });
     },
@@ -225,8 +225,8 @@ Ext.String = {
      * @param {Number} count The number of times to repeat the pattern (may be 0).
      * @param {String} sep An option string to separate each pattern.
      */
-    repeat: function(pattern, count, sep) {
-        for (var buf = [], i = count; i--; ) {
+    repeat: function (pattern, count, sep) {
+        for (var buf = [], i = count; i--;) {
             buf.push(pattern);
         }
         return buf.join(sep || '');

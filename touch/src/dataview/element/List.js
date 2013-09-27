@@ -1,10 +1,10 @@
 /**
  * @private
-*/
+ */
 Ext.define('Ext.dataview.element.List', {
     extend: 'Ext.dataview.element.Container',
 
-    updateBaseCls: function(newBaseCls) {
+    updateBaseCls: function (newBaseCls) {
         var me = this;
 
         me.itemClsShortCache = newBaseCls + '-item';
@@ -31,7 +31,7 @@ Ext.define('Ext.dataview.element.List', {
 
     hiddenDisplayCache: Ext.baseCSSPrefix + 'hidden-display',
 
-    getItemElementConfig: function(index, data) {
+    getItemElementConfig: function (index, data) {
         var me = this,
             dataview = me.dataview,
             itemCls = dataview.getItemCls(),
@@ -44,10 +44,12 @@ Ext.define('Ext.dataview.element.List', {
 
         config = {
             cls: cls,
-            children: [{
-                cls: me.labelClsShortCache,
-                html: dataview.getItemTpl().apply(data)
-            }]
+            children: [
+                {
+                    cls: me.labelClsShortCache,
+                    html: dataview.getItemTpl().apply(data)
+                }
+            ]
         };
 
         if (dataview.getIcon()) {
@@ -66,7 +68,7 @@ Ext.define('Ext.dataview.element.List', {
         return config;
     },
 
-    updateListItem: function(record, item) {
+    updateListItem: function (record, item) {
         var me = this,
             dataview = me.dataview,
             extItem = Ext.fly(item),
@@ -90,7 +92,7 @@ Ext.define('Ext.dataview.element.List', {
         }
     },
 
-    doRemoveHeaders: function() {
+    doRemoveHeaders: function () {
         var me = this,
             headerClsShortCache = me.headerItemClsShortCache,
             existingHeaders = me.element.query(me.headerClsCache),
@@ -105,7 +107,7 @@ Ext.define('Ext.dataview.element.List', {
         }
     },
 
-    doRemoveFooterCls: function() {
+    doRemoveFooterCls: function () {
         var me = this,
             footerClsShortCache = me.footerClsShortCache,
             existingFooters = me.element.query(me.footerClsCache),
@@ -117,7 +119,7 @@ Ext.define('Ext.dataview.element.List', {
         }
     },
 
-    doAddHeader: function(item, html) {
+    doAddHeader: function (item, html) {
         item = Ext.fly(item);
         if (html) {
             item.insertFirst(Ext.Element.create({
@@ -128,7 +130,7 @@ Ext.define('Ext.dataview.element.List', {
         item.addCls(this.headerItemClsShortCache);
     },
 
-    destroy: function() {
+    destroy: function () {
         this.doRemoveHeaders();
         this.callParent();
     }

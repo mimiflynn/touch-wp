@@ -1,7 +1,7 @@
 /**
  * @abstract
  * @class Ext.chart.axis.layout.Layout
- * 
+ *
  * Interface used by Axis to process its data into a meaningful layout.
  */
 Ext.define("Ext.chart.axis.layout.Layout", {

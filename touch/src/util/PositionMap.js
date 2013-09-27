@@ -6,7 +6,7 @@ Ext.define('Ext.util.PositionMap', {
         minimumHeight: 50
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.map = [];
         this.adjustments = {};
         this.offset = 0;
@@ -14,7 +14,7 @@ Ext.define('Ext.util.PositionMap', {
         this.initConfig(config);
     },
 
-    populate: function(count, offset) {
+    populate: function (count, offset) {
         var map = this.map = this.map || [],
             minimumHeight = this.getMinimumHeight(),
             i, previousIndex, ln;
@@ -40,7 +40,7 @@ Ext.define('Ext.util.PositionMap', {
         }
     },
 
-    setItemHeight: function(index, height) {
+    setItemHeight: function (index, height) {
         height = Math.max(height, this.getMinimumHeight());
         if (height !== this.getItemHeight(index)) {
             var adjustments = this.adjustments;
@@ -49,7 +49,7 @@ Ext.define('Ext.util.PositionMap', {
         }
     },
 
-    update: function() {
+    update: function () {
         var adjustments = this.adjustments,
             indices = adjustments.indices,
             heights = adjustments.heights,
@@ -63,7 +63,7 @@ Ext.define('Ext.util.PositionMap', {
             return false;
         }
 
-        Ext.Array.sort(indices, function(a, b) {
+        Ext.Array.sort(indices, function (a, b) {
             return a - b;
         });
 
@@ -89,19 +89,19 @@ Ext.define('Ext.util.PositionMap', {
         return true;
     },
 
-    getItemHeight: function(index) {
+    getItemHeight: function (index) {
         return this.map[index + 1] - this.map[index];
     },
 
-    getTotalHeight: function() {
+    getTotalHeight: function () {
         return ((this.map.length - 1) * this.getMinimumHeight()) + this.offset;
     },
 
-    findIndex: function(pos) {
+    findIndex: function (pos) {
         return this.map.length ? this.binarySearch(this.map, pos) : 0;
     },
 
-    binarySearch: function(sorted, value) {
+    binarySearch: function (sorted, value) {
         var start = 0,
             end = sorted.length;
 

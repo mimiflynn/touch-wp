@@ -8,7 +8,7 @@ Ext.define('Ext.fx.Runner', {
 //        'Ext.fx.runner.CssAnimation'
     ],
 
-    constructor: function() {
+    constructor: function () {
         return new Ext.fx.runner.CssTransition();
     }
 });

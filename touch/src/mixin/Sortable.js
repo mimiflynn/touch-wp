@@ -57,7 +57,7 @@ Ext.define('Ext.mixin.Sortable', {
      */
     sorted: false,
 
-    applySorters: function(sorters, collection) {
+    applySorters: function (sorters, collection) {
         if (!collection) {
             collection = this.createSortersCollection();
         }
@@ -72,8 +72,8 @@ Ext.define('Ext.mixin.Sortable', {
         return collection;
     },
 
-    createSortersCollection: function() {
-        this._sorters = Ext.create('Ext.util.Collection', function(sorter) {
+    createSortersCollection: function () {
+        this._sorters = Ext.create('Ext.util.Collection', function (sorter) {
             return sorter.getId();
         });
         return this._sorters;
@@ -87,7 +87,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {String} defaultDirection The default direction for each sorter in the array. Defaults
      * to the value of {@link #defaultSortDirection}. Can be either 'ASC' or 'DESC'.
      */
-    addSorter: function(sorter, defaultDirection) {
+    addSorter: function (sorter, defaultDirection) {
         this.addSorters([sorter], defaultDirection);
     },
 
@@ -99,7 +99,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {String} defaultDirection The default direction for each sorter in the array. Defaults
      * to the value of {@link #defaultSortDirection}. Can be either 'ASC' or 'DESC'.
      */
-    addSorters: function(sorters, defaultDirection) {
+    addSorters: function (sorters, defaultDirection) {
         var currentSorters = this.getSorters();
         return this.insertSorters(currentSorters ? currentSorters.length : 0, sorters, defaultDirection);
     },
@@ -113,7 +113,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {String} defaultDirection The default direction for each sorter in the array. Defaults
      * to the value of {@link #defaultSortDirection}. Can be either 'ASC' or 'DESC'.
      */
-    insertSorter: function(index, sorter, defaultDirection) {
+    insertSorter: function (index, sorter, defaultDirection) {
         return this.insertSorters(index, [sorter], defaultDirection);
     },
 
@@ -125,7 +125,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {String} defaultDirection The default direction for each sorter in the array. Defaults
      * to the value of {@link #defaultSortDirection}. Can be either 'ASC' or 'DESC'.
      */
-    insertSorters: function(index, sorters, defaultDirection) {
+    insertSorters: function (index, sorters, defaultDirection) {
         // We begin by making sure we are dealing with an array of sorters
         if (!Ext.isArray(sorters)) {
             sorters = [sorters];
@@ -221,7 +221,7 @@ Ext.define('Ext.mixin.Sortable', {
      * a string indicating a property name, an object representing an Ext.util.Sorter configuration,
      * or a sort function.
      */
-    removeSorter: function(sorter) {
+    removeSorter: function (sorter) {
         return this.removeSorters([sorter]);
     },
 
@@ -230,7 +230,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {Array} sorters Each value in the array can be a string (property name),
      * function (sorterFn) or {@link Ext.util.Sorter Sorter} instance.
      */
-    removeSorters: function(sorters) {
+    removeSorters: function (sorters) {
         // We begin by making sure we are dealing with an array of sorters
         if (!Ext.isArray(sorters)) {
             sorters = [sorters];
@@ -247,7 +247,7 @@ Ext.define('Ext.mixin.Sortable', {
                 currentSorters.removeAtKey(sorter);
             }
             else if (typeof sorter === 'function') {
-                currentSorters.each(function(item) {
+                currentSorters.each(function (item) {
                     if (item.getSorterFn() === sorter) {
                         currentSorters.remove(item);
                     }
@@ -268,10 +268,10 @@ Ext.define('Ext.mixin.Sortable', {
      * @return {Function} The generated sort function.
      * @private
      */
-    updateSortFn: function() {
+    updateSortFn: function () {
         var sorters = this.getSorters().items;
 
-        this.sortFn = function(r1, r2) {
+        this.sortFn = function (r1, r2) {
             var ln = sorters.length,
                 result, i;
 
@@ -298,7 +298,7 @@ Ext.define('Ext.mixin.Sortable', {
      * Returns an up to date sort function.
      * @return {Function} The sort function.
      */
-    getSortFn: function() {
+    getSortFn: function () {
         if (this.dirtySortFn) {
             return this.updateSortFn();
         }
@@ -310,7 +310,7 @@ Ext.define('Ext.mixin.Sortable', {
      * @param {Array} data The array you want to have sorted.
      * @return {Array} The array you passed after it is sorted.
      */
-    sort: function(data) {
+    sort: function (data) {
         Ext.Array.sort(data, this.getSortFn());
         return data;
     },
@@ -323,9 +323,9 @@ Ext.define('Ext.mixin.Sortable', {
      * @return {Number} The index for the given item in the given array based on
      * the current sorters.
      */
-    findInsertionIndex: function(items, item, sortFn) {
+    findInsertionIndex: function (items, item, sortFn) {
         var start = 0,
-            end   = items.length - 1,
+            end = items.length - 1,
             sorterFn = sortFn || this.getSortFn(),
             middle,
             comparison;

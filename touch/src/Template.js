@@ -38,7 +38,7 @@ Ext.define('Ext.Template', {
          * @static
          * @inheritable
          */
-        from: function(el, config) {
+        from: function (el, config) {
             el = Ext.getDom(el);
             return new this(el.value || el.innerHTML, config || '');
         }
@@ -73,7 +73,7 @@ Ext.define('Ext.Template', {
      *     new Ext.Template('<div name="{id}">{name}</div>');
      *
      */
-    constructor: function(html) {
+    constructor: function (html) {
         var me = this,
             args = arguments,
             buffer = [],
@@ -82,7 +82,7 @@ Ext.define('Ext.Template', {
             value;
 
         me.initialConfig = {};
-        
+
         // Allow an array to be passed here so we can
         // pass an array of strings and an object
         // at the end
@@ -148,7 +148,7 @@ Ext.define('Ext.Template', {
      *
      * @return {String} The HTML fragment.
      */
-    apply: function(values) {
+    apply: function (values) {
         var me = this,
             useFormat = me.disableFormats !== true,
             fm = Ext.util.Format,
@@ -162,7 +162,7 @@ Ext.define('Ext.Template', {
         function fn(m, name, format, args) {
             if (format && useFormat) {
                 if (args) {
-                    args = [values[name]].concat(Ext.functionFactory('return ['+ args +'];')());
+                    args = [values[name]].concat(Ext.functionFactory('return [' + args + '];')());
                 } else {
                     args = [values[name]];
                 }
@@ -188,7 +188,7 @@ Ext.define('Ext.Template', {
      * @param {Array} out The array to which output is pushed.
      * @return {Array} The given out array.
      */
-    applyOut: function(values, out) {
+    applyOut: function (values, out) {
         var me = this;
 
         if (me.compiled) {
@@ -216,7 +216,7 @@ Ext.define('Ext.Template', {
      * @param {Boolean} compile (optional) `true` to compile the template.
      * @return {Ext.Template} this
      */
-    set: function(html, compile) {
+    set: function (html, compile) {
         var me = this;
         me.html = html;
         me.compiled = null;
@@ -231,7 +231,7 @@ Ext.define('Ext.Template', {
      * Compiles the template into an internal function, eliminating the RegEx overhead.
      * @return {Ext.Template} this
      */
-    compile: function() {
+    compile: function () {
         var me = this,
             fm = Ext.util.Format,
             useFormat = me.disableFormats !== true,
@@ -239,7 +239,7 @@ Ext.define('Ext.Template', {
 
         function fn(m, name, format, args) {
             if (format && useFormat) {
-                args = args ? ',' + args: "";
+                args = args ? ',' + args : "";
                 if (format.substr(0, 5) != "this.") {
                     format = "fm." + format + '(';
                 }
@@ -268,7 +268,7 @@ Ext.define('Ext.Template', {
      * @param {Boolean} returnElement (optional) `true` to return a Ext.Element.
      * @return {HTMLElement/Ext.Element} The new node or Element.
      */
-    insertFirst: function(el, values, returnElement) {
+    insertFirst: function (el, values, returnElement) {
         return this.doInsert('afterBegin', el, values, returnElement);
     },
 
@@ -280,7 +280,7 @@ Ext.define('Ext.Template', {
      * @param {Boolean} returnElement (optional) `true` to return an Ext.Element.
      * @return {HTMLElement/Ext.Element} The new node or Element
      */
-    insertBefore: function(el, values, returnElement) {
+    insertBefore: function (el, values, returnElement) {
         return this.doInsert('beforeBegin', el, values, returnElement);
     },
 
@@ -292,7 +292,7 @@ Ext.define('Ext.Template', {
      * @param {Boolean} returnElement (optional) `true` to return a Ext.Element.
      * @return {HTMLElement/Ext.Element} The new node or Element.
      */
-    insertAfter: function(el, values, returnElement) {
+    insertAfter: function (el, values, returnElement) {
         return this.doInsert('afterEnd', el, values, returnElement);
     },
 
@@ -306,11 +306,11 @@ Ext.define('Ext.Template', {
      * @param {Boolean} returnElement (optional) true to return an Ext.Element.
      * @return {HTMLElement/Ext.Element} The new node or Element.
      */
-    append: function(el, values, returnElement) {
+    append: function (el, values, returnElement) {
         return this.doInsert('beforeEnd', el, values, returnElement);
     },
 
-    doInsert: function(where, el, values, returnElement) {
+    doInsert: function (where, el, values, returnElement) {
         var newNode = Ext.DomHelper.insertHtml(where, Ext.getDom(el), this.apply(values));
         return returnElement ? Ext.get(newNode) : newNode;
     },
@@ -323,7 +323,7 @@ Ext.define('Ext.Template', {
      * @param {Boolean} returnElement (optional) true to return a Ext.Element.
      * @return {HTMLElement/Ext.Element} The new node or Element.
      */
-    overwrite: function(el, values, returnElement) {
+    overwrite: function (el, values, returnElement) {
         var newNode = Ext.DomHelper.overwrite(Ext.getDom(el), this.apply(values));
         return returnElement ? Ext.get(newNode) : newNode;
     }

@@ -4,10 +4,9 @@
 // * @class Global_CSS
 // */
 
-
 @mixin bb-gradient($color, $offset: 2) {
-	background: $color;
-	@include background-image(linear-gradient(top, color-stops(lighten($color, $offset), darken($color, $offset))));
+  background: $color;
+  @include background-image(linear-gradient(top, color-stops(lighten($color, $offset), darken($color, $offset))));
 }
 
 /////**
@@ -80,7 +79,6 @@
 //  @if (lightness($bg-color) > 50) { @include background-gradient(darken($bg-color, $contrast), $style) }
 //  @else { @include background-gradient(lighten($bg-color, $contrast), $style) }
 //}
-
 
 //@mixin readable-color($color, $contrast: 100) {
 //  @if lightness(lighten($color, 100 - $contrast)) > 30 {

@@ -69,7 +69,7 @@ Ext.define('Ext.util.DelayedTask', {
         args: null
     },
 
-    constructor: function(fn, scope, args) {
+    constructor: function (fn, scope, args) {
         var config = {
             fn: fn,
             scope: scope,
@@ -87,7 +87,7 @@ Ext.define('Ext.util.DelayedTask', {
      * is specified, `this` will refer to the browser window.
      * @param {Array} newArgs Overrides the original `args` passed when instantiated.
      */
-    delay: function(delay, newFn, newScope, newArgs) {
+    delay: function (delay, newFn, newScope, newArgs) {
         var me = this;
 
         //cancel any existing queued functions
@@ -112,7 +112,7 @@ Ext.define('Ext.util.DelayedTask', {
         }
 
         //create the callback method for this delayed task
-        var call = function() {
+        var call = function () {
             me.getFn().apply(me.getScope(), me.getArgs() || []);
             me.cancel();
         };
@@ -123,7 +123,7 @@ Ext.define('Ext.util.DelayedTask', {
     /**
      * Cancel the last queued timeout
      */
-    cancel: function() {
+    cancel: function () {
         this.setInterval(null);
     },
 
@@ -131,7 +131,7 @@ Ext.define('Ext.util.DelayedTask', {
      * @private
      * Clears the old interval
      */
-    updateInterval: function(newInterval, oldInterval) {
+    updateInterval: function (newInterval, oldInterval) {
         if (oldInterval) {
             clearInterval(oldInterval);
         }
@@ -141,7 +141,7 @@ Ext.define('Ext.util.DelayedTask', {
      * @private
      * Changes the value into an array if it isn't one.
      */
-    applyArgs: function(config) {
+    applyArgs: function (config) {
         if (!Ext.isArray(config)) {
             config = [config];
         }

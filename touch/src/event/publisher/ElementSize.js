@@ -13,13 +13,13 @@ Ext.define('Ext.event.publisher.ElementSize', {
 
     handledEvents: ['resize'],
 
-    constructor: function() {
+    constructor: function () {
         this.monitors = {};
 
         this.callSuper(arguments);
     },
 
-    subscribe: function(target) {
+    subscribe: function (target) {
         var match = target.match(this.idSelectorRegex),
             subscribers = this.subscribers,
             id, element, sizeMonitor;
@@ -51,7 +51,7 @@ Ext.define('Ext.event.publisher.ElementSize', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         var match = target.match(this.idSelectorRegex),
             subscribers = this.subscribers,
             monitors = this.monitors,
@@ -79,7 +79,7 @@ Ext.define('Ext.event.publisher.ElementSize', {
         return true;
     },
 
-    onElementResize: function(target, element, info) {
+    onElementResize: function (target, element, info) {
         Ext.TaskQueue.requestRead('dispatch', this, [target, 'resize', [element, info]]);
     }
 });

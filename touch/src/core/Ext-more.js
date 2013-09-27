@@ -49,11 +49,11 @@ Ext.apply(Ext, {
     /**
      * Repaints the whole page. This fixes frequently encountered painting issues in mobile Safari.
      */
-    repaint: function() {
+    repaint: function () {
         var mask = Ext.getBody().createChild({
             cls: Ext.baseCSSPrefix + 'mask ' + Ext.baseCSSPrefix + 'mask-transparent'
         });
-        setTimeout(function() {
+        setTimeout(function () {
             mask.destroy();
         }, 0);
     },
@@ -64,7 +64,7 @@ Ext.apply(Ext, {
      * @param {String} [prefix=ext-gen] (optional) The `id` prefix.
      * @return {String} The generated `id`.
      */
-    id: function(el, prefix) {
+    id: function (el, prefix) {
         if (el && el.id) {
             return el.id;
         }
@@ -90,7 +90,7 @@ Ext.apply(Ext, {
      * Returns the current document body as an {@link Ext.Element}.
      * @return {Ext.Element} The document body.
      */
-    getBody: function() {
+    getBody: function () {
         if (!Ext.documentBodyElement) {
             if (!document.body) {
                 throw new Error("[Ext.getBody] document.body does not exist at this point");
@@ -106,7 +106,7 @@ Ext.apply(Ext, {
      * Returns the current document head as an {@link Ext.Element}.
      * @return {Ext.Element} The document head.
      */
-    getHead: function() {
+    getHead: function () {
         if (!Ext.documentHeadElement) {
             Ext.documentHeadElement = Ext.get(document.head || document.getElementsByTagName('head')[0]);
         }
@@ -118,7 +118,7 @@ Ext.apply(Ext, {
      * Returns the current HTML document object as an {@link Ext.Element}.
      * @return {Ext.Element} The document.
      */
-    getDoc: function() {
+    getDoc: function () {
         if (!Ext.documentElement) {
             Ext.documentElement = Ext.get(document);
         }
@@ -132,8 +132,8 @@ Ext.apply(Ext, {
      * @param {String} id The component {@link Ext.Component#getId id}
      * @return {Ext.Component} The Component, `undefined` if not found, or `null` if a
      * Class was found.
-    */
-    getCmp: function(id) {
+     */
+    getCmp: function (id) {
         return Ext.ComponentMgr.get(id);
     },
 
@@ -159,11 +159,11 @@ Ext.apply(Ext, {
      * @param {Boolean} [usePrototypeKeys=false] (optional) Pass `true` to copy keys off of the prototype as well as the instance.
      * @return {Object} The modified object.
      */
-    copyTo : function(dest, source, names, usePrototypeKeys) {
+    copyTo: function (dest, source, names, usePrototypeKeys) {
         if (typeof names == 'string') {
             names = names.split(/[,;\s]/);
         }
-        Ext.each (names, function(name) {
+        Ext.each(names, function (name) {
             if (usePrototypeKeys || source.hasOwnProperty(name)) {
                 dest[name] = source[name];
             }
@@ -179,7 +179,7 @@ Ext.apply(Ext, {
      * call as separate arguments.
      * @param {Mixed...} args An {@link Ext.Element}, {@link Ext.Component}, or an Array of either of these to destroy.
      */
-    destroy: function() {
+    destroy: function () {
         var args = arguments,
             ln = args.length,
             i, item;
@@ -220,7 +220,7 @@ Ext.apply(Ext, {
      * @param {Mixed} el
      * @return {HTMLElement}
      */
-    getDom: function(el) {
+    getDom: function (el) {
         if (!el || !document) {
             return null;
         }
@@ -233,7 +233,7 @@ Ext.apply(Ext, {
      * All DOM event listeners are removed from this element.
      * @param {HTMLElement} node The node to remove.
      */
-    removeNode: function(node) {
+    removeNode: function (node) {
         if (node && node.parentNode && node.tagName != 'BODY') {
             Ext.get(node).clearListeners();
             node.parentNode.removeChild(node);
@@ -291,7 +291,7 @@ Ext.apply(Ext, {
                 xclass: 'Ext.event.publisher.ElementSize'
             }
             //<feature charts>
-            ,seriesItemEvents: {
+            , seriesItemEvents: {
                 xclass: 'Ext.chart.series.ItemPublisher'
             }
             //</feature>
@@ -343,7 +343,7 @@ Ext.apply(Ext, {
     /**
      * @private
      */
-    onSetup: function(fn, scope) {
+    onSetup: function (fn, scope) {
         if (Ext.isSetup) {
             fn.call(scope);
         }
@@ -535,7 +535,7 @@ Ext.apply(Ext, {
      *         }
      *     });
      */
-    setup: function(config) {
+    setup: function (config) {
         var defaultSetupConfig = Ext.defaultSetupConfig,
             emptyFn = Ext.emptyFn,
             onReady = config.onReady || emptyFn,
@@ -546,7 +546,7 @@ Ext.apply(Ext, {
             head = Ext.getHead(),
             callback, viewport, precomposed;
 
-        Ext.setup = function() {
+        Ext.setup = function () {
             throw new Error("Ext.setup has already been called before");
         };
 
@@ -557,7 +557,7 @@ Ext.apply(Ext, {
 
         Ext.require(['Ext.event.Dispatcher']);
 
-        callback = function() {
+        callback = function () {
             var listeners = Ext.setupListeners,
                 ln = listeners.length,
                 i, listener;
@@ -575,10 +575,10 @@ Ext.apply(Ext, {
         };
 
         Ext.onUpdated = onUpdated;
-        Ext.onReady = function(fn, scope) {
+        Ext.onReady = function (fn, scope) {
             var origin = onReady;
 
-            onReady = function() {
+            onReady = function () {
                 origin();
                 Ext.onReady(fn, scope);
             };
@@ -586,8 +586,8 @@ Ext.apply(Ext, {
 
         config = Ext.merge({}, defaultSetupConfig, config);
 
-        Ext.onDocumentReady(function() {
-            Ext.factoryConfig(config, function(data) {
+        Ext.onDocumentReady(function () {
+            Ext.factoryConfig(config, function (data) {
                 Ext.event.Dispatcher.getInstance().setPublishers(data.eventPublishers);
 
                 if (data.logger) {
@@ -605,7 +605,7 @@ Ext.apply(Ext, {
                         scope = viewport;
                     }
 
-                    Ext.require(requires, function() {
+                    Ext.require(requires, function () {
                         Ext.Viewport.on('ready', callback, null, {single: true});
                     });
                 }
@@ -620,10 +620,10 @@ Ext.apply(Ext, {
                     document.createTextNode(
                         "@media screen and (orientation: portrait) {" +
                             "@-ms-viewport {width: 320px !important;}" +
-                        "}" +
-                        "@media screen and (orientation: landscape) {" +
+                            "}" +
+                            "@media screen and (orientation: landscape) {" +
                             "@-ms-viewport {width: 560px !important;}" +
-                        "}"
+                            "}"
                     )
                 );
                 head.appendChild(msViewportStyle);
@@ -950,7 +950,7 @@ Ext.apply(Ext, {
      *         }
      *     });
      */
-    application: function(config) {
+    application: function (config) {
         var appName = config.name,
             onReady, scope, requires;
 
@@ -968,7 +968,7 @@ Ext.apply(Ext, {
         onReady = config.onReady;
         scope = config.scope;
 
-        config.onReady = function() {
+        config.onReady = function () {
             config.requires = requires;
             new Ext.app.Application(config);
 
@@ -986,7 +986,7 @@ Ext.apply(Ext, {
      * @param callback
      * @member Ext
      */
-    factoryConfig: function(config, callback) {
+    factoryConfig: function (config, callback) {
         var isSimpleObject = Ext.isSimpleObject(config);
 
         if (isSimpleObject && config.xclass) {
@@ -994,8 +994,8 @@ Ext.apply(Ext, {
 
             delete config.xclass;
 
-            Ext.require(className, function() {
-                Ext.factoryConfig(config, function(cfg) {
+            Ext.require(className, function () {
+                Ext.factoryConfig(config, function (cfg) {
                     callback(Ext.create(className, cfg));
                 });
             });
@@ -1019,7 +1019,7 @@ Ext.apply(Ext, {
                 }
             }
             else {
-                for (i = 0,ln = config.length; i < ln; i++) {
+                for (i = 0, ln = config.length; i < ln; i++) {
                     value = config[i];
 
                     if (Ext.isSimpleObject(value) || Ext.isArray(value)) {
@@ -1080,7 +1080,7 @@ Ext.apply(Ext, {
      * @param [aliasNamespace]
      * @member Ext
      */
-    factory: function(config, classReference, instance, aliasNamespace) {
+    factory: function (config, classReference, instance, aliasNamespace) {
         var manager = Ext.ClassManager,
             newInstance;
 
@@ -1095,7 +1095,7 @@ Ext.apply(Ext, {
         }
 
         if (aliasNamespace) {
-             // If config is a string value, treat it as an alias
+            // If config is a string value, treat it as an alias
             if (typeof config == 'string') {
                 return manager.instantiateByAlias(aliasNamespace + '.' + config);
             }
@@ -1141,7 +1141,7 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    deprecateClassMember: function(cls, oldName, newName, message) {
+    deprecateClassMember: function (cls, oldName, newName, message) {
         return this.deprecateProperty(cls.prototype, oldName, newName, message);
     },
 
@@ -1149,24 +1149,24 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    deprecateClassMembers: function(cls, members) {
-       var prototype = cls.prototype,
-           oldName, newName;
+    deprecateClassMembers: function (cls, members) {
+        var prototype = cls.prototype,
+            oldName, newName;
 
-       for (oldName in members) {
-           if (members.hasOwnProperty(oldName)) {
-               newName = members[oldName];
+        for (oldName in members) {
+            if (members.hasOwnProperty(oldName)) {
+                newName = members[oldName];
 
-               this.deprecateProperty(prototype, oldName, newName);
-           }
-       }
+                this.deprecateProperty(prototype, oldName, newName);
+            }
+        }
     },
 
     /**
      * @private
      * @member Ext
      */
-    deprecateProperty: function(object, oldName, newName, message) {
+    deprecateProperty: function (object, oldName, newName, message) {
         if (!message) {
             message = "'" + oldName + "' is deprecated";
         }
@@ -1176,13 +1176,13 @@ Ext.apply(Ext, {
 
         if (newName) {
             Ext.Object.defineProperty(object, oldName, {
-                get: function() {
+                get: function () {
                     //<debug warn>
                     Ext.Logger.deprecate(message, 1);
                     //</debug>
                     return this[newName];
                 },
-                set: function(value) {
+                set: function (value) {
                     //<debug warn>
                     Ext.Logger.deprecate(message, 1);
                     //</debug>
@@ -1198,9 +1198,9 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    deprecatePropertyValue: function(object, name, value, message) {
+    deprecatePropertyValue: function (object, name, value, message) {
         Ext.Object.defineProperty(object, name, {
-            get: function() {
+            get: function () {
                 //<debug warn>
                 Ext.Logger.deprecate(message, 1);
                 //</debug>
@@ -1214,8 +1214,8 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    deprecateMethod: function(object, name, method, message) {
-        object[name] = function() {
+    deprecateMethod: function (object, name, method, message) {
+        object[name] = function () {
             //<debug warn>
             Ext.Logger.deprecate(message, 2);
             //</debug>
@@ -1229,7 +1229,7 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    deprecateClassMethod: function(cls, name, method, message) {
+    deprecateClassMethod: function (cls, name, method, message) {
         if (typeof name != 'string') {
             var from, to;
 
@@ -1251,7 +1251,7 @@ Ext.apply(Ext, {
         }
 
         if (isLateBinding) {
-            member = function() {
+            member = function () {
                 //<debug warn>
                 Ext.Logger.deprecate(message, this);
                 //</debug>
@@ -1260,7 +1260,7 @@ Ext.apply(Ext, {
             };
         }
         else {
-            member = function() {
+            member = function () {
                 //<debug warn>
                 Ext.Logger.deprecate(message, this);
                 //</debug>
@@ -1285,12 +1285,12 @@ Ext.apply(Ext, {
      * Useful snippet to show an exact, narrowed-down list of top-level Components that are not yet destroyed.
      * @private
      */
-    showLeaks: function() {
+    showLeaks: function () {
         var map = Ext.ComponentManager.all.map,
             leaks = [],
             parent;
 
-        Ext.Object.each(map, function(id, component) {
+        Ext.Object.each(map, function (id, component) {
             while ((parent = component.getParent()) && map.hasOwnProperty(parent.getId())) {
                 component = parent;
             }
@@ -1310,7 +1310,7 @@ Ext.apply(Ext, {
      * @member Ext
      * @private
      */
-    isReady : false,
+    isReady: false,
 
     /**
      * @private
@@ -1322,14 +1322,14 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    triggerReady: function() {
+    triggerReady: function () {
         var listeners = Ext.readyListeners,
             i, ln, listener;
 
         if (!Ext.isReady) {
             Ext.isReady = true;
 
-            for (i = 0,ln = listeners.length; i < ln; i++) {
+            for (i = 0, ln = listeners.length; i < ln; i++) {
                 listener = listeners[i];
                 listener.fn.call(listener.scope);
             }
@@ -1341,7 +1341,7 @@ Ext.apply(Ext, {
      * @private
      * @member Ext
      */
-    onDocumentReady: function(fn, scope) {
+    onDocumentReady: function (fn, scope) {
         if (Ext.isReady) {
             fn.call(scope);
         }
@@ -1360,28 +1360,28 @@ Ext.apply(Ext, {
                 }
             }
             else {
-                var readyStateRe =  (/MSIE 10/.test(navigator.userAgent)) ? /complete|loaded/ : /interactive|complete|loaded/;
+                var readyStateRe = (/MSIE 10/.test(navigator.userAgent)) ? /complete|loaded/ : /interactive|complete|loaded/;
                 if (document.readyState.match(readyStateRe) !== null) {
                     triggerFn();
                 }
                 else if (!Ext.readyListenerAttached) {
                     Ext.readyListenerAttached = true;
-                    window.addEventListener('DOMContentLoaded', function() {
+                    window.addEventListener('DOMContentLoaded', function () {
                         if (navigator.standalone) {
                             // When running from Home Screen, the splash screen will not disappear until all
                             // external resource requests finish.
                             // The first timeout clears the splash screen
                             // The second timeout allows inital HTML content to be displayed
-                            setTimeout(function() {
-                                setTimeout(function() {
+                            setTimeout(function () {
+                                setTimeout(function () {
                                     triggerFn();
                                 }, 1);
                             }, 1);
                         }
                         else {
-                          setTimeout(function() {
-                              triggerFn();
-                          }, 1);
+                            setTimeout(function () {
+                                triggerFn();
+                            }, 1);
                         }
                     }, false);
                 }
@@ -1397,7 +1397,7 @@ Ext.apply(Ext, {
      * @param {Number} delay (optional) Pass a number to delay the call by a number of milliseconds.
      * @member Ext
      */
-    callback: function(callback, scope, args, delay) {
+    callback: function (callback, scope, args, delay) {
         if (Ext.isFunction(callback)) {
             args = args || [];
             scope = scope || window;
@@ -1412,11 +1412,11 @@ Ext.apply(Ext, {
 
 //<debug>
 Ext.Object.defineProperty(Ext, 'Msg', {
-    get: function() {
+    get: function () {
         Ext.Logger.error("Using Ext.Msg without requiring Ext.MessageBox");
         return null;
     },
-    set: function(value) {
+    set: function (value) {
         Ext.Object.defineProperty(Ext, 'Msg', {
             value: value
         });
@@ -1427,11 +1427,11 @@ Ext.Object.defineProperty(Ext, 'Msg', {
 //</debug>
 
 //<deprecated product=touch since=2.0>
-Ext.deprecateMethod(Ext, 'getOrientation', function() {
+Ext.deprecateMethod(Ext, 'getOrientation', function () {
     return Ext.Viewport.getOrientation();
 }, "Ext.getOrientation() is deprecated, use Ext.Viewport.getOrientation() instead");
 
-Ext.deprecateMethod(Ext, 'log', function(message) {
+Ext.deprecateMethod(Ext, 'log', function (message) {
     return Ext.Logger.log(message);
 }, "Ext.log() is deprecated, please use Ext.Logger.log() instead");
 

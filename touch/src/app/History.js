@@ -34,7 +34,7 @@ Ext.define('Ext.app.History', {
         token: ''
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         if (Ext.feature.has.History) {
             window.addEventListener('hashchange', Ext.bind(this.detectStateChange, this));
         }
@@ -54,7 +54,7 @@ Ext.define('Ext.app.History', {
      * @param {Ext.app.Action} action The Action to add to the stack.
      * @param {Boolean} silent Cancels the firing of the {@link #change} event if `true`.
      */
-    add: function(action, silent) {
+    add: function (action, silent) {
         action = Ext.factory(action, Ext.app.Action);
 
         this.getActions().push(action);
@@ -77,7 +77,7 @@ Ext.define('Ext.app.History', {
     /**
      * Navigate to the previous active action. This changes the page url.
      */
-    back: function() {
+    back: function () {
         var actions = this.getActions(),
             previousAction = actions[actions.length - 2];
 
@@ -94,14 +94,14 @@ Ext.define('Ext.app.History', {
     /**
      * @private
      */
-    applyToken: function(token) {
+    applyToken: function (token) {
         return token[0] == '#' ? token.substr(1) : token;
     },
 
     /**
      * @private
      */
-    detectStateChange: function() {
+    detectStateChange: function () {
         var newToken = this.applyToken(window.location.hash),
             oldToken = this.getToken();
 
@@ -114,7 +114,7 @@ Ext.define('Ext.app.History', {
     /**
      * @private
      */
-    onStateChange: function() {
+    onStateChange: function () {
         this.fireEvent('change', window.location.hash.substr(1));
     }
 });

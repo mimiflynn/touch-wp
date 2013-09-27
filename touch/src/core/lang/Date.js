@@ -13,7 +13,7 @@ Ext.Date = {
      * @private
      * Private for now
      */
-    toString: function(date) {
+    toString: function (date) {
         if (!date) {
             date = new Date();
         }
@@ -31,8 +31,8 @@ Ext.Date = {
 
 //<deprecated product=touch since="2.0">
 Ext.merge(Ext, {
-	util: {
-		Date: Ext.Date
-	}
+    util: {
+        Date: Ext.Date
+    }
 });
 //</deprecated>

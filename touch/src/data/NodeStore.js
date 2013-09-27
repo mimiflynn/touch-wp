@@ -42,7 +42,7 @@ Ext.define('Ext.data.NodeStore', {
         folderSort: false
     },
 
-    afterEdit: function(record, modifiedFields) {
+    afterEdit: function (record, modifiedFields) {
         if (modifiedFields) {
             if (modifiedFields.indexOf('loaded') !== -1) {
                 return this.add(this.retrieveChildNodes(record));
@@ -57,25 +57,25 @@ Ext.define('Ext.data.NodeStore', {
         this.callParent(arguments);
     },
 
-    onNodeAppend: function(parent, node) {
+    onNodeAppend: function (parent, node) {
         this.add([node].concat(this.retrieveChildNodes(node)));
     },
 
-    onNodeInsert: function(parent, node) {
+    onNodeInsert: function (parent, node) {
         this.add([node].concat(this.retrieveChildNodes(node)));
     },
 
-    onNodeRemove: function(parent, node) {
+    onNodeRemove: function (parent, node) {
         this.remove([node].concat(this.retrieveChildNodes(node)));
     },
 
-    onNodeSort: function() {
+    onNodeSort: function () {
         this.sort();
     },
 
-    updateFolderSort: function(folderSort) {
+    updateFolderSort: function (folderSort) {
         if (folderSort) {
-            this.setGrouper(function(node) {
+            this.setGrouper(function (node) {
                 if (node.isLeaf()) {
                     return 1;
                 }
@@ -86,18 +86,18 @@ Ext.define('Ext.data.NodeStore', {
         }
     },
 
-    createDataCollection: function() {
+    createDataCollection: function () {
         var collection = this.callParent();
         collection.handleSort = Ext.Function.bind(this.handleTreeSort, this, [collection], true);
         collection.findInsertionIndex = Ext.Function.bind(this.handleTreeInsertionIndex, this, [collection, collection.findInsertionIndex], true);
         return collection;
     },
 
-    handleTreeInsertionIndex: function(items, item, collection, originalFn) {
+    handleTreeInsertionIndex: function (items, item, collection, originalFn) {
         return originalFn.call(collection, items, item, this.treeSortFn);
     },
 
-    handleTreeSort: function(data) {
+    handleTreeSort: function (data) {
         Ext.Array.sort(data, this.treeSortFn);
         return data;
     },
@@ -113,7 +113,7 @@ Ext.define('Ext.data.NodeStore', {
      * @return {Number}
      * @private
      */
-    treeSortFn: function(node1, node2) {
+    treeSortFn: function (node1, node2) {
         // A shortcut for siblings
         if (node1.parentNode === node2.parentNode) {
             return (node1.data.index < node2.data.index) ? -1 : 1;
@@ -127,11 +127,11 @@ Ext.define('Ext.data.NodeStore', {
             parent2 = node2;
 
         while (parent1) {
-            weight1 += (Math.pow(10, (parent1.data.depth+1) * -4) * (parent1.data.index+1));
+            weight1 += (Math.pow(10, (parent1.data.depth + 1) * -4) * (parent1.data.index + 1));
             parent1 = parent1.parentNode;
         }
         while (parent2) {
-            weight2 += (Math.pow(10, (parent2.data.depth+1) * -4) * (parent2.data.index+1));
+            weight2 += (Math.pow(10, (parent2.data.depth + 1) * -4) * (parent2.data.index + 1));
             parent2 = parent2.parentNode;
         }
 
@@ -143,36 +143,36 @@ Ext.define('Ext.data.NodeStore', {
         return (node1.data.index > node2.data.index) ? 1 : -1;
     },
 
-    applyFilters: function(filters) {
+    applyFilters: function (filters) {
         var me = this;
-        return function(item) {
+        return function (item) {
             return me.isVisible(item);
         };
     },
 
-    applyProxy: function(proxy) {
+    applyProxy: function (proxy) {
         //<debug>
         if (proxy) {
             Ext.Logger.warn("A NodeStore cannot be bound to a proxy. Instead bind it to a record " +
-                            "decorated with the NodeInterface by setting the node config.");
+                "decorated with the NodeInterface by setting the node config.");
         }
         //</debug>
     },
 
-    applyNode: function(node) {
+    applyNode: function (node) {
         if (node) {
             node = Ext.data.NodeInterface.decorate(node);
         }
         return node;
     },
 
-    updateNode: function(node, oldNode) {
+    updateNode: function (node, oldNode) {
         if (oldNode && !oldNode.isDestroyed) {
             oldNode.un({
-                append  : 'onNodeAppend',
-                insert  : 'onNodeInsert',
-                remove  : 'onNodeRemove',
-                load    : 'onNodeLoad',
+                append: 'onNodeAppend',
+                insert: 'onNodeInsert',
+                remove: 'onNodeRemove',
+                load: 'onNodeLoad',
                 scope: this
             });
             oldNode.unjoin(this);
@@ -180,11 +180,11 @@ Ext.define('Ext.data.NodeStore', {
 
         if (node) {
             node.on({
-                scope   : this,
-                append  : 'onNodeAppend',
-                insert  : 'onNodeInsert',
-                remove  : 'onNodeRemove',
-                load    : 'onNodeLoad'
+                scope: this,
+                append: 'onNodeAppend',
+                insert: 'onNodeInsert',
+                remove: 'onNodeRemove',
+                load: 'onNodeLoad'
             });
 
             node.join(this);
@@ -216,7 +216,7 @@ Ext.define('Ext.data.NodeStore', {
      * @param root
      * @return {Array}
      */
-    retrieveChildNodes: function(root) {
+    retrieveChildNodes: function (root) {
         var node = this.getNode(),
             recursive = this.getRecursive(),
             added = [],
@@ -258,7 +258,7 @@ Ext.define('Ext.data.NodeStore', {
      * @param {Object} node
      * @return {Boolean}
      */
-    isVisible: function(node) {
+    isVisible: function (node) {
         var parent = node.parentNode;
 
         if (!this.getRecursive() && parent !== this.getNode()) {

@@ -27,19 +27,19 @@ this file in most cases.
             var sub = ".sencha/workspace/sencha.cfg";
 
             for (var p = f; p; p = p.getParentFile()) {
-                var t = new java.io.File(p, sub);
-                if (t.exists()) {
-                    // we found the workspace folder!
+            var t = new java.io.File(p, sub);
+            if (t.exists()) {
+            // we found the workspace folder!
 
-                    t = new java.io.File(p, "local.properties");
-                    if (t.exists()) {
-                        var loader = project.createTask("property");
-                        loader.setFile(new java.io.File(t.getCanonicalPath()));
-                        loader.execute();
-                    }
+            t = new java.io.File(p, "local.properties");
+            if (t.exists()) {
+            var loader = project.createTask("property");
+            loader.setFile(new java.io.File(t.getCanonicalPath()));
+            loader.execute();
+            }
 
-                    break;
-                }
+            break;
+            }
             }
         </script>
 
@@ -65,7 +65,8 @@ this file in most cases.
         are running for an application.
         -->
         <exec executable="sencha" dir="${basedir}">
-            <arg value="which"/><arg value="-o=$cmddir$"/>
+            <arg value="which"/>
+            <arg value="-o=$cmddir$"/>
         </exec>
 
         <!-- Now read the generated properties file and delete it -->
@@ -80,34 +81,34 @@ this file in most cases.
     -->
     <target name="-before-init"/>
     <target name="-init">
-        <taskdef resource="com/sencha/ant/antlib.xml" 
+        <taskdef resource="com/sencha/ant/antlib.xml"
                  classpath="${cmd.dir}/sencha.jar"
                  loaderref="senchaloader"/>
         <x-sencha-init prefix=""/>
-        
+
         <!-- default the build environment to production if it is unset by this point -->
         <property name="args.environment" value="production"/>
         <property name="CR" value="&#10;"/>
-        
+
         <!-- Some operations require sencha.jar in the Ant classpath -->
         <x-extend-classpath>
             <jar path="${cmd.dir}/sencha.jar"/>
         </x-extend-classpath>
 
         <x-verify-app-cmd-ver/>
-        
+
         <x-load-properties file="${app.config.dir}/${args.environment}.properties" required="0"/>
         <x-load-properties file="${app.config.dir}/build.properties" required="1"/>
     </target>
     <target name="-after-init"/>
-    
+
     <target name="-before-init-default"/>
     <target name="-init-default"/>
     <target name="-after-init-default"/>
-    
+
     <target name="init"
             depends="init-local,find-cmd,-before-init,-init,-after-init,-before-init-default,-init-default,-after-init-default"/>
-    
+
     <!--
     Clean
     -->
@@ -126,10 +127,10 @@ this file in most cases.
     <target name="-before-sass"/>
     <target name="-sass">
         <x-compass-compile
-            trace="true"
-            boring="true"
-            force="true"
-            dir="${app.sass.dir}"/>
+                trace="true"
+                boring="true"
+                force="true"
+                dir="${app.sass.dir}"/>
     </target>
     <target name="-after-sass"/>
     <target name="sass" depends="init" unless="skip.sass"
@@ -138,7 +139,7 @@ this file in most cases.
         <antcall target="-sass"/>
         <antcall target="-after-sass"/>
     </target>
-    
+
     <!--
     Build Page
     -->
@@ -148,15 +149,15 @@ this file in most cases.
         <property name="args.path" location="."/>
         <property name="args.destination" location="${app.build.dir}"/>
         <property name="args.environment" value="production"/>
-        
-        <x-script-def name="x-app-build" 
+
+        <x-script-def name="x-app-build"
                       src="${framework.config.dir}/app-build.js">
             <script src="${cmd.config.dir}/ant/JSON.js"/>
             <script src="${cmd.config.dir}/ant/ant-util.js"/>
         </x-script-def>
-        
+
         <x-app-build/>
-        
+
     </target>
     <target name="-after-page"/>
     <target name="page" depends="init" unless="skip.page"
@@ -178,7 +179,7 @@ this file in most cases.
     <target name="-after-run"/>
     <target name="run" depends="init" unless="skip.run"
             description="Runs an application package using the native packager">
-        
+
         <property name="args.autorun" value="false"/>
         <if>
             <and>

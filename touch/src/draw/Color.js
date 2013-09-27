@@ -53,7 +53,7 @@
             // http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
             return this.r * 0.3 + this.g * 0.59 + this.b * 0.11;
         },
-        
+
         /**
          * Get the equivalent HSL components of the color.
          * @param {Array} [target] Optional array to receive the values.
@@ -304,7 +304,7 @@
              *
              * Can be called with either a CSS color string or with separate
              * arguments for red, green, blue, alpha.
-             * 
+             *
              * @param {Number/String} red Red component (0..255) or CSS color string.
              * @param {Number} [green] Green component (0..255)
              * @param {Number} [blue] Blue component (0..255)
@@ -384,24 +384,24 @@
 
             /**
              * Convenience method for creating a color.
-             * 
+             *
              * Can be called with several different combinations of arguments:
-             * 
+             *
              *     // Ext.draw.Color is returned unchanged.
              *     Ext.draw.Color.create(new Ext.draw.color(255, 0, 0, 0));
-             * 
+             *
              *     // CSS color string.
              *     Ext.draw.Color.create("red");
-             * 
+             *
              *     // Array of red, green, blue, alpha
              *     Ext.draw.Color.create([255, 0, 0, 0]);
-             * 
+             *
              *     // Separate arguments of red, green, blue, alpha
              *     Ext.draw.Color.create(255, 0, 0, 0);
-             * 
+             *
              *     // Returns black when no arguments given.
              *     Ext.draw.Color.create();
-             * 
+             *
              * @param {Ext.draw.Color/String/Number[]/Number} [red] Red component (0..255),
              * CSS color string or array of all components.
              * @param {Number} [green] Green component (0..255)

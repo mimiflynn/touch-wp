@@ -81,7 +81,7 @@
  */
 Ext.define('Ext.picker.Picker', {
     extend: 'Ext.Sheet',
-    alias : 'widget.picker',
+    alias: 'widget.picker',
     alternateClassName: 'Ext.Picker',
     requires: ['Ext.picker.Slot', 'Ext.TitleBar', 'Ext.data.Model'],
 
@@ -176,7 +176,7 @@ Ext.define('Ext.picker.Picker', {
          * @inheritdoc
          */
         layout: {
-            type : 'hbox',
+            type: 'hbox',
             align: 'stretch'
         },
 
@@ -190,7 +190,7 @@ Ext.define('Ext.picker.Picker', {
          * @cfg
          * @inheritdoc
          */
-        left : 0,
+        left: 0,
 
         /**
          * @cfg
@@ -255,30 +255,32 @@ Ext.define('Ext.picker.Picker', {
         }
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        height: '100%',
-        toolbarPosition: 'bottom',
-        toolbar: {
-            xtype: 'toolbar',
-            layout: {
-                type: 'hbox',
-                pack: 'center'
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            height: '100%',
+            toolbarPosition: 'bottom',
+            toolbar: {
+                xtype: 'toolbar',
+                layout: {
+                    type: 'hbox',
+                    pack: 'center'
+                }
+            },
+            doneButton: {
+                iconCls: 'check2',
+                ui: 'round',
+                text: ''
+            },
+            cancelButton: {
+                iconCls: 'delete',
+                ui: 'round',
+                text: ''
             }
-        },
-        doneButton: {
-            iconCls: 'check2',
-            ui: 'round',
-            text: ''
-        },
-        cancelButton: {
-            iconCls: 'delete',
-            ui: 'round',
-            text: ''
         }
-    }],
+    ],
 
-    initialize: function() {
+    initialize: function () {
         var me = this,
             clsPrefix = Ext.baseCSSPrefix,
             innerElement = this.innerElement;
@@ -293,7 +295,7 @@ Ext.define('Ext.picker.Picker', {
         });
 
         me.on({
-            scope   : this,
+            scope: this,
             delegate: 'pickerslot',
             slotpick: 'onSlotPick'
         });
@@ -304,7 +306,7 @@ Ext.define('Ext.picker.Picker', {
     /**
      * @private
      */
-    applyToolbar: function(config) {
+    applyToolbar: function (config) {
         if (config === true) {
             config = {};
         }
@@ -319,7 +321,7 @@ Ext.define('Ext.picker.Picker', {
     /**
      * @private
      */
-    updateToolbar: function(newToolbar, oldToolbar) {
+    updateToolbar: function (newToolbar, oldToolbar) {
         if (newToolbar) {
             this.add(newToolbar);
         }
@@ -334,7 +336,7 @@ Ext.define('Ext.picker.Picker', {
      * @param {Object} config
      * @return {Object}
      */
-    applyDoneButton: function(config) {
+    applyDoneButton: function (config) {
         if (config) {
             if (Ext.isBoolean(config)) {
                 config = {};
@@ -356,7 +358,7 @@ Ext.define('Ext.picker.Picker', {
         return Ext.factory(config, 'Ext.Button', this.getDoneButton());
     },
 
-    updateDoneButton: function(newDoneButton, oldDoneButton) {
+    updateDoneButton: function (newDoneButton, oldDoneButton) {
         var toolbar = this.getToolbar();
 
         if (newDoneButton) {
@@ -372,7 +374,7 @@ Ext.define('Ext.picker.Picker', {
      * @param {Object} config
      * @return {Object}
      */
-    applyCancelButton: function(config) {
+    applyCancelButton: function (config) {
         if (config) {
             if (Ext.isBoolean(config)) {
                 config = {};
@@ -393,7 +395,7 @@ Ext.define('Ext.picker.Picker', {
         return Ext.factory(config, 'Ext.Button', this.getCancelButton());
     },
 
-    updateCancelButton: function(newCancelButton, oldCancelButton) {
+    updateCancelButton: function (newCancelButton, oldCancelButton) {
         var toolbar = this.getToolbar();
 
         if (newCancelButton) {
@@ -407,7 +409,7 @@ Ext.define('Ext.picker.Picker', {
     /**
      * @private
      */
-    updateUseTitles: function(useTitles) {
+    updateUseTitles: function (useTitles) {
         var innerItems = this.getInnerItems(),
             ln = innerItems.length,
             cls = Ext.baseCSSPrefix + 'use-titles',
@@ -430,7 +432,7 @@ Ext.define('Ext.picker.Picker', {
         }
     },
 
-    applySlots: function(slots) {
+    applySlots: function (slots) {
         //loop through each of the slots and add a reference to this picker
         if (slots) {
             var ln = slots.length,
@@ -448,7 +450,7 @@ Ext.define('Ext.picker.Picker', {
      * Adds any new {@link #slots} to this picker, and removes existing {@link #slots}
      * @private
      */
-    updateSlots: function(newSlots) {
+    updateSlots: function (newSlots) {
         var bcss = Ext.baseCSSPrefix,
             innerItems;
 
@@ -471,7 +473,7 @@ Ext.define('Ext.picker.Picker', {
      * @private
      * Called when the done button has been tapped.
      */
-    onDoneButtonTap: function() {
+    onDoneButtonTap: function () {
         var oldValue = this._value,
             newValue = this.getValue(true);
 
@@ -487,7 +489,7 @@ Ext.define('Ext.picker.Picker', {
      * @private
      * Called when the cancel button has been tapped.
      */
-    onCancelButtonTap: function() {
+    onCancelButtonTap: function () {
         this.fireEvent('cancel', this);
         this.hide();
         this.inputBlocker.unblockInputs();
@@ -497,11 +499,11 @@ Ext.define('Ext.picker.Picker', {
      * @private
      * Called when a slot has been picked.
      */
-    onSlotPick: function(slot) {
+    onSlotPick: function (slot) {
         this.fireEvent('pick', this, this.getValue(true), slot);
     },
 
-    show: function() {
+    show: function () {
         if (this.getParent() === undefined) {
             Ext.Viewport.add(this);
         }
@@ -520,7 +522,7 @@ Ext.define('Ext.picker.Picker', {
      * @param {Boolean} animated `true` to animate setting the values.
      * @return {Ext.Picker} this This picker.
      */
-    setValue: function(values, animated) {
+    setValue: function (values, animated) {
         var me = this,
             slots = me.getInnerItems(),
             ln = slots.length,
@@ -559,7 +561,7 @@ Ext.define('Ext.picker.Picker', {
         return me;
     },
 
-    setValueAnimated: function(values) {
+    setValueAnimated: function (values) {
         this.setValue(values, true);
     },
 
@@ -567,7 +569,7 @@ Ext.define('Ext.picker.Picker', {
      * Returns the values of each of the pickers slots
      * @return {Object} The values of the pickers slots
      */
-    getValue: function(useDom) {
+    getValue: function (useDom) {
         var values = {},
             items = this.getItems().items,
             ln = items.length,
@@ -591,15 +593,15 @@ Ext.define('Ext.picker.Picker', {
      * Returns the values of each of the pickers slots.
      * @return {Object} The values of the pickers slots.
      */
-    getValues: function() {
+    getValues: function () {
         return this.getValue();
     },
 
-    destroy: function() {
+    destroy: function () {
         this.callParent();
         Ext.destroy(this.mask, this.bar);
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     /**
      * @member Ext.picker.Picker

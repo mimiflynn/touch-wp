@@ -51,7 +51,7 @@ Ext.define('Ext.event.Event', {
     alternateClassName: 'Ext.EventObject',
     isStopped: false,
 
-    set: function(name, value) {
+    set: function (name, value) {
         if (arguments.length === 1 && typeof name != 'string') {
             var info = name;
 
@@ -70,7 +70,7 @@ Ext.define('Ext.event.Event', {
      * Stop the event (`preventDefault` and `{@link #stopPropagation}`).
      * @chainable
      */
-    stopEvent: function() {
+    stopEvent: function () {
         return this.stopPropagation();
     },
 
@@ -78,7 +78,7 @@ Ext.define('Ext.event.Event', {
      * Cancels bubbling of the event.
      * @chainable
      */
-    stopPropagation: function() {
+    stopPropagation: function () {
         this.isStopped = true;
 
         return this;

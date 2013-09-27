@@ -2,8 +2,9 @@
  * Sencha Blink
  * @author Jacky Nguyen <jacky@sencha.com>
  */
-(function(global) {
-    var emptyFn = function(){},
+(function (global) {
+    var emptyFn = function () {
+        },
         callbacks = [],
         doc = global.document,
         head = doc.head,
@@ -21,7 +22,8 @@
         storage = global.localStorage;
         appCache = global.applicationCache;
     }
-    catch(e) {}
+    catch (e) {
+    }
 
     function getManifestStorageKey(id) {
         return id + '-' + documentUri + manifestFile;
@@ -94,7 +96,7 @@
         }
         Ext.microloaded = true;
 
-        var filterPlatform = window.Ext.filterPlatform = function(platform) {
+        var filterPlatform = window.Ext.filterPlatform = function (platform) {
             var profileMatch = false,
                 ua = navigator.userAgent,
                 j, jln;
@@ -110,9 +112,9 @@
                 // - Android with "Mobile" in the UA
 
                 return /(iPhone|iPod)/.test(ua) ||
-                          (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
-                          (/(BlackBerry|BB)/.test(ua) && isMobile) ||
-                          /(Windows Phone)/.test(ua);
+                    (!/(Silk)/.test(ua) && (/(Android)/.test(ua) && (/(Android 2)/.test(ua) || isMobile))) ||
+                    (/(BlackBerry|BB)/.test(ua) && isMobile) ||
+                    /(Windows Phone)/.test(ua);
             }
 
             function isTablet(ua) {
@@ -173,7 +175,7 @@
             return false;
         };
 
-        this.css = this.css.filter(function(css) {
+        this.css = this.css.filter(function (css) {
             var platform = css.platform;
 
             if (platform) {
@@ -189,7 +191,7 @@
             return true;
         });
 
-        this.js = this.js.filter(function(js) {
+        this.js = this.js.filter(function (js) {
             var platform = js.platform;
 
             if (platform) {
@@ -205,10 +207,10 @@
         });
 
         this.assets = this.css.concat(this.js);
-        this.getAsset = function(uri) {
+        this.getAsset = function (uri) {
             return assetMap[uri];
         };
-        this.store = function() {
+        this.store = function () {
             store(key, manifestContent);
         };
     }
@@ -243,7 +245,7 @@
 
         try {
             xhr.open('GET', uri, true);
-            xhr.onreadystatechange = function() {
+            xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     var status = xhr.status,
                         content = xhr.responseText;
@@ -289,7 +291,7 @@
                 version = asset.version,
                 remoteChecksumBlock;
 
-            onSuccess = function(content) {
+            onSuccess = function (content) {
                 remoteChecksumBlock = content.substring(0, version.length + 4);
 
                 if (remoteChecksumBlock !== '/*' + version + '*/') {
@@ -333,7 +335,7 @@
             return content;
         }
 
-        for (i = 0,ln = delta.length; i < ln; i++) {
+        for (i = 0, ln = delta.length; i < ln; i++) {
             chunk = delta[i];
 
             if (typeof chunk === 'number') {
@@ -360,7 +362,7 @@
         catch (e) {
             if (storage && e.code == e.QUOTA_EXCEEDED_ERR && activeManifest) {
                 // Quota exceeded, clean up unused items
-                var items = activeManifest.assets.map(function(asset) {
+                var items = activeManifest.assets.map(function (asset) {
                         return asset.key;
                     }),
                     i = 0,
@@ -414,7 +416,7 @@
     function refresh() {
         if (!isRefreshing) {
             isRefreshing = true;
-            requestXhr(manifestFile, function(content) {
+            requestXhr(manifestFile, function (content) {
                 new Manifest(content).store();
                 global.location.reload();
             });
@@ -502,8 +504,9 @@
         function onReady() {
             var updatingAssets = [],
                 appCacheReady = false,
-                onAppCacheIdle = function() {},
-                onAppCacheReady = function() {
+                onAppCacheIdle = function () {
+                },
+                onAppCacheReady = function () {
                     appCache.swapCache();
                     appCacheReady = true;
                     onAppCacheIdle();
@@ -517,7 +520,7 @@
             }
             else if (appCache.status == appCache.CHECKING || appCache.status == appCache.DOWNLOADING) {
                 appCache.onupdateready = onAppCacheReady;
-                appCache.onnoupdate = appCache.onobsolete = function() {
+                appCache.onnoupdate = appCache.onobsolete = function () {
                     onAppCacheIdle();
                 };
             }
@@ -542,7 +545,7 @@
             function doUpdate() {
                 newManifest.store();
 
-                updatingAssets.forEach(function(asset) {
+                updatingAssets.forEach(function (asset) {
                     storeAsset(asset, asset.content);
                 });
 
@@ -564,13 +567,13 @@
 
             function checkForUpdate() {
                 removeWindowListener('online', checkForUpdate, false);
-                requestXhr(manifestFile, function(manifestContent) {
+                requestXhr(manifestFile, function (manifestContent) {
                     activeManifest = newManifest = new Manifest(manifestContent);
 
                     var assets = newManifest.assets,
                         currentAsset;
 
-                    assets.forEach(function(asset) {
+                    assets.forEach(function (asset) {
                         currentAsset = currentManifest.getAsset(asset.uri);
 
                         if (!currentAsset || asset.version !== currentAsset.version) {
@@ -590,13 +593,13 @@
                         return;
                     }
 
-                    updatingAssets.forEach(function(asset) {
+                    updatingAssets.forEach(function (asset) {
                         var currentAsset = currentManifest.getAsset(asset.uri),
                             path = asset.path,
                             update = asset.update;
 
                         function updateFull() {
-                            requestAsset(asset, function(content) {
+                            requestAsset(asset, function (content) {
                                 onAssetUpdated(asset, content);
                             });
                         }
@@ -610,7 +613,7 @@
                         }
                         else {
                             requestXhr('deltas/' + path + '/' + currentAsset.version + '.json',
-                                function(content) {
+                                function (content) {
                                     try {
                                         onAssetUpdated(asset, patch(retrieveAsset(asset), jsonParse(content)));
                                     }
@@ -638,16 +641,16 @@
             return;
         }
 
-        currentAssets.forEach(function(asset) {
+        currentAssets.forEach(function (asset) {
             var content = retrieveAsset(asset);
 
             if (content === null) {
-                requestAsset(asset, function(content) {
+                requestAsset(asset, function (content) {
                     if (!asset.remote) {
                         storeAsset(asset, content);
                     }
                     onAssetReady(asset, content);
-                }, function() {
+                }, function () {
                     onAssetReady(asset, '');
                 });
             }
@@ -664,42 +667,42 @@
                 document.createTextNode(
                     "@media screen and (orientation: portrait) {" +
                         "@-ms-viewport {width: 320px !important;}" +
-                    "}" +
-                    "@media screen and (orientation: landscape) {" +
+                        "}" +
+                        "@media screen and (orientation: landscape) {" +
                         "@-ms-viewport {width: 560px !important;}" +
-                    "}"
+                        "}"
                 )
             );
             document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
         }
 
-        var readyStateRe =  (/MSIE 10/.test(navigator.userAgent)) ? /complete|loaded/ : /interactive|complete|loaded/;
+        var readyStateRe = (/MSIE 10/.test(navigator.userAgent)) ? /complete|loaded/ : /interactive|complete|loaded/;
         if (doc.readyState.match(readyStateRe) !== null) {
             blink(manifest);
         }
         else {
-            addWindowListener('DOMContentLoaded', function() {
+            addWindowListener('DOMContentLoaded', function () {
                 if (navigator.standalone) {
                     // When running from Home Screen, the splash screen will not disappear until all
                     // external resource requests finish.
                     // The first timeout clears the splash screen
                     // The second timeout allows inital HTML content to be displayed
-                    setTimeout(function() {
-                        setTimeout(function() {
+                    setTimeout(function () {
+                        setTimeout(function () {
                             blink(manifest);
                         }, 1);
                     }, 1);
                 }
                 else {
-                  setTimeout(function() {
-                    blink(manifest);
-                  }, 1);
+                    setTimeout(function () {
+                        blink(manifest);
+                    }, 1);
                 }
             }, false);
         }
     }
 
-    Ext.blink = function(manifest) {
+    Ext.blink = function (manifest) {
         var manifestContent = retrieve(getManifestStorageKey(manifest.id));
 
         addMeta('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no');
@@ -711,7 +714,7 @@
             blinkOnDomReady(manifest);
         }
         else {
-            requestXhr(manifestFile, function(content) {
+            requestXhr(manifestFile, function (content) {
                 manifest = new Manifest(content);
                 manifest.store();
                 blinkOnDomReady(manifest);

@@ -7,11 +7,11 @@
  * @class Ext.dom.Element
  */
 Ext.dom.Element.addMembers({
-    getParent: function() {
+    getParent: function () {
         return Ext.get(this.dom.parentNode);
     },
 
-    getFirstChild: function() {
+    getFirstChild: function () {
         return Ext.get(this.dom.firstElementChild);
     },
 
@@ -20,7 +20,7 @@ Ext.dom.Element.addMembers({
      * @param {HTMLElement/String} element The element to check.
      * @return {Boolean} `true` if this element is an ancestor of `el`, else `false`.
      */
-    contains: function(element) {
+    contains: function (element) {
         if (!element) {
             return false;
         }
@@ -39,7 +39,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnEl (optional) `true` to return a Ext.Element object instead of DOM node.
      * @return {HTMLElement/null} The matching DOM node (or `null` if no match was found).
      */
-    findParent: function(simpleSelector, maxDepth, returnEl) {
+    findParent: function (simpleSelector, maxDepth, returnEl) {
         var p = this.dom,
             b = document.body,
             depth = 0,
@@ -68,7 +68,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnEl (optional) `true` to return a Ext.Element object instead of DOM node.
      * @return {HTMLElement/null} The matching DOM node (or `null` if no match was found).
      */
-    findParentNode: function(simpleSelector, maxDepth, returnEl) {
+    findParentNode: function (simpleSelector, maxDepth, returnEl) {
         var p = Ext.fly(this.dom.parentNode, '_internal');
         return p ? p.findParent(simpleSelector, maxDepth, returnEl) : null;
     },
@@ -81,7 +81,7 @@ Ext.dom.Element.addMembers({
      * The max depth to search as a number or element (defaults to `10 || document.body`).
      * @return {Ext.dom.Element/null} The matching DOM node (or `null` if no match was found).
      */
-    up: function(simpleSelector, maxDepth) {
+    up: function (simpleSelector, maxDepth) {
         return this.findParentNode(simpleSelector, maxDepth, true);
     },
 
@@ -93,7 +93,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} composite Return a CompositeElement as opposed to a CompositeElementLite. Defaults to false.
      * @return {Ext.dom.CompositeElementLite/Ext.dom.CompositeElement}
      */
-    select: function(selector, composite) {
+    select: function (selector, composite) {
         return Ext.dom.Element.select(selector, composite, this.dom);
     },
 
@@ -102,7 +102,7 @@ Ext.dom.Element.addMembers({
      * @param {String} selector The CSS selector.
      * @return {HTMLElement[]} An array of the matched nodes.
      */
-    query: function(selector) {
+    query: function (selector) {
         return Ext.DomQuery.select(selector, this.dom);
     },
 
@@ -112,7 +112,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [returnDom=false] (optional) `true` to return the DOM node instead of Ext.dom.Element.
      * @return {HTMLElement/Ext.dom.Element} The child Ext.dom.Element (or DOM node if `returnDom` is `true`).
      */
-    down: function(selector, returnDom) {
+    down: function (selector, returnDom) {
         var n = Ext.DomQuery.selectNode(selector, this.dom);
         return returnDom ? n : Ext.get(n);
     },
@@ -123,7 +123,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} [returnDom=false] (optional) `true` to return the DOM node instead of Ext.dom.Element.
      * @return {HTMLElement/Ext.dom.Element} The child Ext.dom.Element (or DOM node if `returnDom` is `true`)
      */
-    child: function(selector, returnDom) {
+    child: function (selector, returnDom) {
         var node,
             me = this,
             id;
@@ -134,23 +134,23 @@ Ext.dom.Element.addMembers({
         return returnDom ? node : Ext.get(node);
     },
 
-     /**
+    /**
      * Gets the parent node for this element, optionally chaining up trying to match a selector.
      * @param {String} selector (optional) Find a parent node that matches the passed simple selector.
      * @param {Boolean} returnDom (optional) `true` to return a raw DOM node instead of an Ext.dom.Element.
      * @return {Ext.dom.Element/HTMLElement/null} The parent node or `null`.
      */
-    parent: function(selector, returnDom) {
+    parent: function (selector, returnDom) {
         return this.matchNode('parentNode', 'parentNode', selector, returnDom);
     },
 
-     /**
+    /**
      * Gets the next sibling, skipping text nodes.
      * @param {String} selector (optional) Find the next sibling that matches the passed simple selector.
      * @param {Boolean} returnDom (optional) `true` to return a raw dom node instead of an Ext.dom.Element.
      * @return {Ext.dom.Element/HTMLElement/null} The next sibling or `null`.
      */
-    next: function(selector, returnDom) {
+    next: function (selector, returnDom) {
         return this.matchNode('nextSibling', 'nextSibling', selector, returnDom);
     },
 
@@ -160,7 +160,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnDom (optional) `true` to return a raw DOM node instead of an Ext.dom.Element
      * @return {Ext.dom.Element/HTMLElement/null} The previous sibling or `null`.
      */
-    prev: function(selector, returnDom) {
+    prev: function (selector, returnDom) {
         return this.matchNode('previousSibling', 'previousSibling', selector, returnDom);
     },
 
@@ -171,7 +171,7 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnDom (optional) `true` to return a raw DOM node instead of an Ext.dom.Element.
      * @return {Ext.dom.Element/HTMLElement/null} The first child or `null`.
      */
-    first: function(selector, returnDom) {
+    first: function (selector, returnDom) {
         return this.matchNode('nextSibling', 'firstChild', selector, returnDom);
     },
 
@@ -181,11 +181,11 @@ Ext.dom.Element.addMembers({
      * @param {Boolean} returnDom (optional) `true` to return a raw DOM node instead of an Ext.dom.Element.
      * @return {Ext.dom.Element/HTMLElement/null} The last child or `null`.
      */
-    last: function(selector, returnDom) {
+    last: function (selector, returnDom) {
         return this.matchNode('previousSibling', 'lastChild', selector, returnDom);
     },
 
-    matchNode: function(dir, start, selector, returnDom) {
+    matchNode: function (dir, start, selector, returnDom) {
         if (!this.dom) {
             return null;
         }
@@ -200,7 +200,7 @@ Ext.dom.Element.addMembers({
         return null;
     },
 
-    isAncestor: function(element) {
+    isAncestor: function (element) {
         return this.self.isAncestor.call(this.self, this.dom, element);
     }
 });

@@ -11,7 +11,7 @@ Ext.define('Ext.util.LineSegment', {
      * @param {Ext.util.Point} point1
      * @param {Ext.util.Point} point2
      */
-    constructor: function(point1, point2) {
+    constructor: function (point1, point2) {
         var Point = Ext.util.Point;
 
         this.point1 = Point.from(point1);
@@ -23,7 +23,7 @@ Ext.define('Ext.util.LineSegment', {
      * @param {Ext.util.LineSegment} lineSegment The line to intersect with.
      * @return {Ext.util.Point}
      */
-    intersects: function(lineSegment) {
+    intersects: function (lineSegment) {
         var point1 = this.point1,
             point2 = this.point2,
             point3 = lineSegment.point1,
@@ -56,11 +56,11 @@ Ext.define('Ext.util.LineSegment', {
         return new Ext.util.Point(xi, yi);
     },
 
-    getLength: function() {
+    getLength: function () {
         return Math.abs(this.point1.getDistanceTo(this.point2));
     },
 
-    getAngleToX: function() {
+    getAngleToX: function () {
         var point1 = this.point1,
             point2 = this.point2,
             deltaY = point2.y - point1.y,
@@ -69,7 +69,7 @@ Ext.define('Ext.util.LineSegment', {
         return Math.atan2(deltaY, deltaX);
     },
 
-    getInBetweenPoint: function(distance) {
+    getInBetweenPoint: function (distance) {
         var point1 = this.point1,
             angle = this.getAngleToX(),
             x = point1.x + Math.cos(angle) * distance,
@@ -82,7 +82,7 @@ Ext.define('Ext.util.LineSegment', {
      * Returns string representation of the line. Useful for debugging.
      * @return {String} For example `Point[12,8] Point[0,0]`
      */
-    toString: function() {
+    toString: function () {
         return this.point1.toString() + " " + this.point2.toString();
     }
 });

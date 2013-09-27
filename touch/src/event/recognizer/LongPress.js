@@ -31,7 +31,7 @@ Ext.define('Ext.event.recognizer.LongPress', {
      * @inheritdoc Ext.dom.Element#longpress
      */
 
-    fireLongPress: function(e) {
+    fireLongPress: function (e) {
         var touch = e.changedTouches[0];
 
         this.fire('longpress', e, [touch], {
@@ -42,7 +42,7 @@ Ext.define('Ext.event.recognizer.LongPress', {
         this.isLongPress = true;
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         var me = this;
 
         if (this.callParent(arguments) === false) {
@@ -51,32 +51,32 @@ Ext.define('Ext.event.recognizer.LongPress', {
 
         this.isLongPress = false;
 
-        this.timer = setTimeout(function() {
+        this.timer = setTimeout(function () {
             me.fireLongPress(e);
         }, this.getMinDuration());
     },
 
-    onTouchMove: function() {
+    onTouchMove: function () {
         return this.fail(this.self.TOUCH_MOVED);
     },
 
-    onTouchEnd: function() {
+    onTouchEnd: function () {
         if (!this.isLongPress) {
             return this.fail(this.self.DURATION_NOT_ENOUGH);
         }
     },
 
-    fail: function() {
+    fail: function () {
         clearTimeout(this.timer);
 
         return this.callParent(arguments);
     }
 
-}, function() {
+}, function () {
     this.override({
         handledEvents: ['longpress', 'taphold'],
 
-        fire: function(eventName) {
+        fire: function (eventName) {
             if (eventName === 'longpress') {
                 var args = Array.prototype.slice.call(arguments);
                 args[0] = 'taphold';

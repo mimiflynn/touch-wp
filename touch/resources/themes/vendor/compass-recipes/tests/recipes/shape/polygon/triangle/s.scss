@@ -1,43 +1,34 @@
 @import "tests";
-
 @import "recipes/shape/polygon/triangle";
 
-.triangle-top
-{
-    @include triangle;
+.triangle-top {
+  @include triangle;
 }
 
-.triangle-bottom
-{
-    @include triangle(bottom);
+.triangle-bottom {
+  @include triangle(bottom);
 }
 
-.triangle-left
-{
-    @include triangle(left);
+.triangle-left {
+  @include triangle(left);
 }
 
-.triangle-right
-{
-    @include triangle(right);
+.triangle-right {
+  @include triangle(right);
 }
 
-.triangle-top-left
-{
-    @include triangle(top-left);
+.triangle-top-left {
+  @include triangle(top-left);
 }
 
-.triangle-top-right
-{
-    @include triangle(top-right);
+.triangle-top-right {
+  @include triangle(top-right);
 }
 
-.triangle-bottom-left
-{
-    @include triangle(bottom-left);
+.triangle-bottom-left {
+  @include triangle(bottom-left);
 }
 
-.triangle-bottom-right
-{
-    @include triangle(bottom-right);
+.triangle-bottom-right {
+  @include triangle(bottom-right);
 }

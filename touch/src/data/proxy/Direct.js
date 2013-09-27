@@ -74,7 +74,7 @@ Ext.define('Ext.data.proxy.Direct', {
          * name of the function, for example: 'MyApp.company.GetProfile'. This can be useful when using dynamic loading. The string
          * will be looked up when the proxy is created.
          */
-        directFn : undefined,
+        directFn: undefined,
 
         /**
          * @cfg {Object} api
@@ -94,18 +94,18 @@ Ext.define('Ext.data.proxy.Direct', {
     // @private
     paramOrderRe: /[\s,|]/,
 
-    applyParamOrder: function(paramOrder) {
+    applyParamOrder: function (paramOrder) {
         if (Ext.isString(paramOrder)) {
             paramOrder = paramOrder.split(this.paramOrderRe);
         }
         return paramOrder;
     },
 
-    applyDirectFn: function(directFn) {
+    applyDirectFn: function (directFn) {
         return Ext.direct.Manager.parseMethod(directFn);
     },
 
-    applyApi: function(api) {
+    applyApi: function (api) {
         var fn;
 
         if (api && Ext.isObject(api)) {
@@ -119,7 +119,7 @@ Ext.define('Ext.data.proxy.Direct', {
         return api;
     },
 
-    doRequest: function(operation, callback, scope) {
+    doRequest: function (operation, callback, scope) {
         var me = this,
             writer = me.getWriter(),
             request = me.buildRequest(operation, callback, scope),
@@ -159,35 +159,35 @@ Ext.define('Ext.data.proxy.Direct', {
      * Inherit docs. We don't apply any encoding here because
      * all of the direct requests go out as jsonData
      */
-    applyEncoding: function(value) {
+    applyEncoding: function (value) {
         return value;
     },
 
-    createRequestCallback: function(request, operation, callback, scope) {
+    createRequestCallback: function (request, operation, callback, scope) {
         var me = this;
 
-        return function(data, event) {
+        return function (data, event) {
             me.processResponse(event.getStatus(), operation, request, event, callback, scope);
         };
     },
 
-    getResponseResult: function(response) {
+    getResponseResult: function (response) {
         return response.getResult();
     },
 
     // @inheritdoc
-    extractResponseData: function(response) {
+    extractResponseData: function (response) {
         var result = response.getResult();
         return Ext.isDefined(result) ? result : response.getData();
     },
 
     // @inheritdoc
-    setException: function(operation, response) {
+    setException: function (operation, response) {
         operation.setException(response.getMessage());
     },
 
     // @inheritdoc
-    buildUrl: function() {
+    buildUrl: function () {
         return '';
     }
 });

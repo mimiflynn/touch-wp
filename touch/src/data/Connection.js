@@ -80,7 +80,7 @@ Ext.define('Ext.data.Connection', {
          * The timeout in milliseconds to be used for requests.
          * @accessor
          */
-        timeout : 30000,
+        timeout: 30000,
 
         /**
          * @cfg {Object} extraParams
@@ -96,8 +96,8 @@ Ext.define('Ext.data.Connection', {
          */
         defaultHeaders: null,
 
-        useDefaultHeader : true,
-        defaultPostHeader : 'application/x-www-form-urlencoded; charset=UTF-8',
+        useDefaultHeader: true,
+        defaultPostHeader: 'application/x-www-form-urlencoded; charset=UTF-8',
 
         /**
          * @cfg {Boolean} useDefaultXhrHeader
@@ -105,14 +105,14 @@ Ext.define('Ext.data.Connection', {
          * This should be set to false when making CORS (cross-domain) requests.
          * @accessor
          */
-        useDefaultXhrHeader : true,
+        useDefaultXhrHeader: true,
 
         /**
          * @cfg {String} defaultXhrHeader
          * The value of the default Xhr header (X-Requested-With). This is only used when {@link #useDefaultXhrHeader}
          * is set to `true`.
          */
-        defaultXhrHeader : 'XMLHttpRequest',
+        defaultXhrHeader: 'XMLHttpRequest',
 
         autoAbort: false
     },
@@ -121,7 +121,7 @@ Ext.define('Ext.data.Connection', {
     multiPartRe: /multipart\/form-data/i,
     lineBreakRe: /\r\n/g,
 
-    constructor : function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         /**
@@ -261,7 +261,7 @@ Ext.define('Ext.data.Connection', {
      *
      * @return {Object/null} The request object. This may be used to cancel the request.
      */
-    request : function(options) {
+    request: function (options) {
         options = options || {};
         var me = this,
             scope = options.scope || window,
@@ -303,7 +303,7 @@ Ext.define('Ext.data.Connection', {
                 headers: headers,
                 options: options,
                 async: async,
-                timeout: setTimeout(function() {
+                timeout: setTimeout(function () {
                     request.timedout = true;
                     me.abort(request);
                 }, options.timeout || me.getTimeout())
@@ -334,7 +334,7 @@ Ext.define('Ext.data.Connection', {
      * @param {String} params Any extra parameters to pass.
      * @param {Object} options The initial options.
      */
-    upload: function(form, url, params, options) {
+    upload: function (form, url, params, options) {
         form = Ext.getDom(form);
         options = options || {};
 
@@ -348,16 +348,16 @@ Ext.define('Ext.data.Connection', {
                 encoding: form.encoding,
                 enctype: form.enctype,
                 action: form.action
-            }, addField = function(name, value) {
-            hiddenItem = document.createElement('input');
-            Ext.fly(hiddenItem).set({
-                type: 'hidden',
-                value: value,
-                name: name
-            });
-            form.appendChild(hiddenItem);
-            hiddens.push(hiddenItem);
-        }, hiddenItem;
+            }, addField = function (name, value) {
+                hiddenItem = document.createElement('input');
+                Ext.fly(hiddenItem).set({
+                    type: 'hidden',
+                    value: value,
+                    name: name
+                });
+                form.appendChild(hiddenItem);
+                hiddens.push(hiddenItem);
+            }, hiddenItem;
 
         /*
          * Originally this behavior was modified for Opera 10 to apply the secure URL after
@@ -388,9 +388,9 @@ Ext.define('Ext.data.Connection', {
 
         // add dynamic params
         if (params) {
-            Ext.iterate(Ext.Object.fromQueryString(params), function(name, value) {
+            Ext.iterate(Ext.Object.fromQueryString(params), function (name, value) {
                 if (Ext.isArray(value)) {
-                    Ext.each(value, function(v) {
+                    Ext.each(value, function (v) {
                         addField(name, v);
                     });
                 } else {
@@ -403,14 +403,14 @@ Ext.define('Ext.data.Connection', {
         form.submit();
 
         Ext.fly(form).set(buf);
-        Ext.each(hiddens, function(h) {
+        Ext.each(hiddens, function (h) {
             Ext.removeNode(h);
         });
     },
 
-    onUploadComplete: function(frame, options) {
+    onUploadComplete: function (frame, options) {
         var me = this,
-            // bogus response object
+        // bogus response object
             response = {
                 responseText: '',
                 responseXML: null
@@ -437,7 +437,7 @@ Ext.define('Ext.data.Connection', {
         Ext.callback(options.success, options.scope, [response, options]);
         Ext.callback(options.callback, options.scope, [options, true, response]);
 
-        setTimeout(function() {
+        setTimeout(function () {
             Ext.removeNode(frame);
         }, 100);
     },
@@ -446,7 +446,7 @@ Ext.define('Ext.data.Connection', {
      * Detects whether the form is intended to be used for an upload.
      * @private
      */
-    isFormUpload: function(options) {
+    isFormUpload: function (options) {
         var form = this.getForm(options);
         if (form) {
             return (options.isUpload || (this.multiPartRe).test(form.getAttribute('enctype')));
@@ -460,7 +460,7 @@ Ext.define('Ext.data.Connection', {
      * @param {Object} options The request options.
      * @return {HTMLElement/null} The form, `null` if not passed.
      */
-    getForm: function(options) {
+    getForm: function (options) {
         return Ext.getDom(options.form) || null;
     },
 
@@ -470,7 +470,7 @@ Ext.define('Ext.data.Connection', {
      * @param {Object} scope The scope to execute in.
      * @return {Object} The params for the request.
      */
-    setOptions: function(options, scope) {
+    setOptions: function (options, scope) {
         var me = this,
             params = options.params || {},
             extraParams = me.getExtraParams(),
@@ -557,7 +557,7 @@ Ext.define('Ext.data.Connection', {
      * @param {String} url
      * @return {String} The modified url
      */
-    setupUrl: function(options, url) {
+    setupUrl: function (options, url) {
         var form = this.getForm(options);
         if (form) {
             url = url || form.action;
@@ -573,7 +573,7 @@ Ext.define('Ext.data.Connection', {
      * @param {String} params
      * @return {String} The modified params.
      */
-    setupParams: function(options, params) {
+    setupParams: function (options, params) {
         var form = this.getForm(options),
             serializedForm;
         if (form && !this.isFormUpload(options)) {
@@ -590,7 +590,7 @@ Ext.define('Ext.data.Connection', {
      * @param {String} method
      * @return {String} The modified method.
      */
-    setupMethod: function(options, method) {
+    setupMethod: function (options, method) {
         if (this.isFormUpload(options)) {
             return 'POST';
         }
@@ -605,7 +605,7 @@ Ext.define('Ext.data.Connection', {
      * @param {Object} data The data for the request.
      * @param {Object} params The params for the request.
      */
-    setupHeaders: function(xhr, options, data, params) {
+    setupHeaders: function (xhr, options, data, params) {
         var me = this,
             headers = Ext.apply({}, options.headers || {}, me.getDefaultHeaders() || {}),
             contentType = me.getDefaultPostHeader(),
@@ -641,7 +641,7 @@ Ext.define('Ext.data.Connection', {
                 }
 
             }
-        } catch(e) {
+        } catch (e) {
             me.fireEvent('exception', key, header);
         }
 
@@ -656,16 +656,16 @@ Ext.define('Ext.data.Connection', {
      * Creates the appropriate XHR transport for the browser.
      * @private
      */
-    getXhrInstance: (function() {
-        var options = [function() {
-            return new XMLHttpRequest();
-        }, function() {
-            return new ActiveXObject('MSXML2.XMLHTTP.3.0');
-        }, function() {
-            return new ActiveXObject('MSXML2.XMLHTTP');
-        }, function() {
-            return new ActiveXObject('Microsoft.XMLHTTP');
-        }], i = 0,
+    getXhrInstance: (function () {
+        var options = [function () {
+                return new XMLHttpRequest();
+            }, function () {
+                return new ActiveXObject('MSXML2.XMLHTTP.3.0');
+            }, function () {
+                return new ActiveXObject('MSXML2.XMLHTTP');
+            }, function () {
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            }], i = 0,
             len = options.length,
             xhr;
 
@@ -674,7 +674,7 @@ Ext.define('Ext.data.Connection', {
                 xhr = options[i];
                 xhr();
                 break;
-            } catch(e) {
+            } catch (e) {
             }
         }
         return xhr;
@@ -685,7 +685,7 @@ Ext.define('Ext.data.Connection', {
      * @param {Object} request The request to check.
      * @return {Boolean} True if there is an outstanding request.
      */
-    isLoading : function(request) {
+    isLoading: function (request) {
         if (!(request && request.xhr)) {
             return false;
         }
@@ -698,7 +698,7 @@ Ext.define('Ext.data.Connection', {
      * Aborts any outstanding request.
      * @param {Object} request (Optional) Defaults to the last request.
      */
-    abort : function(request) {
+    abort: function (request) {
         var me = this,
             requests = me.requests,
             id;
@@ -729,7 +729,7 @@ Ext.define('Ext.data.Connection', {
     /**
      * Aborts all outstanding requests.
      */
-    abortAll: function() {
+    abortAll: function () {
         this.abort();
     },
 
@@ -738,7 +738,7 @@ Ext.define('Ext.data.Connection', {
      * @private
      * @param {Object} request The request
      */
-    onStateChange : function(request) {
+    onStateChange: function (request) {
         if (request.xhr.readyState == 4) {
             this.clearTimeout(request);
             this.onComplete(request);
@@ -751,7 +751,7 @@ Ext.define('Ext.data.Connection', {
      * @private
      * @param {Object} The request
      */
-    clearTimeout: function(request) {
+    clearTimeout: function (request) {
         clearTimeout(request.timeout);
         delete request.timeout;
     },
@@ -761,7 +761,7 @@ Ext.define('Ext.data.Connection', {
      * @private
      * @param {Object} The request.
      */
-    cleanup: function(request) {
+    cleanup: function (request) {
         request.xhr = null;
         delete request.xhr;
     },
@@ -772,7 +772,7 @@ Ext.define('Ext.data.Connection', {
      * @param {Object} request
      * @return {Object} The response.
      */
-    onComplete : function(request) {
+    onComplete: function (request) {
         var me = this,
             options = request.options,
             result,
@@ -788,8 +788,8 @@ Ext.define('Ext.data.Connection', {
         } catch (e) {
             // in some browsers we can't access the status if the readyState is not 4, so the request has failed
             result = {
-                success : false,
-                isException : false
+                success: false,
+                isException: false
             };
         }
         success = result.success;
@@ -818,7 +818,7 @@ Ext.define('Ext.data.Connection', {
      * @param xhr
      * @return {Object} An object containing success/status state.
      */
-    parseStatus: function(status, xhr) {
+    parseStatus: function (status, xhr) {
         // see: https://prototype.lighthouseapp.com/projects/8886/tickets/129-ie-mangles-http-response-status-code-204-to-1223
         status = status == 1223 ? 204 : status;
 
@@ -848,7 +848,7 @@ Ext.define('Ext.data.Connection', {
      * @private
      * @param {Object} request
      */
-    createResponse : function(request) {
+    createResponse: function (request) {
         var xhr = request.xhr,
             headers = {},
             lines, count, line, index, key, response;
@@ -881,17 +881,17 @@ Ext.define('Ext.data.Connection', {
 
         response = {
             request: request,
-            requestId : request.id,
-            status : xhr.status,
-            statusText : xhr.statusText,
-            getResponseHeader : function(header) {
+            requestId: request.id,
+            status: xhr.status,
+            statusText: xhr.statusText,
+            getResponseHeader: function (header) {
                 return headers[header.toLowerCase()];
             },
-            getAllResponseHeaders : function() {
+            getAllResponseHeaders: function () {
                 return headers;
             },
-            responseText : xhr.responseText,
-            responseXML : xhr.responseXML
+            responseText: xhr.responseText,
+            responseXML: xhr.responseXML
         };
 
         // If we don't explicitly tear down the xhr reference, IE6/IE7 will hold this in the closure of the
@@ -905,12 +905,12 @@ Ext.define('Ext.data.Connection', {
      * @private
      * @param {Object} request
      */
-    createException : function(request) {
+    createException: function (request) {
         return {
-            request : request,
-            requestId : request.id,
-            status : request.aborted ? -1 : 0,
-            statusText : request.aborted ? 'transaction aborted' : 'communication failure',
+            request: request,
+            requestId: request.id,
+            status: request.aborted ? -1 : 0,
+            statusText: request.aborted ? 'transaction aborted' : 'communication failure',
             aborted: request.aborted,
             timedout: request.timedout
         };

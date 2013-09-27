@@ -23,7 +23,7 @@ Ext.define('Ext.device.orientation.Abstract', {
      * @param {Object} event.gamma The gamma value of the orientation event
      */
 
-    onDeviceOrientation: function(e) {
+    onDeviceOrientation: function (e) {
         this.doFireEvent('orientationchange', [e]);
     }
 });

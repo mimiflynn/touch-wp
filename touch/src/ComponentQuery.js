@@ -72,35 +72,35 @@
 Ext.define('Ext.ComponentQuery', {
     singleton: true,
     uses: ['Ext.ComponentManager']
-}, function() {
+}, function () {
 
     var cq = this,
 
-        // A function source code pattern with a placeholder which accepts an expression which yields a truth value when applied
-        // as a member on each item in the passed array.
+    // A function source code pattern with a placeholder which accepts an expression which yields a truth value when applied
+    // as a member on each item in the passed array.
         filterFnPattern = [
             'var r = [],',
-                'i = 0,',
-                'it = items,',
-                'l = it.length,',
-                'c;',
+            'i = 0,',
+            'it = items,',
+            'l = it.length,',
+            'c;',
             'for (; i < l; i++) {',
-                'c = it[i];',
-                'if (c.{0}) {',
-                   'r.push(c);',
-                '}',
+            'c = it[i];',
+            'if (c.{0}) {',
+            'r.push(c);',
+            '}',
             '}',
             'return r;'
         ].join(''),
 
-        filterItems = function(items, operation) {
+        filterItems = function (items, operation) {
             // Argument list for the operation is [ itemsArray, operationArg1, operationArg2...]
             // The operation's method loops over each item in the candidate array and
             // returns an array of items which match its criteria
             return operation.method.apply(this, [ items ].concat(operation.args));
         },
 
-        getItems = function(items, mode) {
+        getItems = function (items, mode) {
             var result = [],
                 i = 0,
                 length = items.length,
@@ -116,7 +116,7 @@ Ext.define('Ext.ComponentQuery', {
             return result;
         },
 
-        getAncestors = function(items) {
+        getAncestors = function (items) {
             var result = [],
                 i = 0,
                 length = items.length,
@@ -130,8 +130,8 @@ Ext.define('Ext.ComponentQuery', {
             return result;
         },
 
-        // Filters the passed candidate array and returns only items which match the passed xtype
-        filterByXType = function(items, xtype, shallow) {
+    // Filters the passed candidate array and returns only items which match the passed xtype
+        filterByXType = function (items, xtype, shallow) {
             if (xtype === '*') {
                 return items.slice();
             }
@@ -150,8 +150,8 @@ Ext.define('Ext.ComponentQuery', {
             }
         },
 
-        // Filters the passed candidate array and returns only items which have the passed className
-        filterByClassName = function(items, className) {
+    // Filters the passed candidate array and returns only items which have the passed className
+        filterByClassName = function (items, className) {
             var EA = Ext.Array,
                 result = [],
                 i = 0,
@@ -166,8 +166,8 @@ Ext.define('Ext.ComponentQuery', {
             return result;
         },
 
-        // Filters the passed candidate array and returns only items which have the specified property match
-        filterByAttribute = function(items, property, operator, value) {
+    // Filters the passed candidate array and returns only items which have the specified property match
+        filterByAttribute = function (items, property, operator, value) {
             var result = [],
                 i = 0,
                 length = items.length,
@@ -193,8 +193,8 @@ Ext.define('Ext.ComponentQuery', {
             return result;
         },
 
-        // Filters the passed candidate array and returns only items which have the specified itemId or id
-        filterById = function(items, id) {
+    // Filters the passed candidate array and returns only items which have the specified itemId or id
+        filterById = function (items, id) {
             var result = [],
                 i = 0,
                 length = items.length,
@@ -208,42 +208,48 @@ Ext.define('Ext.ComponentQuery', {
             return result;
         },
 
-        // Filters the passed candidate array and returns only items which the named pseudo class matcher filters in
-        filterByPseudo = function(items, name, value) {
+    // Filters the passed candidate array and returns only items which the named pseudo class matcher filters in
+        filterByPseudo = function (items, name, value) {
             return cq.pseudos[name](items, value);
         },
 
-        // Determines leading mode
-        // > for direct child, and ^ to switch to ownerCt axis
+    // Determines leading mode
+    // > for direct child, and ^ to switch to ownerCt axis
         modeRe = /^(\s?([>\^])\s?|\s|$)/,
 
-        // Matches a token with possibly (true|false) appended for the "shallow" parameter
+    // Matches a token with possibly (true|false) appended for the "shallow" parameter
         tokenRe = /^(#)?([\w\-]+|\*)(?:\((true|false)\))?/,
 
-        matchers = [{
-            // Checks for .xtype with possibly (true|false) appended for the "shallow" parameter
-            re: /^\.([\w\-]+)(?:\((true|false)\))?/,
-            method: filterByXType
-        },{
-            // checks for [attribute=value]
-            re: /^(?:[\[](?:@)?([\w\-]+)\s?(?:(=|.=)\s?['"]?(.*?)["']?)?[\]])/,
-            method: filterByAttribute
-        }, {
-            // checks for #cmpItemId
-            re: /^#([\w\-]+)/,
-            method: filterById
-        }, {
-            // checks for :<pseudo_class>(<selector>)
-            re: /^\:([\w\-]+)(?:\(((?:\{[^\}]+\})|(?:(?!\{)[^\s>\/]*?(?!\})))\))?/,
-            method: filterByPseudo
-        }, {
-            // checks for {<member_expression>}
-            re: /^(?:\{([^\}]+)\})/,
-            method: filterFnPattern
-        }];
+        matchers = [
+            {
+                // Checks for .xtype with possibly (true|false) appended for the "shallow" parameter
+                re: /^\.([\w\-]+)(?:\((true|false)\))?/,
+                method: filterByXType
+            },
+            {
+                // checks for [attribute=value]
+                re: /^(?:[\[](?:@)?([\w\-]+)\s?(?:(=|.=)\s?['"]?(.*?)["']?)?[\]])/,
+                method: filterByAttribute
+            },
+            {
+                // checks for #cmpItemId
+                re: /^#([\w\-]+)/,
+                method: filterById
+            },
+            {
+                // checks for :<pseudo_class>(<selector>)
+                re: /^\:([\w\-]+)(?:\(((?:\{[^\}]+\})|(?:(?!\{)[^\s>\/]*?(?!\})))\))?/,
+                method: filterByPseudo
+            },
+            {
+                // checks for {<member_expression>}
+                re: /^(?:\{([^\}]+)\})/,
+                method: filterFnPattern
+            }
+        ];
 
     cq.Query = Ext.extend(Object, {
-        constructor: function(cfg) {
+        constructor: function (cfg) {
             cfg = cfg || {};
             Ext.apply(this, cfg);
         },
@@ -259,7 +265,7 @@ Ext.define('Ext.ComponentQuery', {
          * docked items within a Panel.
          * root may be an array of candidate Components to filter using this Query.
          */
-        execute : function(root) {
+        execute: function (root) {
             var operations = this.operations,
                 i = 0,
                 length = operations.length,
@@ -298,18 +304,18 @@ Ext.define('Ext.ComponentQuery', {
 
                 // If this is the last operation, it means our current working
                 // items are the final matched items. Thus return them!
-                if (i === length -1) {
+                if (i === length - 1) {
                     return workingItems;
                 }
             }
             return [];
         },
 
-        is: function(component) {
+        is: function (component) {
             var operations = this.operations,
                 components = Ext.isArray(component) ? component : [component],
                 originalLength = components.length,
-                lastOperation = operations[operations.length-1],
+                lastOperation = operations[operations.length - 1],
                 ln, i;
 
             components = filterItems(components, lastOperation);
@@ -334,7 +340,7 @@ Ext.define('Ext.ComponentQuery', {
 
         // private cache of pseudo class filter functions
         pseudos: {
-            not: function(components, selector){
+            not: function (components, selector) {
                 var CQ = Ext.ComponentQuery,
                     i = 0,
                     length = components.length,
@@ -342,7 +348,7 @@ Ext.define('Ext.ComponentQuery', {
                     index = -1,
                     component;
 
-                for(; i < length; ++i) {
+                for (; i < length; ++i) {
                     component = components[i];
                     if (!CQ.is(component, selector)) {
                         results[++index] = component;
@@ -369,7 +375,7 @@ Ext.define('Ext.ComponentQuery', {
          *
          * @member Ext.ComponentQuery
          */
-        query: function(selector, root) {
+        query: function (selector, root) {
             var selectors = selector.split(','),
                 length = selectors.length,
                 i = 0,
@@ -411,7 +417,7 @@ Ext.define('Ext.ComponentQuery', {
          * @return {Boolean} `true` if the Component matches the selector.
          * @member Ext.ComponentQuery
          */
-        is: function(component, selector) {
+        is: function (component, selector) {
             if (!selector) {
                 return true;
             }
@@ -422,7 +428,7 @@ Ext.define('Ext.ComponentQuery', {
             return query.is(component);
         },
 
-        parse: function(selector) {
+        parse: function (selector) {
             var operations = [],
                 length = matchers.length,
                 lastSelector,
@@ -514,7 +520,7 @@ Ext.define('Ext.ComponentQuery', {
                 // ownerCt axis as the candidate source.
                 if (modeMatch[1]) { // Assignment, and test for truthiness!
                     operations.push({
-                        mode: modeMatch[2]||modeMatch[1]
+                        mode: modeMatch[2] || modeMatch[1]
                     });
                     selector = selector.replace(modeMatch[0], '');
                 }

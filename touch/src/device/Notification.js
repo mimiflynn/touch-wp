@@ -30,7 +30,7 @@
  * To make the device vibrate:
  *
  *     Ext.device.Notification.vibrate();
- * 
+ *
  * @mixins Ext.device.notification.Abstract
  *
  * @aside guide native_apis
@@ -45,7 +45,7 @@ Ext.define('Ext.device.Notification', {
         'Ext.device.notification.Simulator'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView) {

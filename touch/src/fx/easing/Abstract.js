@@ -12,13 +12,13 @@ Ext.define('Ext.fx.easing.Abstract', {
 
     isEnded: false,
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         return this;
     },
 
-    applyStartTime: function(startTime) {
+    applyStartTime: function (startTime) {
         if (!startTime) {
             startTime = Ext.Date.now();
         }
@@ -26,11 +26,11 @@ Ext.define('Ext.fx.easing.Abstract', {
         return startTime;
     },
 
-    updateStartTime: function(startTime) {
+    updateStartTime: function (startTime) {
         this.reset();
     },
 
-    reset: function() {
+    reset: function () {
         this.isEnded = false;
     },
 

@@ -142,10 +142,12 @@ Ext.define('Ext.field.Field', {
          */
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        labelAlign: 'top'
-    }],
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            labelAlign: 'top'
+        }
+    ],
 
     cachedConfig: {
         /**
@@ -172,7 +174,7 @@ Ext.define('Ext.field.Field', {
      * @private
      */
 
-    getElementConfig: function() {
+    getElementConfig: function () {
         var prefix = Ext.baseCSSPrefix;
 
         return {
@@ -182,10 +184,12 @@ Ext.define('Ext.field.Field', {
                 {
                     reference: 'label',
                     cls: prefix + 'form-label',
-                    children: [{
-                        reference: 'labelspan',
-                        tag: 'span'
-                    }]
+                    children: [
+                        {
+                            reference: 'labelspan',
+                            tag: 'span'
+                        }
+                    ]
                 },
                 {
                     reference: 'innerElement',
@@ -196,7 +200,7 @@ Ext.define('Ext.field.Field', {
     },
 
     // @private
-    updateLabel: function(newLabel, oldLabel) {
+    updateLabel: function (newLabel, oldLabel) {
         var renderElement = this.renderElement,
             prefix = Ext.baseCSSPrefix;
 
@@ -209,7 +213,7 @@ Ext.define('Ext.field.Field', {
     },
 
     // @private
-    updateLabelAlign: function(newLabelAlign, oldLabelAlign) {
+    updateLabelAlign: function (newLabelAlign, oldLabelAlign) {
         var renderElement = this.renderElement,
             prefix = Ext.baseCSSPrefix;
 
@@ -229,7 +233,7 @@ Ext.define('Ext.field.Field', {
     },
 
     // @private
-    updateLabelCls: function(newLabelCls, oldLabelCls) {
+    updateLabelCls: function (newLabelCls, oldLabelCls) {
         if (newLabelCls) {
             this.label.addCls(newLabelCls);
         }
@@ -240,7 +244,7 @@ Ext.define('Ext.field.Field', {
     },
 
     // @private
-    updateLabelWidth: function(newLabelWidth) {
+    updateLabelWidth: function (newLabelWidth) {
         var labelAlign = this.getLabelAlign();
 
         if (newLabelWidth) {
@@ -253,7 +257,7 @@ Ext.define('Ext.field.Field', {
     },
 
     // @private
-    updateLabelWrap: function(newLabelWrap, oldLabelWrap) {
+    updateLabelWrap: function (newLabelWrap, oldLabelWrap) {
         var cls = Ext.baseCSSPrefix + 'form-label-nowrap';
 
         if (!newLabelWrap) {
@@ -267,7 +271,7 @@ Ext.define('Ext.field.Field', {
      * Updates the {@link #required} configuration.
      * @private
      */
-    updateRequired: function(newRequired) {
+    updateRequired: function (newRequired) {
         this.renderElement[newRequired ? 'addCls' : 'removeCls'](this.getRequiredCls());
     },
 
@@ -275,14 +279,14 @@ Ext.define('Ext.field.Field', {
      * Updates the {@link #required} configuration
      * @private
      */
-    updateRequiredCls: function(newRequiredCls, oldRequiredCls) {
+    updateRequiredCls: function (newRequiredCls, oldRequiredCls) {
         if (this.getRequired()) {
             this.renderElement.replaceCls(oldRequiredCls, newRequiredCls);
         }
     },
 
     // @private
-    initialize: function() {
+    initialize: function () {
         var me = this;
         me.callParent();
 
@@ -292,7 +296,7 @@ Ext.define('Ext.field.Field', {
     /**
      * @private
      */
-    doInitValue: function() {
+    doInitValue: function () {
         /**
          * @property {Mixed} originalValue
          * The original value of the field as configured in the {@link #value} configuration.
@@ -318,7 +322,7 @@ Ext.define('Ext.field.Field', {
      *
      * @return {Ext.field.Field} this
      */
-    reset: function() {
+    reset: function () {
         this.setValue(this.originalValue);
 
         return this;
@@ -329,7 +333,7 @@ Ext.define('Ext.field.Field', {
      * called by {@link Ext.form.Panel}.{@link Ext.form.Panel#setValues setValues} if the form's
      * {@link Ext.form.Panel#trackResetOnLoad trackResetOnLoad} property is set to true.
      */
-    resetOriginalValue: function() {
+    resetOriginalValue: function () {
         this.originalValue = this.getValue();
     },
 
@@ -340,19 +344,19 @@ Ext.define('Ext.field.Field', {
      * @return {Boolean} `true` if this field has been changed from its original value (and
      * is not disabled), `false` otherwise.
      */
-    isDirty: function() {
+    isDirty: function () {
         return false;
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     var prototype = this.prototype;
 
     this.override({
-        constructor: function(config) {
+        constructor: function (config) {
             config = config || {};
 
             // helper method for deprecating a property
-            var deprecateProperty = function(property, obj, newProperty) {
+            var deprecateProperty = function (property, obj, newProperty) {
                 if (config.hasOwnProperty(property)) {
                     if (obj) {
                         config[obj] = config[obj] || {};
@@ -369,7 +373,7 @@ Ext.define('Ext.field.Field', {
                 }
             };
 
-			// See https://sencha.jira.com/browse/TOUCH-1184
+            // See https://sencha.jira.com/browse/TOUCH-1184
 
             /**
              * @member Ext.field.Field
@@ -403,7 +407,7 @@ Ext.define('Ext.field.Field', {
     });
 
     Ext.Object.defineProperty(prototype, 'fieldEl', {
-        get: function() {
+        get: function () {
             //<debug warn>
             Ext.Logger.deprecate("'fieldEl' is deprecated, please use getInput() to get an instance of Ext.field.Field instead", this);
             //</debug>
@@ -413,7 +417,7 @@ Ext.define('Ext.field.Field', {
     });
 
     Ext.Object.defineProperty(prototype, 'labelEl', {
-        get: function() {
+        get: function () {
             //<debug warn>
             Ext.Logger.deprecate("'labelEl' is deprecated", this);
             //</debug>

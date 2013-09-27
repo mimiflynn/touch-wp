@@ -25,7 +25,7 @@
   font-size: 12px;
   position: absolute;
   border-top-left-radius: 4px;
-  white-space:nowrap;
+  white-space: nowrap;
   -webkit-border-top-left-radius: 4px;
 }
 
@@ -78,7 +78,7 @@ $marker-size: .8em !default;
       }
     }
   }
-  
+
   &.x-docked-top, &.x-docked-bottom {
     .x-legend-item {
       border-right: $legend-item-border;
@@ -87,7 +87,7 @@ $marker-size: .8em !default;
       }
     }
   }
-  
+
   &.x-docked-left, &.x-docked-right {
     .x-legend-inner {
       display: -webkit-box;

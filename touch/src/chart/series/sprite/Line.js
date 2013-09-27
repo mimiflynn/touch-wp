@@ -112,31 +112,31 @@ Ext.define("Ext.chart.series.sprite.Line", {
                         x0: x0,
                         y0: y0
                     };
-                    changes = attr.renderer.call(this, this, lineConfig, {store:this.getStore()}, (i/3 + 1));
+                    changes = attr.renderer.call(this, this, lineConfig, {store: this.getStore()}, (i / 3 + 1));
                     ctx.save();
-                        Ext.apply(ctx, changes);
-                        // Fill the area if we need to, using the fill color and transparent strokes.
-                        if (attr.fillArea) {
-                            saveOpacity = ctx.strokeOpacity;
-                            ctx.save();
-                                ctx.strokeOpacity = 0;
-                                ctx.moveTo(x0, y0);
-                                ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x, y);
-                                ctx.lineTo(x, xAxis);
-                                ctx.lineTo(x0, xAxis);
-                                ctx.lineTo(x0, y0);
-                                ctx.closePath();
-                                ctx.fillStroke(attr, true);
-                            ctx.restore();
-                            ctx.strokeOpacity = saveOpacity;
-                            ctx.beginPath();
-                        }
-                        // Draw the line on top of the filled area.
+                    Ext.apply(ctx, changes);
+                    // Fill the area if we need to, using the fill color and transparent strokes.
+                    if (attr.fillArea) {
+                        saveOpacity = ctx.strokeOpacity;
+                        ctx.save();
+                        ctx.strokeOpacity = 0;
                         ctx.moveTo(x0, y0);
                         ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x, y);
-                        ctx.moveTo(x0, y0);
+                        ctx.lineTo(x, xAxis);
+                        ctx.lineTo(x0, xAxis);
+                        ctx.lineTo(x0, y0);
                         ctx.closePath();
-                        ctx.stroke();
+                        ctx.fillStroke(attr, true);
+                        ctx.restore();
+                        ctx.strokeOpacity = saveOpacity;
+                        ctx.beginPath();
+                    }
+                    // Draw the line on top of the filled area.
+                    ctx.moveTo(x0, y0);
+                    ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x, y);
+                    ctx.moveTo(x0, y0);
+                    ctx.closePath();
+                    ctx.stroke();
                     ctx.restore();
                     ctx.beginPath();
                     ctx.moveTo(x, y);
@@ -161,40 +161,40 @@ Ext.define("Ext.chart.series.sprite.Line", {
                         x0: x0,
                         y0: y0
                     };
-                    changes = attr.renderer.call(this, this, lineConfig, {store:this.getStore()}, i/3);
+                    changes = attr.renderer.call(this, this, lineConfig, {store: this.getStore()}, i / 3);
                     ctx.save();
-                        Ext.apply(ctx, changes);
-                        // Fill the area if we need to, using the fill color and transparent strokes.
-                        if (attr.fillArea) {
-                            saveOpacity = ctx.strokeOpacity;
-                            ctx.save();
-                                ctx.strokeOpacity = 0;
-                                if (step) {
-                                    ctx.lineTo(x, y0);
-                                } else {
-                                    ctx.lineTo(x, y);
-                                }
-                                ctx.lineTo(x, xAxis);
-                                ctx.lineTo(x0, xAxis);
-                                ctx.lineTo(x0, y0);
-                                ctx.closePath();
-                                ctx.fillStroke(attr, true);
-                            ctx.restore();
-                            ctx.strokeOpacity = saveOpacity;
-                            ctx.beginPath();
-                        }
-                        // Draw the line (or the 2 lines if 'step') on top of the filled area.
-                        ctx.moveTo(x0, y0);
+                    Ext.apply(ctx, changes);
+                    // Fill the area if we need to, using the fill color and transparent strokes.
+                    if (attr.fillArea) {
+                        saveOpacity = ctx.strokeOpacity;
+                        ctx.save();
+                        ctx.strokeOpacity = 0;
                         if (step) {
                             ctx.lineTo(x, y0);
-                            ctx.closePath();
-                            ctx.stroke();
-                            ctx.beginPath();
-                            ctx.moveTo(x, y0);
+                        } else {
+                            ctx.lineTo(x, y);
                         }
-                        ctx.lineTo(x, y);
+                        ctx.lineTo(x, xAxis);
+                        ctx.lineTo(x0, xAxis);
+                        ctx.lineTo(x0, y0);
+                        ctx.closePath();
+                        ctx.fillStroke(attr, true);
+                        ctx.restore();
+                        ctx.strokeOpacity = saveOpacity;
+                        ctx.beginPath();
+                    }
+                    // Draw the line (or the 2 lines if 'step') on top of the filled area.
+                    ctx.moveTo(x0, y0);
+                    if (step) {
+                        ctx.lineTo(x, y0);
                         ctx.closePath();
                         ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, y0);
+                    }
+                    ctx.lineTo(x, y);
+                    ctx.closePath();
+                    ctx.stroke();
                     ctx.restore();
                     ctx.beginPath();
                     ctx.moveTo(x, y);
@@ -242,7 +242,7 @@ Ext.define("Ext.chart.series.sprite.Line", {
             labelX = region[0] + halfWidth;
         } else if (labelX >= region[2] - halfWidth) {
             labelX = region[2] - halfWidth;
-        } 
+        }
 
         if (labelY <= region[1] + halfHeight) {
             labelY = region[1] + halfHeight;
@@ -308,7 +308,7 @@ Ext.define("Ext.chart.series.sprite.Line", {
                         x: x,
                         y: y
                     };
-                    markerCfg = attr.renderer.call(this, this, markerCfg, {store:this.getStore()}, i/3) || {};
+                    markerCfg = attr.renderer.call(this, this, markerCfg, {store: this.getStore()}, i / 3) || {};
                 }
                 markerCfg.translationX = surfaceMatrix.x(x, y);
                 markerCfg.translationY = surfaceMatrix.y(x, y);

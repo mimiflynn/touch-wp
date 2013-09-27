@@ -15,11 +15,11 @@ Ext.define('Ext.util.TranslatableGroup', {
         }
     },
 
-    applyItems: function(items) {
+    applyItems: function (items) {
         return Ext.Array.from(items);
     },
 
-    doTranslate: function(x, y) {
+    doTranslate: function (x, y) {
         var items = this.getItems(),
             activeIndex = this.getActiveIndex(),
             itemLength = this.getItemLength(),

@@ -9,7 +9,7 @@ Ext.define('Ext.device.Communicator', {
 
     singleton: true,
 
-    constructor: function() {
+    constructor: function () {
         if (Ext.os.is.Android) {
             return new Ext.device.communicator.Android();
         }

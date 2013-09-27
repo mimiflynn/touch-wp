@@ -63,11 +63,11 @@ Ext.define('Ext.direct.Provider', {
      * Fires when the Provider receives an exception from the server-side
      */
 
-    constructor : function(config){
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyId: function(id) {
+    applyId: function (id) {
         if (id === undefined) {
             id = this.getUniqueId();
         }
@@ -79,7 +79,7 @@ Ext.define('Ext.direct.Provider', {
      * Abstract method for subclasses to implement.
      * @return {Boolean}
      */
-    isConnected: function() {
+    isConnected: function () {
         return false;
     },
 

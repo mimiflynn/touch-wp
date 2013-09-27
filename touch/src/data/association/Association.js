@@ -183,7 +183,7 @@ Ext.define('Ext.data.association.Association', {
     },
 
     statics: {
-        create: function(association) {
+        create: function (association) {
             if (!association.isAssociation) {
                 if (Ext.isString(association)) {
                     association = {
@@ -202,18 +202,18 @@ Ext.define('Ext.data.association.Association', {
      * Creates the Association object.
      * @param {Object} config (optional) Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyName: function(name) {
+    applyName: function (name) {
         if (!name) {
             name = this.getAssociatedName();
         }
         return name;
     },
 
-    applyOwnerModel: function(ownerName) {
+    applyOwnerModel: function (ownerName) {
         var ownerModel = Ext.data.ModelManager.getModel(ownerName);
         if (ownerModel === undefined) {
             Ext.Logger.error('The configured ownerModel was not valid (you tried ' + ownerName + ')');
@@ -221,21 +221,21 @@ Ext.define('Ext.data.association.Association', {
         return ownerModel;
     },
 
-    applyOwnerName: function(ownerName) {
+    applyOwnerName: function (ownerName) {
         if (!ownerName) {
             ownerName = this.getOwnerModel().modelName;
         }
-        ownerName = ownerName.slice(ownerName.lastIndexOf('.')+1);
+        ownerName = ownerName.slice(ownerName.lastIndexOf('.') + 1);
         return ownerName;
     },
 
-    updateOwnerModel: function(ownerModel, oldOwnerModel) {
+    updateOwnerModel: function (ownerModel, oldOwnerModel) {
         if (oldOwnerModel) {
             this.setOwnerName(ownerModel.modelName);
         }
     },
 
-    applyAssociatedModel: function(associatedName) {
+    applyAssociatedModel: function (associatedName) {
         var associatedModel = Ext.data.ModelManager.types[associatedName];
         if (associatedModel === undefined) {
             Ext.Logger.error('The configured associatedModel was not valid (you tried ' + associatedName + ')');
@@ -243,21 +243,21 @@ Ext.define('Ext.data.association.Association', {
         return associatedModel;
     },
 
-    applyAssociatedName: function(associatedName) {
+    applyAssociatedName: function (associatedName) {
         if (!associatedName) {
             associatedName = this.getAssociatedModel().modelName;
         }
-        associatedName = associatedName.slice(associatedName.lastIndexOf('.')+1);
+        associatedName = associatedName.slice(associatedName.lastIndexOf('.') + 1);
         return associatedName;
     },
 
-    updateAssociatedModel: function(associatedModel, oldAssociatedModel) {
+    updateAssociatedModel: function (associatedModel, oldAssociatedModel) {
         if (oldAssociatedModel) {
             this.setAssociatedName(associatedModel.modelName);
         }
     },
 
-    applyReader: function(reader) {
+    applyReader: function (reader) {
         if (reader) {
             if (Ext.isString(reader)) {
                 reader = {
@@ -275,13 +275,13 @@ Ext.define('Ext.data.association.Association', {
         return Ext.factory(reader, Ext.data.Reader, this.getReader(), 'reader');
     },
 
-    updateReader: function(reader) {
+    updateReader: function (reader) {
         reader.setModel(this.getAssociatedModel());
     }
 
     // Convert old properties in data into a config object
     // <deprecated product=touch since=2.0>
-    ,onClassExtended: function(cls, data, hooks) {
+    , onClassExtended: function (cls, data, hooks) {
         var Component = this,
             defaultConfig = Component.prototype.config,
             config = data.config || {},

@@ -61,20 +61,23 @@ Ext.define('Ext.Video', {
         cls: Ext.baseCSSPrefix + 'video'
     },
 
-    template: [{
-        /**
-         * @property {Ext.dom.Element} ghost
-         * @private
-         */
-        reference: 'ghost',
-        classList: [Ext.baseCSSPrefix + 'video-ghost']
-    }, {
-        tag: 'video',
-        reference: 'media',
-        classList: [Ext.baseCSSPrefix + 'media']
-    }],
+    template: [
+        {
+            /**
+             * @property {Ext.dom.Element} ghost
+             * @private
+             */
+            reference: 'ghost',
+            classList: [Ext.baseCSSPrefix + 'video-ghost']
+        },
+        {
+            tag: 'video',
+            reference: 'media',
+            classList: [Ext.baseCSSPrefix + 'media']
+        }
+    ],
 
-    initialize: function() {
+    initialize: function () {
         var me = this;
 
         me.callParent();
@@ -101,11 +104,11 @@ Ext.define('Ext.Video', {
         }
     },
 
-    applyUrl: function(url) {
+    applyUrl: function (url) {
         return [].concat(url);
     },
 
-    updateUrl: function(newUrl) {
+    updateUrl: function (newUrl) {
         var me = this,
             media = me.media,
             newLn = newUrl.length,
@@ -130,7 +133,7 @@ Ext.define('Ext.Video', {
         }
     },
 
-    onErased: function() {
+    onErased: function () {
         this.pause();
         this.media.setTop(-2000);
         this.ghost.show();
@@ -140,16 +143,16 @@ Ext.define('Ext.Video', {
      * @private
      * Called when the {@link #ghost} element is tapped.
      */
-    onGhostTap: function() {
+    onGhostTap: function () {
         var me = this,
             media = this.media,
             ghost = this.ghost;
 
         media.show();
         if (Ext.browser.is.AndroidStock2) {
-            setTimeout(function() {
+            setTimeout(function () {
                 me.play();
-                setTimeout(function() {
+                setTimeout(function () {
                     media.hide();
                 }, 10);
             }, 10);
@@ -165,7 +168,7 @@ Ext.define('Ext.Video', {
      * @private
      * native video tag display only, move the media down so we can control the Viewport
      */
-    onPause: function() {
+    onPause: function () {
         this.callParent(arguments);
         if (!this.isInlineVideo) {
             this.media.setTop(-2000);
@@ -177,7 +180,7 @@ Ext.define('Ext.Video', {
      * @private
      * native video tag display only, move the media down so we can control the Viewport
      */
-    onPlay: function() {
+    onPlay: function () {
         this.callParent(arguments);
         this.media.setTop(0);
     },
@@ -186,7 +189,7 @@ Ext.define('Ext.Video', {
      * Updates the URL to the poster, even if it is rendered.
      * @param {Object} newUrl
      */
-    updatePosterUrl: function(newUrl) {
+    updatePosterUrl: function (newUrl) {
         var ghost = this.ghost;
         if (ghost) {
             ghost.setStyle('background-image', 'url(' + newUrl + ')');

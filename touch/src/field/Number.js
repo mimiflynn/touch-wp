@@ -111,7 +111,7 @@ Ext.define('Ext.field.Number', {
         stepValue: null
     },
 
-    doInitValue : function() {
+    doInitValue: function () {
         var value = this.getInitialConfig().value;
 
         if (value) {
@@ -121,7 +121,7 @@ Ext.define('Ext.field.Number', {
         this.originalValue = value;
     },
 
-    applyValue: function(value) {
+    applyValue: function (value) {
         var minValue = this.getMinValue(),
             maxValue = this.getMaxValue();
 
@@ -137,12 +137,12 @@ Ext.define('Ext.field.Number', {
         return (isNaN(value)) ? '' : value;
     },
 
-    getValue: function() {
+    getValue: function () {
         var value = parseFloat(this.callParent(), 10);
         return (isNaN(value)) ? null : value;
     },
 
-    doClearIconTap: function(me, e) {
+    doClearIconTap: function (me, e) {
         me.getComponent().setValue('');
         me.getValue();
         me.hideClearIcon();

@@ -12,7 +12,7 @@ Ext.dom.Element.override({
      * Gets the current X position of the element based on page coordinates.  Element must be part of the DOM tree to have page coordinates (`display:none` or elements not appended return `false`).
      * @return {Number} The X position of the element
      */
-    getX: function(el) {
+    getX: function (el) {
         return this.getXY(el)[0];
     },
 
@@ -20,7 +20,7 @@ Ext.dom.Element.override({
      * Gets the current Y position of the element based on page coordinates.  Element must be part of the DOM tree to have page coordinates (`display:none` or elements not appended return `false`).
      * @return {Number} The Y position of the element
      */
-    getY: function(el) {
+    getY: function (el) {
         return this.getXY(el)[1];
     },
 
@@ -29,7 +29,7 @@ Ext.dom.Element.override({
      * @return {Array} The XY position of the element
      */
 
-    getXY: function() {
+    getXY: function () {
         var rect = this.dom.getBoundingClientRect(),
             round = Math.round;
 
@@ -42,7 +42,7 @@ Ext.dom.Element.override({
      * @param {Mixed} element The element to get the offsets from.
      * @return {Array} The XY page offsets (e.g. [100, -200])
      */
-    getOffsetsTo: function(el) {
+    getOffsetsTo: function (el) {
         var o = this.getXY(),
             e = Ext.fly(el, '_internal').getXY();
         return [o[0] - e[0], o[1] - e[1]];
@@ -53,7 +53,7 @@ Ext.dom.Element.override({
      * @param {Number} x The X position of the element
      * @return {Ext.dom.Element} this
      */
-    setX: function(x) {
+    setX: function (x) {
         return this.setXY([x, this.getY()]);
     },
 
@@ -62,7 +62,7 @@ Ext.dom.Element.override({
      * @param {Number} y The Y position of the element.
      * @return {Ext.dom.Element} this
      */
-    setY: function(y) {
+    setY: function (y) {
         return this.setXY([this.getX(), y]);
     },
 
@@ -72,7 +72,7 @@ Ext.dom.Element.override({
      * @param {Number[]} pos Contains X & Y [x, y] values for new position (coordinates are page-based).
      * @return {Ext.dom.Element} this
      */
-    setXY: function(pos) {
+    setXY: function (pos) {
         var me = this;
 
         if (arguments.length > 1) {
@@ -96,7 +96,7 @@ Ext.dom.Element.override({
      * Gets the left X coordinate.
      * @return {Number}
      */
-    getLeft: function() {
+    getLeft: function () {
         return parseInt(this.getStyle('left'), 10) || 0;
     },
 
@@ -104,7 +104,7 @@ Ext.dom.Element.override({
      * Gets the right X coordinate of the element (element X position + element width).
      * @return {Number}
      */
-    getRight: function() {
+    getRight: function () {
         return parseInt(this.getStyle('right'), 10) || 0;
     },
 
@@ -112,7 +112,7 @@ Ext.dom.Element.override({
      * Gets the top Y coordinate.
      * @return {Number}
      */
-    getTop: function() {
+    getTop: function () {
         return parseInt(this.getStyle('top'), 10) || 0;
     },
 
@@ -120,7 +120,7 @@ Ext.dom.Element.override({
      * Gets the bottom Y coordinate of the element (element Y position + element height).
      * @return {Number}
      */
-    getBottom: function() {
+    getBottom: function () {
         return parseInt(this.getStyle('bottom'), 10) || 0;
     },
 
@@ -130,7 +130,7 @@ Ext.dom.Element.override({
      * @param {Number} y (optional) The page `y`, required if `x` is not an array.
      * @return {Object} An object with `left` and `top` properties. e.g. `{left: (value), top: (value)}`.
      */
-    translatePoints: function(x, y) {
+    translatePoints: function (x, y) {
         y = isNaN(x[1]) ? y : x[1];
         x = isNaN(x[0]) ? x : x[0];
 
@@ -159,7 +159,7 @@ Ext.dom.Element.override({
      *
      * @return {Ext.dom.Element} this
      */
-    setBox: function(box) {
+    setBox: function (box) {
         var me = this,
             width = box.width,
             height = box.height,
@@ -199,7 +199,7 @@ Ext.dom.Element.override({
      * @return {Number} return.bottom The element's lower bound.
      * @return {Number} return.right The element's rightmost bound.
      */
-    getBox: function(contentBox, local) {
+    getBox: function (contentBox, local) {
         var me = this,
             dom = me.dom,
             width = dom.offsetWidth,
@@ -267,7 +267,7 @@ Ext.dom.Element.override({
      * The returned object may also be addressed as an Array where index 0 contains the X position
      * and index 1 contains the Y position. So the result may also be used for {@link #setXY}.
      */
-    getPageBox: function(getRegion) {
+    getPageBox: function (getRegion) {
         var me = this,
             el = me.dom,
             w = el.offsetWidth,

@@ -10,7 +10,7 @@ Ext.define('Ext.draw.Animator', {
     frameCallbacks: {},
     frameCallbackId: 0,
     scheduled: 0,
-    frameStartTimeOffset:Date.now(),
+    frameStartTimeOffset: Date.now(),
     animations: [],
     running: false,
 
@@ -183,7 +183,7 @@ Ext.define('Ext.draw.Animator', {
         }
     },
 
-    handleFrame: function() {
+    handleFrame: function () {
         this.step(this.animationTime());
         this.fireFrameCallbacks();
         if (!this.scheduled && this.empty()) {
@@ -192,7 +192,7 @@ Ext.define('Ext.draw.Animator', {
         }
     },
 
-    ignite: function() {
+    ignite: function () {
         if (!this.running) {
             this.running = true;
             Ext.AnimationQueue.start(this.handleFrame, this);

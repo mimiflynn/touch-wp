@@ -25,20 +25,20 @@ Ext.define('Ext.fx.animation.Wipe', {
         out: false
     },
 
-    refresh: function() {
+    refresh: function () {
         var me = this,
-            el        = me.getElement(),
-            elBox     = el.dom.getBoundingClientRect(),
-            elWidth   = elBox.width,
-            elHeight  = elBox.height,
-            from      = me.getFrom(),
-            to        = me.getTo(),
-            out       = me.getOut(),
+            el = me.getElement(),
+            elBox = el.dom.getBoundingClientRect(),
+            elWidth = elBox.width,
+            elHeight = elBox.height,
+            from = me.getFrom(),
+            to = me.getTo(),
+            out = me.getOut(),
             direction = me.getDirection(),
             maskFromX = 0,
             maskFromY = 0,
-            maskToX   = 0,
-            maskToY   = 0,
+            maskToX = 0,
+            maskToY = 0,
             mask, tmp;
 
         switch (direction) {
@@ -114,7 +114,7 @@ Ext.define('Ext.fx.animation.Wipe', {
         // me.setEasing(out ? 'ease-in' : 'ease-out');
     },
 
-    getData: function() {
+    getData: function () {
         this.refresh();
 
         return this.callParent(arguments);

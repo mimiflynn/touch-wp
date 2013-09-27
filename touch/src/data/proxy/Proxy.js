@@ -91,7 +91,7 @@ Ext.define('Ext.data.proxy.Proxy', {
 
     isProxy: true,
 
-    applyModel: function(model) {
+    applyModel: function (model) {
         if (typeof model == 'string') {
             model = Ext.data.ModelManager.getModel(model);
 
@@ -107,7 +107,7 @@ Ext.define('Ext.data.proxy.Proxy', {
         return model;
     },
 
-    updateModel: function(model) {
+    updateModel: function (model) {
         if (model) {
             var reader = this.getReader();
             if (reader && !reader.getModel()) {
@@ -116,11 +116,11 @@ Ext.define('Ext.data.proxy.Proxy', {
         }
     },
 
-    applyReader: function(reader, currentReader) {
+    applyReader: function (reader, currentReader) {
         return Ext.factory(reader, Ext.data.Reader, currentReader, 'reader');
     },
 
-    updateReader: function(reader) {
+    updateReader: function (reader) {
         if (reader) {
             var model = this.getModel();
             if (!model) {
@@ -133,12 +133,12 @@ Ext.define('Ext.data.proxy.Proxy', {
             }
 
             if (reader.onMetaChange) {
-                 reader.onMetaChange = Ext.Function.createSequence(reader.onMetaChange, this.onMetaChange, this);
+                reader.onMetaChange = Ext.Function.createSequence(reader.onMetaChange, this.onMetaChange, this);
             }
         }
     },
 
-    onMetaChange: function(data) {
+    onMetaChange: function (data) {
         var model = this.getReader().getModel();
         if (!this.getModel() && model) {
             this.setModel(model);
@@ -153,7 +153,7 @@ Ext.define('Ext.data.proxy.Proxy', {
         this.fireEvent('metachange', this, data);
     },
 
-    applyWriter: function(writer, currentWriter) {
+    applyWriter: function (writer, currentWriter) {
         return Ext.factory(writer, Ext.data.Writer, currentWriter, 'writer');
     },
 
@@ -197,7 +197,7 @@ Ext.define('Ext.data.proxy.Proxy', {
      */
     destroy: Ext.emptyFn,
 
-    onDestroy: function() {
+    onDestroy: function () {
         Ext.destroy(this.getReader(), this.getWriter());
         Ext.Evented.prototype.destroy.apply(this, arguments);
     },
@@ -252,7 +252,7 @@ Ext.define('Ext.data.proxy.Proxy', {
      *
      * @return {Ext.data.Batch} The newly created Batch
      */
-    batch: function(options, /* deprecated */listeners) {
+    batch: function (options, /* deprecated */listeners) {
         var me = this,
             useBatch = me.getBatchActions(),
             model = me.getModel(),
@@ -285,25 +285,25 @@ Ext.define('Ext.data.proxy.Proxy', {
             batch.on(options.listeners);
         }
 
-        Ext.each(me.getBatchOrder().split(','), function(action) {
-             records = options.operations[action];
-             if (records) {
-                 if (useBatch) {
-                     batch.add(new Ext.data.Operation({
-                         action: action,
-                         records: records,
-                         model: model
-                     }));
-                 } else {
-                     Ext.each(records, function(record) {
-                         batch.add(new Ext.data.Operation({
-                             action : action,
-                             records: [record],
-                             model: model
-                         }));
-                     });
-                 }
-             }
+        Ext.each(me.getBatchOrder().split(','), function (action) {
+            records = options.operations[action];
+            if (records) {
+                if (useBatch) {
+                    batch.add(new Ext.data.Operation({
+                        action: action,
+                        records: records,
+                        model: model
+                    }));
+                } else {
+                    Ext.each(records, function (record) {
+                        batch.add(new Ext.data.Operation({
+                            action: action,
+                            records: [record],
+                            model: model
+                        }));
+                    });
+                }
+            }
         }, me);
 
         batch.start();
@@ -311,29 +311,29 @@ Ext.define('Ext.data.proxy.Proxy', {
     },
 
     /**
-      * @private
-      * The internal callback that the proxy uses to call any specified user callbacks after completion of a batch
-      */
-    onBatchComplete: function(batchOptions, batch) {
-         var scope = batchOptions.scope || this;
+     * @private
+     * The internal callback that the proxy uses to call any specified user callbacks after completion of a batch
+     */
+    onBatchComplete: function (batchOptions, batch) {
+        var scope = batchOptions.scope || this;
 
-         if (batch.hasException) {
-             if (Ext.isFunction(batchOptions.failure)) {
-                 Ext.callback(batchOptions.failure, scope, [batch, batchOptions]);
-             }
-         } else if (Ext.isFunction(batchOptions.success)) {
-             Ext.callback(batchOptions.success, scope, [batch, batchOptions]);
-         }
+        if (batch.hasException) {
+            if (Ext.isFunction(batchOptions.failure)) {
+                Ext.callback(batchOptions.failure, scope, [batch, batchOptions]);
+            }
+        } else if (Ext.isFunction(batchOptions.success)) {
+            Ext.callback(batchOptions.success, scope, [batch, batchOptions]);
+        }
 
-         if (Ext.isFunction(batchOptions.callback)) {
-             Ext.callback(batchOptions.callback, scope, [batch, batchOptions]);
-         }
+        if (Ext.isFunction(batchOptions.callback)) {
+            Ext.callback(batchOptions.callback, scope, [batch, batchOptions]);
+        }
 
-         Ext.destroy(batch);
+        Ext.destroy(batch);
     }
 
     // <deprecated product=touch since=2.0>
-    ,onClassExtended: function(cls, data) {
+    , onClassExtended: function (cls, data) {
         var prototype = this.prototype,
             defaultConfig = prototype.config,
             config = data.config || {},
@@ -352,7 +352,7 @@ Ext.define('Ext.data.proxy.Proxy', {
         data.config = config;
     }
     // </deprecated>
-}, function() {
+}, function () {
     // Ext.data2.proxy.ProxyMgr.registerType('proxy', this);
 
     //backwards compatibility

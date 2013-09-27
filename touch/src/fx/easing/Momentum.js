@@ -13,7 +13,7 @@ Ext.define('Ext.fx.easing.Momentum', {
 
     alpha: 0,
 
-    updateFriction: function(friction) {
+    updateFriction: function (friction) {
         var theta = Math.log(1 - (friction / 10));
 
         this.theta = theta;
@@ -21,27 +21,27 @@ Ext.define('Ext.fx.easing.Momentum', {
         this.alpha = theta / this.getAcceleration();
     },
 
-    updateStartVelocity: function(velocity) {
+    updateStartVelocity: function (velocity) {
         this.velocity = velocity * this.getAcceleration();
     },
 
-    updateAcceleration: function(acceleration) {
+    updateAcceleration: function (acceleration) {
         this.velocity = this.getStartVelocity() * acceleration;
 
         this.alpha = this.theta / acceleration;
     },
 
-    getValue: function() {
+    getValue: function () {
         return this.getStartValue() - this.velocity * (1 - this.getFrictionFactor()) / this.theta;
     },
 
-    getFrictionFactor: function() {
+    getFrictionFactor: function () {
         var deltaTime = Ext.Date.now() - this.getStartTime();
 
         return Math.exp(deltaTime * this.alpha);
     },
 
-    getVelocity: function() {
+    getVelocity: function () {
         return this.getFrictionFactor() * this.velocity;
     }
 });

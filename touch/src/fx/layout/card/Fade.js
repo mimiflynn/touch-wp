@@ -8,7 +8,7 @@ Ext.define('Ext.fx.layout.card.Fade', {
 
     config: {
         reverse: null,
-        
+
         inAnimation: {
             type: 'fade',
             easing: 'ease-out'

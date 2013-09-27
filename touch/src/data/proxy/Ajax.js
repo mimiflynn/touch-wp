@@ -262,9 +262,9 @@ Ext.define('Ext.data.proxy.Ajax', {
          * The {@link Ext.data.proxy.Rest} maps these to the correct RESTful methods.
          */
         actionMethods: {
-            create : 'POST',
-            read   : 'GET',
-            update : 'POST',
+            create: 'POST',
+            read: 'GET',
+            update: 'POST',
             destroy: 'POST'
         },
 
@@ -283,18 +283,18 @@ Ext.define('Ext.data.proxy.Ajax', {
      * @param scope
      * @return {Object}
      */
-    doRequest: function(operation, callback, scope) {
+    doRequest: function (operation, callback, scope) {
         var me = this,
-            writer  = me.getWriter(),
+            writer = me.getWriter(),
             request = me.buildRequest(operation);
 
         request.setConfig({
-            headers  : me.getHeaders(),
-            timeout  : me.getTimeout(),
-            method   : me.getMethod(request),
-            callback : me.createRequestCallback(request, operation, callback, scope),
-            scope    : me,
-            proxy    : me,
+            headers: me.getHeaders(),
+            timeout: me.getTimeout(),
+            method: me.getMethod(request),
+            callback: me.createRequestCallback(request, operation, callback, scope),
+            scope: me,
+            proxy: me,
             useDefaultXhrHeader: me.getUseDefaultXhrHeader()
         });
 
@@ -318,7 +318,7 @@ Ext.define('Ext.data.proxy.Ajax', {
      * @param {Ext.data.Request} request The request object.
      * @return {String} The HTTP method to use (should be one of 'GET', 'POST', 'PUT' or 'DELETE').
      */
-    getMethod: function(request) {
+    getMethod: function (request) {
         return this.getActionMethods()[request.getAction()];
     },
 
@@ -331,10 +331,10 @@ Ext.define('Ext.data.proxy.Ajax', {
      * @param {Object} scope The scope in which to execute the callback function.
      * @return {Function} The callback function.
      */
-    createRequestCallback: function(request, operation, callback, scope) {
+    createRequestCallback: function (request, operation, callback, scope) {
         var me = this;
 
-        return function(options, success, response) {
+        return function (options, success, response) {
             me.processResponse(success, operation, request, response, callback, scope);
         };
     }

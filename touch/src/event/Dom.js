@@ -7,7 +7,7 @@
 Ext.define('Ext.event.Dom', {
     extend: 'Ext.event.Event',
 
-    constructor: function(event) {
+    constructor: function (event) {
         var target = event.target,
             touches;
 
@@ -55,7 +55,7 @@ Ext.define('Ext.event.Dom', {
      * @property {Number} pageY The browsers y coordinate of the event.
      */
 
-    stopEvent: function() {
+    stopEvent: function () {
         this.preventDefault();
 
         return this.callParent();
@@ -64,7 +64,7 @@ Ext.define('Ext.event.Dom', {
     /**
      * Prevents the browsers default handling of the event.
      */
-    preventDefault: function() {
+    preventDefault: function () {
         this.browserEvent.preventDefault();
     },
 
@@ -73,7 +73,7 @@ Ext.define('Ext.event.Dom', {
      * @deprecated 2.0 Please use {@link #pageX} property directly.
      * @return {Number}
      */
-    getPageX: function() {
+    getPageX: function () {
         return this.pageX || this.browserEvent.pageX;
     },
 
@@ -82,7 +82,7 @@ Ext.define('Ext.event.Dom', {
      * @deprecated 2.0 Please use {@link #pageX} property directly.
      * @return {Number}
      */
-    getPageY: function() {
+    getPageY: function () {
         return this.pageY || this.browserEvent.pageY;
     },
 
@@ -91,7 +91,7 @@ Ext.define('Ext.event.Dom', {
      * @deprecated 2.0 Please use the {@link #pageX} and {@link #pageY} properties directly.
      * @return {Array}
      */
-    getXY: function() {
+    getXY: function () {
         if (!this.xy) {
             this.xy = [this.getPageX(), this.getPageY()];
         }
@@ -112,7 +112,7 @@ Ext.define('Ext.event.Dom', {
      * @param {Boolean} returnEl (optional) `true` to return a Ext.Element object instead of DOM node.
      * @return {HTMLElement}
      */
-    getTarget: function(selector, maxDepth, returnEl) {
+    getTarget: function (selector, maxDepth, returnEl) {
         if (arguments.length === 0) {
             return this.delegatedTarget;
         }
@@ -124,15 +124,15 @@ Ext.define('Ext.event.Dom', {
      * Returns the time of the event.
      * @return {Date}
      */
-    getTime: function() {
+    getTime: function () {
         return this.time;
     },
 
-    setDelegatedTarget: function(target) {
+    setDelegatedTarget: function (target) {
         this.delegatedTarget = target;
     },
 
-    makeUnpreventable: function() {
+    makeUnpreventable: function () {
         this.browserEvent.preventDefault = Ext.emptyFn;
     }
 });

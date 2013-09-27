@@ -9,7 +9,7 @@ Ext.define('Ext.event.ListenerStack', {
 
     length: 0,
 
-    constructor: function() {
+    constructor: function () {
         this.listeners = {
             before: [],
             current: [],
@@ -21,7 +21,7 @@ Ext.define('Ext.event.ListenerStack', {
         return this;
     },
 
-    add: function(fn, scope, options, order) {
+    add: function (fn, scope, options, order) {
         var lateBindingMap = this.lateBindingMap,
             listeners = this.getAll(order),
             i = listeners.length,
@@ -73,11 +73,11 @@ Ext.define('Ext.event.ListenerStack', {
         return true;
     },
 
-    getAt: function(index, order) {
+    getAt: function (index, order) {
         return this.getAll(order)[index];
     },
 
-    getAll: function(order) {
+    getAll: function (order) {
         if (!order) {
             order = this.currentOrder;
         }
@@ -85,11 +85,11 @@ Ext.define('Ext.event.ListenerStack', {
         return this.listeners[order];
     },
 
-    count: function(order) {
+    count: function (order) {
         return this.getAll(order).length;
     },
 
-    create: function(fn, scope, options, order) {
+    create: function (fn, scope, options, order) {
         return {
             stack: this,
             fn: fn,
@@ -102,7 +102,7 @@ Ext.define('Ext.event.ListenerStack', {
         };
     },
 
-    remove: function(fn, scope, order) {
+    remove: function (fn, scope, order) {
         var listeners = this.getAll(order),
             i = listeners.length,
             isRemoved = false,

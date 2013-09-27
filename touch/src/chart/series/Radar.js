@@ -133,7 +133,7 @@ Ext.define('Ext.chart.series.Radar', {
             marker = me.getMarker(),
             item, th, r;
 
-        if(me.getHidden()) {
+        if (me.getHidden()) {
             return null;
         }
         if (sprite && marker) {

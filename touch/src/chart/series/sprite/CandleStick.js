@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.series.sprite.CandleStick
  * @extends Ext.chart.series.sprite.Aggregative
- * 
+ *
  * CandleStick series sprite.
  */
 Ext.define("Ext.chart.series.sprite.CandleStick", {

@@ -429,7 +429,7 @@ Ext.define('Ext.dataview.DataView', {
         scrollToTopOnRefresh: true
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         var me = this,
             layout;
 
@@ -449,7 +449,7 @@ Ext.define('Ext.dataview.DataView', {
         //</debug>
     },
 
-    updateItemCls: function(newCls, oldCls) {
+    updateItemCls: function (newCls, oldCls) {
         var container = this.container;
         if (container) {
             if (oldCls) {
@@ -470,7 +470,7 @@ Ext.define('Ext.dataview.DataView', {
         updaterecord: 'onStoreUpdate'
     },
 
-    initialize: function() {
+    initialize: function () {
         this.callParent();
         var me = this,
             container;
@@ -509,14 +509,14 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    applyInline: function(config) {
+    applyInline: function (config) {
         if (Ext.isObject(config)) {
             config = Ext.apply({}, config);
         }
         return config;
     },
 
-    updateInline: function(newInline, oldInline) {
+    updateInline: function (newInline, oldInline) {
         var baseCls = this.getBaseCls();
         if (oldInline) {
             this.removeCls([baseCls + '-inlineblock', baseCls + '-nowrap']);
@@ -541,12 +541,12 @@ Ext.define('Ext.dataview.DataView', {
      * @return {Array/Object} The formatted data in a format expected by the internal {@link #tpl template}'s `overwrite()` method.
      * (either an array if your params are numeric (i.e. `{0}`) or an object (i.e. `{foo: 'bar'}`))
      */
-    prepareData: function(data, index, record) {
+    prepareData: function (data, index, record) {
         return data;
     },
 
     // apply to the selection model to maintain visual UI cues
-    onContainerTrigger: function(e) {
+    onContainerTrigger: function (e) {
         var me = this;
         if (e.target != me.element.dom) {
             return;
@@ -557,11 +557,11 @@ Ext.define('Ext.dataview.DataView', {
     },
 
     // apply to the selection model to maintain visual UI cues
-    onItemTrigger: function(me, index) {
+    onItemTrigger: function (me, index) {
         this.selectWithEvent(this.getStore().getAt(index));
     },
 
-    doAddPressedCls: function(record) {
+    doAddPressedCls: function (record) {
         var me = this,
             item = me.getItemAt(me.getStore().indexOf(record));
         if (Ext.isElement(item)) {
@@ -576,7 +576,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    onItemTouchStart: function(container, target, index, e) {
+    onItemTouchStart: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -584,7 +584,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireAction('itemtouchstart', [me, index, target, record, e], 'doItemTouchStart');
     },
 
-    doItemTouchStart: function(me, index, target, record) {
+    doItemTouchStart: function (me, index, target, record) {
         var pressedDelay = me.getPressedDelay();
 
         if (record) {
@@ -597,7 +597,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    onItemTouchEnd: function(container, target, index, e) {
+    onItemTouchEnd: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -618,7 +618,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemtouchend', me, index, target, record, e);
     },
 
-    onItemTouchMove: function(container, target, index, e) {
+    onItemTouchMove: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -638,7 +638,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemtouchmove', me, index, target, record, e);
     },
 
-    onItemTap: function(container, target, index, e) {
+    onItemTap: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -646,7 +646,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemtap', me, index, target, record, e);
     },
 
-    onItemTapHold: function(container, target, index, e) {
+    onItemTapHold: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -654,7 +654,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemtaphold', me, index, target, record, e);
     },
 
-    onItemSingleTap: function(container, target, index, e) {
+    onItemSingleTap: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -662,7 +662,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemsingletap', me, index, target, record, e);
     },
 
-    onItemDoubleTap: function(container, target, index, e) {
+    onItemDoubleTap: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -670,7 +670,7 @@ Ext.define('Ext.dataview.DataView', {
         me.fireEvent('itemdoubletap', me, index, target, record, e);
     },
 
-    onItemSwipe: function(container, target, index, e) {
+    onItemSwipe: function (container, target, index, e) {
         var me = this,
             store = me.getStore(),
             record = store && store.getAt(index);
@@ -679,7 +679,7 @@ Ext.define('Ext.dataview.DataView', {
     },
 
     // invoked by the selection model to maintain visual UI cues
-    onItemSelect: function(record, suppressEvent) {
+    onItemSelect: function (record, suppressEvent) {
         var me = this;
         if (suppressEvent) {
             me.doItemSelect(me, record);
@@ -689,7 +689,7 @@ Ext.define('Ext.dataview.DataView', {
     },
 
     // invoked by the selection model to maintain visual UI cues
-    doItemSelect: function(me, record) {
+    doItemSelect: function (me, record) {
         if (me.container && !me.isDestroyed) {
             var item = me.getItemAt(me.getStore().indexOf(record));
             if (Ext.isElement(item)) {
@@ -708,7 +708,7 @@ Ext.define('Ext.dataview.DataView', {
     },
 
     // invoked by the selection model to maintain visual UI cues
-    onItemDeselect: function(record, suppressEvent) {
+    onItemDeselect: function (record, suppressEvent) {
         var me = this;
         if (me.container && !me.isDestroyed) {
             if (suppressEvent) {
@@ -720,7 +720,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    doItemDeselect: function(me, record) {
+    doItemDeselect: function (me, record) {
         var item = me.getItemAt(me.getStore().indexOf(record));
 
         if (Ext.isElement(item)) {
@@ -736,7 +736,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    updateData: function(data) {
+    updateData: function (data) {
         var store = this.getStore();
         if (!store) {
             this.setStore(Ext.create('Ext.data.Store', {
@@ -748,7 +748,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    applyStore: function(store) {
+    applyStore: function (store) {
         var me = this,
             bindEvents = Ext.apply({}, me.storeEventHooks, { scope: me }),
             proxy, reader;
@@ -779,11 +779,11 @@ Ext.define('Ext.dataview.DataView', {
      * Method called when the Store's Reader throws an exception
      * @method handleException
      */
-    handleException: function() {
+    handleException: function () {
         this.setMasked(false);
     },
 
-    updateStore: function(newStore, oldStore) {
+    updateStore: function (newStore, oldStore) {
         var me = this,
             bindEvents = Ext.apply({}, me.storeEventHooks, { scope: me }),
             proxy, reader;
@@ -823,7 +823,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    onBeforeLoad: function() {
+    onBeforeLoad: function () {
         var loadingText = this.getLoadingText();
         if (loadingText && this.isPainted()) {
             this.setMasked({
@@ -835,7 +835,7 @@ Ext.define('Ext.dataview.DataView', {
         this.hideEmptyText();
     },
 
-    updateEmptyText: function(newEmptyText, oldEmptyText) {
+    updateEmptyText: function (newEmptyText, oldEmptyText) {
         var me = this,
             store;
 
@@ -858,7 +858,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    onLoad: function(store) {
+    onLoad: function (store) {
         //remove any masks on the store
         this.hasLoadedStore = true;
         this.setMasked(false);
@@ -871,7 +871,7 @@ Ext.define('Ext.dataview.DataView', {
     /**
      * Refreshes the view by reloading the data from the store and re-rendering the template.
      */
-    refresh: function() {
+    refresh: function () {
         var me = this,
             container = me.container;
 
@@ -886,11 +886,11 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    applyItemTpl: function(config) {
+    applyItemTpl: function (config) {
         return (Ext.isObject(config) && config.isTemplate) ? config : new Ext.XTemplate(config);
     },
 
-    onAfterRender: function() {
+    onAfterRender: function () {
         var me = this;
         me.callParent(arguments);
         me.updateStore(me.getStore());
@@ -901,7 +901,7 @@ Ext.define('Ext.dataview.DataView', {
      * @param {Number} index Index of the item.
      * @return {Ext.dom.Element/Ext.dataview.component.DataItem} item Item at the specified index.
      */
-    getItemAt: function(index) {
+    getItemAt: function (index) {
         return this.getViewItems()[index - this.indexOffset];
     },
 
@@ -910,7 +910,7 @@ Ext.define('Ext.dataview.DataView', {
      * @param {Number} item The item to locate.
      * @return {Number} Index for the specified item.
      */
-    getItemIndex: function(item) {
+    getItemIndex: function (item) {
         var index = this.getViewItems().indexOf(item);
         return (index === -1) ? index : this.indexOffset + index;
     },
@@ -919,11 +919,11 @@ Ext.define('Ext.dataview.DataView', {
      * Returns an array of the current items in the DataView.
      * @return {Ext.dom.Element[]/Ext.dataview.component.DataItem[]} Array of Items.
      */
-    getViewItems: function() {
+    getViewItems: function () {
         return this.container.getViewItems();
     },
 
-    doRefresh: function(me) {
+    doRefresh: function (me) {
         var container = me.container,
             store = me.getStore(),
             records = store.getRange(),
@@ -975,19 +975,19 @@ Ext.define('Ext.dataview.DataView', {
         }
     },
 
-    showEmptyText: function() {
+    showEmptyText: function () {
         if (this.getEmptyText() && (this.hasLoadedStore || !this.getDeferEmptyText())) {
             this.emptyTextCmp.show();
         }
     },
 
-    hideEmptyText: function() {
+    hideEmptyText: function () {
         if (this.getEmptyText()) {
             this.emptyTextCmp.hide();
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var store = this.getStore(),
             proxy = (store && store.getProxy()),
             reader = (proxy && proxy.getReader());
@@ -1003,7 +1003,7 @@ Ext.define('Ext.dataview.DataView', {
         this.setStore(null);
     },
 
-    onStoreClear: function() {
+    onStoreClear: function () {
         var me = this,
             container = me.container,
             items = me.getViewItems();
@@ -1017,7 +1017,7 @@ Ext.define('Ext.dataview.DataView', {
      * @param store
      * @param records
      */
-    onStoreAdd: function(store, records) {
+    onStoreAdd: function (store, records) {
         if (records) {
             this.hideEmptyText();
             this.container.moveItemsFromCache(records);
@@ -1030,7 +1030,7 @@ Ext.define('Ext.dataview.DataView', {
      * @param records
      * @param indices
      */
-    onStoreRemove: function(store, records, indices) {
+    onStoreRemove: function (store, records, indices) {
         var container = this.container,
             ln = records.length,
             i;
@@ -1046,7 +1046,7 @@ Ext.define('Ext.dataview.DataView', {
      * @param {Number} newIndex
      * @param {Number} oldIndex
      */
-    onStoreUpdate: function(store, record, newIndex, oldIndex) {
+    onStoreUpdate: function (store, record, newIndex, oldIndex) {
         var me = this,
             container = me.container,
             item;
@@ -1068,7 +1068,7 @@ Ext.define('Ext.dataview.DataView', {
         }
     }
     //<deprecated product=touch since=2.0>
-}, function() {
+}, function () {
 
     /**
      * @member Ext.dataview.DataView

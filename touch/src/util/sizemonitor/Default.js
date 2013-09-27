@@ -4,9 +4,10 @@
 Ext.define('Ext.util.sizemonitor.Default', {
     extend: 'Ext.util.sizemonitor.Abstract',
 
-    updateElement: function(element) {},
+    updateElement: function (element) {
+    },
 
-    bindListeners: function(bind) {
+    bindListeners: function (bind) {
         var element = this.getElement().dom;
 
         if (!element) {
@@ -21,15 +22,15 @@ Ext.define('Ext.util.sizemonitor.Default', {
         }
     },
 
-    getContentBounds: function() {
-       return this.getElement().dom.getBoundingClientRect();
+    getContentBounds: function () {
+        return this.getElement().dom.getBoundingClientRect();
     },
 
-    getContentWidth: function() {
+    getContentWidth: function () {
         return this.getElement().getWidth();
     },
 
-    getContentHeight: function() {
+    getContentHeight: function () {
         return this.getElement().getHeight();
     }
 });

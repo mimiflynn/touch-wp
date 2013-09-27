@@ -121,7 +121,7 @@ Ext.define('Ext.Anim', {
         'down': 'up'
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = Ext.apply({}, config || {}, this.defaultConfig);
         this.config = config;
 
@@ -130,7 +130,7 @@ Ext.define('Ext.Anim', {
         this.running = [];
     },
 
-    initConfig: function(el, runConfig) {
+    initConfig: function (el, runConfig) {
         var me = this,
             config = Ext.apply({}, runConfig || {}, me.config);
 
@@ -154,7 +154,7 @@ Ext.define('Ext.Anim', {
     /**
      * @ignore
      */
-    run: function(el, config) {
+    run: function (el, config) {
         el = Ext.get(el);
         config = config || {};
 
@@ -197,7 +197,7 @@ Ext.define('Ext.Anim', {
             style[property] = config.from[property];
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             // If this element has been destroyed since the timeout started, do nothing
             if (!el.dom) {
                 return;
@@ -235,7 +235,7 @@ Ext.define('Ext.Anim', {
         return me;
     },
 
-    onTransitionEnd: function(ev, el, o) {
+    onTransitionEnd: function (ev, el, o) {
         el = Ext.get(el);
 
         if (this.running[el.id] === undefined) {
@@ -277,7 +277,7 @@ Ext.define('Ext.Anim', {
 
         delete me.running[el.id];
     }
-}, function() {
+}, function () {
 
     Ext.Anim.seed = 1000;
 
@@ -288,7 +288,7 @@ Ext.define('Ext.Anim', {
      * @param {Object} config The config object for the animation.
      * @method run
      */
-    Ext.Anim.run = function(el, anim, config) {
+    Ext.Anim.run = function (el, anim, config) {
         if (el.isComponent) {
             el = el.element;
         }
@@ -337,7 +337,7 @@ Ext.define('Ext.Anim', {
          */
         fade: new Ext.Anim({
             type: 'fade',
-            before: function(el) {
+            before: function (el) {
                 var fromOpacity = 1,
                     toOpacity = 1,
                     curZ = el.getStyle('z-index') == 'auto' ? 0 : el.getStyle('z-index'),
@@ -371,7 +371,7 @@ Ext.define('Ext.Anim', {
             opacity: false,
             'z-index': false,
 
-            before: function(el) {
+            before: function (el) {
                 var currentZIndex = el.getStyle('z-index') == 'auto' ? 0 : el.getStyle('z-index'),
                     currentOpacity = el.getStyle('opacity'),
                     zIndex = currentZIndex + 1,
@@ -437,7 +437,7 @@ Ext.define('Ext.Anim', {
          */
         pop: new Ext.Anim({
             scaleOnExit: true,
-            before: function(el) {
+            before: function (el) {
                 var fromScale = 1,
                     toScale = 1,
                     fromOpacity = 1,
@@ -483,7 +483,7 @@ Ext.define('Ext.Anim', {
         flip: new Ext.Anim({
             is3d: true,
             direction: 'left',
-            before: function(el) {
+            before: function (el) {
                 var rotateProp = 'Y',
                     fromScale = 1,
                     toScale = 1,
@@ -526,7 +526,7 @@ Ext.define('Ext.Anim', {
             is3d: true,
             direction: 'left',
             style: 'outer',
-            before: function(el) {
+            before: function (el) {
                 var origin = '0% 0%',
                     fromRotate = 0,
                     toRotate = 0,
@@ -565,7 +565,7 @@ Ext.define('Ext.Anim', {
                 if (this.direction == 'down' || this.direction == 'right') {
                     fromRotate *= -1;
                     toRotate *= -1;
-                    origin = (origin == '0% 0%') ? '100% 100%': '0% 0%';
+                    origin = (origin == '0% 0%') ? '100% 100%' : '0% 0%';
                 }
 
                 if (this.style == 'inner') {
@@ -584,7 +584,7 @@ Ext.define('Ext.Anim', {
                 }
 
                 this.from = {
-                    '-webkit-transform': 'rotate' + rotateProp + '(' + fromRotate + 'deg)' + (showTranslateZ ? ' translateZ(' + fromZ + 'px)': '') + fromTranslate,
+                    '-webkit-transform': 'rotate' + rotateProp + '(' + fromRotate + 'deg)' + (showTranslateZ ? ' translateZ(' + fromZ + 'px)' : '') + fromTranslate,
                     '-webkit-transform-origin': origin
                 };
                 this.to = {
@@ -602,7 +602,7 @@ Ext.define('Ext.Anim', {
          * changes or specifically for phone environments. Does not currently accept any parameters.
          */
         wipe: new Ext.Anim({
-            before: function(el) {
+            before: function (el) {
                 var curZ = el.getStyle('z-index'),
                     zIndex,
                     mask = '';

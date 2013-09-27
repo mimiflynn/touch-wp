@@ -48,29 +48,29 @@ Ext.define('Ext.fx.easing.BoundMomentum', {
         startVelocity: 0
     },
 
-    applyMomentum: function(config, currentEasing) {
+    applyMomentum: function (config, currentEasing) {
         return Ext.factory(config, Ext.fx.easing.Momentum, currentEasing);
     },
 
-    applyBounce: function(config, currentEasing) {
+    applyBounce: function (config, currentEasing) {
         return Ext.factory(config, Ext.fx.easing.Bounce, currentEasing);
     },
 
-    updateStartTime: function(startTime) {
+    updateStartTime: function (startTime) {
         this.getMomentum().setStartTime(startTime);
 
         this.callParent(arguments);
     },
 
-    updateStartVelocity: function(startVelocity) {
+    updateStartVelocity: function (startVelocity) {
         this.getMomentum().setStartVelocity(startVelocity);
     },
 
-    updateStartValue: function(startValue) {
+    updateStartValue: function (startValue) {
         this.getMomentum().setStartValue(startValue);
     },
 
-    reset: function() {
+    reset: function () {
         this.lastValue = null;
 
         this.isBouncingBack = false;
@@ -80,7 +80,7 @@ Ext.define('Ext.fx.easing.BoundMomentum', {
         return this.callParent(arguments);
     },
 
-    getValue: function() {
+    getValue: function () {
         var momentum = this.getMomentum(),
             bounce = this.getBounce(),
             startVelocity = momentum.getStartVelocity(),
@@ -110,8 +110,8 @@ Ext.define('Ext.fx.easing.BoundMomentum', {
             this.isOutOfBound = true;
 
             bounce.setStartTime(Ext.Date.now())
-                  .setStartVelocity(velocity)
-                  .setStartValue(boundedValue);
+                .setStartVelocity(velocity)
+                .setStartValue(boundedValue);
         }
 
         value = bounce.getValue();

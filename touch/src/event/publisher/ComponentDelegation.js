@@ -15,7 +15,7 @@ Ext.define('Ext.event.publisher.ComponentDelegation', {
 
     handledEvents: ['*'],
 
-    getSubscribers: function(eventName, createIfNotExist) {
+    getSubscribers: function (eventName, createIfNotExist) {
         var subscribers = this.subscribers,
             eventSubscribers = subscribers[eventName];
 
@@ -32,7 +32,7 @@ Ext.define('Ext.event.publisher.ComponentDelegation', {
         return eventSubscribers;
     },
 
-    subscribe: function(target, eventName) {
+    subscribe: function (target, eventName) {
         // Ignore id-only selectors since they are already handled
         if (this.idSelectorRegex.test(target)) {
             return false;
@@ -90,7 +90,7 @@ Ext.define('Ext.event.publisher.ComponentDelegation', {
         return true;
     },
 
-    unsubscribe: function(target, eventName, all) {
+    unsubscribe: function (target, eventName, all) {
         var subscribers = this.getSubscribers(eventName);
 
         if (!subscribers) {
@@ -142,7 +142,7 @@ Ext.define('Ext.event.publisher.ComponentDelegation', {
         return true;
     },
 
-    notify: function(target, eventName) {
+    notify: function (target, eventName) {
         var subscribers = this.getSubscribers(eventName),
             id, component;
 
@@ -160,15 +160,15 @@ Ext.define('Ext.event.publisher.ComponentDelegation', {
         }
     },
 
-    matchesSelector: function(component, selector) {
+    matchesSelector: function (component, selector) {
         return Ext.ComponentQuery.is(component, selector);
     },
 
-    dispatch: function(target, eventName, args, connectedController) {
+    dispatch: function (target, eventName, args, connectedController) {
         this.dispatcher.doDispatchEvent(this.targetType, target, eventName, args, null, connectedController);
     },
 
-    publish: function(eventName, component) {
+    publish: function (eventName, component) {
         var subscribers = this.getSubscribers(eventName);
 
         if (!subscribers) {

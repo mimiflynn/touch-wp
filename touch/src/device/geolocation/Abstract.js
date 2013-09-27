@@ -66,7 +66,7 @@ Ext.define('Ext.device.geolocation.Abstract', {
      * True to enable allow accuracy detection of the location of the current device. If you do not specify a value, it will
      * default to {@link #allowHighAccuracy}.
      */
-    getCurrentPosition: function(config) {
+    getCurrentPosition: function (config) {
         var defaultConfig = Ext.device.geolocation.Abstract.prototype.config;
 
         config = Ext.applyIf(config, {
@@ -115,7 +115,7 @@ Ext.define('Ext.device.geolocation.Abstract', {
      * True to enable allow accuracy detection of the location of the current device. If you do not specify a value, it will
      * default to {@link #allowHighAccuracy}.
      */
-    watchPosition: function(config) {
+    watchPosition: function (config) {
         var defaultConfig = Ext.device.geolocation.Abstract.prototype.config;
 
         config = Ext.applyIf(config, {
@@ -137,5 +137,6 @@ Ext.define('Ext.device.geolocation.Abstract', {
     /**
      * If you are currently watching for the current position, this will stop that task.
      */
-    clearWatch: function() {}
+    clearWatch: function () {
+    }
 });

@@ -365,20 +365,20 @@ Ext.define('Ext.data.Model', {
     ],
 
     statics: {
-        EDIT   : 'edit',
-        REJECT : 'reject',
-        COMMIT : 'commit',
+        EDIT: 'edit',
+        REJECT: 'reject',
+        COMMIT: 'commit',
 
         cache: {},
 
-        generateProxyMethod: function(name) {
-            return function() {
+        generateProxyMethod: function (name) {
+            return function () {
                 var prototype = this.prototype;
                 return prototype[name].apply(prototype, arguments);
             };
         },
 
-        generateCacheId: function(record, id) {
+        generateCacheId: function (record, id) {
             var modelName;
 
             if (record && record.isModel) {
@@ -429,7 +429,7 @@ Ext.define('Ext.data.Model', {
          * @static
          * @inheritable
          */
-        load: function(id, config, scope) {
+        load: function (id, config, scope) {
             var proxy = this.getProxy(),
                 idProperty = this.getIdProperty(),
                 record = null,
@@ -452,13 +452,13 @@ Ext.define('Ext.data.Model', {
                 model: this
             });
 
-            operation  = Ext.create('Ext.data.Operation', config);
+            operation = Ext.create('Ext.data.Operation', config);
 
             if (!proxy) {
                 Ext.Logger.error('You are trying to load a model that doesn\'t have a Proxy specified');
             }
 
-            callback = function(operation) {
+            callback = function (operation) {
                 if (operation.wasSuccessful()) {
                     record = operation.getRecords()[0] || null;
                     Ext.callback(config.success, scope, [record, operation]);
@@ -477,21 +477,21 @@ Ext.define('Ext.data.Model', {
      * @readonly
      * Internal flag used to track whether or not the model instance is currently being edited.
      */
-    editing : false,
+    editing: false,
 
     /**
      * @property {Boolean} dirty
      * @readonly
      * `true` if this Record has been modified.
      */
-    dirty : false,
+    dirty: false,
 
     /**
      * @property {Boolean} phantom
      * `true` when the record does not yet exist in a server-side database (see {@link #setDirty}).
      * Any record which has a real database pk set as its id property is NOT a phantom -- it's real.
      */
-    phantom : false,
+    phantom: false,
 
     /**
      * Creates new Model instance.
@@ -500,7 +500,7 @@ Ext.define('Ext.data.Model', {
      * @param [raw]
      * @param [convertedData]
      */
-    constructor: function(data, id, raw, convertedData) {
+    constructor: function (data, id, raw, convertedData) {
         var me = this,
             cached = null,
             useCache = me.getUseCache(),
@@ -589,7 +589,7 @@ Ext.define('Ext.data.Model', {
      * @return {Ext.data.Model} This record.
      * @private
      */
-    mergeData: function(rawData) {
+    mergeData: function (rawData) {
         var me = this,
             fields = me.getFields().items,
             ln = fields.length,
@@ -609,9 +609,9 @@ Ext.define('Ext.data.Model', {
 
                 data[fieldName] = value;
             } else if (Ext.isFunction(field._convert)) {
-				value = field._convert(value, me);
-				data[fieldName] = value;
-			}
+                value = field._convert(value, me);
+                data[fieldName] = value;
+            }
         }
 
         if (me.associations.length) {
@@ -629,7 +629,7 @@ Ext.define('Ext.data.Model', {
      * @param rawData
      * @return {Ext.data.Model} This record.
      */
-    setData: function(rawData) {
+    setData: function (rawData) {
         var me = this,
             fields = me.fields.items,
             ln = fields.length,
@@ -671,7 +671,7 @@ Ext.define('Ext.data.Model', {
         return me;
     },
 
-    handleInlineAssociationData: function(data) {
+    handleInlineAssociationData: function (data) {
         var associations = this.associations.items,
             ln = associations.length,
             i, association, associationData, reader, proxy, associationKey;
@@ -705,7 +705,7 @@ Ext.define('Ext.data.Model', {
      * Sets the model instance's id field to the given id.
      * @param {Number/String} id The new id
      */
-    setId: function(id) {
+    setId: function (id) {
         var currentId = this.getId();
 
         // Lets use the direct property instead of getter here
@@ -725,7 +725,7 @@ Ext.define('Ext.data.Model', {
      * Returns the unique ID allocated to this model instance as defined by {@link #idProperty}.
      * @return {Number/String} The `id`.
      */
-    getId: function() {
+    getId: function () {
         // Lets use the direct property instead of getter here
         return this.get(this.getIdProperty());
     },
@@ -737,7 +737,7 @@ Ext.define('Ext.data.Model', {
      * @param data
      * @return {Ext.data.Model} This Record.
      */
-    setConvertedData: function(data) {
+    setConvertedData: function (data) {
         this._data = this.data = data;
         return this;
     },
@@ -747,7 +747,7 @@ Ext.define('Ext.data.Model', {
      * @param {String} fieldName The field to fetch the value for.
      * @return {Object} The value.
      */
-    get: function(fieldName) {
+    get: function (fieldName) {
         return this.data[fieldName];
     },
 
@@ -756,9 +756,9 @@ Ext.define('Ext.data.Model', {
      * @param {String/Object} fieldName The field to set, or an object containing key/value pairs.
      * @param {Object} value The value to set.
      */
-    set: function(fieldName, value) {
+    set: function (fieldName, value) {
         var me = this,
-            // We are using the fields map since it saves lots of function calls
+        // We are using the fields map since it saves lots of function calls
             fieldMap = me.fields.map,
             modified = me.modified,
             notEditing = !me.editing,
@@ -804,7 +804,7 @@ Ext.define('Ext.data.Model', {
             if (notEditing && modifiedCount) {
                 me.endEdit(false, modifiedFieldNames);
             }
-        } else if(modified) {
+        } else if (modified) {
             field = fieldMap[fieldName];
             convert = field && field.getConvert();
             if (convert) {
@@ -851,7 +851,7 @@ Ext.define('Ext.data.Model', {
      * @param {Object} b The second value.
      * @return {Boolean} `true` if the values are equal.
      */
-    isEqual: function(a, b){
+    isEqual: function (a, b) {
         if (Ext.isDate(a) && Ext.isDate(b)) {
             return a.getTime() === b.getTime();
         }
@@ -862,15 +862,15 @@ Ext.define('Ext.data.Model', {
      * Begins an edit. While in edit mode, no events (e.g. the `update` event) are relayed to the containing store.
      * When an edit has begun, it must be followed by either {@link #endEdit} or {@link #cancelEdit}.
      */
-    beginEdit: function() {
+    beginEdit: function () {
         var me = this;
         if (!me.editing) {
-            me.editing      = true;
+            me.editing = true;
 
             // We save the current states of dirty, data and modified so that when we
             // cancel the edit, we can put it back to this state
-            me.dirtySave    = me.dirty;
-            me.dataSave     = Ext.apply({}, me.data);
+            me.dirtySave = me.dirty;
+            me.dataSave = Ext.apply({}, me.data);
             me.modifiedSave = Ext.apply({}, me.modified);
         }
     },
@@ -878,7 +878,7 @@ Ext.define('Ext.data.Model', {
     /**
      * Cancels all changes made in the current edit operation.
      */
-    cancelEdit: function() {
+    cancelEdit: function () {
         var me = this;
         if (me.editing) {
             me.editing = false;
@@ -901,7 +901,7 @@ Ext.define('Ext.data.Model', {
      * @param {Boolean} silent `true` to not notify the store of the change.
      * @param {String[]} modifiedFieldNames Array of field names changed during edit.
      */
-    endEdit: function(silent, modifiedFieldNames) {
+    endEdit: function (silent, modifiedFieldNames) {
         var me = this;
 
         if (me.editing) {
@@ -924,7 +924,7 @@ Ext.define('Ext.data.Model', {
      * @private
      * @return {Boolean} `true` if the underlying data has changed during an edit.
      */
-    changedWhileEditing: function() {
+    changedWhileEditing: function () {
         var me = this,
             saved = me.dataSave,
             data = me.data,
@@ -945,9 +945,9 @@ Ext.define('Ext.data.Model', {
      * Gets a hash of only the fields that have been modified since this Model was created or committed.
      * @return {Object}
      */
-    getChanges : function() {
+    getChanges: function () {
         var modified = this.modified,
-            changes  = {},
+            changes = {},
             field;
 
         for (field in modified) {
@@ -964,7 +964,7 @@ Ext.define('Ext.data.Model', {
      * @param {String} fieldName {@link Ext.data.Field#name}
      * @return {Boolean}
      */
-    isModified : function(fieldName) {
+    isModified: function (fieldName) {
         return this.modified.hasOwnProperty(fieldName);
     },
 
@@ -981,10 +981,10 @@ Ext.define('Ext.data.Model', {
      *
      * @return {Ext.data.Model} The Model instance
      */
-    save: function(options, scope) {
-        var me     = this,
+    save: function (options, scope) {
+        var me = this,
             action = me.phantom ? 'create' : 'update',
-            proxy  = me.getProxy(),
+            proxy = me.getProxy(),
             operation,
             callback;
 
@@ -1004,13 +1004,13 @@ Ext.define('Ext.data.Model', {
 
         Ext.applyIf(options, {
             records: [me],
-            action : action,
+            action: action,
             model: me.self
         });
 
         operation = Ext.create('Ext.data.Operation', options);
 
-        callback = function(operation) {
+        callback = function (operation) {
             if (operation.wasSuccessful()) {
                 Ext.callback(options.success, scope, [me, operation]);
             } else {
@@ -1039,9 +1039,9 @@ Ext.define('Ext.data.Model', {
      * as the first argument.
      * @return {Ext.data.Model} The Model instance.
      */
-    erase: function(options, scope) {
-        var me     = this,
-            proxy  = this.getProxy(),
+    erase: function (options, scope) {
+        var me = this,
+            proxy = this.getProxy(),
             operation,
             callback;
 
@@ -1061,13 +1061,13 @@ Ext.define('Ext.data.Model', {
 
         Ext.applyIf(options, {
             records: [me],
-            action : 'destroy',
+            action: 'destroy',
             model: this.self
         });
 
         operation = Ext.create('Ext.data.Operation', options);
 
-        callback = function(operation) {
+        callback = function (operation) {
             if (operation.wasSuccessful()) {
                 Ext.callback(options.success, scope, [me, operation]);
             } else {
@@ -1092,7 +1092,7 @@ Ext.define('Ext.data.Model', {
      *
      * @param {Boolean} [silent=false] (optional) `true` to skip notification of the owning store of the change.
      */
-    reject: function(silent) {
+    reject: function (silent) {
         var me = this,
             modified = me.modified,
             field;
@@ -1123,7 +1123,7 @@ Ext.define('Ext.data.Model', {
      *
      * @param {Boolean} [silent=false] (optional) `true` to skip notification of the owning store of the change.
      */
-    commit: function(silent) {
+    commit: function (silent) {
         var me = this,
             modified = this.modified;
 
@@ -1142,7 +1142,7 @@ Ext.define('Ext.data.Model', {
      * @param {String[]} modifiedFieldNames Array of field names changed during edit.
      * @param {Object} modified
      */
-    afterEdit : function(modifiedFieldNames, modified) {
+    afterEdit: function (modifiedFieldNames, modified) {
         this.notifyStores('afterEdit', modifiedFieldNames, modified);
     },
 
@@ -1151,7 +1151,7 @@ Ext.define('Ext.data.Model', {
      * If this Model instance has been {@link #join joined} to a {@link Ext.data.Store store}, the store's
      * `afterReject` method is called.
      */
-    afterReject : function() {
+    afterReject: function () {
         this.notifyStores("afterReject");
     },
 
@@ -1160,7 +1160,7 @@ Ext.define('Ext.data.Model', {
      * If this Model instance has been {@link #join joined} to a {@link Ext.data.Store store}, the store's
      * `afterCommit` method is called.
      */
-    afterCommit: function(modified) {
+    afterCommit: function (modified) {
         this.notifyStores('afterCommit', Ext.Object.getKeys(modified || {}), modified);
     },
 
@@ -1171,7 +1171,7 @@ Ext.define('Ext.data.Model', {
      * will always be called with the model instance as its single argument.
      * @param {String} fn The function to call on the store.
      */
-    notifyStores: function(fn) {
+    notifyStores: function (fn) {
         var args = Ext.Array.clone(arguments),
             stores = this.stores;
         if (Ext.isArray(stores)) {
@@ -1198,7 +1198,7 @@ Ext.define('Ext.data.Model', {
      *
      * @return {Ext.data.Model}
      */
-    copy: function(newId) {
+    copy: function (newId) {
         var me = this,
             idProperty = me.getIdProperty(),
             raw = Ext.apply({}, me.raw),
@@ -1218,7 +1218,7 @@ Ext.define('Ext.data.Model', {
      * @param {Boolean} includeAssociated `true` to include the associated data.
      * @return {Object} The data.
      */
-    getData: function(includeAssociated) {
+    getData: function (includeAssociated) {
         var data = this.data;
 
         if (includeAssociated === true) {
@@ -1246,7 +1246,7 @@ Ext.define('Ext.data.Model', {
      *
      * @return {Object} The nested data set for the Model's loaded associations.
      */
-    getAssociatedData: function() {
+    getAssociatedData: function () {
         return this.prepareAssociatedData(this, [], null);
     },
 
@@ -1259,11 +1259,11 @@ Ext.define('Ext.data.Model', {
      * @param {String} associationType (optional) The name of the type of association to limit to.
      * @return {Object} The nested data set for the Model's loaded associations.
      */
-    prepareAssociatedData: function(record, ids, associationType) {
+    prepareAssociatedData: function (record, ids, associationType) {
         //we keep track of all of the internalIds of the models that we have loaded so far in here
-        var associations     = record.associations.items,
+        var associations = record.associations.items,
             associationCount = associations.length,
-            associationData  = {},
+            associationData = {},
             recursiveAssociationQueue = [],
             associatedStore, associationName, associatedRecords, associatedRecord,
             associatedRecordCount, association, id, i, j, type, allow, recursiveAssociationItem;
@@ -1304,11 +1304,11 @@ Ext.define('Ext.data.Model', {
 
                             associationData[associationName][j] = associatedRecord.getData();
                             recursiveAssociationQueue.push({
-                                associationName:associationName,
-                                j:j,
-                                associatedRecord:associatedRecord,
-                                ids:ids,
-                                associationType:associationType
+                                associationName: associationName,
+                                j: j,
+                                associatedRecord: associatedRecord,
+                                ids: ids,
+                                associationType: associationType
                             });
                         }
                     }
@@ -1342,7 +1342,7 @@ Ext.define('Ext.data.Model', {
      * This functionality is usually only required when creating custom components.
      * @param {Ext.data.Store} store The store to which this model has been added.
      */
-    join: function(store) {
+    join: function (store) {
         Ext.Array.include(this.stores, store);
     },
 
@@ -1351,7 +1351,7 @@ Ext.define('Ext.data.Model', {
      * for more information about joining records to class instances.
      * @param {Ext.data.Store} store The store from which this model has been removed.
      */
-    unjoin: function(store) {
+    unjoin: function (store) {
         Ext.Array.remove(this.stores, store);
     },
 
@@ -1362,13 +1362,13 @@ Ext.define('Ext.data.Model', {
      * Marking a record `{@link #dirty}` causes the phantom to be returned by {@link Ext.data.Store#getUpdatedRecords}
      * where it will have a create action composed for it during {@link Ext.data.Model#save model save} operations.
      */
-    setDirty : function() {
+    setDirty: function () {
         var me = this,
             name;
 
         me.dirty = true;
 
-        me.fields.each(function(field) {
+        me.fields.each(function (field) {
             if (field.getPersist()) {
                 name = field.getName();
                 me.modified[name] = me.get(name);
@@ -1380,10 +1380,10 @@ Ext.define('Ext.data.Model', {
      * Validates the current data against all of its configured {@link #cfg-validations}.
      * @return {Ext.data.Errors} The errors object.
      */
-    validate: function() {
-        var errors      = Ext.create('Ext.data.Errors'),
+    validate: function () {
+        var errors = Ext.create('Ext.data.Errors'),
             validations = this.getValidations().items,
-            validators  = Ext.data.Validations,
+            validators = Ext.data.Validations,
             length, validation, field, valid, type, i;
 
         if (validations) {
@@ -1392,12 +1392,12 @@ Ext.define('Ext.data.Model', {
             for (i = 0; i < length; i++) {
                 validation = validations[i];
                 field = validation.field || validation.name;
-                type  = validation.type;
+                type = validation.type;
                 valid = validators[type](validation, this.get(field));
 
                 if (!valid) {
                     errors.add(Ext.create('Ext.data.Error', {
-                        field  : field,
+                        field: field,
                         message: validation.message || validators.getMessage(type)
                     }));
                 }
@@ -1411,7 +1411,7 @@ Ext.define('Ext.data.Model', {
      * Checks if the model is valid. See {@link #validate}.
      * @return {Boolean} `true` if the model is valid.
      */
-    isValid: function(){
+    isValid: function () {
         return this.validate().isValid();
     },
 
@@ -1420,9 +1420,9 @@ Ext.define('Ext.data.Model', {
      * followed by the instance ID - for example an instance of MyApp.model.User with ID 123 will return 'user/123'.
      * @return {String} The url string for this model instance.
      */
-    toUrl: function() {
+    toUrl: function () {
         var pieces = this.$className.split('.'),
-            name   = pieces[pieces.length - 1].toLowerCase();
+            name = pieces[pieces.length - 1].toLowerCase();
 
         return name + '/' + this.getId();
     },
@@ -1431,7 +1431,7 @@ Ext.define('Ext.data.Model', {
      * Destroys this model instance. Note that this doesn't do a 'destroy' operation. If you want to destroy
      * the record in your localStorage or on the server you should use the {@link #erase} method.
      */
-    destroy: function() {
+    destroy: function () {
         var me = this;
         me.notifyStores('afterErase', me);
         if (me.getUseCache()) {
@@ -1442,7 +1442,7 @@ Ext.define('Ext.data.Model', {
     },
 
     //<debug>
-    markDirty : function() {
+    markDirty: function () {
         if (Ext.isDefined(Ext.Logger)) {
             Ext.Logger.deprecate('Ext.data.Model: markDirty has been deprecated. Use setDirty instead.');
         }
@@ -1450,41 +1450,41 @@ Ext.define('Ext.data.Model', {
     },
     //</debug>
 
-    applyProxy: function(proxy, currentProxy) {
+    applyProxy: function (proxy, currentProxy) {
         return Ext.factory(proxy, Ext.data.Proxy, currentProxy, 'proxy');
     },
 
-    updateProxy: function(proxy) {
+    updateProxy: function (proxy) {
         if (proxy) {
             proxy.setModel(this.self);
         }
     },
 
-    applyAssociations: function(associations) {
+    applyAssociations: function (associations) {
         if (associations) {
             this.addAssociations(associations, 'hasMany');
         }
     },
 
-    applyBelongsTo: function(belongsTo) {
+    applyBelongsTo: function (belongsTo) {
         if (belongsTo) {
             this.addAssociations(belongsTo, 'belongsTo');
         }
     },
 
-    applyHasMany: function(hasMany) {
+    applyHasMany: function (hasMany) {
         if (hasMany) {
             this.addAssociations(hasMany, 'hasMany');
         }
     },
 
-    applyHasOne: function(hasOne) {
+    applyHasOne: function (hasOne) {
         if (hasOne) {
             this.addAssociations(hasOne, 'hasOne');
         }
     },
 
-    addAssociations: function(associations, defaultType) {
+    addAssociations: function (associations, defaultType) {
         var ln, i, association,
             name = this.self.modelName,
             associationsCollection = this.self.associations,
@@ -1506,7 +1506,7 @@ Ext.define('Ext.data.Model', {
 
             delete association.model;
 
-            onCreatedFn = Ext.Function.bind(function(associationName) {
+            onCreatedFn = Ext.Function.bind(function (associationName) {
                 associationsCollection.add(Ext.data.association.Association.create(this));
             }, association);
 
@@ -1514,7 +1514,7 @@ Ext.define('Ext.data.Model', {
         }
     },
 
-    applyValidations: function(validations) {
+    applyValidations: function (validations) {
         if (validations) {
             if (!Ext.isArray(validations)) {
                 validations = [validations];
@@ -1523,7 +1523,7 @@ Ext.define('Ext.data.Model', {
         }
     },
 
-    addValidations: function(validations) {
+    addValidations: function (validations) {
         this.self.validations.addAll(validations);
     },
 
@@ -1537,7 +1537,7 @@ Ext.define('Ext.data.Model', {
      * @return {Array}
      */
 
-    applyFields: function(fields) {
+    applyFields: function (fields) {
         var superFields = this.superclass.fields;
         if (superFields) {
             fields = superFields.items.concat(fields || []);
@@ -1545,7 +1545,7 @@ Ext.define('Ext.data.Model', {
         return fields || [];
     },
 
-    updateFields: function(fields) {
+    updateFields: function (fields) {
         var ln = fields.length,
             me = this,
             prototype = me.self.prototype,
@@ -1577,7 +1577,7 @@ Ext.define('Ext.data.Model', {
         fieldsCollection.addSorter(prototype.sortConvertFields);
     },
 
-    applyIdentifier: function(identifier) {
+    applyIdentifier: function (identifier) {
         if (typeof identifier === 'string') {
             identifier = {
                 type: identifier
@@ -1593,7 +1593,7 @@ Ext.define('Ext.data.Model', {
      * @return {String}
      * @private
      */
-    getFieldName: function(field) {
+    getFieldName: function (field) {
         return field.getName();
     },
 
@@ -1605,7 +1605,7 @@ Ext.define('Ext.data.Model', {
      * @return {Number}
      * @private
      */
-    sortConvertFields: function(field1, field2) {
+    sortConvertFields: function (field1, field2) {
         var f1SpecialConvert = field1.hasCustomConvert(),
             f2SpecialConvert = field2.hasCustomConvert();
 
@@ -1621,7 +1621,7 @@ Ext.define('Ext.data.Model', {
     /**
      * @private
      */
-    onClassExtended: function(cls, data, hooks) {
+    onClassExtended: function (cls, data, hooks) {
         var onBeforeClassCreated = hooks.onBeforeCreated,
             Model = this,
             prototype = Model.prototype,
@@ -1654,7 +1654,7 @@ Ext.define('Ext.data.Model', {
         // </deprecated>
         data.config = config;
 
-        hooks.onBeforeCreated = function(cls, data) {
+        hooks.onBeforeCreated = function (cls, data) {
             var dependencies = [],
                 prototype = cls.prototype,
                 statics = {},
@@ -1695,7 +1695,7 @@ Ext.define('Ext.data.Model', {
                 dependencies.push('association.hasone');
             }
 
-            for (i = 0,ln = associations.length; i < ln; ++i) {
+            for (i = 0, ln = associations.length; i < ln; ++i) {
                 dependencies.push('association.' + associations[i].type.toLowerCase());
             }
 
@@ -1721,8 +1721,8 @@ Ext.define('Ext.data.Model', {
                 dependencies.push('Ext.data.Validations');
             }
 
-            Ext.require(dependencies, function() {
-                Ext.Function.interceptBefore(hooks, 'onCreated', function() {
+            Ext.require(dependencies, function () {
+                Ext.Function.interceptBefore(hooks, 'onCreated', function () {
                     Ext.data.ModelManager.registerType(name, cls);
 
                     var superCls = cls.prototype.superclass;
@@ -1733,9 +1733,9 @@ Ext.define('Ext.data.Model', {
                      */
                     cls.prototype.associations = cls.associations = cls.prototype._associations = (superCls && superCls.associations)
                         ? superCls.associations.clone()
-                        : new Ext.util.Collection(function(association) {
-                            return association.getName();
-                        });
+                        : new Ext.util.Collection(function (association) {
+                        return association.getName();
+                    });
 
                     /**
                      * @property {Ext.util.Collection} validations
@@ -1743,9 +1743,9 @@ Ext.define('Ext.data.Model', {
                      */
                     cls.prototype.validations = cls.validations = cls.prototype._validations = (superCls && superCls.validations)
                         ? superCls.validations.clone()
-                        : new Ext.util.Collection(function(validation) {
-                            return validation.field ? (validation.field + '-' + validation.type) : (validation.name + '-' + validation.type);
-                        });
+                        : new Ext.util.Collection(function (validation) {
+                        return validation.field ? (validation.field + '-' + validation.type) : (validation.name + '-' + validation.type);
+                    });
 
                     cls.prototype = Ext.Object.chain(cls.prototype);
                     cls.prototype.initConfig.call(cls.prototype, config);

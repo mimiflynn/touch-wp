@@ -3,7 +3,7 @@
 //@require Ext.JSON
 
 Ext.Error = {
-    raise: function(object) {
+    raise: function (object) {
         throw new Error(object.msg);
     }
 };

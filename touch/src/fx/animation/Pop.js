@@ -24,7 +24,7 @@ Ext.define('Ext.fx.animation.Pop', {
         }
     },
 
-    getData: function() {
+    getData: function () {
         var to = this.getTo(),
             from = this.getFrom(),
             out = this.getOut();

@@ -7,11 +7,11 @@ Ext.define('Ext.layout.wrapper.Inner', {
         container: null
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    getElement: function() {
+    getElement: function () {
         return this.getContainer().bodyElement;
     },
 

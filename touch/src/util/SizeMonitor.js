@@ -8,7 +8,7 @@ Ext.define('Ext.util.SizeMonitor', {
         'Ext.util.sizemonitor.OverflowChange'
     ],
 
-    constructor: function(config) {
+    constructor: function (config) {
         var namespace = Ext.util.sizemonitor;
 
         if (Ext.browser.is.Firefox) {

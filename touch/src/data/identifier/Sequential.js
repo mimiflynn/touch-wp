@@ -45,13 +45,13 @@ Ext.define('Ext.data.identifier.Sequential', {
         seed: 1
     },
 
-    constructor: function() {
+    constructor: function () {
         var me = this;
         me.callParent(arguments);
         me.parts = [me.getPrefix(), ''];
     },
 
-    generate: function(record) {
+    generate: function (record) {
         var me = this,
             parts = me.parts,
             seed = me.getSeed() + 1;

@@ -64,18 +64,18 @@ Ext.define('Ext.Mask', {
      * @param {Ext.Mask} this The mask instance
      * @param {Ext.EventObject} e The event object
      */
-    initialize: function() {
+    initialize: function () {
         this.callSuper();
 
         this.element.on('*', 'onEvent', this);
 
         this.on({
-            hide:  'onHide'
+            hide: 'onHide'
         });
         this.inputBlocker = new Ext.util.InputBlocker();
     },
 
-    onHide: function(){
+    onHide: function () {
         this.inputBlocker.unblockInputs();
 
         // Oh how I loves the Android
@@ -87,7 +87,7 @@ Ext.define('Ext.Mask', {
         }
     },
 
-    onEvent: function(e) {
+    onEvent: function (e) {
         var controller = arguments[arguments.length - 1];
 
         if (controller.info.eventName === 'tap') {
@@ -102,7 +102,7 @@ Ext.define('Ext.Mask', {
         return false;
     },
 
-    updateTransparent: function(newTransparent) {
+    updateTransparent: function (newTransparent) {
         this[newTransparent ? 'addCls' : 'removeCls'](this.getBaseCls() + '-transparent');
     }
 });

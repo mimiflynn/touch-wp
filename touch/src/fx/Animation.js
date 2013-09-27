@@ -15,7 +15,7 @@ Ext.define('Ext.fx.Animation', {
 //        'Ext.fx.animation.Cube'
     ],
 
-    constructor: function(config) {
+    constructor: function (config) {
         var defaultClass = Ext.fx.animation.Abstract,
             type;
 

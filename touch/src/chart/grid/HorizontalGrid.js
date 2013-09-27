@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.grid.HorizontalGrid
  * @extends Ext.draw.sprite.Sprite
- * 
+ *
  * Horizontal Grid sprite. Used in Cartesian Charts.
  */
 Ext.define("Ext.chart.grid.HorizontalGrid", {

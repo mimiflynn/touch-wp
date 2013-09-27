@@ -162,7 +162,7 @@ Ext.define('Ext.env.Browser', {
      */
     engineVersion: null,
 
-    setFlag: function(name, value) {
+    setFlag: function (name, value) {
         if (typeof value == 'undefined') {
             value = true;
         }
@@ -173,7 +173,7 @@ Ext.define('Ext.env.Browser', {
         return this;
     },
 
-    constructor: function(userAgent) {
+    constructor: function (userAgent) {
         /**
          * @property {String}
          * Browser User Agent string.
@@ -192,7 +192,7 @@ Ext.define('Ext.env.Browser', {
             isWebView = false,
             is, i, name;
 
-        is = this.is = function(name) {
+        is = this.is = function (name) {
             return is[name] === true;
         };
 
@@ -298,15 +298,15 @@ Ext.define('Ext.env.Browser', {
         return this;
     },
 
-    getStyleDashPrefix: function() {
+    getStyleDashPrefix: function () {
         return this.styleDashPrefixes[this.engineName];
     },
 
-    getStylePrefix: function() {
+    getStylePrefix: function () {
         return this.stylePrefixes[this.engineName];
     },
 
-    getVendorProperyName: function(name) {
+    getVendorProperyName: function (name) {
         var prefix = this.propertyPrefixes[this.engineName];
 
         if (prefix.length > 0) {
@@ -316,7 +316,7 @@ Ext.define('Ext.env.Browser', {
         return name;
     },
 
-    getPreferredTranslationMethod: function(config) {
+    getPreferredTranslationMethod: function (config) {
         if (typeof config == 'object' && 'translationMethod' in config && config.translationMethod !== 'auto') {
             return config.translationMethod;
         } else {
@@ -329,7 +329,7 @@ Ext.define('Ext.env.Browser', {
         }
     }
 
-}, function() {
+}, function () {
     /**
      * @class Ext.browser
      * @extends Ext.env.Browser

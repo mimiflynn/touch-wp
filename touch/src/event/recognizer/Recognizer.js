@@ -34,13 +34,13 @@ Ext.define('Ext.event.recognizer.Recognizer', {
         callbackScope: null
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
 
         return this;
     },
 
-    getHandledEvents: function() {
+    getHandledEvents: function () {
         return this.handledEvents;
     },
 
@@ -48,13 +48,13 @@ Ext.define('Ext.event.recognizer.Recognizer', {
 
     onEnd: Ext.emptyFn,
 
-    fail: function() {
+    fail: function () {
         this.getOnFailed().apply(this.getCallbackScope(), arguments);
 
         return false;
     },
 
-    fire: function() {
+    fire: function () {
         this.getOnRecognized().apply(this.getCallbackScope(), arguments);
     }
 });

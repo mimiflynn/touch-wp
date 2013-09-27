@@ -10,7 +10,7 @@ Ext.define('Ext.event.recognizer.MultiTouch', {
 
     isStarted: false,
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         var requiredTouchesCount = this.requiredTouchesCount,
             touches = e.touches,
             touchesCount = touches.length;
@@ -23,18 +23,18 @@ Ext.define('Ext.event.recognizer.MultiTouch', {
         }
     },
 
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         this.end(e);
     },
 
-    start: function() {
+    start: function () {
         if (!this.isTracking) {
             this.isTracking = true;
             this.isStarted = false;
         }
     },
 
-    end: function(e) {
+    end: function (e) {
         if (this.isTracking) {
             this.isTracking = false;
 

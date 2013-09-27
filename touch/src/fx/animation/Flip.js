@@ -20,7 +20,7 @@ Ext.define('Ext.fx.animation.Flip', {
         out: null
     },
 
-    getData: function() {
+    getData: function () {
         var from = this.getFrom(),
             to = this.getTo(),
             direction = this.getDirection(),

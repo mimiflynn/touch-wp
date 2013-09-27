@@ -16,7 +16,7 @@ Ext.define('Ext.device.contacts.Abstract', {
      * Returns an Array of contact objects.
      * @return {Object[]} An array of contact objects.
      */
-    getContacts: function(config) {
+    getContacts: function (config) {
         if (!this._store) {
             this._store = [
                 {
@@ -39,21 +39,21 @@ Ext.define('Ext.device.contacts.Abstract', {
         config.success.call(config.scope || this, this._store);
     },
 
-     /**
+    /**
      * Returns base64 encoded image thumbnail for a contact specified in config.id
      * @return {String} base64 string
      */
 
-    getThumbnail: function(config) {
+    getThumbnail: function (config) {
         config.callback.call(config.scope || this, "");
     },
 
 
-     /**
+    /**
      * Returns localized, user readable label for a contact field (i.e. "Mobile", "Home")
      * @return {String} user readable string
      */
-    getLocalizedLabel: function(config) {
+    getLocalizedLabel: function (config) {
         config.callback.call(config.scope || this, config.label.toUpperCase(), config.label);
     }
 });

@@ -11,7 +11,7 @@
  *
  * To listen to the device orientation, you can do the following:
  *
-*     Ext.device.Orientation.on({
+ *     Ext.device.Orientation.on({
 *         scope: this,
 *         orientationchange: function(e) {
 *             console.log('Alpha: ', e.alpha);
@@ -21,7 +21,7 @@
 *     });
  *
  * @mixins Ext.device.orientation.Abstract
- * 
+ *
  * @aside guide native_apis
  */
 Ext.define('Ext.device.Orientation', {
@@ -33,7 +33,7 @@ Ext.define('Ext.device.Orientation', {
         'Ext.device.orientation.Sencha'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.Sencha) {

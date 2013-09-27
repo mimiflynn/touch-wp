@@ -9,102 +9,102 @@
  * [http://www.json.org/js.html](http://www.json.org/js.html)
  * @singleton
  */
-Ext.JSON = new(function() {
-    var useHasOwn = !! {}.hasOwnProperty,
-    isNative = function() {
-        var useNative = null;
+Ext.JSON = new (function () {
+    var useHasOwn = !!{}.hasOwnProperty,
+        isNative = function () {
+            var useNative = null;
 
-        return function() {
-            if (useNative === null) {
-                useNative = Ext.USE_NATIVE_JSON && window.JSON && JSON.toString() == '[object JSON]';
+            return function () {
+                if (useNative === null) {
+                    useNative = Ext.USE_NATIVE_JSON && window.JSON && JSON.toString() == '[object JSON]';
+                }
+
+                return useNative;
+            };
+        }(),
+        pad = function (n) {
+            return n < 10 ? "0" + n : n;
+        },
+        doDecode = function (json) {
+            return eval("(" + json + ')');
+        },
+        doEncode = function (o) {
+            if (!Ext.isDefined(o) || o === null) {
+                return "null";
+            } else if (Ext.isArray(o)) {
+                return encodeArray(o);
+            } else if (Ext.isDate(o)) {
+                return Ext.JSON.encodeDate(o);
+            } else if (Ext.isString(o)) {
+                if (Ext.isMSDate(o)) {
+                    return encodeMSDate(o);
+                } else {
+                    return encodeString(o);
+                }
+            } else if (typeof o == "number") {
+                //don't use isNumber here, since finite checks happen inside isNumber
+                return isFinite(o) ? String(o) : "null";
+            } else if (Ext.isBoolean(o)) {
+                return String(o);
+            } else if (Ext.isObject(o)) {
+                return encodeObject(o);
+            } else if (typeof o === "function") {
+                return "null";
             }
-
-            return useNative;
+            return 'undefined';
+        },
+        m = {
+            "\b": '\\b',
+            "\t": '\\t',
+            "\n": '\\n',
+            "\f": '\\f',
+            "\r": '\\r',
+            '"': '\\"',
+            "\\": '\\\\',
+            '\x0b': '\\u000b' //ie doesn't handle \v
+        },
+        charToReplace = /[\\\"\x00-\x1f\x7f-\uffff]/g,
+        encodeString = function (s) {
+            return '"' + s.replace(charToReplace, function (a) {
+                var c = m[a];
+                return typeof c === 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+            }) + '"';
+        },
+        encodeArray = function (o) {
+            var a = ["[", ""],
+            // Note empty string in case there are no serializable members.
+                len = o.length,
+                i;
+            for (i = 0; i < len; i += 1) {
+                a.push(doEncode(o[i]), ',');
+            }
+            // Overwrite trailing comma (or empty string)
+            a[a.length - 1] = ']';
+            return a.join("");
+        },
+        encodeObject = function (o) {
+            var a = ["{", ""],
+            // Note empty string in case there are no serializable members.
+                i;
+            for (i in o) {
+                if (!useHasOwn || o.hasOwnProperty(i)) {
+                    a.push(doEncode(i), ":", doEncode(o[i]), ',');
+                }
+            }
+            // Overwrite trailing comma (or empty string)
+            a[a.length - 1] = '}';
+            return a.join("");
+        },
+        encodeMSDate = function (o) {
+            return '"' + o + '"';
         };
-    }(),
-    pad = function(n) {
-        return n < 10 ? "0" + n : n;
-    },
-    doDecode = function(json) {
-        return eval("(" + json + ')');
-    },
-    doEncode = function(o) {
-        if (!Ext.isDefined(o) || o === null) {
-            return "null";
-        } else if (Ext.isArray(o)) {
-            return encodeArray(o);
-        } else if (Ext.isDate(o)) {
-            return Ext.JSON.encodeDate(o);
-        } else if (Ext.isString(o)) {
-            if (Ext.isMSDate(o)) {
-               return encodeMSDate(o);
-            } else {
-                return encodeString(o);
-            }
-        } else if (typeof o == "number") {
-            //don't use isNumber here, since finite checks happen inside isNumber
-            return isFinite(o) ? String(o) : "null";
-        } else if (Ext.isBoolean(o)) {
-            return String(o);
-        } else if (Ext.isObject(o)) {
-            return encodeObject(o);
-        } else if (typeof o === "function") {
-            return "null";
-        }
-        return 'undefined';
-    },
-    m = {
-        "\b": '\\b',
-        "\t": '\\t',
-        "\n": '\\n',
-        "\f": '\\f',
-        "\r": '\\r',
-        '"': '\\"',
-        "\\": '\\\\',
-        '\x0b': '\\u000b' //ie doesn't handle \v
-    },
-    charToReplace = /[\\\"\x00-\x1f\x7f-\uffff]/g,
-    encodeString = function(s) {
-        return '"' + s.replace(charToReplace, function(a) {
-            var c = m[a];
-            return typeof c === 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + '"';
-    },
-    encodeArray = function(o) {
-        var a = ["[", ""],
-        // Note empty string in case there are no serializable members.
-        len = o.length,
-        i;
-        for (i = 0; i < len; i += 1) {
-            a.push(doEncode(o[i]), ',');
-        }
-        // Overwrite trailing comma (or empty string)
-        a[a.length - 1] = ']';
-        return a.join("");
-    },
-    encodeObject = function(o) {
-        var a = ["{", ""],
-        // Note empty string in case there are no serializable members.
-        i;
-        for (i in o) {
-            if (!useHasOwn || o.hasOwnProperty(i)) {
-                a.push(doEncode(i), ":", doEncode(o[i]), ',');
-            }
-        }
-        // Overwrite trailing comma (or empty string)
-        a[a.length - 1] = '}';
-        return a.join("");
-    },
-    encodeMSDate = function(o) {
-        return '"' + o + '"';
-    };
 
     /**
      * Encodes a Date. This returns the actual string which is inserted into the JSON string as the literal expression.
      * __The returned value includes enclosing double quotation marks.__
      *
      * The default return format is "yyyy-mm-ddThh:mm:ss".
-     * 
+     *
      * To override this:
      *
      *     Ext.JSON.encodeDate = function(d) {
@@ -114,13 +114,13 @@ Ext.JSON = new(function() {
      * @param {Date} d The Date to encode.
      * @return {String} The string literal to use in a JSON string.
      */
-    this.encodeDate = function(o) {
-        return '"' + o.getFullYear() + "-" 
-        + pad(o.getMonth() + 1) + "-"
-        + pad(o.getDate()) + "T"
-        + pad(o.getHours()) + ":"
-        + pad(o.getMinutes()) + ":"
-        + pad(o.getSeconds()) + '"';
+    this.encodeDate = function (o) {
+        return '"' + o.getFullYear() + "-"
+            + pad(o.getMonth() + 1) + "-"
+            + pad(o.getDate()) + "T"
+            + pad(o.getHours()) + ":"
+            + pad(o.getMinutes()) + ":"
+            + pad(o.getSeconds()) + '"';
     };
 
     /**
@@ -129,9 +129,9 @@ Ext.JSON = new(function() {
      * @return {String} The JSON string.
      * @method
      */
-    this.encode = function() {
+    this.encode = function () {
         var ec;
-        return function(o) {
+        return function (o) {
             if (!ec) {
                 // setup encoding function on first access
                 ec = isNative() ? JSON.stringify : doEncode;
@@ -148,9 +148,9 @@ Ext.JSON = new(function() {
      * @return {Object/null} The resulting object.
      * @method
      */
-    this.decode = function() {
+    this.decode = function () {
         var dc;
-        return function(json, safe) {
+        return function (json, safe) {
             if (!dc) {
                 // setup decoding function on first access
                 dc = isNative() ? JSON.parse : doDecode;

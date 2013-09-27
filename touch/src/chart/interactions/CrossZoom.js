@@ -198,7 +198,7 @@ Ext.define('Ext.chart.interactions.CrossZoom', {
     getSurface: function () {
         return this.getChart() && this.getChart().getSurface("main");
     },
-    
+
     setSeriesOpacity: function (opacity) {
         var surface = this.getChart() && this.getChart().getSurface('series-surface', 'series');
         if (surface) {

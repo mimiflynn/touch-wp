@@ -5,13 +5,14 @@
  * @class Ext
  * @singleton
  */
-(function() {
+(function () {
     var global = this,
         objectPrototype = Object.prototype,
         toString = objectPrototype.toString,
         enumerables = true,
         enumerablesTest = { toString: 1 },
-        emptyFn = function(){},
+        emptyFn = function () {
+        },
         i;
 
     if (typeof Ext === 'undefined') {
@@ -26,7 +27,7 @@
 
     if (enumerables) {
         enumerables = ['hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable',
-                       'toLocaleString', 'toString', 'constructor'];
+            'toLocaleString', 'toString', 'constructor'];
     }
 
     /**
@@ -44,7 +45,7 @@
      * @param {Object} [defaults] A different object that will also be applied for default values.
      * @return {Object} returns obj
      */
-    Ext.apply = function(object, config, defaults) {
+    Ext.apply = function (object, config, defaults) {
         if (defaults) {
             Ext.apply(object, defaults);
         }
@@ -89,7 +90,7 @@
          * @param {Object} config The source of the properties.
          * @return {Object} returns obj
          */
-        applyIf: function(object, config) {
+        applyIf: function (object, config) {
             var property;
 
             if (object) {
@@ -114,7 +115,7 @@
          * @param {Object} scope (Optional) The scope (`this` reference) in which the specified function is executed.
          * Defaults to the object being iterated itself.
          */
-        iterate: function(object, fn, scope) {
+        iterate: function (object, fn, scope) {
             if (Ext.isEmpty(object)) {
                 return;
             }
@@ -142,24 +143,24 @@
          * @return {Function} The subclass constructor from the `overrides` parameter, or a generated one if not provided.
          * @deprecated 4.0.0 Please use {@link Ext#define Ext.define} instead
          */
-        extend: function() {
+        extend: function () {
             // inline overrides
             var objectConstructor = objectPrototype.constructor,
-                inlineOverrides = function(o) {
-                for (var m in o) {
-                    if (!o.hasOwnProperty(m)) {
-                        continue;
+                inlineOverrides = function (o) {
+                    for (var m in o) {
+                        if (!o.hasOwnProperty(m)) {
+                            continue;
+                        }
+                        this[m] = o[m];
                     }
-                    this[m] = o[m];
-                }
-            };
+                };
 
-            return function(subclass, superclass, overrides) {
+            return function (subclass, superclass, overrides) {
                 // First we check if the user passed in just the superClass with overrides
                 if (Ext.isObject(superclass)) {
                     overrides = superclass;
                     superclass = subclass;
-                    subclass = overrides.constructor !== objectConstructor ? overrides.constructor : function() {
+                    subclass = overrides.constructor !== objectConstructor ? overrides.constructor : function () {
                         superclass.apply(this, arguments);
                     };
                 }
@@ -175,7 +176,8 @@
                 //</debug>
 
                 // We create a new temporary class
-                var F = function() {},
+                var F = function () {
+                    },
                     subclassProto, superclassProto = superclass.prototype;
 
                 F.prototype = superclassProto;
@@ -187,7 +189,7 @@
                     superclassProto.constructor = superclass;
                 }
 
-                subclass.override = function(overrides) {
+                subclass.override = function (overrides) {
                     Ext.override(subclass, overrides);
                 };
 
@@ -195,7 +197,7 @@
                 subclassProto.proto = subclassProto;
 
                 subclass.override(overrides);
-                subclass.extend = function(o) {
+                subclass.extend = function (o) {
                     return Ext.extend(subclass, o);
                 };
 
@@ -212,7 +214,7 @@
          * @method override
          * @deprecated 4.1.0 Please use {@link Ext#define Ext.define} instead.
          */
-        override: function(cls, overrides) {
+        override: function (cls, overrides) {
             if (cls.$isClass) {
                 return cls.override(overrides);
             }
@@ -234,7 +236,7 @@
          * @param {Boolean} [allowBlank=false] (optional) `true` to allow zero length strings to qualify as non-empty.
          * @return {Object} `value`, if non-empty, else `defaultValue`.
          */
-        valueFrom: function(value, defaultValue, allowBlank){
+        valueFrom: function (value, defaultValue, allowBlank) {
             return Ext.isEmpty(value, allowBlank) ? defaultValue : value;
         },
 
@@ -258,7 +260,7 @@
          * @param {Object} value
          * @return {String}
          */
-        typeOf: function(value) {
+        typeOf: function (value) {
             if (value === null) {
                 return 'null';
             }
@@ -271,7 +273,7 @@
 
             var typeToString = toString.call(value);
 
-            switch(typeToString) {
+            switch (typeToString) {
                 case '[object Array]':
                     return 'array';
                 case '[object Date]':
@@ -322,7 +324,7 @@
          * @param {Boolean} [allowEmptyString=false] (optional) `true` to allow empty strings.
          * @return {Boolean}
          */
-        isEmpty: function(value, allowEmptyString) {
+        isEmpty: function (value, allowEmptyString) {
             return (value === null) || (value === undefined) || (!allowEmptyString ? value === '' : false) || (Ext.isArray(value) && value.length === 0);
         },
 
@@ -333,7 +335,7 @@
          * @return {Boolean}
          * @method
          */
-        isArray: ('isArray' in Array) ? Array.isArray : function(value) {
+        isArray: ('isArray' in Array) ? Array.isArray : function (value) {
             return toString.call(value) === '[object Array]';
         },
 
@@ -342,7 +344,7 @@
          * @param {Object} object The object to test.
          * @return {Boolean}
          */
-        isDate: function(value) {
+        isDate: function (value) {
             return toString.call(value) === '[object Date]';
         },
 
@@ -351,7 +353,7 @@
          * @param value {String} The string to test
          * @return {Boolean}
          */
-        isMSDate: function(value) {
+        isMSDate: function (value) {
             if (!Ext.isString(value)) {
                 return false;
             } else {
@@ -366,18 +368,18 @@
          * @method
          */
         isObject: (toString.call(null) === '[object Object]') ?
-        function(value) {
-            // check ownerDocument here as well to exclude DOM nodes
-            return value !== null && value !== undefined && toString.call(value) === '[object Object]' && value.ownerDocument === undefined;
-        } :
-        function(value) {
-            return toString.call(value) === '[object Object]';
-        },
+            function (value) {
+                // check ownerDocument here as well to exclude DOM nodes
+                return value !== null && value !== undefined && toString.call(value) === '[object Object]' && value.ownerDocument === undefined;
+            } :
+            function (value) {
+                return toString.call(value) === '[object Object]';
+            },
 
         /**
          * @private
          */
-        isSimpleObject: function(value) {
+        isSimpleObject: function (value) {
             return value instanceof Object && value.constructor === Object;
         },
         /**
@@ -385,7 +387,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isPrimitive: function(value) {
+        isPrimitive: function (value) {
             var type = typeof value;
 
             return type === 'string' || type === 'number' || type === 'boolean';
@@ -397,21 +399,20 @@
          * @return {Boolean}
          * @method
          */
-        isFunction:
-        // Safari 3.x and 4.x returns 'function' for typeof <NodeList>, hence we need to fall back to using
+        isFunction: // Safari 3.x and 4.x returns 'function' for typeof <NodeList>, hence we need to fall back to using
         // Object.prorotype.toString (slower)
-        (typeof document !== 'undefined' && typeof document.getElementsByTagName('body') === 'function') ? function(value) {
-            return toString.call(value) === '[object Function]';
-        } : function(value) {
-            return typeof value === 'function';
-        },
+            (typeof document !== 'undefined' && typeof document.getElementsByTagName('body') === 'function') ? function (value) {
+                return toString.call(value) === '[object Function]';
+            } : function (value) {
+                return typeof value === 'function';
+            },
 
         /**
          * Returns `true` if the passed value is a number. Returns `false` for non-finite numbers.
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isNumber: function(value) {
+        isNumber: function (value) {
             return typeof value === 'number' && isFinite(value);
         },
 
@@ -420,7 +421,7 @@
          * @param {Object} value Examples: 1, '1', '2.34'
          * @return {Boolean} `true` if numeric, `false` otherwise.
          */
-        isNumeric: function(value) {
+        isNumeric: function (value) {
             return !isNaN(parseFloat(value)) && isFinite(value);
         },
 
@@ -429,7 +430,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isString: function(value) {
+        isString: function (value) {
             return typeof value === 'string';
         },
 
@@ -439,7 +440,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isBoolean: function(value) {
+        isBoolean: function (value) {
             return typeof value === 'boolean';
         },
 
@@ -448,7 +449,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isElement: function(value) {
+        isElement: function (value) {
             return value ? value.nodeType === 1 : false;
         },
 
@@ -457,7 +458,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isTextNode: function(value) {
+        isTextNode: function (value) {
             return value ? value.nodeName === "#text" : false;
         },
 
@@ -466,7 +467,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isDefined: function(value) {
+        isDefined: function (value) {
             return typeof value !== 'undefined';
         },
 
@@ -475,7 +476,7 @@
          * @param {Object} value The value to test.
          * @return {Boolean}
          */
-        isIterable: function(value) {
+        isIterable: function (value) {
             return (value && typeof value !== 'string') ? value.length !== undefined : false;
         }
     });
@@ -487,7 +488,7 @@
          * @param {Object} item The variable to clone.
          * @return {Object} clone
          */
-        clone: function(item) {
+        clone: function (item) {
             if (item === null || item === undefined) {
                 return item;
             }
@@ -540,7 +541,7 @@
          * @private
          * Generate a unique reference of Ext in the global scope, useful for sandboxing.
          */
-        getUniqueGlobalNamespace: function() {
+        getUniqueGlobalNamespace: function () {
             var uniqueGlobalNamespace = this.uniqueGlobalNamespace;
 
             if (uniqueGlobalNamespace === undefined) {
@@ -560,7 +561,7 @@
         /**
          * @private
          */
-        functionFactory: function() {
+        functionFactory: function () {
             var args = Array.prototype.slice.call(arguments),
                 ln = args.length;
 
@@ -574,10 +575,10 @@
         /**
          * @private
          */
-        globalEval: ('execScript' in global) ? function(code) {
+        globalEval: ('execScript' in global) ? function (code) {
             global.execScript(code)
-        } : function(code) {
-            (function(){
+        } : function (code) {
+            (function () {
                 eval(code);
             })();
         }
@@ -586,9 +587,8 @@
         /**
          * @private
          * @property
-         */
-        ,Logger: {
-            log: function(message, priority) {
+         */, Logger: {
+            log: function (message, priority) {
                 if ('console' in global) {
                     if (!priority || !(priority in global.console)) {
                         priority = 'log';
@@ -597,19 +597,19 @@
                     global.console[priority](message);
                 }
             },
-            verbose: function(message) {
+            verbose: function (message) {
                 this.log(message, 'verbose');
             },
-            info: function(message) {
+            info: function (message) {
                 this.log(message, 'info');
             },
-            warn: function(message) {
+            warn: function (message) {
                 this.log(message, 'warn');
             },
-            error: function(message) {
+            error: function (message) {
                 throw new Error(message);
             },
-            deprecate: function(message) {
+            deprecate: function (message) {
                 this.log(message, 'warn');
             }
         }

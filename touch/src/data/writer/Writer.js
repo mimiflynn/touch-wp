@@ -63,7 +63,7 @@ Ext.define('Ext.data.writer.Writer', {
      * Creates new Writer.
      * @param {Object} config (optional) Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
@@ -72,12 +72,12 @@ Ext.define('Ext.data.writer.Writer', {
      * @param {Ext.data.Request} request The request object.
      * @return {Ext.data.Request} The modified request object.
      */
-    write: function(request) {
+    write: function (request) {
         var operation = request.getOperation(),
-            records   = operation.getRecords() || [],
-            len       = records.length,
-            i         = 0,
-            data      = [];
+            records = operation.getRecords() || [],
+            len = records.length,
+            i = 0,
+            data = [];
 
         for (; i < len; i++) {
             data.push(this.getRecordData(records[i]));
@@ -85,7 +85,7 @@ Ext.define('Ext.data.writer.Writer', {
         return this.writeRecords(request, data);
     },
 
-    writeDate: function(field, date) {
+    writeDate: function (field, date) {
         if (!date) {
             return null;
         }
@@ -93,7 +93,7 @@ Ext.define('Ext.data.writer.Writer', {
         var dateFormat = field.getDateFormat() || 'timestamp';
         switch (dateFormat) {
             case 'timestamp':
-                return date.getTime()/1000;
+                return date.getTime() / 1000;
             case 'time':
                 return date.getTime();
             default:
@@ -108,7 +108,7 @@ Ext.define('Ext.data.writer.Writer', {
      * @return {Object} An object literal of name/value keys to be written to the server.
      * By default this method returns the data property on the record.
      */
-    getRecordData: function(record) {
+    getRecordData: function (record) {
         var isPhantom = record.phantom === true,
             writeAll = this.getWriteAllFields() || isPhantom,
             nameProperty = this.getNameProperty(),
@@ -117,7 +117,7 @@ Ext.define('Ext.data.writer.Writer', {
             changes, name, field, key, value;
 
         if (writeAll) {
-            fields.each(function(field) {
+            fields.each(function (field) {
                 if (field.getPersist()) {
                     name = field.config[nameProperty] || field.getName();
                     value = record.get(field.getName());
@@ -153,7 +153,7 @@ Ext.define('Ext.data.writer.Writer', {
 
     // Convert old properties in data into a config object
     // <deprecated product=touch since=2.0>
-    ,onClassExtended: function(cls, data, hooks) {
+    , onClassExtended: function (cls, data, hooks) {
         var Component = this,
             defaultConfig = Component.prototype.config,
             config = data.config || {},

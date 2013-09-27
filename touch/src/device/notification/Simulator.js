@@ -8,7 +8,7 @@ Ext.define('Ext.device.notification.Simulator', {
     // @private
     msg: null,
 
-	show: function() {
+    show: function () {
         var config = this.callParent(arguments),
             buttons = [],
             ln = config.buttons.length,
@@ -31,22 +31,22 @@ Ext.define('Ext.device.notification.Simulator', {
 
         msg = this.msg;
 
-        callback = function(itemId) {
+        callback = function (itemId) {
             if (config.callback) {
                 config.callback.apply(config.scope, [itemId]);
             }
         };
 
         this.msg.show({
-            title  : config.title,
+            title: config.title,
             message: config.message,
-            scope  : this.msg,
+            scope: this.msg,
             buttons: buttons,
-            fn     : callback
+            fn: callback
         });
     },
 
-    vibrate: function() {
+    vibrate: function () {
         //nice animation to fake vibration
         var animation = [
             "@-webkit-keyframes vibrate{",
@@ -68,7 +68,7 @@ Ext.define('Ext.device.notification.Simulator', {
         cssNode.innerHTML = animation.join('\n');
         head.appendChild(cssNode);
 
-        setTimeout(function() {
+        setTimeout(function () {
             head.removeChild(cssNode);
         }, 400);
     }

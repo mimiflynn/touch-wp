@@ -199,11 +199,11 @@ Ext.define('Ext.data.Operation', {
      * Creates new Operation object.
      * @param {Object} config (optional) Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    applyModel: function(model) {
+    applyModel: function (model) {
         if (typeof model == 'string') {
             model = Ext.data.ModelManager.getModel(model);
 
@@ -225,7 +225,7 @@ Ext.define('Ext.data.Operation', {
         return model;
     },
 
-    getRecords: function() {
+    getRecords: function () {
         var resultSet = this.getResultSet();
         return this._records || (resultSet ? resultSet.getRecords() : []);
     },
@@ -233,7 +233,7 @@ Ext.define('Ext.data.Operation', {
     /**
      * Marks the Operation as started.
      */
-    setStarted: function() {
+    setStarted: function () {
         this.started = true;
         this.running = true;
     },
@@ -241,15 +241,15 @@ Ext.define('Ext.data.Operation', {
     /**
      * Marks the Operation as completed.
      */
-    setCompleted: function() {
+    setCompleted: function () {
         this.complete = true;
-        this.running  = false;
+        this.running = false;
     },
 
     /**
      * Marks the Operation as successful.
      */
-    setSuccessful: function() {
+    setSuccessful: function () {
         this.success = true;
     },
 
@@ -257,7 +257,7 @@ Ext.define('Ext.data.Operation', {
      * Marks the Operation as having experienced an exception. Can be supplied with an option error message/object.
      * @param {String/Object} error (optional) error string/object
      */
-    setException: function(error) {
+    setException: function (error) {
         this.exception = true;
         this.success = false;
         this.running = false;
@@ -268,7 +268,7 @@ Ext.define('Ext.data.Operation', {
      * Returns `true` if this Operation encountered an exception (see also {@link #getError}).
      * @return {Boolean} `true` if there was an exception.
      */
-    hasException: function() {
+    hasException: function () {
         return this.exception === true;
     },
 
@@ -276,7 +276,7 @@ Ext.define('Ext.data.Operation', {
      * Returns the error string or object that was set using {@link #setException}.
      * @return {String/Object} The error object.
      */
-    getError: function() {
+    getError: function () {
         return this.error;
     },
 
@@ -285,7 +285,7 @@ Ext.define('Ext.data.Operation', {
      * {@link #isRunning} to test if the Operation is currently running.
      * @return {Boolean} `true` if the Operation has started
      */
-    isStarted: function() {
+    isStarted: function () {
         return this.started === true;
     },
 
@@ -293,7 +293,7 @@ Ext.define('Ext.data.Operation', {
      * Returns `true` if the Operation has been started but has not yet completed.
      * @return {Boolean} `true` if the Operation is currently running
      */
-    isRunning: function() {
+    isRunning: function () {
         return this.running === true;
     },
 
@@ -301,7 +301,7 @@ Ext.define('Ext.data.Operation', {
      * Returns `true` if the Operation has been completed
      * @return {Boolean} `true` if the Operation is complete
      */
-    isComplete: function() {
+    isComplete: function () {
         return this.complete === true;
     },
 
@@ -309,7 +309,7 @@ Ext.define('Ext.data.Operation', {
      * Returns `true` if the Operation has completed and was successful
      * @return {Boolean} `true` if successful
      */
-    wasSuccessful: function() {
+    wasSuccessful: function () {
         return this.isComplete() && this.success === true;
     },
 
@@ -317,11 +317,11 @@ Ext.define('Ext.data.Operation', {
      * Checks whether this operation should cause writing to occur.
      * @return {Boolean} Whether the operation should cause a write to occur.
      */
-    allowWrite: function() {
+    allowWrite: function () {
         return this.getAction() != 'read';
     },
 
-    process: function(action, resultSet, request, response) {
+    process: function (action, resultSet, request, response) {
         if (resultSet.getSuccess() !== false) {
             this.setResponse(response);
             this.setResultSet(resultSet);
@@ -334,7 +334,7 @@ Ext.define('Ext.data.Operation', {
         return this['process' + Ext.String.capitalize(action)].call(this, resultSet, request, response);
     },
 
-    processRead: function(resultSet) {
+    processRead: function (resultSet) {
         var records = resultSet.getRecords(),
             processedRecords = [],
             Model = this.getModel(),
@@ -351,7 +351,7 @@ Ext.define('Ext.data.Operation', {
         return true;
     },
 
-    processCreate: function(resultSet) {
+    processCreate: function (resultSet) {
         var updatedRecords = resultSet.getRecords(),
             currentRecords = this.getRecords(),
             ln = updatedRecords.length,
@@ -379,7 +379,7 @@ Ext.define('Ext.data.Operation', {
         return true;
     },
 
-    processUpdate: function(resultSet) {
+    processUpdate: function (resultSet) {
         var updatedRecords = resultSet.getRecords(),
             currentRecords = this.getRecords(),
             ln = updatedRecords.length,
@@ -402,7 +402,7 @@ Ext.define('Ext.data.Operation', {
         return true;
     },
 
-    processDestroy: function(resultSet) {
+    processDestroy: function (resultSet) {
         var updatedRecords = resultSet.getRecords(),
             ln = updatedRecords.length,
             i, currentRecord, updatedRecord;
@@ -423,7 +423,7 @@ Ext.define('Ext.data.Operation', {
         }
     },
 
-    findCurrentRecord: function(clientId) {
+    findCurrentRecord: function (clientId) {
         var currentRecords = this.getRecords(),
             ln = currentRecords.length,
             i, currentRecord;
@@ -436,7 +436,7 @@ Ext.define('Ext.data.Operation', {
         }
     },
 
-    updateRecord: function(currentRecord, updatedRecord) {
+    updateRecord: function (currentRecord, updatedRecord) {
         var recordData = updatedRecord.data,
             recordId = updatedRecord.id;
 
@@ -454,7 +454,7 @@ Ext.define('Ext.data.Operation', {
         currentRecord.commit();
     }
     // <deprecated product=touch since=2.0>
-}, function() {
+}, function () {
     /**
      * @member Ext.data.Operation
      * @cfg {Boolean} group

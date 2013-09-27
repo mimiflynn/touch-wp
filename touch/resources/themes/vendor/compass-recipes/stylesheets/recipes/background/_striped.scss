@@ -9,16 +9,12 @@
 
 @import "compass/css3/images";
 
-@mixin background-striped(
-    $bgcolor: $base-color,
-    $stripe-color: darken($bgcolor, 5),
-    $minorsize: 20px,
-    $majorsize: 40px,
-    $angle: 45deg
-) {
-    background-color: $bgcolor;
-    @include background-image(
-        linear-gradient($angle, rgba($stripe-color, 0), rgba($stripe-color, 0) $minorsize, $stripe-color $minorsize, $stripe-color $majorsize)
-    );
-    background-size: $majorsize;
+@mixin background-striped($bgcolor: $base-color,
+$stripe-color: darken($bgcolor, 5),
+$minorsize: 20px,
+$majorsize: 40px,
+$angle: 45deg) {
+  background-color: $bgcolor;
+  @include background-image(linear-gradient($angle, rgba($stripe-color, 0), rgba($stripe-color, 0) $minorsize, $stripe-color $minorsize, $stripe-color $majorsize));
+  background-size: $majorsize;
 }

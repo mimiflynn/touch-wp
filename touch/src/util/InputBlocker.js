@@ -7,7 +7,7 @@ Ext.define('Ext.util.InputBlocker', {
     blockInputs: function () {
         if (Ext.browser.is.ie) {
             Ext.select('.x-field-text .x-field-input:not(.x-item-disabled) .x-input-el, .x-field-textarea .x-field-input:not(.x-item-disabled) .x-input-el').each(function (item) {
-				if (item.dom.offsetWidth > 0) {
+                if (item.dom.offsetWidth > 0) {
                     item.dom.setAttribute('disabled', true);
                     item.dom.setAttribute('overlayfix', true);
                 }

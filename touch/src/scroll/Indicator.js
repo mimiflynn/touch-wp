@@ -10,18 +10,18 @@ Ext.define('Ext.scroll.Indicator', {
 
     alternateClassName: 'Ext.util.Indicator',
 
-    constructor: function(config) {
+    constructor: function (config) {
         var namespace = Ext.scroll.indicator;
 
         switch (Ext.browser.getPreferredTranslationMethod(config)) {
-        case 'scrollposition':
-            return new namespace.ScrollPosition(config);
-        case 'csstransform':
-            if (Ext.browser.is.AndroidStock4) {
-                return new namespace.CssTransform(config);
-            } else {
-                return new namespace.Rounded(config);
-            }
+            case 'scrollposition':
+                return new namespace.ScrollPosition(config);
+            case 'csstransform':
+                if (Ext.browser.is.AndroidStock4) {
+                    return new namespace.CssTransform(config);
+                } else {
+                    return new namespace.Rounded(config);
+                }
         }
     }
 });

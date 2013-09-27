@@ -166,7 +166,7 @@ Ext.define("Ext.chart.series.sprite.PieSlice", {
         l1 = Math.sqrt(attr.endRho * attr.endRho - outer * outer);
         l2 = Math.sqrt(attr.endRho * attr.endRho - inner * inner);
         sliceAngle = Math.abs(attr.endAngle - attr.startAngle);
-        l3 = (sliceAngle > Math.PI/2 ? inner : Math.abs(Math.tan(sliceAngle / 2)) * inner);
+        l3 = (sliceAngle > Math.PI / 2 ? inner : Math.abs(Math.tan(sliceAngle / 2)) * inner);
         if (bbox.height + padding * 2 > Math.min(l1, l2, l3) * 2) {
             return 0;
         }

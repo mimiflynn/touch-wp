@@ -107,7 +107,7 @@ Ext.define("Ext.chart.series.sprite.Bar", {
         itemCfg.height = bottom - top;
         itemCfg.radius = this.attr.radius;
         if (this.attr.renderer) {
-            changes = this.attr.renderer.call(this, this, itemCfg, {store:this.getStore()}, index);
+            changes = this.attr.renderer.call(this, this, itemCfg, {store: this.getStore()}, index);
             Ext.apply(itemCfg, changes);
         }
         this.putMarker("items", itemCfg, index, !this.attr.renderer);
@@ -182,7 +182,7 @@ Ext.define("Ext.chart.series.sprite.Bar", {
         // TODO: Cleanup the bar sprites.
         hitX = x;
         hitY = surfaceHeight - y;
-        
+
         for (var i = 0; i < dataX.length; i++) {
             var bbox = sprite.getMarkerBBox("items", i);
             if (hitX >= bbox.x && hitX <= (bbox.x + bbox.width) && hitY >= bbox.y && hitY <= (bbox.y + bbox.height)) {

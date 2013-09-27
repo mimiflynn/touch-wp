@@ -11,7 +11,7 @@ Ext.define('Ext.fx.easing.EaseOut', {
         duration: 1500
     },
 
-    getValue: function() {
+    getValue: function () {
         var deltaTime = Ext.Date.now() - this.getStartTime(),
             duration = this.getDuration(),
             startValue = this.getStartValue(),

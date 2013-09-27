@@ -1,7 +1,7 @@
 Ext.define('WWTouch.model.Posts', {
-  extend: 'Ext.data.Model',
+    extend: 'Ext.data.Model',
 
-  config: {
-    fields: ['title', 'author', 'content']
-  }
+    config: {
+        fields: ['title', 'author', 'content']
+    }
 });

@@ -117,6 +117,8 @@ Ext.define('Ext.draw.Draw', {
      */
     updateIOS: Ext.os.is.iOS ? function () {
         Ext.getBody().createChild({id: 'frame-workaround', style: 'position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; background: rgba(0,0,0,0.001); z-index: 100000'});
-        Ext.draw.Animator.schedule(function () {Ext.get('frame-workaround').destroy();});
+        Ext.draw.Animator.schedule(function () {
+            Ext.get('frame-workaround').destroy();
+        });
     } : Ext.emptyFn
 });

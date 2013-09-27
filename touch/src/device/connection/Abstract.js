@@ -55,7 +55,7 @@ Ext.define('Ext.device.connection.Abstract', {
      * True if the device is currently online
      * @return {Boolean} online
      */
-    isOnline: function() {
+    isOnline: function () {
         return this.getOnline();
     }
 

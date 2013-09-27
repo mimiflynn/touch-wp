@@ -1,7 +1,7 @@
 /**
  * @class Ext.chart.axis.layout.CombineDuplicate
  * @extends Ext.chart.axis.layout.Discrete
- * 
+ *
  * Discrete processor that combines duplicate data points.
  */
 Ext.define("Ext.chart.axis.layout.CombineDuplicate", {

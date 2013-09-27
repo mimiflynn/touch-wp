@@ -39,7 +39,7 @@ Ext.define('Ext.data.StoreManager', {
      * store initialized with a {@link Ext.data.Store#storeId} will be auto-registered.
      * @param {Ext.data.Store...} stores Any number of Store instances.
      */
-    register : function() {
+    register: function () {
         for (var i = 0, s; (s = arguments[i]); i++) {
             this.add(s);
         }
@@ -49,7 +49,7 @@ Ext.define('Ext.data.StoreManager', {
      * Unregisters one or more Stores with the StoreManager.
      * @param {String/Object...} stores Any number of Store instances or ID-s.
      */
-    unregister : function() {
+    unregister: function () {
         for (var i = 0, s; (s = arguments[i]); i++) {
             this.remove(this.lookup(s));
         }
@@ -60,7 +60,7 @@ Ext.define('Ext.data.StoreManager', {
      * @param {String/Object} store The `id` of the Store, or a Store instance, or a store configuration.
      * @return {Ext.data.Store}
      */
-    lookup : function(store) {
+    lookup: function (store) {
         // handle the case when we are given an array or an array of arrays.
         if (Ext.isArray(store)) {
             var fields = ['field1'],
@@ -75,12 +75,12 @@ Ext.define('Ext.data.StoreManager', {
                     data.push([store[i]]);
                 }
             } else {
-                for(i = 2, len = store[0].length; i <= len; ++i){
+                for (i = 2, len = store[0].length; i <= len; ++i) {
                     fields.push('field' + i);
                 }
             }
             return Ext.create('Ext.data.ArrayStore', {
-                data  : data,
+                data: data,
                 fields: fields,
                 // See https://sencha.jira.com/browse/TOUCH-1541
                 autoDestroy: true,
@@ -103,10 +103,10 @@ Ext.define('Ext.data.StoreManager', {
     },
 
     // getKey implementation for MixedCollection
-    getKey : function(o) {
-         return o.getStoreId();
+    getKey: function (o) {
+        return o.getStoreId();
     }
-}, function() {
+}, function () {
     /**
      * Creates a new store for the given id and config, then registers it with the {@link Ext.data.StoreManager Store Manager}.
      * Sample usage:
@@ -126,7 +126,7 @@ Ext.define('Ext.data.StoreManager', {
      * @member Ext
      * @method regStore
      */
-    Ext.regStore = function(name, config) {
+    Ext.regStore = function (name, config) {
         var store;
 
         if (Ext.isObject(name)) {
@@ -154,7 +154,7 @@ Ext.define('Ext.data.StoreManager', {
      * @method getStore
      * @alias Ext.data.StoreManager#lookup
      */
-    Ext.getStore = function(name) {
+    Ext.getStore = function (name) {
         return Ext.data.StoreManager.lookup(name);
     };
 });

@@ -12,15 +12,15 @@ Ext.define('Ext.device.camera.Simulator', {
         ]
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
-    updateSamples: function(samples) {
+    updateSamples: function (samples) {
         this.sampleIndex = 0;
     },
 
-    capture: function(options) {
+    capture: function (options) {
         var index = this.sampleIndex,
             samples = this.getSamples(),
             samplesCount = samples.length,

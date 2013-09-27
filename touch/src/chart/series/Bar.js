@@ -1,9 +1,9 @@
 /**
  * @class Ext.chart.series.Bar
  * @extends Ext.chart.series.StackedCartesian
- * 
+ *
  * Creates a Bar Chart.
- * 
+ *
  *     @example preview
  *     var chart = new Ext.chart.Chart({
  *         store: {

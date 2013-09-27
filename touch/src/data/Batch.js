@@ -91,7 +91,7 @@ Ext.define('Ext.data.Batch', {
      * Creates new Batch object.
      * @param {Object} config (optional) Config object.
      */
-    constructor: function(config) {
+    constructor: function (config) {
         var me = this;
 
         me.initConfig(config);
@@ -107,7 +107,7 @@ Ext.define('Ext.data.Batch', {
      * Adds a new operation to this batch.
      * @param {Object} operation The {@link Ext.data.Operation Operation} object.
      */
-    add: function(operation) {
+    add: function (operation) {
         this.total++;
 
         operation.setBatch(this);
@@ -119,7 +119,7 @@ Ext.define('Ext.data.Batch', {
      * Kicks off the execution of the batch, continuing from the next operation if the previous
      * operation encountered an exception, or if execution was paused.
      */
-    start: function() {
+    start: function () {
         this.hasException = false;
         this.isRunning = true;
 
@@ -130,14 +130,14 @@ Ext.define('Ext.data.Batch', {
      * @private
      * Runs the next operation, relative to `this.current`.
      */
-    runNextOperation: function() {
+    runNextOperation: function () {
         this.runOperation(this.current + 1);
     },
 
     /**
      * Pauses execution of the batch, but does not cancel the current operation.
      */
-    pause: function() {
+    pause: function () {
         this.isRunning = false;
     },
 
@@ -145,7 +145,7 @@ Ext.define('Ext.data.Batch', {
      * Executes a operation by its numeric index.
      * @param {Number} index The operation index to run.
      */
-    runOperation: function(index) {
+    runOperation: function (index) {
         var me = this,
             operations = me.operations,
             operation = operations[index],
@@ -158,7 +158,7 @@ Ext.define('Ext.data.Batch', {
         } else {
             me.current = index;
 
-            onProxyReturn = function(operation) {
+            onProxyReturn = function (operation) {
                 var hasException = operation.hasException();
 
                 if (hasException) {

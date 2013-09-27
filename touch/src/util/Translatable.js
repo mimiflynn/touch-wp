@@ -11,16 +11,16 @@ Ext.define('Ext.util.Translatable', {
         'Ext.util.translatable.CssPosition'
     ],
 
-    constructor: function(config) {
+    constructor: function (config) {
         var namespace = Ext.util.translatable;
 
         switch (Ext.browser.getPreferredTranslationMethod(config)) {
-        case 'scrollposition':
-            return new namespace.ScrollPosition(config);
-        case 'csstransform':
-            return new namespace.CssTransform(config);
-        case 'cssposition':
-            return new namespace.CssPosition(config);
+            case 'scrollposition':
+                return new namespace.ScrollPosition(config);
+            case 'csstransform':
+                return new namespace.CssTransform(config);
+            case 'cssposition':
+                return new namespace.CssPosition(config);
         }
     }
 });

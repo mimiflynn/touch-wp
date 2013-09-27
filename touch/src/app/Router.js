@@ -30,7 +30,7 @@ Ext.define('Ext.app.Router', {
         }
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         this.initConfig(config);
     },
 
@@ -39,7 +39,7 @@ Ext.define('Ext.app.Router', {
      * @param {String} url The url to recognize.
      * @param {Object} [params] Additional parameters.
      */
-    connect: function(url, params) {
+    connect: function (url, params) {
         params = Ext.apply({url: url}, params || {}, this.getDefaults());
         var route = Ext.create('Ext.app.Route', params);
 
@@ -54,7 +54,7 @@ Ext.define('Ext.app.Router', {
      * @param {String} url The url to recognize.
      * @return {Object/undefined} If the url was recognized, the controller and action to call, else `undefined`.
      */
-    recognize: function(url) {
+    recognize: function (url) {
         var routes = this.getRoutes(),
             length = routes.length,
             i, result;
@@ -80,17 +80,17 @@ Ext.define('Ext.app.Router', {
      *
      * @param {Function} fn The fn to call
      */
-    draw: function(fn) {
+    draw: function (fn) {
         fn.call(this, this);
     },
 
     /**
      * @private
      */
-    clear: function() {
+    clear: function () {
         this.setRoutes([]);
     }
-}, function() {
+}, function () {
     //<deprecated product=touch since=2.0>
     /**
      * Restores compatibility for the old `Ext.Router.draw` syntax. This needs to be here because apps often include
@@ -110,7 +110,7 @@ Ext.define('Ext.app.Router', {
      * more times before the application is even instantiated and it will simply link it up once everything is
      * present.
      */
-    Ext.Router.setAppInstance = function(app) {
+    Ext.Router.setAppInstance = function (app) {
         Ext.Router.appInstance = app;
 
         if (drawStack.length > 0) {
@@ -118,10 +118,10 @@ Ext.define('Ext.app.Router', {
         }
     };
 
-    Ext.Router.draw = function(mapperFn) {
+    Ext.Router.draw = function (mapperFn) {
         Ext.Logger.deprecate(
             'Ext.Router.map is deprecated, please define your routes inline inside each Controller. ' +
-            'Please see the 1.x -> 2.x migration guide for more details.'
+                'Please see the 1.x -> 2.x migration guide for more details.'
         );
 
         var app = Ext.Router.appInstance,

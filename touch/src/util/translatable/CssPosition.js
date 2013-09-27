@@ -6,7 +6,7 @@
 Ext.define('Ext.util.translatable.CssPosition', {
     extend: 'Ext.util.translatable.Dom',
 
-    doTranslate: function(x, y) {
+    doTranslate: function (x, y) {
         var domStyle = this.getElement().dom.style;
 
         if (typeof x == 'number') {
@@ -18,7 +18,7 @@ Ext.define('Ext.util.translatable.CssPosition', {
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var domStyle = this.getElement().dom.style;
 
         domStyle.left = null;

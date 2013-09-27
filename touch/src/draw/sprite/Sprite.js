@@ -217,7 +217,7 @@ Ext.define('Ext.draw.sprite.Sprite', {
                  * @cfg {Number} [scalingCenterY=null] The central coordinate of the sprite's scale operation on the y-axis.
                  */
                 scalingCenterY: "number",
-                
+
                 constrainGradients: "bool"
             },
 
@@ -273,7 +273,7 @@ Ext.define('Ext.draw.sprite.Sprite', {
                 scalingY: 1,
                 scalingCenterX: null,
                 scalingCenterY: null,
-                
+
                 constrainGradients: false
             },
 
@@ -309,7 +309,7 @@ Ext.define('Ext.draw.sprite.Sprite', {
                 scalingY: "transform",
                 scalingCenterX: "transform",
                 scalingCenterY: "transform",
-                
+
                 constrainGradients: "canvas"
             },
 
@@ -624,7 +624,7 @@ Ext.define('Ext.draw.sprite.Sprite', {
             }
         }
 
-        if(attrs.constrainGradients) {
+        if (attrs.constrainGradients) {
             ctx.setGradientBBox({x: region[0], y: region[1], width: region[2], height: region[3]});
         } else {
             ctx.setGradientBBox(this.getBBox(attrs.transformFillStroke));

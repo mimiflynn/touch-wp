@@ -142,7 +142,7 @@ Ext.define('Ext.data.proxy.JsonP', {
          * See {@link Ext.data.JsonP#callbackKey}.
          * @accessor
          */
-        callbackKey : 'callback',
+        callbackKey: 'callback',
 
         /**
          * @cfg {String} recordParam
@@ -168,7 +168,7 @@ Ext.define('Ext.data.proxy.JsonP', {
      * @return {Object}
      * @protected
      */
-    doRequest: function(operation, callback, scope) {
+    doRequest: function (operation, callback, scope) {
         // <debug>
         var action = operation.getAction();
         if (action !== 'read') {
@@ -177,9 +177,9 @@ Ext.define('Ext.data.proxy.JsonP', {
         // </debug>
 
         //generate the unique IDs for this request
-        var me      = this,
+        var me = this,
             request = me.buildRequest(operation),
-            params  = request.getParams();
+            params = request.getParams();
 
         // apply JsonP proxy-specific attributes to the Request
         request.setConfig({
@@ -221,17 +221,17 @@ Ext.define('Ext.data.proxy.JsonP', {
      * @param {Object} scope The scope in which to execute the callback function.
      * @return {Function} The callback function.
      */
-    createRequestCallback: function(request, operation, callback, scope) {
+    createRequestCallback: function (request, operation, callback, scope) {
         var me = this;
 
-        return function(success, response, errorType) {
+        return function (success, response, errorType) {
             delete me.lastRequest;
             me.processResponse(success, operation, request, response, callback, scope);
         };
     },
 
     // @inheritdoc
-    setException: function(operation, response) {
+    setException: function (operation, response) {
         operation.setException(operation.getRequest().getJsonP().errorType);
     },
 
@@ -241,10 +241,10 @@ Ext.define('Ext.data.proxy.JsonP', {
      * @param {Ext.data.Request} request The request object.
      * @return {String} The url.
      */
-    buildUrl: function(request) {
-        var me      = this,
-            url     = me.callParent(arguments),
-            params  = Ext.apply({}, request.getParams()),
+    buildUrl: function (request) {
+        var me = this,
+            url = me.callParent(arguments),
+            params = Ext.apply({}, request.getParams()),
             filters = params.filters,
             filter, i, value;
 
@@ -270,7 +270,7 @@ Ext.define('Ext.data.proxy.JsonP', {
     /**
      * @inheritdoc
      */
-    destroy: function() {
+    destroy: function () {
         this.abort();
         this.callParent(arguments);
     },
@@ -278,7 +278,7 @@ Ext.define('Ext.data.proxy.JsonP', {
     /**
      * Aborts the current server request if one is currently running.
      */
-    abort: function() {
+    abort: function () {
         var lastRequest = this.lastRequest;
         if (lastRequest) {
             Ext.data.JsonP.abort(lastRequest.getJsonP());

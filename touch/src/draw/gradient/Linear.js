@@ -27,7 +27,7 @@
  *          }
  *      ]
  *  });
-*/
+ */
 
 Ext.define("Ext.draw.gradient.Linear", {
     extend: 'Ext.draw.gradient.Gradient',

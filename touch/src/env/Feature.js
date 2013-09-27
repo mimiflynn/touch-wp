@@ -11,10 +11,10 @@ Ext.define('Ext.env.Feature', {
 
     requires: ['Ext.env.Browser', 'Ext.env.OS'],
 
-    constructor: function() {
+    constructor: function () {
         this.testElements = {};
 
-        this.has = function(name) {
+        this.has = function (name) {
             return !!this.has[name];
         };
 
@@ -24,9 +24,9 @@ Ext.define('Ext.env.Feature', {
             };
         }
 
-        Ext.onDocumentReady(function() {
+        Ext.onDocumentReady(function () {
             this.registerTest({
-                ProperHBoxStretching: function() {
+                ProperHBoxStretching: function () {
                     // IE10 currently has a bug in their flexbox row layout. We feature detect the issue here.
                     var bodyElement = document.createElement('div'),
                         innerElement = bodyElement.appendChild(document.createElement('div')),
@@ -46,7 +46,7 @@ Ext.define('Ext.env.Feature', {
         }, this);
     },
 
-    getTestElement: function(tag, createNew) {
+    getTestElement: function (tag, createNew) {
         if (tag === undefined) {
             tag = 'div';
         }
@@ -65,7 +65,7 @@ Ext.define('Ext.env.Feature', {
         return this.testElements[tag];
     },
 
-    isStyleSupported: function(name, tag) {
+    isStyleSupported: function (name, tag) {
         var elementStyle = this.getTestElement(tag).style,
             cName = Ext.String.capitalize(name);
 
@@ -77,7 +77,7 @@ Ext.define('Ext.env.Feature', {
         return false;
     },
 
-    isStyleSupportedWithoutPrefix: function(name, tag) {
+    isStyleSupportedWithoutPrefix: function (name, tag) {
         var elementStyle = this.getTestElement(tag).style;
 
         if (typeof elementStyle[name] !== 'undefined') {
@@ -87,7 +87,7 @@ Ext.define('Ext.env.Feature', {
         return false;
     },
 
-    isEventSupported: function(name, tag) {
+    isEventSupported: function (name, tag) {
         if (tag === undefined) {
             tag = window;
         }
@@ -112,7 +112,7 @@ Ext.define('Ext.env.Feature', {
         return isSupported;
     },
 
-    getSupportedPropertyName: function(object, name) {
+    getSupportedPropertyName: function (object, name) {
         var vendorName = Ext.browser.getVendorProperyName(name);
 
         if (vendorName in object) {
@@ -125,13 +125,13 @@ Ext.define('Ext.env.Feature', {
         return null;
     },
 
-    registerTest: Ext.Function.flexSetter(function(name, fn) {
+    registerTest: Ext.Function.flexSetter(function (name, fn) {
         this.has[name] = fn.call(this);
 
         return this;
     })
 
-}, function() {
+}, function () {
 
     /**
      * @class Ext.feature
@@ -201,18 +201,18 @@ Ext.define('Ext.env.Feature', {
      * @return {Boolean}
      */
     Ext.feature.registerTest({
-        Canvas: function() {
+        Canvas: function () {
             var element = this.getTestElement('canvas');
             return !!(element && element.getContext && element.getContext('2d'));
         },
 
-        Svg: function() {
+        Svg: function () {
             var doc = document;
 
             return !!(doc.createElementNS && !!doc.createElementNS("http:/" + "/www.w3.org/2000/svg", "svg").createSVGRect);
         },
 
-        Vml: function() {
+        Vml: function () {
             var element = this.getTestElement(),
                 ret = false;
 
@@ -223,85 +223,85 @@ Ext.define('Ext.env.Feature', {
             return ret;
         },
 
-        Touch: function() {
+        Touch: function () {
             return Ext.browser.is.Ripple || (this.isEventSupported('touchstart') && !(Ext.os && Ext.os.name.match(/Windows|MacOS|Linux/) && !Ext.os.is.BlackBerry6));
         },
 
-        Pointer: function() {
+        Pointer: function () {
             return !!window.navigator.msPointerEnabled;
         },
 
-        Orientation: function() {
+        Orientation: function () {
             return ('orientation' in window) && this.isEventSupported('orientationchange');
         },
 
-        OrientationChange: function() {
+        OrientationChange: function () {
             return this.isEventSupported('orientationchange');
         },
 
-        DeviceMotion: function() {
+        DeviceMotion: function () {
             return this.isEventSupported('devicemotion');
         },
 
-        Geolocation: function() {
+        Geolocation: function () {
             return 'geolocation' in window.navigator;
         },
 
-        SqlDatabase: function() {
+        SqlDatabase: function () {
             return 'openDatabase' in window;
         },
 
-        WebSockets: function() {
+        WebSockets: function () {
             return 'WebSocket' in window;
         },
 
-        Range: function() {
+        Range: function () {
             return !!document.createRange;
         },
 
-        CreateContextualFragment: function() {
+        CreateContextualFragment: function () {
             var range = !!document.createRange ? document.createRange() : false;
             return range && !!range.createContextualFragment;
         },
 
-        History: function() {
+        History: function () {
             return ('history' in window && 'pushState' in window.history);
         },
 
-        CssTransforms: function() {
+        CssTransforms: function () {
             return this.isStyleSupported('transform');
         },
 
-        CssTransformNoPrefix: function() {
+        CssTransformNoPrefix: function () {
             return this.isStyleSupportedWithoutPrefix('transform');
         },
 
-        Css3dTransforms: function() {
+        Css3dTransforms: function () {
             // See https://sencha.jira.com/browse/TOUCH-1544
             return this.has('CssTransforms') && this.isStyleSupported('perspective') && !Ext.browser.is.AndroidStock2;
         },
 
-        CssAnimations: function() {
+        CssAnimations: function () {
             return this.isStyleSupported('animationName');
         },
 
-        CssTransitions: function() {
+        CssTransitions: function () {
             return this.isStyleSupported('transitionProperty');
         },
 
-        Audio: function() {
+        Audio: function () {
             return !!this.getTestElement('audio').canPlayType;
         },
 
-        Video: function() {
+        Video: function () {
             return !!this.getTestElement('video').canPlayType;
         },
 
-        ClassList: function() {
+        ClassList: function () {
             return "classList" in this.getTestElement();
         },
 
-        LocalStorage : function() {
+        LocalStorage: function () {
             var supported = false;
 
             try {
@@ -312,7 +312,8 @@ Ext.define('Ext.env.Feature', {
                     localStorage.removeItem('sencha-localstorage-test');
                     supported = true;
                 }
-            } catch ( e ) {}
+            } catch (e) {
+            }
 
             return supported;
         }
@@ -333,7 +334,7 @@ Ext.define('Ext.env.Feature', {
      * @deprecated 2.0.0 Please use {@link Ext.feature#has}.CssTransitions instead
      */
     Ext.deprecatePropertyValue(has, 'Transitions', has.CssTransitions,
-                          "Ext.supports.Transitions is deprecated, please use Ext.feature.has.CssTransitions instead");
+        "Ext.supports.Transitions is deprecated, please use Ext.feature.has.CssTransitions instead");
 
     /**
      * @member Ext.supports
@@ -342,7 +343,7 @@ Ext.define('Ext.env.Feature', {
      * @deprecated 2.0.0 Please use {@link Ext.feature#has}.Svg instead
      */
     Ext.deprecatePropertyValue(has, 'SVG', has.Svg,
-                          "Ext.supports.SVG is deprecated, please use Ext.feature.has.Svg instead");
+        "Ext.supports.SVG is deprecated, please use Ext.feature.has.Svg instead");
 
     /**
      * @member Ext.supports
@@ -351,7 +352,7 @@ Ext.define('Ext.env.Feature', {
      * @deprecated 2.0.0 Please use {@link Ext.feature#has}.Vml instead
      */
     Ext.deprecatePropertyValue(has, 'VML', has.Vml,
-                          "Ext.supports.VML is deprecated, please use Ext.feature.has.Vml instead");
+        "Ext.supports.VML is deprecated, please use Ext.feature.has.Vml instead");
 
     /**
      * @member Ext.supports
@@ -360,7 +361,7 @@ Ext.define('Ext.env.Feature', {
      * @deprecated 2.0.0 Please use {@link Ext.feature#has}.Audio instead
      */
     Ext.deprecatePropertyValue(has, 'AudioTag', has.Audio,
-                          "Ext.supports.AudioTag is deprecated, please use Ext.feature.has.Audio instead");
+        "Ext.supports.AudioTag is deprecated, please use Ext.feature.has.Audio instead");
 
     /**
      * @member Ext.supports
@@ -369,7 +370,7 @@ Ext.define('Ext.env.Feature', {
      * @deprecated 2.0.0 Please use {@link Ext.feature#has}.Geolocation instead
      */
     Ext.deprecatePropertyValue(has, 'GeoLocation', has.Geolocation,
-                          "Ext.supports.GeoLocation is deprecated, please use Ext.feature.has.Geolocation instead");
+        "Ext.supports.GeoLocation is deprecated, please use Ext.feature.has.Geolocation instead");
     var name;
 
     if (!Ext.supports) {

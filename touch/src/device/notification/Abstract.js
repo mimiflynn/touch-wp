@@ -34,7 +34,7 @@ Ext.define('Ext.device.notification.Abstract', {
      *
      * @param {Object} config.scope The scope of the callback function
      */
-    show: function(config) {
+    show: function (config) {
         if (!config.message) {
             throw('[Ext.device.Notification#show] You passed no message');
         }

@@ -72,7 +72,7 @@ Ext.define('Ext.direct.PollingProvider', {
     /**
      * @inheritdoc
      */
-    isConnected: function() {
+    isConnected: function () {
         return !!this.pollTask;
     },
 
@@ -80,13 +80,13 @@ Ext.define('Ext.direct.PollingProvider', {
      * Connect to the server-side and begin the polling process. To handle each
      * response subscribe to the `data` event.
      */
-    connect: function() {
+    connect: function () {
         var me = this,
             url = me.getUrl(),
             baseParams = me.getBaseParams();
 
         if (url && !me.pollTask) {
-            me.pollTask = setInterval(function() {
+            me.pollTask = setInterval(function () {
                 if (me.fireEvent('beforepoll', me) !== false) {
                     if (Ext.isFunction(url)) {
                         url(baseParams);
@@ -112,7 +112,7 @@ Ext.define('Ext.direct.PollingProvider', {
      * Disconnect from the server-side and stop the polling process. The `disconnect`
      * event will be fired on a successful disconnect.
      */
-    disconnect: function() {
+    disconnect: function () {
         var me = this;
 
         if (me.pollTask) {
@@ -123,7 +123,7 @@ Ext.define('Ext.direct.PollingProvider', {
     },
 
     // @private
-    onData: function(opt, success, response) {
+    onData: function (opt, success, response) {
         var me = this,
             i = 0,
             len,

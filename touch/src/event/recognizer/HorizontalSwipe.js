@@ -8,7 +8,7 @@ Ext.define('Ext.event.recognizer.HorizontalSwipe', {
 
     handledEvents: ['swipe'],
 
-    onTouchStart: function(e) {
+    onTouchStart: function (e) {
         if (this.callParent(arguments) === false) {
             return false;
         }
@@ -21,7 +21,7 @@ Ext.define('Ext.event.recognizer.HorizontalSwipe', {
         this.startY = touch.pageY;
     },
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         var touch = e.changedTouches[0],
             y = touch.pageY,
             absDeltaY = Math.abs(y - this.startY),
@@ -38,7 +38,7 @@ Ext.define('Ext.event.recognizer.HorizontalSwipe', {
         }
     },
 
-    onTouchEnd: function(e) {
+    onTouchEnd: function (e) {
         if (this.onTouchMove(e) !== false) {
             var touch = e.changedTouches[0],
                 x = touch.pageX,

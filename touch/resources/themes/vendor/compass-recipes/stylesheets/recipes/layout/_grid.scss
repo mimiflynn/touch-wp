@@ -27,10 +27,8 @@ $support-block-grid-nth-child: true !default;
   }
 }
 
-@mixin responsive-grid(
-  $columns: $grid-columns,
-  $gutter: $grid-gutter
-) {
+@mixin responsive-grid($columns: $grid-columns,
+$gutter: $grid-gutter) {
 
   img, object, embed {
     max-width: 100%;
@@ -64,16 +62,16 @@ $support-block-grid-nth-child: true !default;
   }
 
   .row {
-      @extend .clearfix;
-      width: 100%;
-      max-width: $grid-max-width;
-      min-width: $grid-min-width;
-      margin: 0 auto;
-      @include box-sizing(border-box);
+    @extend .clearfix;
+    width: 100%;
+    max-width: $grid-max-width;
+    min-width: $grid-min-width;
+    margin: 0 auto;
+    @include box-sizing(border-box);
 
-      .row {
-        min-width: 0;
-      }
+    .row {
+      min-width: 0;
+    }
 
   }
 
@@ -87,7 +85,7 @@ $support-block-grid-nth-child: true !default;
       @extend .column;
     }
 
-    // We don't need "offset-by-12"
+  // We don't need "offset-by-12"
     @if $i < $columns {
       .offset-by-#{$i} {
         margin-left: $single * $i + $gutter * ($i + 1);
@@ -122,7 +120,8 @@ $support-block-grid-nth-child: true !default;
         }
       }
     }
-  } // End loop
+  }
+// End loop
 
   .row .centered {
     float: none;
@@ -169,7 +168,7 @@ img {
     margin-right: 0;
   }
 
-  // Loop again for mobile
+// Loop again for mobile
 
   .no-margin-left {
     margin-left: 0;
@@ -202,6 +201,6 @@ img {
       width: $mobile-single * $i + $grid-gutter * ($i - 1);
     }
 
-    // @todo phone-push/pull
+  // @todo phone-push/pull
   }
 }

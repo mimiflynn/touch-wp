@@ -30,7 +30,7 @@
  * - {@link Ext.device.Connection#CELL_3G CELL_3G} - Cell 3G connection
  * - {@link Ext.device.Connection#CELL_4G CELL_4G} - Cell 4G connection
  * - {@link Ext.device.Connection#NONE NONE} - No network connection
- * 
+ *
  * @mixins Ext.device.connection.Abstract
  *
  * @aside guide native_apis
@@ -44,13 +44,13 @@ Ext.define('Ext.device.Connection', {
         'Ext.device.connection.PhoneGap',
         'Ext.device.connection.Simulator'
     ],
-    
+
     /**
      * @event onlinechange
      * @inheritdoc Ext.device.connection.Sencha#onlinechange
      */
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView) {

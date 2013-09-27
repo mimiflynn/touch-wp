@@ -41,7 +41,7 @@ Ext.define('Ext.device.Camera', {
         'Ext.device.camera.Simulator'
     ],
 
-    constructor: function() {
+    constructor: function () {
         var browserEnv = Ext.browser.is;
 
         if (browserEnv.WebView) {

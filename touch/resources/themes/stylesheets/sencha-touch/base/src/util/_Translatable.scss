@@ -3,11 +3,11 @@
  */
 
 .x-translatable {
-    position: absolute !important;
-    top:  500000px !important;
-    left: 500000px !important;
-    overflow: visible !important;
-    z-index: 1;
+  position: absolute !important;
+  top: 500000px !important;
+  left: 500000px !important;
+  overflow: visible !important;
+  z-index: 1;
 }
 
 .x-translatable-hboxfix {
@@ -17,19 +17,19 @@
   left: 0;
 
   > .x-translatable {
-      position: relative !important;
+    position: relative !important;
   }
 }
 
 .x-translatable-container {
-    overflow: hidden;
-    @include absolute-fit();
+  overflow: hidden;
+  @include absolute-fit();
 
-    &::before {
-        content: '';
-        display: block;
-        width:  1000000px;
-        height: 1000000px;
-        visibility: hidden;
-    }
+  &::before {
+    content: '';
+    display: block;
+    width: 1000000px;
+    height: 1000000px;
+    visibility: hidden;
+  }
 }

@@ -61,7 +61,7 @@ Ext.define('Ext.event.recognizer.Rotate', {
 
     lastAngle: null,
 
-    onTouchMove: function(e) {
+    onTouchMove: function (e) {
         if (!this.isTracking) {
             return;
         }
@@ -112,7 +112,7 @@ Ext.define('Ext.event.recognizer.Rotate', {
         this.lastTouches = touches;
     },
 
-    fireEnd: function(e) {
+    fireEnd: function (e) {
         this.lastAngle = null;
         this.fire('rotateend', e, this.lastTouches);
     }

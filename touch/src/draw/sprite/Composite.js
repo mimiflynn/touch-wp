@@ -1,7 +1,7 @@
 /**
  * @class Ext.draw.sprite.Composite
  * @extends Ext.draw.sprite.Sprite
- * 
+ *
  * Represents a group of sprites.
  */
 Ext.define("Ext.draw.sprite.Composite", {

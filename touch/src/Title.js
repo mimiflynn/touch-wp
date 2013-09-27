@@ -20,7 +20,7 @@ Ext.define('Ext.Title', {
     },
 
     // @private
-    updateTitle: function(newTitle) {
+    updateTitle: function (newTitle) {
         this.setHtml(newTitle);
     }
 });

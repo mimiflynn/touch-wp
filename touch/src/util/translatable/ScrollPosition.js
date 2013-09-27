@@ -12,7 +12,7 @@ Ext.define('Ext.util.translatable.ScrollPosition', {
         useWrapper: true
     },
 
-    getWrapper: function() {
+    getWrapper: function () {
         var wrapper = this.wrapper,
             element = this.getElement(),
             container;
@@ -48,7 +48,7 @@ Ext.define('Ext.util.translatable.ScrollPosition', {
         return wrapper;
     },
 
-    doTranslate: function(x, y) {
+    doTranslate: function (x, y) {
         var wrapper = this.getWrapper(),
             dom;
 
@@ -65,7 +65,7 @@ Ext.define('Ext.util.translatable.ScrollPosition', {
         }
     },
 
-    destroy: function() {
+    destroy: function () {
         var element = this.getElement(),
             wrapper = this.wrapper;
 

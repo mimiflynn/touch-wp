@@ -42,5 +42,5 @@ Ext.define('Ext.Ajax', {
      * @property {Boolean} autoAbort
      * Whether a new request should abort any pending requests.
      */
-    autoAbort : false
+    autoAbort: false
 });

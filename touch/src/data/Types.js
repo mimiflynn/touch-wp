@@ -65,7 +65,7 @@ Ext.define('Ext.data.Types', {
     iso8601TestRe: /\d\dT\d\d/,
     iso8601SplitRe: /[- :T\.Z\+]/
 
-}, function() {
+}, function () {
     var Types = this,
         sortTypes = Ext.data.SortTypes;
 
@@ -75,7 +75,7 @@ Ext.define('Ext.data.Types', {
          * This data type means that no conversion is applied to the raw data before it is placed into a Record.
          */
         AUTO: {
-            convert: function(value) {
+            convert: function (value) {
                 return value;
             },
             sortType: sortTypes.none,
@@ -87,7 +87,7 @@ Ext.define('Ext.data.Types', {
          * This data type means that the raw data is converted into a String before it is placed into a Record.
          */
         STRING: {
-            convert: function(value) {
+            convert: function (value) {
                 // 'this' is the actual field that calls this convert method
                 return (value === undefined || value === null)
                     ? (this.getAllowNull() ? null : '')
@@ -105,11 +105,11 @@ Ext.define('Ext.data.Types', {
          * The synonym `INTEGER` is equivalent.
          */
         INT: {
-            convert: function(value) {
+            convert: function (value) {
                 return (value !== undefined && value !== null && value !== '')
                     ? ((typeof value === 'number')
-                        ? parseInt(value, 10)
-                        : parseInt(String(value).replace(Types.stripRe, ''), 10)
+                    ? parseInt(value, 10)
+                    : parseInt(String(value).replace(Types.stripRe, ''), 10)
                     )
                     : (this.getAllowNull() ? null : 0);
             },
@@ -125,11 +125,11 @@ Ext.define('Ext.data.Types', {
          * The synonym `NUMBER` is equivalent.
          */
         FLOAT: {
-            convert: function(value) {
+            convert: function (value) {
                 return (value !== undefined && value !== null && value !== '')
                     ? ((typeof value === 'number')
-                        ? value
-                        : parseFloat(String(value).replace(Types.stripRe, ''), 10)
+                    ? value
+                    : parseFloat(String(value).replace(Types.stripRe, ''), 10)
                     )
                     : (this.getAllowNull() ? null : 0);
             },
@@ -145,7 +145,7 @@ Ext.define('Ext.data.Types', {
          * The synonym `BOOLEAN` is equivalent.
          */
         BOOL: {
-            convert: function(value) {
+            convert: function (value) {
                 if ((value === undefined || value === null || value === '') && this.getAllowNull()) {
                     return null;
                 }
@@ -162,7 +162,7 @@ Ext.define('Ext.data.Types', {
          * being applied.
          */
         DATE: {
-            convert: function(value) {
+            convert: function (value) {
                 var dateFormat = this.getDateFormat(),
                     parsed;
 
@@ -174,7 +174,7 @@ Ext.define('Ext.data.Types', {
                 }
                 if (dateFormat) {
                     if (dateFormat == 'timestamp') {
-                        return new Date(value*1000);
+                        return new Date(value * 1000);
                     }
                     if (dateFormat == 'time') {
                         return new Date(parseInt(value, 10));
@@ -187,7 +187,7 @@ Ext.define('Ext.data.Types', {
                     // Dates with ISO 8601 format are not well supported by mobile devices, this can work around the issue.
                     if (Types.iso8601TestRe.test(value)) {
                         parsed = value.split(Types.iso8601SplitRe);
-                        parsed = new Date(parsed[0], parsed[1]-1, parsed[2], parsed[3], parsed[4], parsed[5]);
+                        parsed = new Date(parsed[0], parsed[1] - 1, parsed[2], parsed[3], parsed[4], parsed[5]);
                     }
                     if (isNaN(parsed)) {
                         // Dates with the format "2012-01-20" fail, but "2012/01/20" work in some browsers. We'll try and

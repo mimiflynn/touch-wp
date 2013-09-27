@@ -16,7 +16,7 @@
  *
  */
 Ext.define('Ext.MessageBox', {
-    extend  : 'Ext.Sheet',
+    extend: 'Ext.Sheet',
     requires: [
         'Ext.Toolbar',
         'Ext.field.Text',
@@ -134,47 +134,50 @@ Ext.define('Ext.MessageBox', {
         }
     },
 
-    platformConfig: [{
-        theme: ['Windows'],
-        ui: 'light',
-        showAnimation: {
-            type: 'fadeIn'
+    platformConfig: [
+        {
+            theme: ['Windows'],
+            ui: 'light',
+            showAnimation: {
+                type: 'fadeIn'
+            },
+            hideAnimation: {
+                type: 'fadeOut'
+            }
         },
-        hideAnimation: {
-            type: 'fadeOut'
+        {
+            theme: ['Blackberry'],
+            ui: 'plain'
         }
-    }, {
-        theme: ['Blackberry'],
-        ui: 'plain'
-    }],
+    ],
 
     statics: {
-        OK    : {text: 'OK',     itemId: 'ok',  ui: 'action'},
-        YES   : {text: 'Yes',    itemId: 'yes', ui: 'action'},
-        NO    : {text: 'No',     itemId: 'no'},
+        OK: {text: 'OK', itemId: 'ok', ui: 'action'},
+        YES: {text: 'Yes', itemId: 'yes', ui: 'action'},
+        NO: {text: 'No', itemId: 'no'},
         CANCEL: {text: 'Cancel', itemId: 'cancel'},
 
-        INFO    : Ext.baseCSSPrefix + 'msgbox-info',
-        WARNING : Ext.baseCSSPrefix + 'msgbox-warning',
+        INFO: Ext.baseCSSPrefix + 'msgbox-info',
+        WARNING: Ext.baseCSSPrefix + 'msgbox-warning',
         QUESTION: Ext.baseCSSPrefix + 'msgbox-question',
-        ERROR   : Ext.baseCSSPrefix + 'msgbox-error',
+        ERROR: Ext.baseCSSPrefix + 'msgbox-error',
 
         OKCANCEL: [
             {text: 'Cancel', itemId: 'cancel'},
-            {text: 'OK',     itemId: 'ok',  ui : 'action'}
+            {text: 'OK', itemId: 'ok', ui: 'action'}
         ],
         YESNOCANCEL: [
             {text: 'Cancel', itemId: 'cancel'},
-            {text: 'No',     itemId: 'no'},
-            {text: 'Yes',    itemId: 'yes', ui: 'action'}
+            {text: 'No', itemId: 'no'},
+            {text: 'Yes', itemId: 'yes', ui: 'action'}
         ],
         YESNO: [
-            {text: 'No',  itemId: 'no'},
+            {text: 'No', itemId: 'no'},
             {text: 'Yes', itemId: 'yes', ui: 'action'}
         ]
     },
 
-    constructor: function(config) {
+    constructor: function (config) {
         config = config || {};
 
         if (config.hasOwnProperty('promptConfig')) {
@@ -217,7 +220,7 @@ Ext.define('Ext.MessageBox', {
      * Creates a new {@link Ext.Toolbar} instance using {@link Ext#factory}.
      * @private
      */
-    applyTitle: function(config) {
+    applyTitle: function (config) {
         if (typeof config == "string") {
             config = {
                 title: config
@@ -228,7 +231,7 @@ Ext.define('Ext.MessageBox', {
             docked: 'top',
             minHeight: (Ext.filterPlatform('blackberry') || Ext.filterPlatform('ie10')) ? '2.6em' : '1.3em',
             ui: Ext.filterPlatform('blackberry') ? 'light' : 'dark',
-            cls   : this.getBaseCls() + '-title'
+            cls: this.getBaseCls() + '-title'
         });
 
         return Ext.factory(config, Ext.Toolbar, this.getTitle());
@@ -238,7 +241,7 @@ Ext.define('Ext.MessageBox', {
      * Adds the new {@link Ext.Toolbar} instance into this container.
      * @private
      */
-    updateTitle: function(newTitle) {
+    updateTitle: function (newTitle) {
         if (newTitle) {
             this.add(newTitle);
         }
@@ -248,7 +251,7 @@ Ext.define('Ext.MessageBox', {
      * Adds the new {@link Ext.Toolbar} instance into this container.
      * @private
      */
-    updateButtons: function(newButtons) {
+    updateButtons: function (newButtons) {
         var me = this;
 
         // If there are no new buttons or it is an empty array, set newButtons
@@ -262,15 +265,15 @@ Ext.define('Ext.MessageBox', {
                 me.buttonsToolbar.setItems(newButtons);
             } else {
                 me.buttonsToolbar = Ext.create('Ext.Toolbar', {
-                    docked     : 'bottom',
+                    docked: 'bottom',
                     defaultType: 'button',
-                    layout     : {
+                    layout: {
                         type: 'hbox',
                         pack: 'center'
                     },
-                    ui         : me.getUi(),
-                    cls        : me.getBaseCls() + '-buttons',
-                    items      : newButtons
+                    ui: me.getUi(),
+                    cls: me.getBaseCls() + '-buttons',
+                    items: newButtons
                 });
 
                 me.add(me.buttonsToolbar);
@@ -283,10 +286,10 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    applyMessage: function(config) {
+    applyMessage: function (config) {
         config = {
-            html : config,
-            cls  : this.getBaseCls() + '-text'
+            html: config,
+            cls: this.getBaseCls() + '-text'
         };
 
         return Ext.factory(config, Ext.Component, this._message);
@@ -295,13 +298,13 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    updateMessage: function(newMessage) {
+    updateMessage: function (newMessage) {
         if (newMessage) {
             this.add(newMessage);
         }
     },
 
-    getMessage: function() {
+    getMessage: function () {
         if (this._message) {
             return this._message.getHtml();
         }
@@ -312,11 +315,11 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    applyIconCls: function(config) {
+    applyIconCls: function (config) {
         config = {
-            xtype : 'component',
+            xtype: 'component',
             docked: 'left',
-            width : 40,
+            width: 40,
             height: 40,
             baseCls: Ext.baseCSSPrefix + 'icon',
             hidden: (config) ? false : true,
@@ -329,7 +332,7 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    updateIconCls: function(newIconCls, oldIconCls) {
+    updateIconCls: function (newIconCls, oldIconCls) {
         var me = this;
 
         //ensure the title and button elements are added first
@@ -343,7 +346,7 @@ Ext.define('Ext.MessageBox', {
         }
     },
 
-    getIconCls: function() {
+    getIconCls: function () {
         var icon = this._iconCls,
             iconCls;
 
@@ -358,7 +361,7 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    applyPrompt: function(prompt) {
+    applyPrompt: function (prompt) {
         if (prompt) {
             var config = {
                 label: false
@@ -382,7 +385,7 @@ Ext.define('Ext.MessageBox', {
     /**
      * @private
      */
-    updatePrompt: function(newPrompt, oldPrompt) {
+    updatePrompt: function (newPrompt, oldPrompt) {
         if (newPrompt) {
             this.add(newPrompt);
         }
@@ -394,7 +397,7 @@ Ext.define('Ext.MessageBox', {
 
     // @private
     // pass `fn` config to show method instead
-    onClick: function(button) {
+    onClick: function (button) {
         if (button) {
             var config = button.config.userConfig || {},
                 initialConfig = button.getInitialConfig(),
@@ -402,7 +405,7 @@ Ext.define('Ext.MessageBox', {
 
             if (typeof config.fn == 'function') {
                 this.on({
-                    hiddenchange: function() {
+                    hiddenchange: function () {
                         config.fn.call(
                             config.scope || null,
                             initialConfig.itemId || initialConfig.text,
@@ -498,7 +501,7 @@ Ext.define('Ext.MessageBox', {
      *
      * @return {Ext.MessageBox} this
      */
-    show: function(initialConfig) {
+    show: function (initialConfig) {
         this.inputBlocker.blockInputs();
         //if it has not been added to a container, add it to the Viewport.
         if (!this.getParent() && Ext.Viewport) {
@@ -513,19 +516,19 @@ Ext.define('Ext.MessageBox', {
             value: ''
         }, initialConfig);
 
-        var buttons        = initialConfig.buttons || Ext.MessageBox.OK || [],
+        var buttons = initialConfig.buttons || Ext.MessageBox.OK || [],
             buttonBarItems = [],
-            userConfig     = initialConfig;
+            userConfig = initialConfig;
 
-        Ext.each(buttons, function(buttonConfig) {
+        Ext.each(buttons, function (buttonConfig) {
             if (!buttonConfig) {
                 return;
             }
 
             buttonBarItems.push(Ext.apply({
                 userConfig: userConfig,
-                scope     : this,
-                handler   : 'onClick'
+                scope: this,
+                handler: 'onClick'
             }, buttonConfig));
         }, this);
 
@@ -574,13 +577,13 @@ Ext.define('Ext.MessageBox', {
      *
      * @return {Ext.MessageBox} this
      */
-    alert: function(title, message, fn, scope) {
+    alert: function (title, message, fn, scope) {
         return this.show({
             title: title || null,
             message: message || null,
             buttons: Ext.MessageBox.OK,
             promptConfig: false,
-            fn: function() {
+            fn: function () {
                 if (fn) {
                     fn.apply(scope, arguments);
                 }
@@ -606,14 +609,14 @@ Ext.define('Ext.MessageBox', {
      *
      * @return {Ext.MessageBox} this
      */
-    confirm: function(title, message, fn, scope) {
+    confirm: function (title, message, fn, scope) {
         return this.show({
-            title       : title || null,
-            message     : message || null,
-            buttons     : Ext.MessageBox.YESNO,
+            title: title || null,
+            message: message || null,
+            buttons: Ext.MessageBox.YESNO,
             promptConfig: false,
-            scope       : scope,
-            fn: function() {
+            scope: scope,
+            fn: function () {
                 if (fn) {
                     fn.apply(scope, arguments);
                 }
@@ -666,23 +669,23 @@ Ext.define('Ext.MessageBox', {
      *
      * @return {Ext.MessageBox} this
      */
-    prompt: function(title, message, fn, scope, multiLine, value, prompt) {
+    prompt: function (title, message, fn, scope, multiLine, value, prompt) {
         return this.show({
-            title    : title || null,
-            message  : message || null,
-            buttons  : Ext.MessageBox.OKCANCEL,
-            scope    : scope,
-            prompt   : prompt || true,
+            title: title || null,
+            message: message || null,
+            buttons: Ext.MessageBox.OKCANCEL,
+            scope: scope,
+            prompt: prompt || true,
             multiLine: multiLine,
-            value    : value,
-            fn: function() {
+            value: value,
+            fn: function () {
                 if (fn) {
                     fn.apply(scope, arguments);
                 }
             }
         });
     }
-}, function(MessageBox) {
+}, function (MessageBox) {
     // <deprecated product=touch since=2.0>
     this.override({
         /**
@@ -697,7 +700,7 @@ Ext.define('Ext.MessageBox', {
          * @param {String} iconCls A CSS class name or empty string to clear the icon.
          * @return {Ext.MessageBox} this
          */
-        setIcon: function(iconCls, doLayout){
+        setIcon: function (iconCls, doLayout) {
             //<debug warn>
             Ext.Logger.deprecate("Ext.MessageBox#setIcon is deprecated, use setIconCls instead", 2);
             //</debug>
@@ -710,7 +713,7 @@ Ext.define('Ext.MessageBox', {
          * @inheritdoc Ext.MessageBox#setMessage
          * @deprecated 2.0.0 Please use #setMessage instead.
          */
-        updateText: function(text){
+        updateText: function (text) {
             //<debug warn>
             Ext.Logger.deprecate("Ext.MessageBox#updateText is deprecated, use setMessage instead", 2);
             //</debug>
@@ -721,7 +724,7 @@ Ext.define('Ext.MessageBox', {
     });
     // </deprecated>
 
-    Ext.onSetup(function() {
+    Ext.onSetup(function () {
         /**
          * @class Ext.Msg
          * @extends Ext.MessageBox
