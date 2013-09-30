@@ -2,763 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="383ef4b5-55c0-470f-9cea-04df8dbab7be" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.project" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/connection/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/connection/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/contacts/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/contacts/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/device/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/device/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/geolocation/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/geolocation/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/notification/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/notification/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/orientation/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/orientation/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/push/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/device/push/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/layout/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/indicator/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/scroll/indicator/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/paintmonitor/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/util/paintmonitor/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/sizemonitor/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/util/sizemonitor/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/translatable/Abstract.js" afterPath="$PROJECT_DIR$/touch/src/util/translatable/Abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/AbstractComponent.js" afterPath="$PROJECT_DIR$/touch/src/AbstractComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/AbstractManager.js" afterPath="$PROJECT_DIR$/touch/src/AbstractManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/AbstractMixedCollection.js" afterPath="$PROJECT_DIR$/touch/src/util/AbstractMixedCollection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Action.js" afterPath="$PROJECT_DIR$/touch/src/app/Action.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/ActionSheet.js" afterPath="$PROJECT_DIR$/touch/src/ActionSheet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Aggregative.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Aggregative.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Ajax.js" afterPath="$PROJECT_DIR$/touch/src/Ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Ajax.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/communicator/Android.js" afterPath="$PROJECT_DIR$/touch/src/device/communicator/Android.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/viewport/Android.js" afterPath="$PROJECT_DIR$/touch/src/viewport/Android.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Anim.js" afterPath="$PROJECT_DIR$/touch/src/Anim.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/modifier/Animation.js" afterPath="$PROJECT_DIR$/touch/src/draw/modifier/Animation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/Animation.js" afterPath="$PROJECT_DIR$/touch/src/fx/Animation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/AnimationQueue.js" afterPath="$PROJECT_DIR$/touch/src/AnimationQueue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Animator.js" afterPath="$PROJECT_DIR$/touch/src/draw/Animator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Application.js" afterPath="$PROJECT_DIR$/touch/src/app/Application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Arc.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Arc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Area.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Area.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Array.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Array.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/reader/Array.js" afterPath="$PROJECT_DIR$/touch/src/data/reader/Array.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Array.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Array.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/ArrayStore.js" afterPath="$PROJECT_DIR$/touch/src/data/ArrayStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/association/Association.js" afterPath="$PROJECT_DIR$/touch/src/data/association/Association.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/AttributeDefinition.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/AttributeDefinition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/AttributeParser.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/AttributeParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Audio.js" afterPath="$PROJECT_DIR$/touch/src/Audio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/sprite/Axis.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/sprite/Axis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Bar.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Bar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Bar.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Bar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/navigation/Bar.js" afterPath="$PROJECT_DIR$/touch/src/navigation/Bar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/tab/Bar.js" afterPath="$PROJECT_DIR$/touch/src/tab/Bar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/class/Base.js" afterPath="$PROJECT_DIR$/touch/src/core/class/Base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/Base.js" afterPath="$PROJECT_DIR$/touch/src/log/Base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Batch.js" afterPath="$PROJECT_DIR$/touch/src/data/Batch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/behavior/Behavior.js" afterPath="$PROJECT_DIR$/touch/src/behavior/Behavior.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/association/BelongsTo.js" afterPath="$PROJECT_DIR$/touch/src/data/association/BelongsTo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Bindable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Bindable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/BingMap.js" afterPath="$PROJECT_DIR$/touch/src/BingMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Blog.js" afterPath="$PROJECT_DIR$/app/view/Blog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/Bounce.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/Bounce.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/BoundMomentum.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/BoundMomentum.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Box.js" afterPath="$PROJECT_DIR$/touch/src/layout/Box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/wrapper/BoxDock.js" afterPath="$PROJECT_DIR$/touch/src/layout/wrapper/BoxDock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/env/Browser.js" afterPath="$PROJECT_DIR$/touch/src/env/Browser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Button.js" afterPath="$PROJECT_DIR$/touch/src/Button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CS.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CSGenerator.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CSGenerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CSV.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/CSV.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/label/Callout.js" afterPath="$PROJECT_DIR$/touch/src/chart/label/Callout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Camera.js" afterPath="$PROJECT_DIR$/touch/src/device/Camera.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/CandleStick.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/CandleStick.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/CandleStick.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/CandleStick.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/Card.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/Card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Card.js" afterPath="$PROJECT_DIR$/touch/src/layout/Card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/carousel/Carousel.js" afterPath="$PROJECT_DIR$/touch/src/carousel/Carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Cartesian.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Cartesian.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/CartesianChart.js" afterPath="$PROJECT_DIR$/touch/src/chart/CartesianChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/table/Cell.js" afterPath="$PROJECT_DIR$/touch/src/table/Cell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Checkbox.js" afterPath="$PROJECT_DIR$/touch/src/field/Checkbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/grid/CircularGrid.js" afterPath="$PROJECT_DIR$/touch/src/chart/grid/CircularGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/class/Class.js" afterPath="$PROJECT_DIR$/touch/src/core/class/Class.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/class/ClassManager.js" afterPath="$PROJECT_DIR$/touch/src/core/class/ClassManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Client.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Clock.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Clock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Collection.js" afterPath="$PROJECT_DIR$/touch/src/util/Collection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Color.js" afterPath="$PROJECT_DIR$/touch/src/draw/Color.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/layout/CombineDuplicate.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/layout/CombineDuplicate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Communicator.js" afterPath="$PROJECT_DIR$/touch/src/device/Communicator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Component.js" afterPath="$PROJECT_DIR$/touch/src/Component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Component.js" afterPath="$PROJECT_DIR$/touch/src/draw/Component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/ComponentDelegation.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/ComponentDelegation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/ComponentManager.js" afterPath="$PROJECT_DIR$/touch/src/ComponentManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/ComponentPaint.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/ComponentPaint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/ComponentQuery.js" afterPath="$PROJECT_DIR$/touch/src/ComponentQuery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/ComponentSize.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/ComponentSize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Composite.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Composite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/CompositeElement.js" afterPath="$PROJECT_DIR$/touch/src/dom/CompositeElement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/CompositeElementLite.js" afterPath="$PROJECT_DIR$/touch/src/dom/CompositeElementLite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Config.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Connection.js" afterPath="$PROJECT_DIR$/touch/src/data/Connection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Connection.js" afterPath="$PROJECT_DIR$/touch/src/device/Connection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/writer/Console.js" afterPath="$PROJECT_DIR$/touch/src/log/writer/Console.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Contact.js" afterPath="$PROJECT_DIR$/app/view/Contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Contacts.js" afterPath="$PROJECT_DIR$/touch/src/device/Contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Container.js" afterPath="$PROJECT_DIR$/touch/src/Container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/component/Container.js" afterPath="$PROJECT_DIR$/touch/src/dataview/component/Container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/element/Container.js" afterPath="$PROJECT_DIR$/touch/src/dataview/element/Container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/layout/Continuous.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/layout/Continuous.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Controller.js" afterPath="$PROJECT_DIR$/touch/src/app/Controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/Controller.js" afterPath="$PROJECT_DIR$/touch/src/event/Controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Cover.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Cover.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/interactions/CrossZoom.js" afterPath="$PROJECT_DIR$/touch/src/chart/interactions/CrossZoom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/runner/Css.js" afterPath="$PROJECT_DIR$/touch/src/fx/runner/Css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/runner/CssAnimation.js" afterPath="$PROJECT_DIR$/touch/src/fx/runner/CssAnimation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/paintmonitor/CssAnimation.js" afterPath="$PROJECT_DIR$/touch/src/util/paintmonitor/CssAnimation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/translatable/CssPosition.js" afterPath="$PROJECT_DIR$/touch/src/util/translatable/CssPosition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/translatable/CssTransform.js" afterPath="$PROJECT_DIR$/touch/src/util/translatable/CssTransform.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/runner/CssTransition.js" afterPath="$PROJECT_DIR$/touch/src/fx/runner/CssTransition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Cube.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Cube.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/component/DataItem.js" afterPath="$PROJECT_DIR$/touch/src/dataview/component/DataItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/DataView.js" afterPath="$PROJECT_DIR$/touch/src/dataview/DataView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/DatabaseDefinition.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/DatabaseDefinition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Date.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Date.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/picker/Date.js" afterPath="$PROJECT_DIR$/touch/src/picker/Date.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/DateExtras.js" afterPath="$PROJECT_DIR$/touch/src/DateExtras.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/DatePicker.js" afterPath="$PROJECT_DIR$/touch/src/field/DatePicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/DatePickerNative.js" afterPath="$PROJECT_DIR$/touch/src/field/DatePickerNative.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Decorator.js" afterPath="$PROJECT_DIR$/touch/src/Decorator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/communicator/Default.js" afterPath="$PROJECT_DIR$/touch/src/device/communicator/Default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Default.js" afterPath="$PROJECT_DIR$/touch/src/layout/Default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/formatter/Default.js" afterPath="$PROJECT_DIR$/touch/src/log/formatter/Default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/sizemonitor/Default.js" afterPath="$PROJECT_DIR$/touch/src/util/sizemonitor/Default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/viewport/Default.js" afterPath="$PROJECT_DIR$/touch/src/viewport/Default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/DelayedTask.js" afterPath="$PROJECT_DIR$/touch/src/util/DelayedTask.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Device.js" afterPath="$PROJECT_DIR$/touch/src/device/Device.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Direct.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Direct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/layout/Discrete.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/layout/Discrete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/Dispatcher.js" afterPath="$PROJECT_DIR$/touch/src/event/Dispatcher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/wrapper/Dock.js" afterPath="$PROJECT_DIR$/touch/src/layout/wrapper/Dock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/writer/DocumentTitle.js" afterPath="$PROJECT_DIR$/touch/src/log/writer/DocumentTitle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/Dom.js" afterPath="$PROJECT_DIR$/touch/src/event/Dom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/Dom.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/Dom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/translatable/Dom.js" afterPath="$PROJECT_DIR$/touch/src/util/translatable/Dom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/DoubleTap.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/DoubleTap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Drag.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Drag.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/behavior/Draggable.js" afterPath="$PROJECT_DIR$/touch/src/behavior/Draggable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Draggable.js" afterPath="$PROJECT_DIR$/touch/src/util/Draggable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Draw.js" afterPath="$PROJECT_DIR$/touch/src/draw/Draw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Droppable.js" afterPath="$PROJECT_DIR$/touch/src/util/Droppable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/EaseIn.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/EaseIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/EaseOut.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/EaseOut.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/Easing.js" afterPath="$PROJECT_DIR$/touch/src/fx/Easing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.alignment.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.alignment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.insertion.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.insertion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.position.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.position.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.static.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.static.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.style.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.style.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Element.traversal.js" afterPath="$PROJECT_DIR$/touch/src/dom/Element.traversal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/ElementPaint.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/ElementPaint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/ElementSize.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/ElementSize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Ellipse.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Ellipse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Email.js" afterPath="$PROJECT_DIR$/touch/src/field/Email.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Error.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Error.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Error.js" afterPath="$PROJECT_DIR$/touch/src/data/Error.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Errors.js" afterPath="$PROJECT_DIR$/touch/src/data/Errors.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/Event.js" afterPath="$PROJECT_DIR$/touch/src/direct/Event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/Event.js" afterPath="$PROJECT_DIR$/touch/src/event/Event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/EventManager.js" afterPath="$PROJECT_DIR$/touch/src/core/EventManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Evented.js" afterPath="$PROJECT_DIR$/touch/src/Evented.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/Ext-more.js" afterPath="$PROJECT_DIR$/touch/src/core/Ext-more.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/Ext.js" afterPath="$PROJECT_DIR$/touch/src/core/Ext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Fade.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Fade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Fade.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Fade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/env/Feature.js" afterPath="$PROJECT_DIR$/touch/src/env/Feature.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Field.js" afterPath="$PROJECT_DIR$/touch/src/data/Field.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Field.js" afterPath="$PROJECT_DIR$/touch/src/field/Field.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/form/FieldSet.js" afterPath="$PROJECT_DIR$/touch/src/form/FieldSet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/File.js" afterPath="$PROJECT_DIR$/touch/src/field/File.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/filter/Filter.js" afterPath="$PROJECT_DIR$/touch/src/log/filter/Filter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Filter.js" afterPath="$PROJECT_DIR$/touch/src/util/Filter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Filterable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Filterable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Fit.js" afterPath="$PROJECT_DIR$/touch/src/layout/Fit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/FlexBox.js" afterPath="$PROJECT_DIR$/touch/src/layout/FlexBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Flip.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Flip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Flip.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Flip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/Float.js" afterPath="$PROJECT_DIR$/touch/src/layout/Float.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Format.js" afterPath="$PROJECT_DIR$/touch/src/util/Format.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/formatter/Formatter.js" afterPath="$PROJECT_DIR$/touch/src/log/formatter/Formatter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Function.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Function.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Gauge.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Gauge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Geolocation.js" afterPath="$PROJECT_DIR$/touch/src/device/Geolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Geolocation.js" afterPath="$PROJECT_DIR$/touch/src/util/Geolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/gradient/Gradient.js" afterPath="$PROJECT_DIR$/touch/src/draw/gradient/Gradient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Group.js" afterPath="$PROJECT_DIR$/touch/src/draw/Group.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Grouper.js" afterPath="$PROJECT_DIR$/touch/src/util/Grouper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/orientation/HTML5.js" afterPath="$PROJECT_DIR$/touch/src/device/orientation/HTML5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/association/HasMany.js" afterPath="$PROJECT_DIR$/touch/src/data/association/HasMany.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/association/HasOne.js" afterPath="$PROJECT_DIR$/touch/src/data/association/HasOne.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/HashMap.js" afterPath="$PROJECT_DIR$/touch/src/util/HashMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Helper.js" afterPath="$PROJECT_DIR$/touch/src/dom/Helper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Hidden.js" afterPath="$PROJECT_DIR$/touch/src/field/Hidden.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/modifier/Highlight.js" afterPath="$PROJECT_DIR$/touch/src/draw/modifier/Highlight.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/History.js" afterPath="$PROJECT_DIR$/touch/src/app/History.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Home.js" afterPath="$PROJECT_DIR$/app/view/Home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/grid/HorizontalGrid.js" afterPath="$PROJECT_DIR$/touch/src/chart/grid/HorizontalGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/HorizontalSwipe.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/HorizontalSwipe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Identifiable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Identifiable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/formatter/Identity.js" afterPath="$PROJECT_DIR$/touch/src/log/formatter/Identity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Image.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Image.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Img.js" afterPath="$PROJECT_DIR$/touch/src/Img.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/IndexBar.js" afterPath="$PROJECT_DIR$/touch/src/dataview/IndexBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/carousel/Indicator.js" afterPath="$PROJECT_DIR$/touch/src/carousel/Indicator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/Indicator.js" afterPath="$PROJECT_DIR$/touch/src/scroll/Indicator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/carousel/Infinite.js" afterPath="$PROJECT_DIR$/touch/src/carousel/Infinite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Inflector.js" afterPath="$PROJECT_DIR$/touch/src/util/Inflector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/layout/wrapper/Inner.js" afterPath="$PROJECT_DIR$/touch/src/layout/wrapper/Inner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Input.js" afterPath="$PROJECT_DIR$/touch/src/field/Input.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/InputBlocker.js" afterPath="$PROJECT_DIR$/touch/src/util/InputBlocker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Instancing.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Instancing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/viewport/Ios.js" afterPath="$PROJECT_DIR$/touch/src/viewport/Ios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/ItemCollection.js" afterPath="$PROJECT_DIR$/touch/src/ItemCollection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/JSON.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/JSON.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/JSON.js" afterPath="$PROJECT_DIR$/touch/src/util/JSON.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/reader/Json.js" afterPath="$PROJECT_DIR$/touch/src/data/reader/Json.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/writer/Json.js" afterPath="$PROJECT_DIR$/touch/src/data/writer/Json.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/JsonP.js" afterPath="$PROJECT_DIR$/touch/src/data/JsonP.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/JsonP.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/JsonP.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/JsonProvider.js" afterPath="$PROJECT_DIR$/touch/src/direct/JsonProvider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/JsonStore.js" afterPath="$PROJECT_DIR$/touch/src/data/JsonStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/label/Label.js" afterPath="$PROJECT_DIR$/touch/src/chart/label/Label.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/layout/Layout.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/layout/Layout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/Legend.js" afterPath="$PROJECT_DIR$/touch/src/chart/Legend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/LimitedCache.js" afterPath="$PROJECT_DIR$/touch/src/draw/LimitedCache.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Line.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Line.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/LineSegment.js" afterPath="$PROJECT_DIR$/touch/src/util/LineSegment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/gradient/Linear.js" afterPath="$PROJECT_DIR$/touch/src/draw/gradient/Linear.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/Linear.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/Linear.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/List.js" afterPath="$PROJECT_DIR$/touch/src/dataview/List.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/element/List.js" afterPath="$PROJECT_DIR$/touch/src/dataview/element/List.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/component/ListItem.js" afterPath="$PROJECT_DIR$/touch/src/dataview/component/ListItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/ListItemHeader.js" afterPath="$PROJECT_DIR$/touch/src/dataview/ListItemHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/plugin/ListPaging.js" afterPath="$PROJECT_DIR$/touch/src/plugin/ListPaging.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/ListenerStack.js" afterPath="$PROJECT_DIR$/touch/src/event/ListenerStack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/LoadMask.js" afterPath="$PROJECT_DIR$/touch/src/LoadMask.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/class/Loader.js" afterPath="$PROJECT_DIR$/touch/src/core/class/Loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/LocalStorage.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/LocalStorage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/Logger.js" afterPath="$PROJECT_DIR$/touch/src/log/Logger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/LongPress.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/LongPress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Main.js" afterPath="$PROJECT_DIR$/app/controller/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Main.js" afterPath="$PROJECT_DIR$/app/view/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/Manager.js" afterPath="$PROJECT_DIR$/touch/src/direct/Manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Map.js" afterPath="$PROJECT_DIR$/touch/src/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/MarkerHolder.js" afterPath="$PROJECT_DIR$/touch/src/chart/MarkerHolder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/Markers.js" afterPath="$PROJECT_DIR$/touch/src/chart/Markers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Mask.js" afterPath="$PROJECT_DIR$/touch/src/Mask.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Matrix.js" afterPath="$PROJECT_DIR$/touch/src/draw/Matrix.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Media.js" afterPath="$PROJECT_DIR$/touch/src/Media.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Memory.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Memory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/MessageBox.js" afterPath="$PROJECT_DIR$/touch/src/MessageBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/MixedCollection.js" afterPath="$PROJECT_DIR$/touch/src/util/MixedCollection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Mixin.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Mixin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Model.js" afterPath="$PROJECT_DIR$/touch/src/data/Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/ModelManager.js" afterPath="$PROJECT_DIR$/touch/src/data/ModelManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/modifier/Modifier.js" afterPath="$PROJECT_DIR$/touch/src/draw/modifier/Modifier.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/easing/Momentum.js" afterPath="$PROJECT_DIR$/touch/src/fx/easing/Momentum.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/MultiTouch.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/MultiTouch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Names.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Names.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/NestedList.js" afterPath="$PROJECT_DIR$/touch/src/dataview/NestedList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/NodeInterface.js" afterPath="$PROJECT_DIR$/touch/src/data/NodeInterface.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/NodeStore.js" afterPath="$PROJECT_DIR$/touch/src/data/NodeStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Notification.js" afterPath="$PROJECT_DIR$/touch/src/device/Notification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Number.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Number.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Number.js" afterPath="$PROJECT_DIR$/touch/src/field/Number.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Numeric.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Numeric.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/env/OS.js" afterPath="$PROJECT_DIR$/touch/src/env/OS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/Object.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/Object.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Observable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Observable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Offset.js" afterPath="$PROJECT_DIR$/touch/src/util/Offset.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Operation.js" afterPath="$PROJECT_DIR$/touch/src/data/Operation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Orientation.js" afterPath="$PROJECT_DIR$/touch/src/device/Orientation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/paintmonitor/OverflowChange.js" afterPath="$PROJECT_DIR$/touch/src/util/paintmonitor/OverflowChange.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/sizemonitor/OverflowChange.js" afterPath="$PROJECT_DIR$/touch/src/util/sizemonitor/OverflowChange.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/PaintMonitor.js" afterPath="$PROJECT_DIR$/touch/src/util/PaintMonitor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/interactions/PanZoom.js" afterPath="$PROJECT_DIR$/touch/src/chart/interactions/PanZoom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Panel.js" afterPath="$PROJECT_DIR$/touch/src/Panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/form/Panel.js" afterPath="$PROJECT_DIR$/touch/src/form/Panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/tab/Panel.js" afterPath="$PROJECT_DIR$/touch/src/tab/Panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Password.js" afterPath="$PROJECT_DIR$/touch/src/field/Password.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Path.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Path.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/camera/PhoneGap.js" afterPath="$PROJECT_DIR$/touch/src/device/camera/PhoneGap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/connection/PhoneGap.js" afterPath="$PROJECT_DIR$/touch/src/device/connection/PhoneGap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/device/PhoneGap.js" afterPath="$PROJECT_DIR$/touch/src/device/device/PhoneGap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/notification/PhoneGap.js" afterPath="$PROJECT_DIR$/touch/src/device/notification/PhoneGap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/picker/Picker.js" afterPath="$PROJECT_DIR$/touch/src/picker/Picker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Pie.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Pie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Pie3D.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Pie3D.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Pie3DPart.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Pie3DPart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/PieSlice.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/PieSlice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Pinch.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Pinch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Point.js" afterPath="$PROJECT_DIR$/touch/src/util/Point.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Polar.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Polar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/PolarChart.js" afterPath="$PROJECT_DIR$/touch/src/chart/PolarChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/PollingProvider.js" afterPath="$PROJECT_DIR$/touch/src/direct/PollingProvider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Pop.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Pop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Pop.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Pop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/PositionMap.js" afterPath="$PROJECT_DIR$/touch/src/util/PositionMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Posts.js" afterPath="$PROJECT_DIR$/app/model/Posts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/Posts.js" afterPath="$PROJECT_DIR$/app/store/Posts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Posts.js" afterPath="$PROJECT_DIR$/app/view/Posts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/filter/Priority.js" afterPath="$PROJECT_DIR$/touch/src/log/filter/Priority.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Profile.js" afterPath="$PROJECT_DIR$/touch/src/app/Profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Protocol.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Protocol.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/Provider.js" afterPath="$PROJECT_DIR$/touch/src/direct/Provider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Proxy.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Proxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/Publisher.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/Publisher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/plugin/PullRefresh.js" afterPath="$PROJECT_DIR$/touch/src/plugin/PullRefresh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Purchases.js" afterPath="$PROJECT_DIR$/touch/src/device/Purchases.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/Push.js" afterPath="$PROJECT_DIR$/touch/src/device/Push.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dom/Query.js" afterPath="$PROJECT_DIR$/touch/src/dom/Query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Radar.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Radar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Radar.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Radar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/gradient/Radial.js" afterPath="$PROJECT_DIR$/touch/src/draw/gradient/Radial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/grid/RadialGrid.js" afterPath="$PROJECT_DIR$/touch/src/chart/grid/RadialGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Radio.js" afterPath="$PROJECT_DIR$/touch/src/field/Radio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/reader/Reader.js" afterPath="$PROJECT_DIR$/touch/src/data/reader/Reader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Recognizer.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Recognizer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Region.js" afterPath="$PROJECT_DIR$/touch/src/util/Region.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/writer/Remote.js" afterPath="$PROJECT_DIR$/touch/src/log/writer/Remote.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/RemotingEvent.js" afterPath="$PROJECT_DIR$/touch/src/direct/RemotingEvent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/RemotingMethod.js" afterPath="$PROJECT_DIR$/touch/src/direct/RemotingMethod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/RemotingProvider.js" afterPath="$PROJECT_DIR$/touch/src/direct/RemotingProvider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Request.js" afterPath="$PROJECT_DIR$/touch/src/data/Request.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Rest.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Rest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/ResultSet.js" afterPath="$PROJECT_DIR$/touch/src/data/ResultSet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Reveal.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Reveal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Rotate.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Rotate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/indicator/Rounded.js" afterPath="$PROJECT_DIR$/touch/src/scroll/indicator/Rounded.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Route.js" afterPath="$PROJECT_DIR$/touch/src/app/Route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/app/Router.js" afterPath="$PROJECT_DIR$/touch/src/app/Router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/Runner.js" afterPath="$PROJECT_DIR$/touch/src/fx/Runner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/SQLite.js" afterPath="$PROJECT_DIR$/touch/src/device/SQLite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/sprite/Scatter.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/sprite/Scatter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Scroll.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Scroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/sizemonitor/Scroll.js" afterPath="$PROJECT_DIR$/touch/src/util/sizemonitor/Scroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/ScrollCover.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/ScrollCover.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/indicator/ScrollPosition.js" afterPath="$PROJECT_DIR$/touch/src/scroll/indicator/ScrollPosition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/translatable/ScrollPosition.js" afterPath="$PROJECT_DIR$/touch/src/util/translatable/ScrollPosition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/ScrollReveal.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/ScrollReveal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/behavior/Scrollable.js" afterPath="$PROJECT_DIR$/touch/src/behavior/Scrollable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/Scroller.js" afterPath="$PROJECT_DIR$/touch/src/scroll/Scroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Search.js" afterPath="$PROJECT_DIR$/touch/src/field/Search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Sector.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Sector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/SegmentedButton.js" afterPath="$PROJECT_DIR$/touch/src/SegmentedButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Segmenter.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Segmenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Select.js" afterPath="$PROJECT_DIR$/touch/src/field/Select.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Selectable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Selectable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/camera/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/camera/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/connection/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/connection/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/contacts/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/contacts/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/device/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/device/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/geolocation/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/geolocation/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/notification/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/notification/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/orientation/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/orientation/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/purchases/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/purchases/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/push/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/push/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/sqlite/Sencha.js" afterPath="$PROJECT_DIR$/touch/src/device/sqlite/Sencha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/identifier/Sequential.js" afterPath="$PROJECT_DIR$/touch/src/data/identifier/Sequential.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/Series.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/Series.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Server.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/SessionStorage.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/SessionStorage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Sheet.js" afterPath="$PROJECT_DIR$/touch/src/Sheet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/identifier/Simple.js" afterPath="$PROJECT_DIR$/touch/src/data/identifier/Simple.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/dataview/component/SimpleListItem.js" afterPath="$PROJECT_DIR$/touch/src/dataview/component/SimpleListItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/camera/Simulator.js" afterPath="$PROJECT_DIR$/touch/src/device/camera/Simulator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/connection/Simulator.js" afterPath="$PROJECT_DIR$/touch/src/device/connection/Simulator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/geolocation/Simulator.js" afterPath="$PROJECT_DIR$/touch/src/device/geolocation/Simulator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/device/notification/Simulator.js" afterPath="$PROJECT_DIR$/touch/src/device/notification/Simulator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/SingleTouch.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/SingleTouch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/SizeMonitor.js" afterPath="$PROJECT_DIR$/touch/src/util/SizeMonitor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Slide.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Slide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Slide.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Slide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Slider.js" afterPath="$PROJECT_DIR$/touch/src/field/Slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/slider/Slider.js" afterPath="$PROJECT_DIR$/touch/src/slider/Slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/picker/Slot.js" afterPath="$PROJECT_DIR$/touch/src/picker/Slot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/SortTypes.js" afterPath="$PROJECT_DIR$/touch/src/data/SortTypes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Sortable.js" afterPath="$PROJECT_DIR$/touch/src/Sortable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Sortable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Sortable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Sortable.js" afterPath="$PROJECT_DIR$/touch/src/util/Sortable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Sorter.js" afterPath="$PROJECT_DIR$/touch/src/util/Sorter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/SpaceFillingChart.js" afterPath="$PROJECT_DIR$/touch/src/chart/SpaceFillingChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Spacer.js" afterPath="$PROJECT_DIR$/touch/src/Spacer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Spinner.js" afterPath="$PROJECT_DIR$/touch/src/field/Spinner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/sprite/Sprite.js" afterPath="$PROJECT_DIR$/touch/src/draw/sprite/Sprite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/Sql.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/Sql.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/series/StackedCartesian.js" afterPath="$PROJECT_DIR$/touch/src/chart/series/StackedCartesian.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/State.js" afterPath="$PROJECT_DIR$/touch/src/fx/State.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Store.js" afterPath="$PROJECT_DIR$/touch/src/data/Store.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/StoreManager.js" afterPath="$PROJECT_DIR$/touch/src/data/StoreManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/lang/String.js" afterPath="$PROJECT_DIR$/touch/src/core/lang/String.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/layout/card/Style.js" afterPath="$PROJECT_DIR$/touch/src/fx/layout/card/Style.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/Surface.js" afterPath="$PROJECT_DIR$/touch/src/draw/Surface.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/engine/Svg.js" afterPath="$PROJECT_DIR$/touch/src/draw/engine/Svg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/engine/SvgContext.js" afterPath="$PROJECT_DIR$/touch/src/draw/engine/SvgContext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Swipe.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Swipe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/SyncModel.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/SyncModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/proxies/SyncProxy.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/proxies/SyncProxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/proxies/SyncStorageProxy.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/proxies/SyncStorageProxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/stores/SyncStore.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/stores/SyncStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/tab/Tab.js" afterPath="$PROJECT_DIR$/touch/src/tab/Tab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/table/Table.js" afterPath="$PROJECT_DIR$/touch/src/table/Table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/Tap.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/Tap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/TapRepeater.js" afterPath="$PROJECT_DIR$/touch/src/util/TapRepeater.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/draw/modifier/Target.js" afterPath="$PROJECT_DIR$/touch/src/draw/modifier/Target.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/TaskQueue.js" afterPath="$PROJECT_DIR$/touch/src/TaskQueue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Templatable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Templatable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Template.js" afterPath="$PROJECT_DIR$/touch/src/Template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Text.js" afterPath="$PROJECT_DIR$/touch/src/field/Text.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/TextArea.js" afterPath="$PROJECT_DIR$/touch/src/field/TextArea.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/TextAreaInput.js" afterPath="$PROJECT_DIR$/touch/src/field/TextAreaInput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/slider/Thumb.js" afterPath="$PROJECT_DIR$/touch/src/slider/Thumb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Time.js" afterPath="$PROJECT_DIR$/touch/src/chart/axis/segmenter/Time.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Title.js" afterPath="$PROJECT_DIR$/touch/src/Title.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/TitleBar.js" afterPath="$PROJECT_DIR$/touch/src/TitleBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Toggle.js" afterPath="$PROJECT_DIR$/touch/src/field/Toggle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/slider/Toggle.js" afterPath="$PROJECT_DIR$/touch/src/slider/Toggle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Toolbar.js" afterPath="$PROJECT_DIR$/touch/src/Toolbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/Touch.js" afterPath="$PROJECT_DIR$/touch/src/event/Touch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/publisher/TouchGesture.js" afterPath="$PROJECT_DIR$/touch/src/event/publisher/TouchGesture.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/direct/Transaction.js" afterPath="$PROJECT_DIR$/touch/src/direct/Transaction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/behavior/Translatable.js" afterPath="$PROJECT_DIR$/touch/src/behavior/Translatable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Translatable.js" afterPath="$PROJECT_DIR$/touch/src/util/Translatable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/TranslatableGroup.js" afterPath="$PROJECT_DIR$/touch/src/util/TranslatableGroup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/TranslatableList.js" afterPath="$PROJECT_DIR$/touch/src/util/TranslatableList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/mixin/Traversable.js" afterPath="$PROJECT_DIR$/touch/src/mixin/Traversable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/TreeStore.js" afterPath="$PROJECT_DIR$/touch/src/data/TreeStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Types.js" afterPath="$PROJECT_DIR$/touch/src/data/Types.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/UUIDGenerator.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/UUIDGenerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Updates.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Updates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/field/Url.js" afterPath="$PROJECT_DIR$/touch/src/field/Url.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Utilities.js" afterPath="$PROJECT_DIR$/touch/src/platform/src/data/sync/Utilities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/identifier/Uuid.js" afterPath="$PROJECT_DIR$/touch/src/data/identifier/Uuid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/Validations.js" afterPath="$PROJECT_DIR$/touch/src/data/Validations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/core/version/Version.js" afterPath="$PROJECT_DIR$/touch/src/core/version/Version.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/chart/grid/VerticalGrid.js" afterPath="$PROJECT_DIR$/touch/src/chart/grid/VerticalGrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/event/recognizer/VerticalSwipe.js" afterPath="$PROJECT_DIR$/touch/src/event/recognizer/VerticalSwipe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/Video.js" afterPath="$PROJECT_DIR$/touch/src/Video.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/navigation/View.js" afterPath="$PROJECT_DIR$/touch/src/navigation/View.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/scroll/View.js" afterPath="$PROJECT_DIR$/touch/src/scroll/View.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Viewer.js" afterPath="$PROJECT_DIR$/app/view/Viewer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/viewport/Viewport.js" afterPath="$PROJECT_DIR$/touch/src/viewport/Viewport.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/proxy/WebStorage.js" afterPath="$PROJECT_DIR$/touch/src/data/proxy/WebStorage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/viewport/WindowsPhone.js" afterPath="$PROJECT_DIR$/touch/src/viewport/WindowsPhone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/fx/animation/Wipe.js" afterPath="$PROJECT_DIR$/touch/src/fx/animation/Wipe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/util/Wrapper.js" afterPath="$PROJECT_DIR$/touch/src/util/Wrapper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/writer/Writer.js" afterPath="$PROJECT_DIR$/touch/src/data/writer/Writer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/log/writer/Writer.js" afterPath="$PROJECT_DIR$/touch/src/log/writer/Writer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/XTemplate.js" afterPath="$PROJECT_DIR$/touch/src/XTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/XTemplateCompiler.js" afterPath="$PROJECT_DIR$/touch/src/XTemplateCompiler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/XTemplateParser.js" afterPath="$PROJECT_DIR$/touch/src/XTemplateParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/reader/Xml.js" afterPath="$PROJECT_DIR$/touch/src/data/reader/Xml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/data/writer/Xml.js" afterPath="$PROJECT_DIR$/touch/src/data/writer/Xml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Abstract.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Abstract.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/chart/_AbstractChart.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/chart/_AbstractChart.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Box.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Box.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Button.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Button.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Button.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Button.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Card.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Card.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/carousel/_Carousel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/carousel/_Carousel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/carousel/_Carousel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/carousel/_Carousel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/carousel/_Carousel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/carousel/_Carousel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/carousel/_Carousel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/carousel/_Carousel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Checkbox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Checkbox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Checkbox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Checkbox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Checkbox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Checkbox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/mixins/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/mixins/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/mixins/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/mixins/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/var/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/var/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/mixins/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/mixins/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/var/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/var/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/mixins/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/mixins/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/var/_Class.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/var/_Class.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_DataView.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_DataView.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Dock.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Dock.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Field.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Field.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Field.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Field.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Field.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Field.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/form/_FieldSet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/form/_FieldSet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/form/_FieldSet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/form/_FieldSet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/form/_FieldSet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/form/_FieldSet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Fit.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Fit.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Float.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/layout/_Float.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Img.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Img.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_IndexBar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_IndexBar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/dataview/_IndexBar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/dataview/_IndexBar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_List.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/dataview/_List.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/dataview/_List.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/dataview/_List.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/dataview/_List.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/dataview/_List.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/dataview/_List.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/dataview/_List.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/plugin/_ListPaging.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/plugin/_ListPaging.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/plugin/_ListPaging.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/plugin/_ListPaging.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Map.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Map.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Mask.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Mask.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Media.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Media.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_MessageBox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_MessageBox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_MessageBox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_MessageBox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_MessageBox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_MessageBox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_MessageBox.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_MessageBox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_PaintMonitor.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_PaintMonitor.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/form/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/form/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/tab/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/tab/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/form/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/form/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/tab/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/tab/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/form/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/form/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/tab/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/tab/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/form/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/form/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/tab/_Panel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/tab/_Panel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/picker/_Picker.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/picker/_Picker.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/picker/_Picker.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/picker/_Picker.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/picker/_Picker.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/picker/_Picker.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/picker/_Picker.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/picker/_Picker.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/plugin/_PullRefresh.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/plugin/_PullRefresh.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/plugin/_PullRefresh.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/plugin/_PullRefresh.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/plugin/_PullRefresh.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/plugin/_PullRefresh.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/plugin/_PullRefresh.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/plugin/_PullRefresh.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Radio.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Radio.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Radio.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Radio.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Radio.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Radio.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/scroller/_Scroller.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/scroller/_Scroller.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Search.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Search.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_SegmentedButton.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_SegmentedButton.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Select.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Select.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Sheet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Sheet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Sheet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Sheet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Sheet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Sheet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Sheet.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Sheet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_SizeMonitor.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_SizeMonitor.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/slider/_Slider.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/slider/_Slider.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/slider/_Slider.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/slider/_Slider.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Slider.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Slider.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/slider/_Slider.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/slider/_Slider.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/slider/_Slider.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/slider/_Slider.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Spinner.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/field/_Spinner.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Spinner.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_Spinner.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Spinner.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_Spinner.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/table/_Table.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/table/_Table.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_TextArea.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/field/_TextArea.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_TextArea.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/field/_TextArea.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/slider/_Toggle.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/slider/_Toggle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/slider/_Toggle.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/slider/_Toggle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Toolbar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_Toolbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Toolbar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_Toolbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Toolbar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/default/src/_Toolbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Toolbar.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/windows/src/_Toolbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_Translatable.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/util/_Translatable.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_all.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/base/src/_all.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_all.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/bb10/src/_all.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/helper/_arrow.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/helper/_arrow.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_base.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_base.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_bb10.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_bb10.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_bevel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_bevel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/border/_bevel.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/border/_bevel.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_block-inline-block.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_block-inline-block.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_blueprint-grid.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_blueprint-grid.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_carbon-fiber.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_carbon-fiber.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_checkerboard.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_checkerboard.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_cicada.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_cicada.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_clearfix.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_clearfix.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_color.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_color.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_convex.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_convex.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_corner-folded.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_corner-folded.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_curled-corners.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_curled-corners.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_curved.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_curved.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_cutout.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_cutout.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_default.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_default.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_diamond.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_diamond.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/_drop.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/_drop.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/menu/_dropdown.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/menu/_dropdown.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_egg.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_egg.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/_ellipse.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/_ellipse.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_flexible-box-model.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_flexible-box-model.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_flying.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_flying.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_folded-corner.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_folded-corner.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_glass.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_glass.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_glossy.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_glossy.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_google-webfont.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_google-webfont.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_gradient.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_gradient.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_gradients.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_gradients.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_grid.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_grid.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_heart.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_heart.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_hexagon.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_hexagon.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_houndstooth.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_houndstooth.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_icons.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_infinity.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_infinity.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/form/element/_inline.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/form/element/_inline.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_keyboard.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_keyboard.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/animation/_keyframes.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/animation/_keyframes.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_lifted-corners.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_lifted-corners.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_lined-paper.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_lined-paper.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_list-inline-block.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_list-inline-block.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_madras.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_madras.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_media-queries.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_media-queries.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/form/skin/_natural.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/form/skin/_natural.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_noise.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_noise.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_octagon.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_octagon.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_overlay.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_overlay.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_pacman.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_pacman.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_parallelogram.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_parallelogram.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_pentagon.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_pentagon.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_perspective.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_perspective.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_polka-dot.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_polka-dot.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_pseudo-element.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_pseudo-element.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_radial-overlay.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_radial-overlay.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_raised.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_raised.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_rectangle.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_rectangle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_rhombus.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_rhombus.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_separator.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/ui/_separator.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_square.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_square.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_star.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_star.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_striped.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_striped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_stripes.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_stripes.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_tablecloth.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_tablecloth.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_tape.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/effect/_tape.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_tartan.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/background/_tartan.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/_tests.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/_tests.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/_top-edge.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/_top-edge.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_transform-requirement.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shadow/drop/_transform-requirement.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_trapezoid.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_trapezoid.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_triangle.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/polygon/_triangle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_user-select.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shared/_user-select.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_vertical-align.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/layout/_vertical-align.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_webfont-icon.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/_webfont-icon.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_windows.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/stylesheets/sencha-touch/_windows.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_yin-yang.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/stylesheets/recipes/shape/symbol/_yin-yang.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/app.css" afterPath="$PROJECT_DIR$/resources/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/sass/app.scss" afterPath="$PROJECT_DIR$/resources/sass/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css/base.css" afterPath="$PROJECT_DIR$/touch/resources/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css-debug/base.css" afterPath="$PROJECT_DIR$/touch/resources/css-debug/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/sass/base.scss" afterPath="$PROJECT_DIR$/touch/resources/sass/base.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css/bb10.css" afterPath="$PROJECT_DIR$/touch/resources/css/bb10.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css-debug/bb10.css" afterPath="$PROJECT_DIR$/touch/resources/css-debug/bb10.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sencha/app/build-impl.xml" afterPath="$PROJECT_DIR$/.sencha/app/build-impl.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/build.xml" afterPath="$PROJECT_DIR$/touch/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sencha/app/codegen.json" afterPath="$PROJECT_DIR$/.sencha/app/codegen.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/fonts/iconic/demo.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/fonts/iconic/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/microloader/development.js" afterPath="$PROJECT_DIR$/touch/microloader/development.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/src/locale/ext-lang-en.js" afterPath="$PROJECT_DIR$/touch/src/locale/ext-lang-en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/fonts/iconic/iconic.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/fonts/iconic/iconic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/media-queries/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/media-queries/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/index.html" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packager.json" afterPath="$PROJECT_DIR$/packager.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/microloader/production.js" afterPath="$PROJECT_DIR$/touch/microloader/production.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/s.css" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/s.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/background/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/color/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/bevel/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/corner-folded/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/cutout/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/effect/glass/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/element/inline/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/form/skin/natural/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/google-webfont/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/grid/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/layout/vertical-align/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shadow/drop/curved/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/ellipse/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/star/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/polygon/triangle/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shape/symbol/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/shared/clearfix/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/convex/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/gradient/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/keyboard/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/menu/dropdown/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/overlay/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/separator/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/s.scss" afterPath="$PROJECT_DIR$/touch/resources/themes/vendor/compass-recipes/tests/recipes/ui/webfont-icons/s.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/sencha-touch-debug.js" afterPath="$PROJECT_DIR$/touch/sencha-touch-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css/sencha-touch.css" afterPath="$PROJECT_DIR$/touch/resources/css/sencha-touch.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css-debug/sencha-touch.css" afterPath="$PROJECT_DIR$/touch/resources/css-debug/sencha-touch.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/sencha-touch.js" afterPath="$PROJECT_DIR$/touch/sencha-touch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/microloader/testing.js" afterPath="$PROJECT_DIR$/touch/microloader/testing.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css/wp.css" afterPath="$PROJECT_DIR$/touch/resources/css/wp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/touch/resources/css-debug/wp.css" afterPath="$PROJECT_DIR$/touch/resources/css-debug/wp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ww.json" afterPath="$PROJECT_DIR$/ww.json" />
     </list>
     <ignored path="touch-wp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="383ef4b5-55c0-470f-9cea-04df8dbab7be" time="1378671018124" ignored="false" />
-    <file path="/Posts.js" changelist="383ef4b5-55c0-470f-9cea-04df8dbab7be" time="1378141994562" ignored="false" />
-    <file path="/.gitignore" changelist="383ef4b5-55c0-470f-9cea-04df8dbab7be" time="1380240644975" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -781,7 +29,7 @@
       <file leaf-file-name="Viewer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/Viewer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="23" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
+            <state line="4" column="13" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="225">
               <folding />
             </state>
           </provider>
@@ -790,16 +38,25 @@
       <file leaf-file-name="Blog.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/Blog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="29" selection-start="521" selection-end="521" vertical-scroll-proportion="0.37869823">
+            <state line="11" column="13" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Posts.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/store/Posts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="69" selection-start="299" selection-end="299" vertical-scroll-proportion="0.19258203" vertical-offset="0" max-vertical-offset="701">
               <folding />
             </state>
           </provider>
@@ -808,7 +65,7 @@
       <file leaf-file-name="Posts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/Posts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="59" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+            <state line="11" column="26" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
@@ -817,10 +74,8 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="71" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="66" column="51" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1305">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -850,6 +105,7 @@
         <option value="$PROJECT_DIR$/app/controller/Main.js" />
         <option value="$PROJECT_DIR$/app/view/Main.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/store/Posts.js" />
       </list>
     </option>
   </component>
@@ -950,6 +206,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="touch-wp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="touch-wp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -971,6 +245,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="383ef4b5-55c0-470f-9cea-04df8dbab7be" name="Default" comment="" />
@@ -984,9 +275,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19844694" sideWeight="0.67045456" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19796954" sideWeight="0.67045456" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1005,177 +297,112 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/view/Posts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="20" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="52" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="31" column="52" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Viewer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Blog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="26" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
+        <state line="10" column="26" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Posts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="22" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
+        <state line="25" column="22" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="52" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="31" column="52" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="10" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Blog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
+        <state line="7" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="31" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.86538464">
-          <folding />
-        </state>
+        <state line="39" column="31" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.86538464" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="71" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="66" column="51" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1305">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Posts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="59" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+        <state line="11" column="26" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="12" selection-start="225" selection-end="225" vertical-scroll-proportion="0.24408284">
-          <folding />
-        </state>
+        <state line="11" column="12" selection-start="225" selection-end="225" vertical-scroll-proportion="0.24408284" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Viewer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
+        <state line="4" column="13" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="225">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="29" selection-start="521" selection-end="521" vertical-scroll-proportion="0.37869823">
+        <state line="11" column="13" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/Posts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="69" selection-start="299" selection-end="299" vertical-scroll-proportion="0.19258203" vertical-offset="0" max-vertical-offset="701">
           <folding />
         </state>
       </provider>
