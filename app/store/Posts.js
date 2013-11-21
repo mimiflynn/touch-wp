@@ -7,7 +7,7 @@ Ext.define('WWTouch.store.Posts', {
         proxy: {
             type: 'ajax',
             // url: 'ww.json',
-            url: 'http://localhost/wonder-wander.com/api/get_posts/',
+            url: 'http://wonder-wander.com/api/get_posts/',
 
             reader: {
                 type: 'json',
