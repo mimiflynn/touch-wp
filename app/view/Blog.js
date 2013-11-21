@@ -1,13 +1,39 @@
 Ext.define('WWTouch.view.Blog', {
-    extend: 'Ext.dataview.List',
+    extend: 'Ext.navigation.View',
     xtype: 'blog',
+    requires: ['Ext.data.proxy.JsonP', 'Ext.field.Text', 'Ext.field.Search', 'Ext.List'],
 
     config: {
-        title: 'Blog',
+        title: 'Wonder-Wander',
         iconCls: 'star',
+        navigationBar: {
+            hidden: true
+        },
 
-            itemTpl: '{title}',
+        items: [
+            {
+                xtype: 'list',
+                itemTpl: '{title}',
+                store: 'Posts'
+            },
+            {
+                xtype: 'toolbar',
+                docked: 'top',
 
-            store: 'Posts'
+                items: [
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'searchfield',
+                        placeHolder: 'Search...',
+                        name: 'navSearch'
+                    },
+                    {
+                        xtype: 'spacer'
+                    }
+                ]
+            }
+        ]
     }
 });
