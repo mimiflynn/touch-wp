@@ -8,7 +8,7 @@ Ext.define('WWTouch.controller.Main', {
             list: 'blog list'
         },
         control: {
-            'blog': {
+            'list': {
                 itemtap: 'showBlog'
             },
             'blog searchfield': {
